@@ -61,8 +61,8 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng quát</a>
-                    <a href="product.html" class="nav-item nav-link"><i class="fa fa-tshirt me-2 me-2"></i>Sản phẩm</a>
-                    <a href="order.html" class="nav-item nav-link active"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
+                    <a href="product.html" class="nav-item nav-link active"><i class="fa fa-tshirt me-2 me-2"></i>Sản phẩm</a>
+                    <a href="order.html" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-home me-2"></i>Trang bán hàng</a>
                 </div>
             </nav>
@@ -178,75 +178,45 @@
             <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
+                    <div class="order_details">
+                        <h1 class="">Chi tiết đơn hàng</h1>
+                        <div class="customer_infor text-start text-dark">
+                            <p>
+                                <strong>Tên khách hàng:</strong></p>
+                            <p>
+                                <strong>Số điện thoại:</strong></p>
+                            <p>
+                                <strong>Địa chỉ:</strong></p>
+                            <p>
+                                <strong>Thời gian đặt hàng:</strong></p>
+                        </div>
+                    </div>
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Danh sách sản phẩm</h6>
-                        <a href="">Hiển thị tất cả</a>
                     </div>
-                    <div class="table-responsive">
+                    <div class="table-responsive mb-4">
                         <table class="table text-center align-middle table-bordered table-hover mb-0">
                             <thead>
                                 <tr class="text-dark">
-                                    <th scope="col">Mã đơn hàng</th>
-                                    <th scope="col">Khách hàng</th>
-                                    <th scope="col">Thành tiền</th>
-                                    <th scope="col">Thời gian đặt</th>
-                                    <th scope="col">Trạng thái</th>
-                                    <th scope="col">Người xử lý</th>
+                                    <th scope="col">Mã sản phẩm</th>
+                                    <th scope="col">Tên sản phẩm</th>
+                                    <th scope="col">Loại</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Giá</th>
+                                    <th scope="col">Hình ảnh</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Customer1</td>
-                                    <td>330.000đ</td>
-                                    <td>2022-08-25 16:39:26</td>
-                                    <td>Hoàn tất</td>
-                                    <td>Admin1</td>
+                                    <td>Staple áo thun tay ngắn nam</td>
+                                    <td>Áo thun</td>
+                                    <td>20</td>
+                                    <td>120.000đ</td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
+                                        <img class="product_image" style="width: 40px; height: 40px;" src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//2/2/2208c7041-blk-1_1_1.jpg"></img>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Customer3</td>
-                                    <td>1.230.000đ</td>
-                                    <td>2022-08-26 11:25:01</td>
-                                    <td>Đang vận chuyển</td>
-                                    <td>Admin1</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Customer3</td>
-                                    <td>764.000đ</td>
-                                    <td>2022-08-28 20:25:34</td>
-                                    <td>Đang xử lý</td>
-                                    <td>Admin1</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Customer4</td>
-                                    <td>594.000đ</td>
-                                    <td>2022-08-29 08:59:11</td>
-                                    <td>Đã hủy</td>
-                                    <td>Admin1</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Customer5</td>
-                                    <td>2.345.000đ</td>
-                                    <td>2022-08-30 19:11:00</td>
-                                    <td>Hoàn tất</td>
-                                    <td>Admin1</td>
                                     <td>
                                         <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
                                     </td>
@@ -254,6 +224,12 @@
 
                             </tbody>
                         </table>
+                    </div>
+                    <div class="text-start text-dark">
+                        <p>
+                            <strong>Thành tiền:</strong></p>
+                        <p>
+                            <strong>Trạng thái đơn hàng:</strong></p>
                     </div>
                 </div>
             </div>
