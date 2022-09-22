@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body>
@@ -180,10 +182,9 @@
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Danh sách sản phẩm</h6>
-                        <a href="">Hiển thị tất cả</a>
                     </div>
                     <div class="table-responsive">
-                        <table class="table text-center align-middle table-bordered table-hover mb-0">
+                        <table id="table_id" class="table text-center align-middle table-bordered table-hover mb-0">
                             <thead>
                                 <tr class="text-dark">
                                     <th scope="col">Mã sản phẩm</th>
@@ -191,7 +192,6 @@
                                     <th scope="col">Loại</th>
                                     <th scope="col">Số lượng</th>
                                     <th scope="col">Giá</th>
-                                    <th scope="col">Hình ảnh</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -203,10 +203,9 @@
                                     <td>20</td>
                                     <td>120.000đ</td>
                                     <td>
-                                        <img class="product_image" style="width: 40px; height: 40px;" src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//2/2/2208c7041-blk-1_1_1.jpg"></img>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
+                                        <a class="btn btn-sm btn-primary " href="product_detail.html">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -216,10 +215,9 @@
                                     <td>10</td>
                                     <td>320.000đ</td>
                                     <td>
-                                        <img class="product_image" style="width: 40px; height: 40px;" src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//3/2/32144lw-a08-1_1_1.jpg"></img>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -229,10 +227,9 @@
                                     <td>20</td>
                                     <td>387.000đ</td>
                                     <td>
-                                        <img class="product_image" style="width: 40px; height: 40px;" src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//i/s/is20-32002-999-1_1.jpg"></img>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -242,10 +239,9 @@
                                     <td>20</td>
                                     <td>120.000đ</td>
                                     <td>
-                                        <img class="product_image" style="width: 40px; height: 40px;" src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//k/p/kpddatd08-990_1__2.jpg"></img>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -255,10 +251,165 @@
                                     <td>20</td>
                                     <td>499.000đ</td>
                                     <td>
-                                        <img class="product_image" style="width: 40px; height: 40px;" src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//3/6/361515w-005-1_2.jpg"></img>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>20</td>
+                                    <td>499.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>Kappa đầm nữ</td>
+                                    <td>Đầm</td>
+                                    <td>1</td>
+                                    <td>199.000đ</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
+                                        <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
+                                        <a class="btn btn-sm btn-danger " href=" ">Xóa</a>
                                     </td>
                                 </tr>
 
@@ -306,6 +457,13 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js "></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js "></script>
+    <script>
+        $(document).ready(function() {
+            $('#table_id').DataTable();
+        });
+    </script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

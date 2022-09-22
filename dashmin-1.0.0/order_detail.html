@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body>
@@ -178,33 +180,67 @@
             <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
-                    <div class="order_details">
+                    <div class="">
                         <h1 class="">Chi tiết đơn hàng</h1>
-                        <div class="customer_infor text-start text-dark">
-                            <p>
-                                <strong>Tên khách hàng:</strong></p>
-                            <p>
-                                <strong>Số điện thoại:</strong></p>
-                            <p>
-                                <strong>Địa chỉ:</strong></p>
-                            <p>
-                                <strong>Thời gian đặt hàng:</strong></p>
+
+                        <div class="d-flex justify-content-start flex-row">
+                            <div class="text-start text-dark me-3 col-5 col-sm-2">
+                                <p>
+                                    <strong>Tên khách hàng:</strong></p>
+                            </div>
+                            <div class="text-start col-7">
+                                <p>
+                                    <strong>Customer 2</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-start flex-row">
+                            <div class="text-start text-dark me-3 col-5 col-sm-2">
+                                <p>
+                                    <strong>Số điện thoại:</strong></p>
+                            </div>
+                            <div class="text-start col-7">
+                                <p>
+                                    <strong>012345678</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-start flex-row">
+                            <div class="text-start text-dark me-3 col-5 col-sm-2">
+                                <p>
+                                    <strong>Địa chỉ:</strong></p>
+                            </div>
+                            <div class=" text-start col-7 ">
+                                <p>
+                                    <strong>Yên Tiến, Ý Yên, Nam Định</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-start flex-row ">
+                            <div class="text-start text-dark me-3 col-5 col-sm-2">
+                                <p>
+                                    <strong>Thời gian đặt hàng:</strong></p>
+                            </div>
+                            <div class=" text-start col-7 ">
+                                <p>
+                                    <strong>2022-08-25 16:39:26</strong></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Danh sách sản phẩm</h6>
+                    <div class="d-flex align-items-center justify-content-between mb-4 ">
+                        <h6 class="mb-0 ">Danh sách sản phẩm</h6>
                     </div>
-                    <div class="table-responsive mb-4">
-                        <table class="table text-center align-middle table-bordered table-hover mb-0">
+                    <div class=" table-responsive mb-4 ">
+                        <table id="table_id " class="table text-center align-middle table-bordered table-hover mb-0 ">
                             <thead>
-                                <tr class="text-dark">
-                                    <th scope="col">Mã sản phẩm</th>
-                                    <th scope="col">Tên sản phẩm</th>
-                                    <th scope="col">Loại</th>
-                                    <th scope="col">Số lượng</th>
-                                    <th scope="col">Giá</th>
-                                    <th scope="col">Hình ảnh</th>
-                                    <th scope="col"></th>
+                                <tr class="text-dark ">
+                                    <th scope="col ">Mã sản phẩm</th>
+                                    <th scope="col ">Tên sản phẩm</th>
+                                    <th scope="col ">Loại</th>
+                                    <th scope="col ">Số lượng</th>
+                                    <th scope="col ">Giá</th>
+                                    <th scope="col ">Hình ảnh</th>
+                                    <th scope="col "></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -212,42 +248,60 @@
                                     <td>1</td>
                                     <td>Staple áo thun tay ngắn nam</td>
                                     <td>Áo thun</td>
-                                    <td>20</td>
+                                    <td>01</td>
                                     <td>120.000đ</td>
                                     <td>
-                                        <img class="product_image" style="width: 40px; height: 40px;" src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//2/2/2208c7041-blk-1_1_1.jpg"></img>
+                                        <img class="product_image " style="width: 40px; height: 40px; " src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//2/2/2208c7041-blk-1_1_1.jpg "></img>
                                     </td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="">Chi tiết</a>
+                                        <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
                                     </td>
                                 </tr>
 
                             </tbody>
                         </table>
                     </div>
-                    <div class="text-start text-dark">
-                        <p>
-                            <strong>Thành tiền:</strong></p>
-                        <p>
-                            <strong>Trạng thái đơn hàng:</strong></p>
+
+
+                    <div class="d-flex justify-content-start flex-row ">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
+                                <strong>Thành tiền:</strong></p>
+                        </div>
+                        <div class="text-start col-7 ">
+                            <p>
+                                <strong>120.000đ</strong></p>
+                        </div>
                     </div>
+                    <div class="d-flex justify-content-start flex-row ">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
+                                <strong>Trạng thái:</strong></p>
+                        </div>
+                        <div class="text-start col-7 ">
+                            <p>
+                                <strong>Hoàn thành</strong></p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- Recent Sales End -->
 
 
             <!-- Footer Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light rounded-top p-4">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Double H</a>, All Right Reserved.
+            <div class="container-fluid pt-4 px-4 ">
+                <div class="bg-light rounded-top p-4 ">
+                    <div class="row ">
+                        <div class="col-12 col-sm-6 text-center text-sm-start ">
+                            &copy; <a href="# ">Double H</a>, All Right Reserved.
                         </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                        <div class="col-12 col-sm-6 text-center text-sm-end
+                                ">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal ". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com ">HTML Codex</a>
                             </br>
-                            Customized By <a class="border-bottom" href="https://themewagon.com" target="_blank">Chickyboy</a>
+                            Customized By <a class="border-bottom " href="https://themewagon.com " target="_blank ">Chickyboy</a>
                         </div>
                     </div>
                 </div>
@@ -258,23 +312,29 @@
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <a href="# " class="btn btn-lg btn-primary btn-lg-square back-to-top "><i class="bi bi-arrow-up "></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
+    <script src="https://cdn.lordicon.com/xdjxvujz.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js "></script>
+    <script src="lib/chart/chart.min.js "></script>
+    <script src="lib/easing/easing.min.js "></script>
+    <script src="lib/waypoints/waypoints.min.js "></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js "></script>
+    <script src="lib/tempusdominus/js/moment.min.js "></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js "></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js "></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js "></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js "></script>
+    <script>
+        $(document).ready(function() {
+            $('#table_id').DataTable();
+        });
+    </script>
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js "></script>
 </body>
 
 </html>
