@@ -69,5 +69,24 @@ function stripUnicode($str){
 	return $str;
 }
 
+function getFormattedNumber(
+    $value,
+    $locale = 'vn_VN',
+    $style = NumberFormatter::DECIMAL,
+    $precision = 0,
+    $groupingUsed = true,
+    $currencyCode = 'VND',
+) {
+    $formatter = new NumberFormatter($locale, $style);
+    $formatter->setAttribute(NumberFormatter::FRACTION_DIGITS, $precision);
+    $formatter->setAttribute(NumberFormatter::GROUPING_USED, $groupingUsed);
+    if ($style == NumberFormatter::CURRENCY) {
+        $formatter->setTextAttribute(NumberFormatter::CURRENCY_CODE, $currencyCode);
+    }
+
+    return $formatter->format($value);
+}
+
+
 
 ?>

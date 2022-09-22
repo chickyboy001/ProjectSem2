@@ -161,37 +161,56 @@
                     <h6 class="mb-0">Sửa thông tin sản phẩm</h6>
                 </div>
                 <form>
+                    <!-- nhập tên sản phẩm -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input onclick="editName()" class="form-check-input" type="checkbox" value="" id="nameCheck">
+                        <label class="form-check-label" for="nameCheck">
                             Chỉnh sửa
                         </label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nameInput" value="<?= $product['product_name'] ?>"
-                            placeholder="Áo thun nam Adidas">
+                        <input type="text" class="form-control" id="nameInput" name="product_name"
+                            value="<?= $product['product_name'] ?>" placeholder="" readonly>
                         <label for="nameInput">Tên sản phẩm</label>
                     </div>
+                    <!-- nhập giới tính -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input onclick="editSex()" class="form-check-input" type="checkbox" value="" id="sexCheck">
+                        <label class="form-check-label" for="sexCheck">
                             Chỉnh sửa
                         </label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="sexSelect" aria-label="Floating label select example">
-                            <option selected>Unisex</option>
-                            <option value="1">Nam</option>
-                            <option value="2">Nữ</option>
+                        <select class="form-select" id="sexSelect" aria-label="Floating label select example" disabled>
+                            <option selected>Sản phẩm này dành cho ai</option>
+                            <option value="Unisex">Unisex</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
                         </select>
                         <label for="sexSelect">Chọn giới tính</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="priceInput" placeholder="Áo thun nam Adidas">
-                        <label for="priceInput">Giá sản phẩm</label>
+                    <!-- nhập giá -->
+                    <div class="form-check">
+                        <input onclick="editPrice()" class="form-check-input" type="checkbox" value="" id="priceCheck"
+                            readonly>
+                        <label class="form-check-label" for="priceCheck">
+                            Chỉnh sửa
+                        </label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="categorySelect" aria-label="Floating label select example">
+                        <input type="number" class="form-control" name="price" value="<?= $product['price'] ?>"
+                            id="priceInput" placeholder="" readonly>
+                        <label for="priceInput">Giá sản phẩm</label>
+                    </div>
+                    <!-- nhập tên danh mục -->
+                    <div class="form-check">
+                        <input onclick="editCate()" class="form-check-input" type="checkbox" value="" id="cateCheck">
+                        <label class="form-check-label" for="cateCheck">
+                            Chỉnh sửa
+                        </label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="cateSelect" aria-label="Floating label select example" disabled>
                             <?php
                                 foreach ($categories as $category) {?>
                             <option value="<?=$category['id']?>"><?=$category['name']?></option>
@@ -200,7 +219,8 @@
                         </select>
                         <label for="categorySelect">Chọn loại sản phẩm</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+
+                    <button type="submit" class="btn btn-primary">Cập nhật</button>
                 </form>
             </div>
         </div>

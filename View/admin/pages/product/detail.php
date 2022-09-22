@@ -190,6 +190,32 @@
                     <div class="d-flex justify-content-start flex-row">
                         <div class="text-start text-dark me-3 col-5 col-sm-2">
                             <p>
+                                <strong>Dành cho:</strong>
+                            </p>
+                        </div>
+                        <div class="text-start col-7">
+                            <p>
+                                <strong><?= $product['sex'] ?></strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-start flex-row">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
+                                <strong>Giá (VNĐ):</strong>
+                            </p>
+                        </div>
+                        <div class="text-start col-7">
+                            <p>
+                                <strong><?= getFormattedNumber($product['price']) ?></strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-start flex-row">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
                                 <strong>Danh mục:</strong>
                             </p>
                         </div>

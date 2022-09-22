@@ -66,9 +66,9 @@ $(document).ready(function() {
     });
 });
 </script>
-
+<script src="../../../ProjectSem2/Assets/js/inputAccept.js"></script>
 <!-- Template Javascript -->
-<script src="../../../ProjectSem2/Assets/js/main.js"></script>
+<script src=" ../../../ProjectSem2/Assets/js/main.js"></script>
 </body>
 
 </html>

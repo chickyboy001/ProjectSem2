@@ -181,14 +181,13 @@
                             $stt = 0;
                             foreach ($products as $product) { 
                                 $stt++;
-                                $category = $cateModel->getCategory($product['category_id']);
-                                $category_name = $category['category_name'];?>
+                                $category = $cateModel->getCategory($product['category_id'])?>
                             <tr>
                                 <td><?= $stt ?></td>
                                 <td><?= $product['product_name'] ?></td>
-                                <td><?= $category_name ?></td>
+                                <td><?= $category['category_name'] ?></td>
                                 <td>20</td>
-                                <td><?= $product['price'] ?>
+                                <td><?= getFormattedNumber($product['price']) ?>
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-info"
@@ -197,7 +196,8 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-sm btn-outline-primary" href=" ">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                        href="?controller=editProduct&productId=<?=$product['product_id']?>">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
                                 </td>
