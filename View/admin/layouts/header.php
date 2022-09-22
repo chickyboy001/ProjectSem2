@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="../../../ProjectSem2/Assets/favicon.ico" rel="icon">
+    <link href="../../../ProjectSem2/Assets/admin/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +21,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="../../../ProjectSem2/Assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../../../ProjectSem2/Assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="../../../ProjectSem2/Assets/admin/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../../ProjectSem2/Assets/admin/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+        rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../../../ProjectSem2/Assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../ProjectSem2/Assets/admin/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="../../../ProjectSem2/Assets/css/style.css" rel="stylesheet">
+    <link href="../../../ProjectSem2/Assets/admin/css/style.css" rel="stylesheet">
 
     <!-- DataTable Lib -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">

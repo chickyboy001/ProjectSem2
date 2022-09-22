@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 	session_start(); /*đăng ký phiên làm việc*/
 	ob_start();
 	require '../../Config/config.php';
-	require '../../Assets/lib/function.php';
+	require '../../Assets/admin/lib/function.php';
 	require '../../Model/Database.php';
 	$db = new Database();
 

@@ -26,13 +26,13 @@
 <!-- script -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../../ProjectSem2/Assets/lib/chart/chart.min.js"></script>
-<script src="../../../ProjectSem2/Assets/lib/easing/easing.min.js"></script>
-<script src="../../../ProjectSem2/Assets/lib/waypoints/waypoints.min.js"></script>
-<script src="../../../ProjectSem2/Assets/lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="../../../ProjectSem2/Assets/lib/tempusdominus/js/moment.min.js"></script>
-<script src="../../../ProjectSem2/Assets/lib/tempusdominus/js/moment-timezone.min.js"></script>
-<script src="../../../ProjectSem2/Assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="../../../ProjectSem2/Assets/admin/lib/chart/chart.min.js"></script>
+<script src="../../../ProjectSem2/Assets/admin/lib/easing/easing.min.js"></script>
+<script src="../../../ProjectSem2/Assets/admin/lib/waypoints/waypoints.min.js"></script>
+<script src="../../../ProjectSem2/Assets/admin/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="../../../ProjectSem2/Assets/admin/lib/tempusdominus/js/moment.min.js"></script>
+<script src="../../../ProjectSem2/Assets/admin/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="../../../ProjectSem2/Assets/admin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js "></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js "></script>
@@ -66,9 +66,9 @@ $(document).ready(function() {
     });
 });
 </script>
-<script src="../../../ProjectSem2/Assets/js/inputAccept.js"></script>
+<script src="../../../ProjectSem2/Assets/admin/js/inputAccept.js"></script>
 <!-- Template Javascript -->
-<script src=" ../../../ProjectSem2/Assets/js/main.js"></script>
+<script src=" ../../../ProjectSem2/Assets/admin/js/main.js"></script>
 </body>
 
 </html>

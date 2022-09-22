@@ -7,7 +7,6 @@ class Category extends Database
     {
         $this->db = new Database();
         $this->db->connect();
-
     }
     public function addCategory($category_name){
         $this->db->conn->real_escape_string($category_name);
