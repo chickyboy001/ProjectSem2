@@ -31,7 +31,7 @@ class Category extends Database
 		return $list;
     }
 
-    public function editCategory($category_id, $category_name)
+    public function updateCategory($category_id, $category_name)
     {
         $category_id = $this->db->conn->real_escape_string($category_id);
         $category_name = $this->db->conn->real_escape_string($category_name);

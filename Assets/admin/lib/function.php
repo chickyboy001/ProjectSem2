@@ -87,6 +87,19 @@ function getFormattedNumber(
     return $formatter->format($value);
 }
 
+function vn_rmv_wsp($str) { // bỏ khoảng trắng dư thừa
+    $str2 = trim($str, ' '); // bỏ khoảng trắng trước và sau chuỗi
+    $rs = preg_replace('/\s+/', ' ', $str2); // loại bỏ khoảng trắng thừa trong chuỗi
+
+return $rs;
+}
+
+function vn_low_rmv($str) { // loại bỏ khoảng trắng, chuyển sang ký tự thường 
+    $str2 = vn_rmv_wsp($str); // bỏ khoảng trắng trước và sau chuỗi
+    $rs = mb_strtolower($str2,'UTF-8'); // chuyển thành ký tự thường
+    
+return $rs;
+}
 
 
 ?>

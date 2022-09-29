@@ -160,7 +160,7 @@
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">Sửa thông tin sản phẩm</h6>
                 </div>
-                <form>
+                <form method="post" enctype="multipart/form-data">
                     <!-- nhập tên sản phẩm -->
                     <div class="form-check">
                         <input onclick="editName()" class="form-check-input" type="checkbox" value="" id="nameCheck">
@@ -169,9 +169,9 @@
                         </label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nameInput" name="product_name"
+                        <input type="text" class="form-control" id="nameEdit" name="product_name"
                             value="<?= $product['product_name'] ?>" placeholder="" readonly>
-                        <label for="nameInput">Tên sản phẩm</label>
+                        <label for="nameEdit">Tên sản phẩm</label>
                     </div>
                     <!-- nhập giới tính -->
                     <div class="form-check">
@@ -181,11 +181,14 @@
                         </label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="sexSelect" aria-label="Floating label select example" disabled>
-                            <option selected>Sản phẩm này dành cho ai</option>
-                            <option value="Unisex">Unisex</option>
-                            <option value="Nam">Nam</option>
-                            <option value="Nữ">Nữ</option>
+                        <?php $chooseSex = array("Unisex", "Nam", "Nữ")?>
+                        <select class="form-select" name="sex" id="sexSelect" aria-label="Floating label select example"
+                            disabled>
+                            <option selected value="<?= $product['sex'] ?>"><?= $product['sex'] ?></option>
+                            <?php foreach($chooseSex as $choose){
+                            if (strcmp($choose,$product['sex'])==0) { continue;}?>
+                            <option value="<?= $choose ?>"><?= $choose ?></option>
+                            <?php }?>
                         </select>
                         <label for="sexSelect">Chọn giới tính</label>
                     </div>
@@ -199,8 +202,8 @@
                     </div>
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control" name="price" value="<?= $product['price'] ?>"
-                            id="priceInput" placeholder="" readonly>
-                        <label for="priceInput">Giá sản phẩm</label>
+                            id="priceEdit" placeholder="" readonly>
+                        <label for="priceEdit">Giá sản phẩm</label>
                     </div>
                     <!-- nhập tên danh mục -->
                     <div class="form-check">
@@ -209,18 +212,25 @@
                             Chỉnh sửa
                         </label>
                     </div>
+                    <?php $productCate = $categoryModel->getCategory($product['category_id'])?>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="cateSelect" aria-label="Floating label select example" disabled>
+                        <select class="form-select" name="category_id" id="cateSelect"
+                            aria-label="Floating label select example" disabled>
+
+                            <option selected value="<?= $product['category_id'] ?>"><?= $productCate['category_name'] ?>
+                            </option>
+
                             <?php
-                                foreach ($categories as $category) {?>
-                            <option value="<?=$category['id']?>"><?=$category['name']?></option>
-                            <?php }
-                            ?>
+                            foreach ($categories as $category) {
+                                if ($category['category_id'] == $product['category_id']) { continue;}?>
+
+                            <option value="<?= $category['category_id'] ?>"> <?= $category['category_name'] ?></option>
+                            <?php }?>
                         </select>
-                        <label for="categorySelect">Chọn loại sản phẩm</label>
+                        <label for="categorySelect">Chọn danh mục sản phẩm</label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                    <button type="submit" name="editProduct" class="btn btn-primary">Cập nhật</button>
                 </form>
             </div>
         </div>

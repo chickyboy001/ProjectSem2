@@ -10,7 +10,6 @@ class DeleteProduct {
 			$productModel->deleteProduct($product_id);
 			header('Location: ?controller=showProduct');
 		}
-		require('pages/category/add.php');
 	}
 }
 ?>

@@ -12,16 +12,16 @@ class Product extends Database
     public function addProduct($product_name, $category_id, $sex, $price)
     {
         $product_name = $this->db->conn->real_escape_string($product_name);
-        $category_id = $this->db->conn->real_escape_string($category_id);
         $sex = $this->db->conn->real_escape_string($sex);
-        $price = $this->db->conn->real_escape_string($price);
         $sql = "INSERT INTO products (product_name, category_id, sex, price)
 							VALUES ('$product_name', '$category_id', '$sex', '$price')";
-		return $this->db->conn->query($sql);
+		$this->db->conn->query($sql);
+        $PID = $this->db->conn->insert_id;
+        return $PID;
     }
 
     public function showAll(){
-        $sql = "SELECT * FROM products";
+        $sql = "SELECT * FROM products ORDER BY product_id DESC";
 		$result = $this->db->conn->query($sql);
 		$list = array();
 		while ($data = $result->fetch_array()) {
@@ -32,10 +32,9 @@ class Product extends Database
 
     public function editProduct($product_id, $product_name, $category_id, $sex, $price)
     {
+        mysqli_next_result($this->db->conn);
         $product_name = $this->db->conn->real_escape_string($product_name);
-        $category_id = $this->db->conn->real_escape_string($category_id);
         $sex = $this->db->conn->real_escape_string($sex);
-        $price = $this->db->conn->real_escape_string($price);
         $sql = "UPDATE products SET product_name = '$product_name', 
                                     category_id = '$category_id', 
                                     price = '$price', 
@@ -47,7 +46,8 @@ class Product extends Database
 
     public function getProduct($product_id)
     {
-        $sql = "SELECT * FROM products WHERE product_id = $product_id";
+        mysqli_next_result($this->db->conn);
+        $sql = "Call sp_getProductById($product_id)";
 		$result = $this->db->conn->query($sql);
 		$data = $result->fetch_array();
         return $data;

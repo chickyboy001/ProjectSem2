@@ -1,11 +1,11 @@
 function editName() {
     var checkbox = document.getElementById("nameCheck");
     if (checkbox.checked == true) {
-        document.getElementById("nameInput").readOnly = false;
+        document.getElementById("nameEdit").readOnly = false;
     }
 
     if (checkbox.checked != true) {
-        document.getElementById("nameInput").readOnly = true;
+        document.getElementById("nameEdit").readOnly = true;
     }
 
 }
@@ -24,11 +24,11 @@ function editSex() {
 function editPrice() {
     var checkbox = document.getElementById("priceCheck");
     if (checkbox.checked == true) {
-        document.getElementById("priceInput").readOnly = false;
+        document.getElementById("priceEdit").readOnly = false;
     }
 
     if (checkbox.checked != true) {
-        document.getElementById("priceInput").readOnly = true;
+        document.getElementById("priceEdit").readOnly = true;
     }
 }
 

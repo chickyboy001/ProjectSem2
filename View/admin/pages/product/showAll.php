@@ -37,7 +37,7 @@
                             class="fa fa-tshirt me-2"></i>Sản phẩm</a>
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="?controller=showProduct" class="dropdown-item active">Danh sách sản phẩm</a>
-                        <a href="?controller=addCategory" class="dropdown-item">Quản lý danh mục</a>
+                        <a href="?controller=manageCategory" class="dropdown-item">Quản lý danh mục</a>
                     </div>
                 </div>
                 <a href="order.html" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
@@ -170,10 +170,11 @@
                                 <th scope="col">Tên sản phẩm</th>
                                 <th scope="col">Danh mục</th>
                                 <th scope="col">Số lượng</th>
-                                <th scope="col">Giá (VNĐ) </th>
-                                <th scope="col">Chi tiết</th>
+                                <th scope="col">Giá </th>
+                                <th scope="col">Xem</th>
                                 <th scope="col">Sửa</th>
-                                <th scope="col">Xóa</th>
+                                <th scope="col">Ẩn</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -181,13 +182,14 @@
                             $stt = 0;
                             foreach ($products as $product) { 
                                 $stt++;
+                                $VND = 'đ';
                                 $category = $cateModel->getCategory($product['category_id'])?>
                             <tr>
                                 <td><?= $stt ?></td>
                                 <td><?= $product['product_name'] ?></td>
                                 <td><?= $category['category_name'] ?></td>
                                 <td>20</td>
-                                <td><?= getFormattedNumber($product['price']) ?>
+                                <td><?= getFormattedNumber($product['price']).$VND ?>
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-info"
@@ -203,9 +205,12 @@
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-danger"
-                                        href="?controller=deletePost&postId=<?=$post['id']?>">
-                                        <i class="fa-solid fa-trash"></i>
+                                        href="?controller=deleteProduct&productId=<?=$product['product_id']?>">
+                                        <i class="fa-sharp fa-solid fa-eye-slash"></i>
                                     </a>
+                                </td>
+                                <td>
+                                    <span class="logged-in" style="color: green">●</span>
                                 </td>
                             </tr>
                             <?php

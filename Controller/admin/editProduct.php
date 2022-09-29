@@ -7,6 +7,7 @@ class EditProduct
         require '../../Model/Category.php';
         $productModel = new Product();
         $categoryModel = new Category();
+        $categories = $categoryModel->showAll();
 
         if (isset($_GET['productId'])) {
             $product_id = $_GET['productId'];
@@ -14,12 +15,15 @@ class EditProduct
 
             if (isset($_POST['editProduct'])) {
                 $product_name = $_POST['product_name'];
-                $slug = changeTitle($product_name);
-                $sex = $_POST['sex'];
+                if (isset($_POST['sex'])) {$sex = $_POST['sex'];
+                } else { $sex = $product['sex'];}
                 $price = $_POST['price'];
-                $category_id = $_POST['category_id'];
+                if (isset($_POST['category_id'])) {$category_id = $_POST['category_id'];
+                } else { $category_id = $product['category_id'];}
 
-                $productModel->editProduct($product_id, $slug, $sex, $price, $category_id);
+                $productModel->editProduct($product_id, $product_name, $category_id, $sex, $price);
+                header('Location: ?controller=productDetail&productId=' . $product_id);
+
             }
             require 'pages/product/edit.php';
         }

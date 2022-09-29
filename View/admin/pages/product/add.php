@@ -155,101 +155,49 @@
         </nav>
         <!-- Navbar End -->
 
-        <!-- Recent Sales Start -->
         <div class="container-fluid pt-4 px-4">
-            <div class="bg-light text-center rounded p-4">
-                <div class="">
-                    <h1 class="">Chi tiết sản phẩm</h1>
-
-
-                    <div class="d-flex justify-content-start flex-row">
-                        <div class="text-start text-dark me-3 col-5 col-sm-2">
-                            <p>
-                                <strong>Tên sản phẩm:</strong>
-                            </p>
-                        </div>
-                        <div class="text-start col-7">
-                            <p>
-                                <strong><?= $product['product_name'] ?></strong>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-start flex-row">
-                        <div class="text-start text-dark me-3 col-5 col-sm-2">
-                            <p>
-                                <strong>Dành cho:</strong>
-                            </p>
-                        </div>
-                        <div class="text-start col-7">
-                            <p>
-                                <strong><?= $product['sex'] ?></strong>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-start flex-row">
-                        <div class="text-start text-dark me-3 col-5 col-sm-2">
-                            <p>
-                                <strong>Giá:</strong>
-                            </p>
-                        </div>
-                        <div class="text-start col-7">
-                            <?php $VND='đ'; ?>
-                            <p>
-                                <strong><?= getFormattedNumber($product['price']).$VND ?></strong>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-start flex-row">
-                        <div class="text-start text-dark me-3 col-5 col-sm-2">
-                            <p>
-                                <strong>Danh mục:</strong>
-                            </p>
-                        </div>
-                        <div class="text-start col-7">
-                            <p>
-
-                                <strong><?= $product['category']?> </strong>
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <div class=" table-responsive mb-4 ">
-                        <table id="table_id " class="table text-center align-middle table-bordered table-hover mb-0 ">
-                            <thead>
-                                <tr class="text-dark ">
-                                    <th scope="col ">STT</th>
-                                    <th scope="col ">Màu sắc</th>
-                                    <th scope="col ">Số lượng</th>
-                                    <th scope="col ">Hình ảnh</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Đen</td>
-                                    <td>05</td>
-                                    <td>
-                                        <img class="product_image " style="width: 40px; height: 40px; "
-                                            src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//2/2/2208c7041-blk-1_1_1.jpg "></img>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Trắng</td>
-                                    <td>05</td>
-                                    <td>
-                                        <img class="product_image " style="width: 40px; height: 40px; "
-                                            src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//2/1/2109c10285z-wht-1_2.jpg "></img>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="bg-light rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Thêm sản phẩm</h6>
                 </div>
+                <form method="post" enctype="multipart/form-data">
+                    <!-- nhập tên sản phẩm -->
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label">Tên sản phẩm</label>
+                        <input name="product_name" type="text" class="form-control" id="nameInput">
+                    </div>
+                    <!-- nhập giới tính -->
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label">Giới tính</label>
+                        <?php $chooseSex = array("Unisex", "Nam", "Nữ")?>
+                        <select name="sex" class="form-select" aria-label="Floating label select example">
+                            <option selected>Mở bảng chọn</option>
+                            <?php foreach($chooseSex as $choose){?>
+                            <option value="<?= $choose ?>"><?= $choose ?>
+                            </option>
+                            <?php }?>
+                        </select>
+                    </div>
+                    <!-- nhập giá -->
+                    <div class="mb-3">
+                        <label for="priceInput" class="form-label">Giá (VNĐ)</label>
+                        <input name="price" type="number" class="form-control" id="priceInput">
+                    </div>
+                    <!-- nhập tên danh mục -->
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label">Danh mục sản phẩm</label>
+                        <select name="category_id" class="form-select" aria-label="Floating label select example">
+                            <option selected>Mở bảng chọn</option>
+                            <?php foreach ($categories as $category) {?>
+                            <option value="<?=$category['category_id']?>"><?=$category['category_name']?>
+                            </option>
+                            <?php }
+                            ?>
+                        </select>
+                    </div>
+
+                    <button onclick="addProduct()" type="submit" name="addProduct" class="btn btn-primary">Thêm sản
+                        phẩm</button>
+                </form>
             </div>
         </div>
-        <!-- Recent Sales End -->

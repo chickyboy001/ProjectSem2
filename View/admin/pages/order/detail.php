@@ -1,11 +1,11 @@
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
-    <div id="spinner"
+    <!-- <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-    </div>
+    </div> -->
     <!-- Spinner End -->
 
 
@@ -32,7 +32,14 @@
             <div class="navbar-nav w-100">
                 <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
                     quát</a>
-                <a href="product.html" class="nav-item nav-link"><i class="fa fa-tshirt me-2 me-2"></i>Sản phẩm</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                            class="fa fa-tshirt me-2"></i>Sản phẩm</a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="?controller=showProduct" class="dropdown-item">Danh sách sản phẩm</a>
+                        <a href="?controller=addCategory" class="dropdown-item">Quản lý danh mục</a>
+                    </div>
+                </div>
                 <a href="order.html" class="nav-item nav-link active"><i class="fa fa-cart-arrow-down me-2"></i>Đơn
                     hàng</a>
                 <a href="chart.html" class="nav-item nav-link"><i class="fa fa-home me-2"></i>Trang bán hàng</a>
@@ -149,96 +156,143 @@
         </nav>
         <!-- Navbar End -->
 
-
         <!-- Recent Sales Start -->
         <div class="container-fluid pt-4 px-4">
             <div class="bg-light text-center rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Danh sách sản phẩm</h6>
+                <div class="">
+                    <h1 class="">Chi tiết đơn hàng</h1>
+
+                    <div class="d-flex justify-content-start flex-row">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
+                                <strong>Tên khách hàng:</strong>
+                            </p>
+                        </div>
+                        <div class="text-start col-7">
+                            <p>
+                                <strong><?= $order['cus_fullname']?></strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-start flex-row">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
+                                <strong>Số điện thoại:</strong>
+                            </p>
+                        </div>
+                        <div class="text-start col-7">
+                            <p>
+                                <strong><?= $order['phone']?></strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-start flex-row">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
+                                <strong>Địa chỉ:</strong>
+                            </p>
+                        </div>
+                        <div class=" text-start col-7 ">
+                            <p>
+                                <strong><?= $order['address']?></strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-start flex-row ">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
+                                <strong>Thời gian đặt hàng:</strong>
+                            </p>
+                        </div>
+                        <div class=" text-start col-7 ">
+                            <p>
+                                <strong><?= $order['order_date']?></strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-start flex-row ">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
+                                <strong>Người quản lý:</strong>
+                            </p>
+                        </div>
+                        <div class=" text-start col-7 ">
+                            <p>
+                                <strong><?= $order['ad_fullname']?></strong>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="table-responsive">
-                    <table id="table_id" class=" table text-center align-middle table-bordered table-hover mb-0 ">
+                <div class="d-flex align-items-center justify-content-between mb-4 ">
+                    <h6 class="mb-0 ">Danh sách sản phẩm</h6>
+                </div>
+                <div class=" table-responsive mb-4 ">
+                    <table id="table_id " class="table text-center align-middle table-bordered table-hover mb-0 ">
                         <thead>
                             <tr class="text-dark ">
-                                <th scope="col ">Mã đơn hàng</th>
-                                <th scope="col ">Khách hàng</th>
-                                <th scope="col ">Thành tiền</th>
-                                <th scope="col ">Thời gian đặt</th>
-                                <th scope="col ">Trạng thái</th>
-                                <th scope="col ">Người xử lý</th>
-                                <th scope="col "></th>
+                                <th scope="col ">STT</th>
+                                <th scope="col ">Tên sản phẩm</th>
+                                <th scope="col ">Màu sắc</th>
+                                <th scope="col ">Kích cỡ</th>
+                                <th scope="col ">Số lượng</th>
+                                <th scope="col ">Đơn giá</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                                $stt = 0;
+                                $VND = 'đ';
+                                foreach ($products as $product) { 
+                                $stt++;?>
                             <tr>
-                                <td>1</td>
-                                <td>Customer1</td>
-                                <td>330.000đ</td>
-                                <td>2022-08-25 16:39:26</td>
-                                <td>Hoàn tất</td>
-                                <td>Admin1</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary " href="order_detail.html">Chi tiết</a>
-                                    <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
-                                    <a class="btn btn-sm btn-danger " href=" ">Hủy</a>
-                                </td>
+                                <td><?= $stt ?></td>
+                                <td><?= $product['product_name'] ?></td>
+                                <td><?= $product['color'] ?></td>
+                                <td><?= $product['size'] ?></td>
+                                <td><?= $product['quantity'] ?></td>
+                                <td><?= getFormattedNumber($product['price']).$VND ?></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Customer3</td>
-                                <td>1.230.000đ</td>
-                                <td>2022-08-26 11:25:01</td>
-                                <td>Đang vận chuyển</td>
-                                <td>Admin1</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
-                                    <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
-                                    <a class="btn btn-sm btn-danger " href=" ">Hủy</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Customer3</td>
-                                <td>764.000đ</td>
-                                <td>2022-08-28 20:25:34</td>
-                                <td>Đang xử lý</td>
-                                <td>Admin1</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
-                                    <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
-                                    <a class="btn btn-sm btn-danger " href=" ">Hủy</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Customer4</td>
-                                <td>594.000đ</td>
-                                <td>2022-08-29 08:59:11</td>
-                                <td>Đã hủy</td>
-                                <td>Admin1</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
-                                    <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
-                                    <a class="btn btn-sm btn-danger " href=" ">Hủy</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Customer5</td>
-                                <td>2.345.000đ</td>
-                                <td>2022-08-30 19:11:00</td>
-                                <td>Hoàn tất</td>
-                                <td>Admin1</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary " href=" ">Chi tiết</a>
-                                    <a class="btn btn-sm btn-secondary " href=" ">Sửa</a>
-                                    <a class="btn btn-sm btn-danger " href=" ">Hủy</a>
-                                </td>
-                            </tr>
-
+                            <?php
+                            } ?>
                         </tbody>
                     </table>
                 </div>
+
+
+                <div class="d-flex justify-content-start flex-row ">
+                    <div class="text-start text-dark me-3 col-5 col-sm-2">
+                        <p>
+                            <strong>Thành tiền (VNĐ):</strong>
+                        </p>
+                    </div>
+                    <div class="text-start col-7 ">
+                        <?php
+                                $price = 0;
+                                $VND = 'đ';
+                                foreach ($products as $product) { 
+                                $price = $price + $product['price'];}?>
+                        <p>
+                            <strong><?= getFormattedNumber($price).$VND ?></strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start flex-row ">
+                    <div class="text-start text-dark me-3 col-5 col-sm-2">
+                        <p>
+                            <strong>Trạng thái:</strong>
+                        </p>
+                    </div>
+                    <div class="text-start col-7 ">
+                        <p>
+                            <strong>Hoàn thành</strong>
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
         <!-- Recent Sales End -->

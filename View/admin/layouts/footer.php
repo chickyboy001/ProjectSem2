@@ -41,27 +41,38 @@
 $(document).ready(function() {
     $('#productTable').DataTable({
         columnDefs: [{
-            targets: [0, 1, 2, 3, 4, 5, 6, 7],
+            targets: [0, 1, 2, 3, 4, 5, 6, 7, 8],
             className: 'dt-head-center'
         }, {
             orderable: false,
-            targets: [1, 2, 5, 6, 7]
+            targets: [1, 2, 5, 6, 7, 8]
         }, {
             "searchable": false,
-            "targets": [5, 6, 7]
+            "targets": [5, 6, 7, 8]
         }],
-
     });
-    $('#categoryTable').DataTable({
+    // $('#categoryTable').DataTable({
+    //     columnDefs: [{
+    //         targets: [0, 1, 2, 3, 4, 5, 6, 7],
+    //         className: 'dt-head-center'
+    //     }, {
+    //         orderable: false,
+    //         targets: [1, 2, 5, 6, 7]
+    //     }, {
+    //         "searchable": false,
+    //         "targets": [1, 2, 5, 6, 7]
+    //     }]
+    // });
+    $('#orderTable').DataTable({
         columnDefs: [{
             targets: [0, 1, 2, 3, 4, 5, 6, 7],
             className: 'dt-head-center'
         }, {
             orderable: false,
-            targets: [1, 2, 5, 6, 7]
+            targets: [1, 2, 4, 5, 6, 7, 8]
         }, {
             "searchable": false,
-            "targets": [1, 2, 5, 6, 7]
+            "targets": [2, 5, 6, 7, 8]
         }]
     });
 });

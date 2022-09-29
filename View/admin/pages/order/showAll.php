@@ -155,101 +155,72 @@
         </nav>
         <!-- Navbar End -->
 
-        <!-- Recent Sales Start -->
+
+        <!-- List Product Start -->
         <div class="container-fluid pt-4 px-4">
-            <div class="bg-light text-center rounded p-4">
-                <div class="">
-                    <h1 class="">Chi tiết sản phẩm</h1>
+            <div class="bg-light rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Danh sách đơn hàng</h6>
+                </div>
+                <div class="table-responsive">
+                    <table id="orderTable" class="table text-center align-middle table-bordered table-hover mb-0">
+                        <thead>
+                            <tr class="text-dark">
+                                <th scope="col ">STT</th>
+                                <th scope="col ">Khách hàng</th>
+                                <th scope="col ">Thời gian đặt</th>
+                                <th scope="col ">Thành tiền</th>
+                                <th scope="col ">Trạng thái</th>
+                                <th scope="col ">Người xử lý</th>
+                                <th scope="col">Chi tiết</th>
+                                <th scope="col">Sửa</th>
+                                <th scope="col">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $stt = 0;
+                            foreach ($orders as $order) { 
+                                $stt++;
+                                $customer = $accModel->getUserById($order['customer_id']);
+                                $admin = $accModel->getUserById($order['admin_id']);
+                                $products = $orderModel->getProductInOrder($order['order_id']);
+                                ?>
+                            <tr>
+                                <td><?= $stt ?></td>
+                                <td><?= $customer['fullname'] ?></td>
+                                <td><?= $order['order_date'] ?></td>
 
+                                <?php
+                                $price = 0;
+                                $VND = 'đ';
+                                foreach ($products as $product) { 
+                                $price = $price + $product['price'];}?>
+                                <td><?= getFormattedNumber($price).$VND ?></td>
 
-                    <div class="d-flex justify-content-start flex-row">
-                        <div class="text-start text-dark me-3 col-5 col-sm-2">
-                            <p>
-                                <strong>Tên sản phẩm:</strong>
-                            </p>
-                        </div>
-                        <div class="text-start col-7">
-                            <p>
-                                <strong><?= $product['product_name'] ?></strong>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-start flex-row">
-                        <div class="text-start text-dark me-3 col-5 col-sm-2">
-                            <p>
-                                <strong>Dành cho:</strong>
-                            </p>
-                        </div>
-                        <div class="text-start col-7">
-                            <p>
-                                <strong><?= $product['sex'] ?></strong>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-start flex-row">
-                        <div class="text-start text-dark me-3 col-5 col-sm-2">
-                            <p>
-                                <strong>Giá:</strong>
-                            </p>
-                        </div>
-                        <div class="text-start col-7">
-                            <?php $VND='đ'; ?>
-                            <p>
-                                <strong><?= getFormattedNumber($product['price']).$VND ?></strong>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-start flex-row">
-                        <div class="text-start text-dark me-3 col-5 col-sm-2">
-                            <p>
-                                <strong>Danh mục:</strong>
-                            </p>
-                        </div>
-                        <div class="text-start col-7">
-                            <p>
-
-                                <strong><?= $product['category']?> </strong>
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <div class=" table-responsive mb-4 ">
-                        <table id="table_id " class="table text-center align-middle table-bordered table-hover mb-0 ">
-                            <thead>
-                                <tr class="text-dark ">
-                                    <th scope="col ">STT</th>
-                                    <th scope="col ">Màu sắc</th>
-                                    <th scope="col ">Số lượng</th>
-                                    <th scope="col ">Hình ảnh</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Đen</td>
-                                    <td>05</td>
-                                    <td>
-                                        <img class="product_image " style="width: 40px; height: 40px; "
-                                            src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//2/2/2208c7041-blk-1_1_1.jpg "></img>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Trắng</td>
-                                    <td>05</td>
-                                    <td>
-                                        <img class="product_image " style="width: 40px; height: 40px; "
-                                            src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//2/1/2109c10285z-wht-1_2.jpg "></img>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                <td><?= $order['status'] ?></td>
+                                <td><?= $admin['fullname'] ?></td>
+                                <td>
+                                    <a class="btn btn-sm btn-outline-info" href="?controller=">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-outline-primary" href="?controller=">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-outline-danger" href="?controller=">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php
+                            } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <!-- Recent Sales End -->
+        <!-- List Product End -->
