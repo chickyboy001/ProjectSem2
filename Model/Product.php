@@ -66,5 +66,16 @@ class Product extends Database
 		return $this->db->conn->query($sql);
     }
 
+    public function getColorOfProduct($product_id){
+        mysqli_next_result($this->db->conn);
+        $sql = "SELECT * FROM colors WHERE product_id = $product_id";
+		$result = $this->db->conn->query($sql);
+		$list = array();
+		while ($data = $result->fetch_array()) {
+			$list[] = $data;
+		}
+		return $list;
+    }
+
 }
 ?>

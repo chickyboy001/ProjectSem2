@@ -210,7 +210,12 @@
                                     </a>
                                 </td>
                                 <td>
+                                    <?php if($product['status'] == 1) {?>
                                     <span class="logged-in" style="color: green">●</span>
+                                    <?php } if($product['status'] == 0) { ?>
+                                    <span class="logged-in" style="color: red">●</span>
+                                    <?php } ?>
+
                                 </td>
                             </tr>
                             <?php

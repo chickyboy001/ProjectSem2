@@ -160,8 +160,6 @@
             <div class="bg-light text-center rounded p-4">
                 <div class="">
                     <h1 class="">Chi tiết sản phẩm</h1>
-
-
                     <div class="d-flex justify-content-start flex-row">
                         <div class="text-start text-dark me-3 col-5 col-sm-2">
                             <p>
@@ -195,9 +193,9 @@
                             </p>
                         </div>
                         <div class="text-start col-7">
-                            <?php $VND='đ'; ?>
+                            <?php $VND = 'đ'; ?>
                             <p>
-                                <strong><?= getFormattedNumber($product['price']).$VND ?></strong>
+                                <strong><?= getFormattedNumber($product['price']) . $VND ?></strong>
                             </p>
                         </div>
                     </div>
@@ -211,7 +209,24 @@
                         <div class="text-start col-7">
                             <p>
 
-                                <strong><?= $product['category']?> </strong>
+                                <strong><?= $product['category'] ?> </strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-start flex-row">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
+                                <strong>Trạng thái:</strong>
+                            </p>
+                        </div>
+                        <div class="text-start col-7">
+                            <p>
+                                <?php if($product['status'] == 1) {?>
+                                <strong class="text-success"> Đang hoạt động</strong>
+                                <?php } if($product['status'] == 0) { ?>
+                                <strong class="text-danger"> Đang ẩn </strong>
+                                <?php } ?>
                             </p>
                         </div>
                     </div>
@@ -225,27 +240,48 @@
                                     <th scope="col ">Màu sắc</th>
                                     <th scope="col ">Số lượng</th>
                                     <th scope="col ">Hình ảnh</th>
+                                    <th scope="col ">Xem</th>
+                                    <th scope="col ">Ẩn</th>
+                                    <th scope="col "></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $stt = 0;
+                                foreach ($colors as $color) {
+                                    $quantity = 0;
+                                    $stt++;
+                                    $sizes = $colorModel->getSizeOfColor($color['color_id']);
+                                    foreach ($sizes as $size) {
+                                        $quantity = $quantity + $size['quantity'];
+                                    }
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Đen</td>
-                                    <td>05</td>
+                                    <td><?= $stt ?></td>
+                                    <td><?= $color['color_name'] ?></td>
+                                    <td><?= $quantity ?></td>
                                     <td>
                                         <img class="product_image " style="width: 40px; height: 40px; "
-                                            src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//2/2/2208c7041-blk-1_1_1.jpg "></img>
+                                            src="<?= $color['image_link'] ?>"></img>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Trắng</td>
-                                    <td>05</td>
                                     <td>
-                                        <img class="product_image " style="width: 40px; height: 40px; "
-                                            src="https://image.hoang-phuc.com/1224x0/filters:format(webp)/catalog/product//2/1/2109c10285z-wht-1_2.jpg "></img>
+                                        <a class="btn btn-sm btn-outline-info"
+                                            href="?controller=productDetail&productId=<?= $product['product_id'] ?>">
+                                            <i class="fa-solid fa-circle-info"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-danger"
+                                            href="?controller=deleteProduct&productId=<?= $product['product_id'] ?>">
+                                            <i class="fa-sharp fa-solid fa-eye-slash"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="logged-in" style="color: green">●</span>
                                     </td>
                                 </tr>
+                                <?php
+                                } ?>
                             </tbody>
                         </table>
                     </div>

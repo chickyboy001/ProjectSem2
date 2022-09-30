@@ -198,10 +198,22 @@
                                 $price = $price + $product['price'];}?>
                                 <td><?= getFormattedNumber($price).$VND ?></td>
 
-                                <td><?= $order['status'] ?></td>
+                                <?php if($order['status'] == 1) {?>
+                                <td class="text-secondary"> Đã đặt hàng</td>
+                                <?php } if($order['status'] == 2) { ?>
+                                <td class="text-primary"> Đang xử lý </td>
+                                <?php } if($order['status'] == 3) { ?>
+                                <td class="text-info"> Đang vận chuyển </td>
+                                <?php } if($order['status'] == 4) { ?>
+                                <td class="text-success"> Hoàn thành </td>
+                                <?php } if($order['status'] == 5) { ?>
+                                <td class="text-danger"> Đã hủy </td>
+                                <?php } ?>
+
                                 <td><?= $admin['fullname'] ?></td>
                                 <td>
-                                    <a class="btn btn-sm btn-outline-info" href="?controller=">
+                                    <a class="btn btn-sm btn-outline-info"
+                                        href="?controller=orderDetail&orderId=<?=$order['order_id']?>">
                                         <i class="fa-solid fa-circle-info"></i>
                                     </a>
                                 </td>

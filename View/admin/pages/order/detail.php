@@ -246,7 +246,7 @@
                             <?php
                                 $stt = 0;
                                 $VND = 'đ';
-                                foreach ($products as $product) { 
+                                foreach ($products as $product) {
                                 $stt++;?>
                             <tr>
                                 <td><?= $stt ?></td>
@@ -266,7 +266,7 @@
                 <div class="d-flex justify-content-start flex-row ">
                     <div class="text-start text-dark me-3 col-5 col-sm-2">
                         <p>
-                            <strong>Thành tiền (VNĐ):</strong>
+                            <strong>Thành tiền:</strong>
                         </p>
                     </div>
                     <div class="text-start col-7 ">
@@ -274,7 +274,7 @@
                                 $price = 0;
                                 $VND = 'đ';
                                 foreach ($products as $product) { 
-                                $price = $price + $product['price'];}?>
+                                $price = $price + $product['price']*$product['quantity'];}?>
                         <p>
                             <strong><?= getFormattedNumber($price).$VND ?></strong>
                         </p>
@@ -288,7 +288,17 @@
                     </div>
                     <div class="text-start col-7 ">
                         <p>
-                            <strong>Hoàn thành</strong>
+                            <?php if($order['status'] == 1) {?>
+                            <strong class="text-secondary"> Đã đặt hàng</strong>
+                            <?php } if($order['status'] == 2) { ?>
+                            <strong class="text-primary"> Đang xử lý </strong>
+                            <?php } if($order['status'] == 3) { ?>
+                            <strong class="text-info"> Đang vận chuyển </strong>
+                            <?php } if($order['status'] == 4) { ?>
+                            <strong class="text-success"> Hoàn thành </strong>
+                            <?php } if($order['status'] == 5) { ?>
+                            <strong class="text-danger"> Đã hủy </strong>
+                            <?php } ?>
                         </p>
                     </div>
                 </div>
