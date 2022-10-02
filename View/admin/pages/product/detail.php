@@ -222,9 +222,10 @@
                         </div>
                         <div class="text-start col-7">
                             <p>
-                                <?php if($product['status'] == 1) {?>
+                                <?php if ($product['status'] == 1) { ?>
                                 <strong class="text-success"> Đang hoạt động</strong>
-                                <?php } if($product['status'] == 0) { ?>
+                                <?php }
+                                if ($product['status'] == 0) { ?>
                                 <strong class="text-danger"> Đang ẩn </strong>
                                 <?php } ?>
                             </p>
@@ -233,14 +234,15 @@
 
 
                     <div class=" table-responsive mb-4 ">
-                        <table id="table_id " class="table text-center align-middle table-bordered table-hover mb-0 ">
+                        <table id="table_id " class="table align-middle table-bordered table-hover mb-0 ">
                             <thead>
-                                <tr class="text-dark ">
+                                <tr class="text-dark text-center">
                                     <th scope="col ">STT</th>
                                     <th scope="col ">Màu sắc</th>
                                     <th scope="col ">Số lượng</th>
                                     <th scope="col ">Hình ảnh</th>
                                     <th scope="col ">Xem</th>
+                                    <th scope="col ">Sửa</th>
                                     <th scope="col ">Ẩn</th>
                                     <th scope="col "></th>
                                 </tr>
@@ -261,14 +263,69 @@
                                     <td><?= $color['color_name'] ?></td>
                                     <td><?= $quantity ?></td>
                                     <td>
-                                        <img class="product_image " style="width: 40px; height: 40px; "
-                                            src="<?= $color['image_link'] ?>"></img>
+                                        <img class="product_image" style="width: 40px; height: 40px; "
+                                            src="../../../ProjectSem2/Public/admin/upload/products/<?= $color['image_link'] ?>"></img>
                                     </td>
                                     <td>
-                                        <a class="btn btn-sm btn-outline-info"
+                                        <a class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal"
                                             href="?controller=productDetail&productId=<?= $product['product_id'] ?>">
                                             <i class="fa-solid fa-circle-info"></i>
                                         </a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-primary"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content text-start">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Thay đổi thông
+                                                            tin màu sắc</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+
+                                                    <form method="post" enctype="multipart/form-data">
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="colorId"
+                                                                value="<?= $color['color_id'] ?>" />
+                                                            <div class="mb-3">
+                                                                <label for="changeColorName" mới
+                                                                    class="col-form-label">Tên
+                                                                    mới:</label>
+                                                                <input type="text" name="newColorName"
+                                                                    class="form-control" id="changeColorName">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">Thay đổi ảnh
+                                                                    chính</label>
+                                                                <input class="form-control" name="image_link"
+                                                                    accept=".jpg, .png, .jpeg" type="file"
+                                                                    id="formFile">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="formFileMultiple" class="form-label">Thêm
+                                                                    các ảnh phụ</label>
+                                                                <input class="form-control" type="file"
+                                                                    accept=".jpg, .png, .jpeg" name="image_link_extra[]"
+                                                                    id="formFileMultiple" multiple>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Đóng</button>
+                                                            <button type="submit" name="editColor"
+                                                                class="btn btn-primary">Cập nhật</button>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
                                         <a class="btn btn-sm btn-outline-danger"
