@@ -243,7 +243,6 @@
                                     <th scope="col ">Hình ảnh</th>
                                     <th scope="col ">Xem</th>
                                     <th scope="col ">Sửa</th>
-                                    <th scope="col ">Ẩn</th>
                                     <th scope="col "></th>
                                 </tr>
                             </thead>
@@ -253,6 +252,7 @@
                                 foreach ($colors as $color) {
                                     $quantity = 0;
                                     $stt++;
+                                    $modalId = "modal";
                                     $sizes = $colorModel->getSizeOfColor($color['color_id']);
                                     foreach ($sizes as $size) {
                                         $quantity = $quantity + $size['quantity'];
@@ -267,29 +267,29 @@
                                             src="../../../ProjectSem2/Public/admin/upload/products/<?= $color['image_link'] ?>"></img>
                                     </td>
                                     <td>
-                                        <a class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"
-                                            href="?controller=productDetail&productId=<?= $product['product_id'] ?>">
+                                        <a class="btn btn-sm btn-outline-info"
+                                            href="?controller=manageColor&colorId=<?= $color['color_id'] ?>">
                                             <i class="fa-solid fa-circle-info"></i>
                                         </a>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-sm btn-outline-primary"
-                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            data-bs-toggle="modal" data-bs-target="#<?= $modalId . $stt ?>">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
-                                        <div class="modal fade" id="exampleModal" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="<?= $modalId . $stt ?>" tabindex="-1"
+                                            aria-labelledby="<?= $modalId . $stt ?>" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content text-start">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Thay đổi thông
+                                                        <h5 class="modal-title" id="<?= $modalId ?>">Thay đổi thông
                                                             tin màu sắc</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
 
-                                                    <form method="post" enctype="multipart/form-data">
+                                                    <form id="formId<?= $stt ?>" method="post"
+                                                        enctype="multipart/form-data">
                                                         <div class="modal-body">
                                                             <input type="hidden" name="colorId"
                                                                 value="<?= $color['color_id'] ?>" />
@@ -298,7 +298,8 @@
                                                                     class="col-form-label">Tên
                                                                     mới:</label>
                                                                 <input type="text" name="newColorName"
-                                                                    class="form-control" id="changeColorName">
+                                                                    class="form-control" id="changeColorName"
+                                                                    value="<?= $color['color_name'] ?>">
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">Thay đổi ảnh
@@ -314,6 +315,28 @@
                                                                     accept=".jpg, .png, .jpeg" name="image_link_extra[]"
                                                                     id="formFileMultiple" multiple>
                                                             </div>
+                                                            <?php
+                                                                $status = '';
+                                                                $db = "disabled";
+                                                                if ($color['status'] != 0) {
+                                                                    $status = "checked";
+                                                                }
+                                                                if ($quantity > 0) {
+                                                                    $db = '';
+                                                                }
+                                                                ?>
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input"
+                                                                    id="statusCheck<?= $stt ?>"
+                                                                    onclick="changeStatus(<?= $stt ?>)" name="status"
+                                                                    type="checkbox" role="switch" <?= $db ?>
+                                                                    <?= $status ?>>
+                                                                <label class="form-check-label"
+                                                                    for="statusCheck<?= $stt ?>">Hiện
+                                                                    màu
+                                                                    này</label>
+                                                            </div>
+
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -327,17 +350,18 @@
                                             </div>
                                         </div>
                                     </td>
+
                                     <td>
-                                        <a class="btn btn-sm btn-outline-danger"
-                                            href="?controller=deleteProduct&productId=<?= $product['product_id'] ?>">
-                                            <i class="fa-sharp fa-solid fa-eye-slash"></i>
-                                        </a>
-                                    </td>
-                                    <td>
+                                        <?php if ($color['status'] == 1) { ?>
                                         <span class="logged-in" style="color: green">●</span>
+                                        <?php }
+                                            if ($color['status'] == 0) { ?>
+                                        <span class="logged-in" style="color: red">●</span>
+                                        <?php } ?>
                                     </td>
                                 </tr>
                                 <?php
+
                                 } ?>
                             </tbody>
                         </table>

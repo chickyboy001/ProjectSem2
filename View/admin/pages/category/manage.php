@@ -170,25 +170,84 @@
                                     <tr class="text-dark">
                                         <th scope="col">#</th>
                                         <th scope="col">Tên danh mục</th>
-                                        <th scope="col">Xóa</th>
+                                        <th scope="col">Sửa</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $stt = 0;
-                                        foreach ($categories as $category) { 
-                                        $stt++?>
+                                    $stt = 0;
+                                    foreach ($categories as $category) {
+                                        $stt++ ?>
                                     <tr>
                                         <td><?= $stt ?></td>
                                         <td><?= $category['category_name'] ?></td>
 
                                         <td>
-                                            <a class="btn btn-sm btn-outline-danger"
-                                                href="?controller=manageCategory&categoryId=<?=$category['category_id']?>">
-                                                <lord-icon src="https://cdn.lordicon.com/qsloqzpf.json" trigger="hover"
-                                                    style="width:20px;height:20px">
-                                                </lord-icon>
-                                            </a>
+                                            <button type="button" class="btn btn-sm btn-outline-primary"
+                                                data-bs-toggle="modal" data-bs-target="#modal<?= $stt ?>">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </button>
+                                            <div class="modal fade" id="modal<?= $stt ?>" tabindex="-1"
+                                                aria-labelledby="modal<?= $stt ?>" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content text-start">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="modal<?= $stt ?>">Thay đổi
+                                                                tên danh mục</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+
+                                                        <form id="form<?= $stt ?>" method="post"
+                                                            enctype="multipart/form-data">
+                                                            <div class="modal-body">
+                                                                <input type="hidden" name="categoryId"
+                                                                    value="<?= $category['category_id'] ?>" />
+                                                                <div class="mb-3">
+                                                                    <label for="newCateName" class="form-label">Tên
+                                                                        danh mục</label>
+                                                                    <input type="text" name="updateCateName"
+                                                                        class="form-control" id="newCateName"
+                                                                        value="<?= $category['category_name'] ?>"
+                                                                        required>
+                                                                </div>
+                                                                <?php
+                                                                    $status = '';
+                                                                    if ($category['status'] != 0) {
+                                                                        $status = "checked";
+                                                                    }
+                                                                    ?>
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input"
+                                                                        id="status<?= $stt ?>"
+                                                                        onclick="changeStatusCate(<?= $stt ?>)"
+                                                                        value="<?= $category['status'] ?>"
+                                                                        name="statusCate" type="checkbox" role="switch"
+                                                                        <?= $status ?>>
+                                                                    <label class="form-check-label"
+                                                                        for="status<?= $stt ?>">Hiện
+                                                                        danh mục này</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Đóng</button>
+                                                                <button type="submit" name="editCategory"
+                                                                    class="btn btn-primary">Cập nhật</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <?php if ($category['status'] == 1) { ?>
+                                            <span class="logged-in" style="color: green">●</span>
+                                            <?php }
+                                                if ($category['status'] == 0) { ?>
+                                            <span class="logged-in" style="color: red">●</span>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -205,7 +264,7 @@
                         <form method="post" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="cateNameInput" class="form-label">Tên danh mục</label>
-                                <input type="text" name="CategoryName" class="form-control" id="cateNameInput" value="">
+                                <input type="text" name="CategoryName" class="form-control" id="cateNameInput" required>
                             </div>
                             <div class="m-n2">
                                 <button type="submit" name="addCategoryName" class="btn btn-outline-primary m-2">

@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?= $title?></title>
+    <title><?= $title ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="../../../ProjectSem2/Assets/admin/favicon.ico" rel="icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JNKKKK/MoreToggles.css@0.2.1/output/moretoggles.min.css">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

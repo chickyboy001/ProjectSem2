@@ -31,11 +31,11 @@ class Category extends Database
 		return $list;
     }
 
-    public function updateCategory($category_id, $category_name)
+    public function updateCategory($category_id, $category_name, $status)
     {
-        $category_id = $this->db->conn->real_escape_string($category_id);
         $category_name = $this->db->conn->real_escape_string($category_name);
-        $sql = "UPDATE categories SET category_name = '$category_name', 
+        $sql = "UPDATE categories SET category_name = '$category_name',
+                                                status = '$status' 
                                     WHERE category_id = $category_id";
 		return $this->db->conn->query($sql);
     }
@@ -46,4 +46,3 @@ class Category extends Database
 		return $this->db->conn->query($sql);
     }
 }
-?>

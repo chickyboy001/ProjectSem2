@@ -7,7 +7,6 @@ class ManageCategory
         require_once '../../Model/Category.php';
         $cateModel = new Category();
         $categories = $cateModel->showAll();
-        $alert = array();
         if (isset($_POST['addCategoryName'])) {
             $name = ucfirst($_POST['CategoryName']);
 
@@ -17,12 +16,13 @@ class ManageCategory
                 header("Refresh:0");
             }
         }
-        if (isset($_GET['categoryId'])) {
-			$category_id = $_GET['categoryId'];
-			$cateModel->deleteCategory($category_id);
-			echo "<script>confirm('Xác nhận xóa danh mục')</script>";
-			header('Location: ?controller=manageCategory');
-		}
+        if (isset($_POST['editCategory'])) {
+            $category_id = $_POST['categoryId'];
+            $category_name = $_POST['updateCateName'];
+            $status = $_POST['statusCate'];
+            $cateModel->updateCategory($category_id, $category_name, $status);
+            header("Refresh:0");
+        }
         require 'pages/category/manage.php';
     }
 }

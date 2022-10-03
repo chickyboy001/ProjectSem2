@@ -180,39 +180,48 @@
                         <tbody>
                             <?php
                             $stt = 0;
-                            foreach ($products as $product) { 
+                            foreach ($products as $product) {
                                 $stt++;
                                 $VND = 'đ';
-                                $category = $cateModel->getCategory($product['category_id'])?>
+                                $quantity = 0;
+                                $colors = $productModel->getColorOfProduct($product['product_id']);
+                                foreach ($colors as $color) {
+                                    $sizes = $colorModel->getSizeOfColor($color['color_id']);
+                                    foreach ($sizes as $size) {
+                                        $quantity = $quantity + $size['quantity'];
+                                    }
+                                }
+                                $category = $cateModel->getCategory($product['category_id']) ?>
                             <tr>
                                 <td><?= $stt ?></td>
                                 <td><?= $product['product_name'] ?></td>
                                 <td><?= $category['category_name'] ?></td>
-                                <td>20</td>
-                                <td><?= getFormattedNumber($product['price']).$VND ?>
+                                <td><?= $quantity ?></td>
+                                <td><?= getFormattedNumber($product['price']) . $VND ?>
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-info"
-                                        href="?controller=productDetail&productId=<?=$product['product_id']?>">
+                                        href="?controller=productDetail&productId=<?= $product['product_id'] ?>">
                                         <i class="fa-solid fa-circle-info"></i>
                                     </a>
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-primary"
-                                        href="?controller=editProduct&productId=<?=$product['product_id']?>">
+                                        href="?controller=editProduct&productId=<?= $product['product_id'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-danger"
-                                        href="?controller=deleteProduct&productId=<?=$product['product_id']?>">
+                                        href="?controller=deleteProduct&productId=<?= $product['product_id'] ?>">
                                         <i class="fa-sharp fa-solid fa-eye-slash"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <?php if($product['status'] == 1) {?>
+                                    <?php if ($product['status'] == 1) { ?>
                                     <span class="logged-in" style="color: green">●</span>
-                                    <?php } if($product['status'] == 0) { ?>
+                                    <?php }
+                                        if ($product['status'] == 0) { ?>
                                     <span class="logged-in" style="color: red">●</span>
                                     <?php } ?>
 

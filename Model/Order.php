@@ -35,9 +35,7 @@ class Order extends Database
 
     public function updateStatus($order_id, $admin_id, $status)
     {
-        $admin_id = $this->db->conn->real_escape_string($admin_id);
-        $status = $this->db->conn->real_escape_string($status);
-        $sql = "UPDATE orders SET admin_id = '$admin_id, 
+        $sql = "UPDATE orders SET admin_id = '$admin_id', 
                                     status = '$status'
                                     WHERE order_id = $order_id";
 		return $this->db->conn->query($sql);

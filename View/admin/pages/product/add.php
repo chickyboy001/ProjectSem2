@@ -164,32 +164,32 @@
                     <!-- nhập tên sản phẩm -->
                     <div class="mb-3">
                         <label for="nameInput" class="form-label">Tên sản phẩm</label>
-                        <input name="product_name" type="text" class="form-control" id="nameInput">
+                        <input name="product_name" type="text" class="form-control" id="nameInput" required>
                     </div>
                     <!-- nhập giới tính -->
                     <div class="mb-3">
                         <label for="nameInput" class="form-label">Giới tính</label>
-                        <?php $chooseSex = array("Unisex", "Nam", "Nữ")?>
-                        <select name="sex" class="form-select" aria-label="Floating label select example">
-                            <option selected>Mở bảng chọn</option>
-                            <?php foreach($chooseSex as $choose){?>
+                        <?php $chooseSex = array("Unisex", "Nam", "Nữ") ?>
+                        <select name="sex" class="form-select" required>
+                            <option value="">None</option>
+                            <?php foreach ($chooseSex as $choose) { ?>
                             <option value="<?= $choose ?>"><?= $choose ?>
                             </option>
-                            <?php }?>
+                            <?php } ?>
                         </select>
                     </div>
                     <!-- nhập giá -->
                     <div class="mb-3">
                         <label for="priceInput" class="form-label">Giá (VNĐ)</label>
-                        <input name="price" type="number" class="form-control" id="priceInput">
+                        <input name="price" type="number" class="form-control" id="priceInput" required>
                     </div>
                     <!-- nhập tên danh mục -->
                     <div class="mb-3">
                         <label for="nameInput" class="form-label">Danh mục sản phẩm</label>
-                        <select name="category_id" class="form-select" aria-label="Floating label select example">
-                            <option selected>Mở bảng chọn</option>
-                            <?php foreach ($categories as $category) {?>
-                            <option value="<?=$category['category_id']?>"><?=$category['category_name']?>
+                        <select name="category_id" class="form-select" required>
+                            <option value="">None</option>
+                            <?php foreach ($categories as $category) { ?>
+                            <option value="<?= $category['category_id'] ?>"><?= $category['category_name'] ?>
                             </option>
                             <?php }
                             ?>

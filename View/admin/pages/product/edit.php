@@ -214,8 +214,7 @@
                     </div>
                     <?php $productCate = $categoryModel->getCategory($product['category_id'])?>
                     <div class="form-floating mb-3">
-                        <select class="form-select" name="category_id" id="cateSelect"
-                            aria-label="Floating label select example" disabled>
+                        <select class="form-select" name="category_id" id="cateSelect" disabled>
 
                             <option selected value="<?= $product['category_id'] ?>"><?= $productCate['category_name'] ?>
                             </option>
@@ -229,7 +228,6 @@
                         </select>
                         <label for="categorySelect">Chọn danh mục sản phẩm</label>
                     </div>
-
                     <button type="submit" name="editProduct" class="btn btn-primary">Cập nhật</button>
                 </form>
             </div>

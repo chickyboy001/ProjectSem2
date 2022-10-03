@@ -51,35 +51,52 @@ $(document).ready(function() {
             "targets": [5, 6, 7, 8]
         }],
     });
-    // $('#categoryTable').DataTable({
-    //     columnDefs: [{
-    //         targets: [0, 1, 2, 3, 4, 5, 6, 7],
-    //         className: 'dt-head-center'
-    //     }, {
-    //         orderable: false,
-    //         targets: [1, 2, 5, 6, 7]
-    //     }, {
-    //         "searchable": false,
-    //         "targets": [1, 2, 5, 6, 7]
-    //     }]
-    // });
     $('#orderTable').DataTable({
         columnDefs: [{
             targets: [0, 1, 2, 3, 4, 5, 6, 7],
             className: 'dt-head-center'
         }, {
             orderable: false,
-            targets: [1, 2, 4, 5, 6, 7, 8]
+            targets: [1, 2, 4, 5, 6, 7]
         }, {
             "searchable": false,
-            "targets": [2, 5, 6, 7, 8]
+            "targets": [2, 5, 6, 7]
         }]
     });
 });
 </script>
-<script src="../../../ProjectSem2/Assets/admin/js/inputAccept.js"></script>
+<script>
+function changeStatus(id) {
+    var checkbox = document.getElementById('statusCheck' + id);
+    if (checkbox.checked == true) {
+        var a = document.getElementById('statusCheck' + id).value = "1";
+        console.log(a);
+    }
+
+    if (checkbox.checked != true) {
+        var a = document.getElementById('statusCheck' + id).value = "0";
+        console.log(a);
+    }
+}
+
+function changeStatusCate(id) {
+    var checkbox = document.getElementById('status' + id);
+    if (checkbox.checked == true) {
+        var a = document.getElementById('status' + id).value = "1";
+        console.log(a);
+    }
+
+    if (checkbox.checked != true) {
+        var a = document.getElementById('status' + id).value = "0";
+        console.log(a);
+    }
+}
+</script>
+
+<script src="../../../ProjectSem2/Assets/admin/js/inputAccept.js">
+</script>
 <!-- Template Javascript -->
-<script src=" ../../../ProjectSem2/Assets/admin/js/main.js"></script>
+<script src="../../../ProjectSem2/Assets/admin/js/main.js"></script>
 </body>
 
 </html>

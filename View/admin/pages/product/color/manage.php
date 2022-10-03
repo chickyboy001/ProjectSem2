@@ -162,33 +162,45 @@
                 <div class="col-sm-12 col-xl-6">
                     <div class="bg-light rounded h-100 p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Danh sách danh mục</h6>
+                            <h6 class="mb-0">Danh sách kích cỡ</h6>
                         </div>
                         <div class="table-responsive">
                             <table class="table text-center align-middle table-bordered table-hover mb-0">
                                 <thead>
                                     <tr class="text-dark">
                                         <th scope="col">#</th>
-                                        <th scope="col">Tên danh mục</th>
-                                        <th scope="col">Xóa</th>
+                                        <th scope="col">Size</th>
+                                        <th scope="col">Số lượng</th>
+                                        <th scope="col">Sửa</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $stt = 0;
-                                        foreach ($categories as $category) { 
-                                        $stt++?>
+                                    $stt = 0;
+                                    $temps = array();
+                                    foreach ($sizes as $size) {
+                                        $temps[$stt] = $size['size_name'];
+                                        $stt++ ?>
                                     <tr>
                                         <td><?= $stt ?></td>
-                                        <td><?= $category['category_name'] ?></td>
-
+                                        <td><?= $size['size_name'] ?></td>
+                                        <td><?= $size['quantity'] ?></td>
                                         <td>
-                                            <a class="btn btn-sm btn-outline-danger"
-                                                href="?controller=manageCategory&categoryId=<?=$category['category_id']?>">
-                                                <lord-icon src="https://cdn.lordicon.com/qsloqzpf.json" trigger="hover"
+                                            <a class="btn btn-sm btn-outline-info"
+                                                href="?controller=manageCategory&categoryId=<?= $category['category_id'] ?>">
+                                                <lord-icon src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
                                                     style="width:20px;height:20px">
                                                 </lord-icon>
                                             </a>
+                                        </td>
+                                        <td>
+                                            <?php if ($size['status'] == 1) { ?>
+                                            <span class="logged-in" style="color: green">●</span>
+                                            <?php }
+                                                if ($size['status'] == 0) { ?>
+                                            <span class="logged-in" style="color: red">●</span>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -200,15 +212,31 @@
                 <div class="col-sm-12 col-xl-6">
                     <div class="bg-light rounded h-100 p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Thêm danh mục</h6>
+                            <h6 class="mb-0">Thêm size</h6>
                         </div>
                         <form method="post" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="cateNameInput" class="form-label">Tên danh mục</label>
-                                <input type="text" name="CategoryName" class="form-control" id="cateNameInput" value="">
+                                <label for="sizeNameInput" class="form-label">Chọn kích cỡ</label>
+                                <select id="sizeNameInput" class="form-select mb-3" name="addSizeName" required>
+                                    <option value="">None</option>
+                                    <?php
+                                    $clothSizes = array("XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL");
+                                    $finals = array_diff($clothSizes, $temps);
+
+                                    foreach ($finals as $final) { ?>
+                                    <option value="<?= $final ?>"> <?= $final ?>
+                                    </option>
+                                    <?php } ?>
+
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="quantityInput" class="form-label">Số lượng</label>
+                                <input type="number" name="addQuantity" class="form-control" id="quantityInput"
+                                    required>
                             </div>
                             <div class="m-n2">
-                                <button type="submit" name="addCategoryName" class="btn btn-outline-primary m-2">
+                                <button type="submit" name="addSize" class="btn btn-outline-primary m-2">
                                     <lord-icon class="me-2" src="https://cdn.lordicon.com/cnnjfbvo.json" trigger="morph"
                                         style="width:20px;height:20px">
                                     </lord-icon>Xác nhận

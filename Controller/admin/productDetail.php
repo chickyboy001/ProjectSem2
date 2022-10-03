@@ -15,6 +15,7 @@ class ProductDetail
 			if (isset($_POST['editColor'])) {
 
 				$color_id = $_POST['colorId'];
+				echo var_dump($color_id);
 				$color = $colorModel->GetColorById($color_id);
 				if (!empty($_POST['newColorName'])) {
 					$color_name = trim($_POST['newColorName']);
@@ -53,10 +54,14 @@ class ProductDetail
 						}
 					}
 
-				} 
-				$colorModel->editColor($color_id, $color_name, $image_link, $temp[0], $temp[1], $temp[2], $temp[3]);
+				}
+				
+				
+				$status = $_POST['status'];
+				$colorModel->editColor($color_id, $color_name, $image_link, $temp[0], $temp[1], $temp[2], $temp[3], $status);
 				header("Refresh:0");
 			}
+			
 
 			require('pages/product/detail.php');
 		}

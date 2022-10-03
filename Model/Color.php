@@ -17,19 +17,9 @@ class Color extends Database
         return $data;
     }
 
-    public function getSizeOfColor($color_id)
-    {
-        mysqli_next_result($this->db->conn);
-        $sql = "SELECT * FROM sizes WHERE color_id = $color_id";
-		$result = $this->db->conn->query($sql);
-		$list = array();
-		while ($data = $result->fetch_array()) {
-			$list[] = $data;
-		}
-		return $list;
-    }
+    
 
-    public function editColor($color_id, $color_name, $image_link, $image_link_1, $image_link_2, $image_link_3, $image_link_4)
+    public function editColor($color_id, $color_name, $image_link, $image_link_1, $image_link_2, $image_link_3, $image_link_4, $status)
     {
         $color_name = $this->db->conn->real_escape_string($color_name);
         $sql = "UPDATE colors SET color_name = '$color_name', 
@@ -37,9 +27,27 @@ class Color extends Database
                                     image_link_1 = '$image_link_1',
                                     image_link_2 = '$image_link_2', 
                                     image_link_3 = '$image_link_3', 
-                                    image_link_4 = '$image_link_4'  
+                                    image_link_4 = '$image_link_4',
+                                    status = '$status'   
                                     WHERE color_id = $color_id";
 		return $this->db->conn->query($sql);
+    }
+
+    public function changeStatus($color_id, $status)
+    {
+        $sql = "UPDATE colors SET status = '$status' WHERE color_id = $color_id";  
+        return $this->db->conn->query($sql);
+    }
+    public function getSizeOfColor($color_id)
+    {
+        mysqli_next_result($this->db->conn);
+        $sql = "SELECT * FROM sizes WHERE color_id = $color_id";
+        $result = $this->db->conn->query($sql);
+        $list = array();
+        while ($data = $result->fetch_array()) {
+            $list[] = $data;
+        }
+        return $list;
     }
 
 }

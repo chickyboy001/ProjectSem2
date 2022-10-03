@@ -5,23 +5,35 @@ class ManageColor
     public function __construct()
     {
         require_once '../../Model/Color.php';
+        require_once '../../Model/Size.php';
         $colorModel = new Color();
-        
-        if (isset($_POST['addCategoryName'])) {
-            $name = ucfirst($_POST['CategoryName']);
+        $sizeModel = new Size();
+        if (isset($_GET['colorId'])){
+            $color_id = $_GET['colorId'];
+            $color = $colorModel->getColorById($color_id);
+            $sizes = $colorModel->getSizeOfColor($color_id);
 
-            if ($name) {
-                $cateModel->addCategory($name);
-                echo "<script>alert('Thêm danh mục thành công')</script>";
-                header("Refresh:0");
+            if (isset($_POST['addSize'])) {
+                $name = $_POST['addSizeName'];
+                $quantity = $_POST['addQuantity'];
+
+                if ($name) {
+                    $sizeModel->addSize($name, $color_id, $quantity);
+                    echo "<script>alert('Thêm size thành công')</script>";
+                    header("Refresh:0");
+                }
             }
+            // if (isset($_GET['categoryId'])) {
+            //     $category_id = $_GET['categoryId'];
+            //     $cateModel->deleteCategory($category_id);
+            //     echo "<script>confirm('Xác nhận xóa danh mục')</script>";
+            //     header('Location: ?controller=manageCategory');
+            // }
         }
-        if (isset($_GET['categoryId'])) {
-			$category_id = $_GET['categoryId'];
-			$cateModel->deleteCategory($category_id);
-			echo "<script>confirm('Xác nhận xóa danh mục')</script>";
-			header('Location: ?controller=manageCategory');
-		}
-        require 'pages/category/manage.php';
+        
+        
+        
+        
+        require 'pages/product/color/manage.php';
     }
 }

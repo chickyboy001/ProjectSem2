@@ -166,66 +166,108 @@
                     <table id="orderTable" class="table text-center align-middle table-bordered table-hover mb-0">
                         <thead>
                             <tr class="text-dark">
-                                <th scope="col ">STT</th>
-                                <th scope="col ">Khách hàng</th>
-                                <th scope="col ">Thời gian đặt</th>
-                                <th scope="col ">Thành tiền</th>
-                                <th scope="col ">Trạng thái</th>
-                                <th scope="col ">Người xử lý</th>
+                                <th scope="col">STT</th>
+                                <th scope="col">Khách hàng</th>
+                                <th scope="col">Thời gian đặt</th>
+                                <th scope="col">Thành tiền</th>
+                                <th scope="col">Trạng thái</th>
+                                <th scope="col">Người xử lý</th>
                                 <th scope="col">Chi tiết</th>
                                 <th scope="col">Sửa</th>
-                                <th scope="col">Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $stt = 0;
-                            foreach ($orders as $order) { 
+                            foreach ($orders as $order) {
                                 $stt++;
                                 $customer = $accModel->getUserById($order['customer_id']);
                                 $admin = $accModel->getUserById($order['admin_id']);
                                 $products = $orderModel->getProductInOrder($order['order_id']);
-                                ?>
+                            ?>
                             <tr>
                                 <td><?= $stt ?></td>
                                 <td><?= $customer['fullname'] ?></td>
                                 <td><?= $order['order_date'] ?></td>
 
                                 <?php
-                                $price = 0;
-                                $VND = 'đ';
-                                foreach ($products as $product) { 
-                                $price = $price + $product['price'];}?>
-                                <td><?= getFormattedNumber($price).$VND ?></td>
+                                    $price = 0;
+                                    $VND = 'đ';
+                                    foreach ($products as $product) {
+                                        $price = $price + $product['price'];
+                                    } ?>
+                                <td><?= getFormattedNumber($price) . $VND ?></td>
 
-                                <?php if($order['status'] == 1) {?>
+                                <?php if ($order['status'] == 1) { ?>
                                 <td class="text-secondary"> Đã đặt hàng</td>
-                                <?php } if($order['status'] == 2) { ?>
+                                <?php }
+                                    if ($order['status'] == 2) { ?>
                                 <td class="text-primary"> Đang xử lý </td>
-                                <?php } if($order['status'] == 3) { ?>
+                                <?php }
+                                    if ($order['status'] == 3) { ?>
                                 <td class="text-info"> Đang vận chuyển </td>
-                                <?php } if($order['status'] == 4) { ?>
+                                <?php }
+                                    if ($order['status'] == 4) { ?>
                                 <td class="text-success"> Hoàn thành </td>
-                                <?php } if($order['status'] == 5) { ?>
+                                <?php }
+                                    if ($order['status'] == 5) { ?>
                                 <td class="text-danger"> Đã hủy </td>
                                 <?php } ?>
 
                                 <td><?= $admin['fullname'] ?></td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-info"
-                                        href="?controller=orderDetail&orderId=<?=$order['order_id']?>">
+                                        href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>">
                                         <i class="fa-solid fa-circle-info"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-sm btn-outline-primary" href="?controller=">
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modalid<?= $stt ?>">
                                         <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-outline-danger" href="?controller=">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
+                                    </button>
+                                    <div class="modal fade" id="modalid<?= $stt ?>" tabindex="-1"
+                                        aria-labelledby="modalid<?= $stt ?>" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content text-start">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="modalid<?= $stt ?>">Thay đổi trạng
+                                                        thái đơn
+                                                        hàng</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+
+                                                <form id="formid<?= $stt ?>" method="post"
+                                                    enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="orderId"
+                                                            value="<?= $order['order_id'] ?>" />
+                                                        <input type="hidden" name="adminId" value="2" />
+                                                        <div class="mb-3">
+                                                            <label for="changeStatus" class="form-label">Chọn kích
+                                                                cỡ</label>
+                                                            <select id="changeStatus" class="form-select mb-3"
+                                                                name="updateStatus" required>
+                                                                <option value="">None</option>
+                                                                <option value="1">Đã đặt hàng</option>
+                                                                <option value="2">Đang xử lý</option>
+                                                                <option value="3">Đang vận chuyển</option>
+                                                                <option value="4">Hoàn thành</option>
+                                                                <option value="5">Hủy</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Đóng</button>
+                                                        <button type="submit" name="editOrder"
+                                                            class="btn btn-primary">Cập nhật</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <?php
