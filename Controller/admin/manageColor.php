@@ -23,16 +23,8 @@ class ManageColor
                     header("Refresh:0");
                 }
             }
-            // if (isset($_GET['categoryId'])) {
-            //     $category_id = $_GET['categoryId'];
-            //     $cateModel->deleteCategory($category_id);
-            //     echo "<script>confirm('Xác nhận xóa danh mục')</script>";
-            //     header('Location: ?controller=manageCategory');
-            // }
+            
         }
-        
-        
-        
         
         require 'pages/product/color/manage.php';
     }

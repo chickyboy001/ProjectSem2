@@ -221,7 +221,7 @@
 
                             <?php
                             foreach ($categories as $category) {
-                                if ($category['category_id'] == $product['category_id']) { continue;}?>
+                                if ($category['category_id'] == $product['category_id'] || $category['status'] == 0) { continue;}?>
 
                             <option value="<?= $category['category_id'] ?>"> <?= $category['category_name'] ?></option>
                             <?php }?>

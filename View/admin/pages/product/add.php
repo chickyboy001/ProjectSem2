@@ -188,7 +188,8 @@
                         <label for="nameInput" class="form-label">Danh mục sản phẩm</label>
                         <select name="category_id" class="form-select" required>
                             <option value="">None</option>
-                            <?php foreach ($categories as $category) { ?>
+                            <?php foreach ($categories as $category) {
+                                if($category['status']==0){continue;}?>
                             <option value="<?= $category['category_id'] ?>"><?= $category['category_name'] ?>
                             </option>
                             <?php }
