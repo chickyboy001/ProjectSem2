@@ -184,9 +184,11 @@
                                         <td><?= $category['category_name'] ?></td>
 
                                         <td>
-                                            <button type="button" class="btn btn-sm btn-outline-primary"
+                                            <button type="button" class="btn btn-sm btn-outline-info"
                                                 data-bs-toggle="modal" data-bs-target="#modal<?= $stt ?>">
-                                                <i class="fa-solid fa-pen-to-square"></i>
+                                                <lord-icon src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
+                                                    style="width:20px;height:20px">
+                                                </lord-icon>
                                             </button>
                                             <div class="modal fade" id="modal<?= $stt ?>" tabindex="-1"
                                                 aria-labelledby="modal<?= $stt ?>" aria-hidden="true">
