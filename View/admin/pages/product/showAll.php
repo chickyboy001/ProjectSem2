@@ -173,7 +173,6 @@
                                 <th scope="col">Giá </th>
                                 <th scope="col">Xem</th>
                                 <th scope="col">Sửa</th>
-                                <th scope="col">Ẩn</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -188,14 +187,17 @@
                                 foreach ($colors as $color) {
                                     $sizes = $colorModel->getSizeOfColor($color['color_id']);
                                     foreach ($sizes as $size) {
+                                        if ($size['status'] == 0) {
+                                            continue;
+                                        }
                                         $quantity = $quantity + $size['quantity'];
                                     }
                                 }
-                                $category = $cateModel->getCategory($product['category_id']) ?>
+                                $productCate = $cateModel->getCategory($product['category_id']) ?>
                             <tr>
                                 <td><?= $stt ?></td>
                                 <td><?= $product['product_name'] ?></td>
-                                <td><?= $category['category_name'] ?></td>
+                                <td><?= $productCate['category_name'] ?></td>
                                 <td><?= $quantity ?></td>
                                 <td><?= getFormattedNumber($product['price']) . $VND ?>
                                 </td>
@@ -206,16 +208,115 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-sm btn-outline-primary"
-                                        href="?controller=editProduct&productId=<?= $product['product_id'] ?>">
+                                    <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
+                                        data-bs-target="#MD<?= $stt ?>">
                                         <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-outline-danger"
-                                        href="?controller=deleteProduct&productId=<?= $product['product_id'] ?>">
-                                        <i class="fa-sharp fa-solid fa-eye-slash"></i>
-                                    </a>
+                                    </button>
+                                    <div class="modal fade" id="MD<?= $stt ?>" tabindex="-1"
+                                        aria-labelledby="MD<?= $stt ?>" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content text-start">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="MD<?= $stt ?>">Thay đổi
+                                                        thuộc tính sản phẩm</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+
+                                                <form id="formPd<?= $stt ?>" method="post"
+                                                    enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="productId"
+                                                            value="<?= $product['product_id'] ?>" />
+                                                        <!-- Sửa tên -->
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control" id="nameEdit"
+                                                                name="product_name"
+                                                                value="<?= $product['product_name'] ?>" placeholder="">
+                                                            <label for="nameEdit">Tên sản phẩm</label>
+                                                        </div>
+                                                        <!-- nhập giới tính -->
+                                                        <div class="form-floating mb-3">
+                                                            <?php $chooseSex = array("Unisex", "Nam", "Nữ") ?>
+                                                            <select class="form-select" name="sex" id="sexSelect"
+                                                                aria-label="Floating label select example">
+                                                                <option selected value="<?= $product['sex'] ?>">
+                                                                    <?= $product['sex'] ?></option>
+                                                                <?php foreach ($chooseSex as $choose) {
+                                                                        if (strcmp($choose, $product['sex']) == 0) {
+                                                                            continue;
+                                                                        } ?>
+                                                                <option value="<?= $choose ?>"><?= $choose ?></option>
+                                                                <?php } ?>
+                                                            </select>
+                                                            <label for="sexSelect">Chọn giới tính</label>
+                                                        </div>
+                                                        <!-- nhập giá -->
+                                                        <div class="form-floating mb-3">
+                                                            <input type="number" class="form-control" name="price"
+                                                                value="<?= $product['price'] ?>" id="priceEdit"
+                                                                placeholder="">
+                                                            <label for="priceEdit">Giá sản phẩm</label>
+                                                        </div>
+                                                        <!-- nhập tên danh mục -->
+                                                        <div class="form-floating mb-3">
+                                                            <select class="form-select" name="category_id"
+                                                                id="cateSelect">
+
+                                                                <option selected value="<?= $product['category_id'] ?>">
+                                                                    <?= $productCate['category_name'] ?>
+                                                                </option>
+
+                                                                <?php
+                                                                    foreach ($categories as $category) {
+                                                                        if ($category['category_id'] == $product['category_id'] && $category['status'] == 0) {
+                                                                            continue;
+                                                                        } ?>
+
+                                                                <option value="<?= $category['category_id'] ?>">
+                                                                    <?= $category['category_name'] ?></option>
+                                                                <?php } ?>
+                                                            </select>
+                                                            <label for="categorySelect">Chọn danh mục sản phẩm</label>
+                                                        </div>
+                                                        <!-- Nhập mô tả -->
+                                                        <div class="form-floating mb-3">
+                                                            <textarea class="form-control" name="description"
+                                                                placeholder="Leave a comment here" id="floatingTextarea"
+                                                                style="height: 150px;"></textarea>
+                                                            <label for="floatingTextarea">Mô tả</label>
+                                                        </div>
+                                                        <?php
+                                                            $status = '';
+                                                            $db = "disabled";
+                                                            if ($product['status'] != 0) {
+                                                                $status = "checked";
+                                                            }
+                                                            if ($quantity > 0) {
+                                                                $db = '';
+                                                            }
+                                                            ?>
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" id="statusPD<?= $stt ?>"
+                                                                onclick="changeStatusPD(<?= $stt ?>)"
+                                                                name="productStatus" type="checkbox" role="switch"
+                                                                <?= $db ?> <?= $status ?>>
+                                                            <label class="form-check-label"
+                                                                for="statusPD<?= $stt ?>">Hiện
+                                                                sản phẩm</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Đóng</button>
+                                                        <button type="submit" name="editProduct"
+                                                            class="btn btn-primary">Cập
+                                                            nhật</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>
                                     <?php if ($product['status'] == 1) { ?>

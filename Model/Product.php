@@ -30,16 +30,18 @@ class Product extends Database
 		return $list;
     }
 
-    public function editProduct($product_id, $product_name, $category_id, $sex, $price)
+    public function editProduct($product_id, $product_name, $category_id, $sex, $price, $description, $status)
     {
         mysqli_next_result($this->db->conn);
         $product_name = $this->db->conn->real_escape_string($product_name);
         $sex = $this->db->conn->real_escape_string($sex);
+        $description = $this->db->conn->real_escape_string($description);
         $sql = "UPDATE products SET product_name = '$product_name', 
-                                    category_id = '$category_id', 
-                                    price = '$price', 
+                                    category_id = '$category_id',  
                                     sex = '$sex', 
-                                    price = '$price'
+                                    price = '$price',
+                                    description = '$description',
+                                    status = '$status'
                                     WHERE product_id = $product_id";
 		return $this->db->conn->query($sql);
     }
@@ -60,11 +62,6 @@ class Product extends Database
 		return $this->db->conn->query($sql);
     }
 
-    public function deleteProduct($product_id)
-    {
-        $sql = "DELETE FROM products WHERE product_id = $product_id";
-		return $this->db->conn->query($sql);
-    }
 
     public function getColorOfProduct($product_id){
         mysqli_next_result($this->db->conn);

@@ -217,6 +217,20 @@
                     <div class="d-flex justify-content-start flex-row">
                         <div class="text-start text-dark me-3 col-5 col-sm-2">
                             <p>
+                                <strong>Mô tả:</strong>
+                            </p>
+                        </div>
+                        <div class="text-start col-7">
+                            <p>
+
+                                <strong><?= $product['description'] ?> </strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-start flex-row">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <p>
                                 <strong>Trạng thái:</strong>
                             </p>
                         </div>
@@ -243,6 +257,7 @@
                                     <th scope="col ">Hình ảnh</th>
                                     <th scope="col ">Xem</th>
                                     <th scope="col ">Sửa</th>
+                                    <th scope="col ">Xóa</th>
                                     <th scope="col "></th>
                                 </tr>
                             </thead>
@@ -255,6 +270,9 @@
                                     $modalId = "modal";
                                     $sizes = $colorModel->getSizeOfColor($color['color_id']);
                                     foreach ($sizes as $size) {
+                                        if ($size['status'] == 0) {
+                                            continue;
+                                        }
                                         $quantity = $quantity + $size['quantity'];
                                     }
                                 ?>
@@ -263,7 +281,7 @@
                                     <td><?= $color['color_name'] ?></td>
                                     <td><?= $quantity ?></td>
                                     <td>
-                                        <img class="product_image" style="width: 40px; height: 40px; "
+                                        <img class="product_image" style="width: 33px; height: 40px; "
                                             src="../../../ProjectSem2/Public/admin/upload/products/<?= $color['image_link'] ?>"></img>
                                     </td>
                                     <td>
@@ -272,6 +290,7 @@
                                             <i class="fa-solid fa-circle-info"></i>
                                         </a>
                                     </td>
+                                    <!-- Thay đổi thuộc tính -->
                                     <td>
                                         <button type="button" class="btn btn-sm btn-outline-primary"
                                             data-bs-toggle="modal" data-bs-target="#<?= $modalId . $stt ?>">
@@ -311,7 +330,7 @@
                                                             <div class="mb-3">
                                                                 <label for="formFileMultiple" class="form-label">Thêm
                                                                     các ảnh phụ</label>
-                                                                <input class="form-control" type="file"
+                                                                <input class="form-control " type="file"
                                                                     accept=".jpg, .png, .jpeg" name="image_link_extra[]"
                                                                     id="formFileMultiple" multiple>
                                                             </div>
@@ -350,7 +369,45 @@
                                             </div>
                                         </div>
                                     </td>
+                                    <!-- Xóa màu sắc -->
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                            data-bs-toggle="modal" data-bs-target="#deleteColor<?= $stt ?>">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                        <div class="modal fade" id="deleteColor<?= $stt ?>" tabindex="-1"
+                                            aria-labelledby="deleteColor<?= $stt ?>" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content text-start">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="deleteColor<?= $stt ?>">Xác nhận
+                                                            xóa
+                                                        </h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
 
+                                                    <form id="deleteColor<?= $stt ?>" method="post"
+                                                        enctype="multipart/form-data">
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="colorIdDelete"
+                                                                value="<?= $color['color_id'] ?>" />
+                                                            <p class="text-danger">Thao tác này sẽ đồng thời xóa tất cả
+                                                                những kích cỡ của màu sắc này. Vẫn xóa?
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Hủy</button>
+                                                            <button type="submit" name="deleteColor"
+                                                                class="btn btn-primary">Xác nhận</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- Trạng thái -->
                                     <td>
                                         <?php if ($color['status'] == 1) { ?>
                                         <span class="logged-in" style="color: green">●</span>

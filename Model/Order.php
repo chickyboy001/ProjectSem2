@@ -27,11 +27,6 @@ class Order extends Database
         return $data;
     }
 
-    public function deleteOrder($order_id)
-    {
-        $sql = "DELETE FROM orders WHERE order_id = $order_id";
-		return $this->db->conn->query($sql);
-    }
 
     public function updateStatus($order_id, $admin_id, $status)
     {
@@ -51,6 +46,18 @@ class Order extends Database
 			$list[] = $data;
 		}
 		return $list;
+    }
+
+    public function getOrderInThisWeek()
+    {
+        mysqli_next_result($this->db->conn);
+        $sql = "SELECT * FROM orders WHERE order_date >= date_sub(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY) AND order_date < date_add(CURDATE(), INTERVAL 1 DAY) ORDER BY order_date DESC";
+        $result = $this->db->conn->query($sql);
+        $list = array();
+        while ($data = $result->fetch_array()) {
+            $list[] = $data;
+        }
+        return $list;
     }
 
 }

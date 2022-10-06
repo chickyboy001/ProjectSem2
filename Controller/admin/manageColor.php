@@ -23,6 +23,26 @@ class ManageColor
                     header("Refresh:0");
                 }
             }
+            if (isset($_POST['editSize'])) {
+                $size_id = $_POST['sizeId'];
+                $size = $sizeModel->getSize($size_id);
+                if (!empty($_POST['changeQuantity'])) {
+                    $quantity = $_POST['changeQuantity'];
+                } else {
+                    $quantity = $size['quantity'];
+                }
+                
+                $status = $_POST['changeStatus'];
+
+                $sizeModel->editSize($size_id, $quantity, $status);
+                echo "<script>alert('Cập nhật thành công')</script>";
+                header("Refresh:0");
+            }
+            if (isset($_POST['deleteSize'])) {
+                $size_id = $_POST['sizeIdDelete'];
+                $sizeModel->deleteSize($size_id);
+                header("Refresh:0");
+            }
             
         }
         

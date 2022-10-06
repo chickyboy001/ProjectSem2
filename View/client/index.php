@@ -16,7 +16,7 @@ error_reporting(E_ALL);
      */
 
 	// if (empty($_SESSION['useradmin']) && $_SESSION['useradmin']['level'] == admin) {
-		$title = "Trang chủ";
+		
 		require('layouts/header.php');
 		if (isset($_GET['controller'])) {
 			require '../../Route/client/web.php'; /*xử lý các request trong Route/web.php*/

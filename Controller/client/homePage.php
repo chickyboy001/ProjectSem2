@@ -1,15 +1,17 @@
 <?php
-class ShowProduct {
+class HomePage {
 	public function __construct()
 	{
 		require_once('../../Model/Product.php');
 		require_once('../../Model/Category.php');
 		require_once('../../Model/Color.php');
 		require_once('../../Model/Size.php');
+        require_once('../../Model/Account.php');
 		$productModel = new Product();
 		$cateModel = new Category();
 		$colorModel = new Color();
 		$sizeModel = new Size();
+        $accModel = new Account();
 		$products = $productModel->showAll();
 		$categories = $cateModel->showAll();
 		if (isset($_POST['productId'])) {
@@ -58,4 +60,3 @@ class ShowProduct {
 		require('pages/product/showAll.php');
 	}
 }
-?>

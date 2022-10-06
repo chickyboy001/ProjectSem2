@@ -5,8 +5,10 @@ class ProductDetail
 	{
 		require('../../Model/Product.php');
 		require('../../Model/Color.php');
+		require('../../Model/Size.php');
 		$productModel = new Product();
 		$colorModel = new Color();
+		$sizeModel = new Size();
 		if (isset($_GET['productId'])) {
 			$product_id = $_GET['productId'];
 			$product = $productModel->getProduct($product_id);
@@ -19,10 +21,8 @@ class ProductDetail
 				$color = $colorModel->GetColorById($color_id);
 				if (!empty($_POST['newColorName'])) {
 					$color_name = trim($_POST['newColorName']);
-					$slug = changeTitle($color_name);
 				} else {
 					$color_name  = $color['color_name'];
-					$slug = changeTitle($color_name);
 				}
 				
 				// Nếu không tải ảnh mới lên thì đặt giá trị như ban đầu
@@ -59,6 +59,13 @@ class ProductDetail
 				
 				$status = $_POST['status'];
 				$colorModel->editColor($color_id, $color_name, $image_link, $temp[0], $temp[1], $temp[2], $temp[3], $status);
+				header("Refresh:0");
+			}
+
+			if (isset($_POST['deleteColor'])) {
+				$color_id = $_POST['colorIdDelete'];
+				$sizeModel->deleteSizeOfColor($color_id);
+				$colorModel->deleteColor($color_id);
 				header("Refresh:0");
 			}
 			

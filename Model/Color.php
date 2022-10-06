@@ -49,6 +49,11 @@ class Color extends Database
         }
         return $list;
     }
+    public function deleteColor($color_id)
+    {
+        $sql = "DELETE FROM colors WHERE color_id = $color_id";
+        return $this->db->conn->query($sql);
+    }
 
 }
 ?>

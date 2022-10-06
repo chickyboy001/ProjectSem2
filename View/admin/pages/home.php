@@ -156,7 +156,7 @@
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-line fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Today Sale</p>
+                            <p class="mb-2">Doanh thu ngày</p>
                             <h6 class="mb-0">$1234</h6>
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-bar fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Total Sale</p>
+                            <p class="mb-2">Doanh thu tuần</p>
                             <h6 class="mb-0">$1234</h6>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-area fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Today Revenue</p>
+                            <p class="mb-2">Đơn hàng mới</p>
                             <h6 class="mb-0">$1234</h6>
                         </div>
                     </div>
@@ -183,7 +183,7 @@
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-pie fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Total Revenue</p>
+                            <p class="mb-2">Số lượt truy cập</p>
                             <h6 class="mb-0">$1234</h6>
                         </div>
                     </div>

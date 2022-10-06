@@ -172,6 +172,7 @@
                                         <th scope="col">Size</th>
                                         <th scope="col">Số lượng</th>
                                         <th scope="col">Sửa</th>
+                                        <th scope="col">Xóa</th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
@@ -187,12 +188,99 @@
                                         <td><?= $size['size_name'] ?></td>
                                         <td><?= $size['quantity'] ?></td>
                                         <td>
-                                            <a class="btn btn-sm btn-outline-info"
-                                                href="?controller=manageCategory&categoryId=<?= $category['category_id'] ?>">
+                                            <button type="button" class="btn btn-sm btn-outline-info"
+                                                data-bs-toggle="modal" data-bs-target="#size<?= $stt ?>">
                                                 <lord-icon src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
                                                     style="width:20px;height:20px">
                                                 </lord-icon>
-                                            </a>
+                                            </button>
+                                            <div class="modal fade" id="size<?= $stt ?>" tabindex="-1"
+                                                aria-labelledby="size<?= $stt ?>" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content text-start">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="size<?= $stt ?>">Thay đổi
+                                                                tên danh mục</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+
+                                                        <form id="editSize<?= $stt ?>" method="post"
+                                                            enctype="multipart/form-data">
+                                                            <div class="modal-body">
+                                                                <input type="hidden" name="sizeId"
+                                                                    value="<?= $size['size_id'] ?>" />
+                                                                <div class="mb-3">
+                                                                    <label for="quantityInput" class="form-label">Số
+                                                                        lượng</label>
+                                                                    <input type="number" name="changeQuantity"
+                                                                        class="form-control">
+                                                                </div>
+                                                                <?php
+                                                                    $status = '';
+                                                                    if ($size['status'] != 0) {
+                                                                        $status = "checked";
+                                                                    }
+                                                                    ?>
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input"
+                                                                        id="sizeStatus<?= $stt ?>"
+                                                                        onclick="changeStatusSize(<?= $stt ?>)"
+                                                                        value="<?= $size['status'] ?>"
+                                                                        name="changeStatus" type="checkbox"
+                                                                        role="switch" <?= $status ?>>
+                                                                    <label class="form-check-label"
+                                                                        for="sizeStatus<?= $stt ?>">Hiện
+                                                                        kích cỡ này</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Đóng</button>
+                                                                <button type="submit" name="editSize"
+                                                                    class="btn btn-primary">Cập nhật</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-outline-danger"
+                                                data-bs-toggle="modal" data-bs-target="#deleteSize<?= $stt ?>">
+                                                <lord-icon src="https://cdn.lordicon.com/jmkrnisz.json" trigger="hover"
+                                                    style="width:20px;height:20px">
+                                                </lord-icon>
+                                            </button>
+                                            <div class="modal fade" id="deleteSize<?= $stt ?>" tabindex="-1"
+                                                aria-labelledby="deleteSize<?= $stt ?>" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content text-start">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="deleteSize<?= $stt ?>">Xác nhận
+                                                                xóa
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+
+                                                        <form id="deleteSize<?= $stt ?>" method="post"
+                                                            enctype="multipart/form-data">
+                                                            <div class="modal-body">
+                                                                <input type="hidden" name="sizeIdDelete"
+                                                                    value="<?= $size['size_id'] ?>" />
+                                                                <p class="text-danger">Xóa vĩnh viễn kích cỡ này?</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Hủy</button>
+                                                                <button type="submit" name="deleteSize"
+                                                                    class="btn btn-primary">Xác nhận</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                         <td>
                                             <?php if ($size['status'] == 1) { ?>

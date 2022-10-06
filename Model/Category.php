@@ -40,9 +40,4 @@ class Category extends Database
 		return $this->db->conn->query($sql);
     }
 
-    public function deleteCategory($category_id)
-    {
-        $sql = "DELETE FROM categories WHERE category_id = $category_id";
-		return $this->db->conn->query($sql);
-    }
 }

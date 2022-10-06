@@ -9,7 +9,8 @@
                 <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                 Designed By <a href="https://htmlcodex.com">HTML Codex</a>
                 </br>
-                Customized By <a class="border-bottom" href="https://themewagon.com" target="_blank">Chickyboy</a>
+                Customized By <a class="border-bottom" href="https://www.facebook.com/chickyboy001" target="_blank">Công
+                    Hưng</a>
             </div>
         </div>
     </div>
@@ -25,6 +26,9 @@
 
 <!-- script -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- <script>
+var j3_4_1 = $.noConflict(true);
+</script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../../ProjectSem2/Assets/admin/lib/chart/chart.min.js"></script>
 <script src="../../../ProjectSem2/Assets/admin/lib/easing/easing.min.js"></script>
@@ -41,14 +45,14 @@
 $(document).ready(function() {
     $('#productTable').DataTable({
         columnDefs: [{
-            targets: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+            targets: [0, 1, 2, 3, 4, 5, 6, 7],
             className: 'dt-head-center'
         }, {
             orderable: false,
-            targets: [1, 2, 5, 6, 7, 8]
+            targets: [1, 2, 5, 6, 7]
         }, {
             "searchable": false,
-            "targets": [5, 6, 7, 8]
+            "targets": [5, 6, 7]
         }],
     });
     $('#orderTable').DataTable({
@@ -65,36 +69,8 @@ $(document).ready(function() {
     });
 });
 </script>
-<script>
-function changeStatus(id) {
-    var checkbox = document.getElementById('statusCheck' + id);
-    if (checkbox.checked == true) {
-        var a = document.getElementById('statusCheck' + id).value = "1";
-        console.log(a);
-    }
 
-    if (checkbox.checked != true) {
-        var a = document.getElementById('statusCheck' + id).value = "0";
-        console.log(a);
-    }
-}
-
-function changeStatusCate(id) {
-    var checkbox = document.getElementById('status' + id);
-    if (checkbox.checked == true) {
-        var a = document.getElementById('status' + id).value = "1";
-        console.log(a);
-    }
-
-    if (checkbox.checked != true) {
-        var a = document.getElementById('status' + id).value = "0";
-        console.log(a);
-    }
-}
-</script>
-
-<script src="../../../ProjectSem2/Assets/admin/js/inputAccept.js">
-</script>
+<script src="../../../ProjectSem2/Assets/admin/js/app.js"></script>
 <!-- Template Javascript -->
 <script src="../../../ProjectSem2/Assets/admin/js/main.js"></script>
 </body>

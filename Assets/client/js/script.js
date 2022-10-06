@@ -14,7 +14,7 @@ $(function() {
 
     $('.img-small').on('mouseenter click', function() {
         var src = $(this).data('src');
-        $('.img-large').css("background-image", "url('"+src+"')");
+        $('.img-large').css("background-image", "url('" + src + "')");
     });
 
     var imgLarge = $('.img-large');
@@ -26,14 +26,14 @@ $(function() {
         var height = $(this).height();
         var x = (relX / width) * 100;
         var y = (relY / height) * 100;
-        $(this).css("background-position", x+"% "+y+"%");
+        $(this).css("background-position", x + "% " + y + "%");
     });
 
     imgLarge.mouseout(function() {
         $(this).css("background-position", "center");
     });
 
-    $( window ).resize(function() {
+    $(window).resize(function() {
         setImgLarge();
         setImgSmall();
     });
@@ -46,11 +46,17 @@ $(function() {
 function setImgLarge() {
     var imgLarge = $('.img-large');
     var width = imgLarge.width();
-    imgLarge.height(width * 2/3);
+    imgLarge.height(width * 2 / 3);
 }
 
 function setImgSmall() {
     var imgSmall = $('.img-small');
     var width = imgSmall.width();
     imgSmall.height(width);
+}
+
+function sendColorName(colorName) {
+    document.getElementById("colorSelected").innerHTML = colorName;
+    // var a = document.getElementById("chooseCl").value = colorId;
+    // console.log(a);
 }

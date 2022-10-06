@@ -245,8 +245,8 @@
                                                             value="<?= $order['order_id'] ?>" />
                                                         <input type="hidden" name="adminId" value="2" />
                                                         <div class="mb-3">
-                                                            <label for="changeStatus" class="form-label">Chọn kích
-                                                                cỡ</label>
+                                                            <label for="changeStatus" class="form-label">Chọn trạng thái
+                                                                đơn hàng</label>
                                                             <select id="changeStatus" class="form-select mb-3"
                                                                 name="updateStatus" required>
                                                                 <option value="">None</option>
