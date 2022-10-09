@@ -1,50 +1,3 @@
-<!-- Header -->
-<div class="col-12 bg-white pt-4">
-    <div class="row">
-        <div class="col-lg-auto">
-            <div class="site-logo text-center text-lg-left">
-                <a href="index.php">Double-<span class="animate-charcter">H</span></a>
-            </div>
-        </div>
-        <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
-            <form action="" method="POST">
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="search" class="form-control border-dark" placeholder="Bạn tìm gì..." name="search"
-                            required>
-                        <!-- <input type="submit" name="submit" > -->
-                        <button class="btn btn-outline-dark" id="demo" name="submit">
-                            <lord-icon src="https://cdn.lordicon.com/qehhcbpv.json" trigger="hover"
-                                style="width:18px;height:18.8px">
-                            </lord-icon>
-                        </button>
-                    </div>
-                </div>
-            </form>
-            <!-- !php search -->
-
-            <!-- php search -->
-        </div>
-        <div class="col-lg-auto text-center text-lg-left header-item-holder">
-            <a href="#" class="header-item">
-                <lord-icon src="https://cdn.lordicon.com/wwbrugun.json" trigger="hover"
-                    style="width:25px;height:25.8px">
-                </lord-icon><span id="header-favorite">0</span>
-            </a>
-            <a href="cart.html" class="header-item">
-                <lord-icon src="https://cdn.lordicon.com/gtcqrwnh.json" trigger="hover"
-                    style="width:25px;height:25.8px;">
-                </lord-icon>
-                <span id="header-qty" class="me-3">2</span>
-            </a>
-            <a href="login.php" class="header-item">
-                <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover"
-                    style="width:25px;height:25.7px">
-                </lord-icon>
-            </a>
-        </div>
-    </div>
-
     <!-- Nav -->
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light bg-white col-12">
@@ -363,5 +316,3 @@
         </div>
     </main>
 </div>
-
-<div class="col-12 align-self-end">

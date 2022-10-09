@@ -1,11 +1,14 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 	require 'Model/Database.php';
 	$db = new Database();
 
 	require 'View/client/layouts/header.php'; /*giao diện header*/
 
 	if (isset($_GET['controller'])) {
-		require '../../Route/admin/web.php'; /*xử lý các request trong Route/web.php*/
+		require 'Route/web.php'; /*xử lý các request trong Route/web.php*/
 	} else {
 		require 'View/client/pages/home.php'; /*require giao diện trang chủ*/
 	}

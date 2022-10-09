@@ -26,9 +26,6 @@
 
 <!-- script -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<!-- <script>
-var j3_4_1 = $.noConflict(true);
-</script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../../ProjectSem2/Assets/admin/lib/chart/chart.min.js"></script>
 <script src="../../../ProjectSem2/Assets/admin/lib/easing/easing.min.js"></script>

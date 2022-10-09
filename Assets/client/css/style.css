@@ -96,26 +96,15 @@ a {
 
 .product-item {
     box-shadow: #ccc 0 0 10px 1px;
-    border-radius: 1rem;
 }
 
 .product-item:hover {
     box-shadow: #aaa 0 0 10px 1px;
 }
 
-.product-card {
-    box-shadow: #ccc 0 0 10px 1px;
-    border-radius: 1rem;
-}
-
-.product-card:hover {
-    box-shadow: #aaa 0 0 10px 1px;
-    border-radius: 1rem;
-}
-
 .product-name {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 600;
     color: #656565;
     text-decoration: none;
 }
@@ -191,11 +180,10 @@ a.product-name:focus {
     color: #fff;
 }
 
-
-/* .product-item {
+.product-item {
     position: relative;
     overflow: hidden;
-} */
+}
 
 .new {
     position: absolute;
@@ -210,11 +198,10 @@ a.product-name:focus {
     transition: all .3s ease-out 0s;
 }
 
-
-/* .product-item:hover .new {
+.product-item:hover .new {
     left: 0;
     width: auto;
-} */
+}
 
 .large-holder {
     border-right: 1px solid #c0c0c0;
@@ -263,14 +250,14 @@ a.product-name:focus {
 
 .detail-price {
     font-weight: bold;
-    font-size: 2.6rem;
+    font-size: 4rem;
     color: #616161;
     display: block;
 }
 
 .detail-price-old {
     text-decoration: line-through;
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #939393;
     display: block;
@@ -451,81 +438,7 @@ table td img {
     float: right;
 }
 
-.card {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    /* margin-top: 20px !important;
-    margin-bottom: 20px !important; */
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 1rem;
-}
-
-.card>hr {
-    margin-right: 0;
-    margin-left: 0;
-}
-
-.card>.list-group:first-child .list-group-item:first-child {
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
-}
-
-.card>.list-group:last-child .list-group-item:last-child {
-    border-bottom-right-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
-
-.card-body {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1.25rem;
-    padding-top: 1rem !important
-}
-
-.card-title {
-    margin-bottom: 0.75rem;
-}
-
-.thumbnail {
-    border-radius: 1rem !important;
-}
-
-.old-price {
-    text-decoration: line-through;
-    font-size: 11px;
-    color: black;
-    margin-bottom: 0px;
-    font-weight: 700;
-    margin: 0;
-}
-
-.new-price {
-    font-weight: 700;
-    vertical-align: middle;
-    font-size: 18px;
-    margin-bottom: 0px;
-    color: red;
-    margin: 0;
-}
-
-.money {
-    width: 90%;
-}
-
-.price {
-    display: inline;
-}
+.back-to-top {}
 
 .product-grid {
     font-family: 'Poppins', sans-serif;
@@ -727,10 +640,83 @@ table td img {
     }
 }
 
-.carousel-indicators {
-    bottom: -50px;
+
+/* .form {
+    padding: 30px 40px;
 }
 
-.carousel-indicators button {
-    width: 60px !important;
+.registerForm {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
 }
+
+.registerForm label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.registerForm input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+
+.registerForm input:focus {
+    outline: 0;
+    border-color: #777;
+}
+
+.registerForm .success input {
+    border-color: #2ecc71;
+}
+
+.registerForm.error input {
+    border-color: #e74c3c;
+}
+
+.registerForm i {
+    visibility: hidden;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+
+.registerForm.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.registerForm.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.registerForm small {
+    color: #e74c3c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.registerForm.error small {
+    visibility: visible;
+}
+
+.form button {
+    background-color: #8e44ad;
+    border: 2px solid #8e44ad;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+} */

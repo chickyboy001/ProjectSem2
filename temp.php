@@ -18,6 +18,9 @@
             <?php }
         ?>
         hiển thị tên đăng nhập sau khi đăng nhập
+
+
+        
         <?php
                                                 if (!empty($_SESSION['user'])) {?>
                                                     <li>
