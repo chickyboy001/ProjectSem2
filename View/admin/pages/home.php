@@ -157,7 +157,7 @@
                         <i class="fa fa-chart-line fa-3x text-primary"></i>
                         <div class="ms-3">
                             <p class="mb-2">Doanh thu ngày</p>
-                            <h6 class="mb-0">$1234</h6>
+                            <h6 class="mb-0"><?= getFormattedNumber($revenue) . VND ?></h6>
                         </div>
                     </div>
                 </div>
@@ -174,8 +174,8 @@
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-area fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Đơn hàng mới</p>
-                            <h6 class="mb-0">$1234</h6>
+                            <p class="mb-2">Đơn hôm nay</p>
+                            <h6 class="mb-0"><?= $countNewOrder ?></h6>
                         </div>
                     </div>
                 </div>
@@ -221,70 +221,124 @@
 
         <!-- Recent Sales Start -->
         <div class="container-fluid pt-4 px-4">
-            <div class="bg-light text-center rounded p-4">
+            <div class="bg-light rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Recent Salse</h6>
-                    <a href="">Show All</a>
+                    <h6 class="mb-0">Đơn hàng gần đây</h6>
+                    <a href="">Hiện tất cả</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <table id="orderTable" class="table text-center align-middle table-bordered table-hover mb-0">
                         <thead>
                             <tr class="text-dark">
-                                <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Invoice</th>
-                                <th scope="col">Customer</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">STT</th>
+                                <th scope="col">Khách hàng</th>
+                                <th scope="col">Thời gian đặt</th>
+                                <th scope="col">Thành tiền</th>
+                                <th scope="col">Trạng thái</th>
+                                <th scope="col">Người xử lý</th>
+                                <th scope="col">Chi tiết</th>
+                                <th scope="col">Sửa</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                            $stt = 0;
+                            foreach ($orders as $order) {
+                                $stt++;
+                                $customer = $accModel->getUserById($order['customer_id']);
+                                if(!empty($order['admin_id'])){
+                                    $admin = $accModel->getUserById($order['admin_id']);
+                                }
+                                
+                                $products = $orderModel->getProductInOrder($order['order_id']);
+                            ?>
                             <tr>
-                                <td><input class="form-check-input" type="checkbox"></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                <td><?= $stt ?></td>
+                                <td><?= $customer['fullname'] ?></td>
+                                <td><?= $order['order_date'] ?></td>
+
+                                <?php
+                                    $price = 0;
+                                    foreach ($products as $product) {
+                                        $price = $price + $product['price'];
+                                    } ?>
+                                <td><?= getFormattedNumber($price) . VND ?></td>
+
+                                <?php if ($order['status'] == 1) { ?>
+                                <td class="text-secondary"> Đã đặt hàng</td>
+                                <?php }
+                                    if ($order['status'] == 2) { ?>
+                                <td class="text-primary"> Đang xử lý </td>
+                                <?php }
+                                    if ($order['status'] == 3) { ?>
+                                <td class="text-info"> Đang vận chuyển </td>
+                                <?php }
+                                    if ($order['status'] == 4) { ?>
+                                <td class="text-success"> Hoàn thành </td>
+                                <?php }
+                                    if ($order['status'] == 5) { ?>
+                                <td class="text-danger"> Đã hủy </td>
+                                <?php } ?>
+
+                                <td><?php if(isset($admin['fullname'])) 
+                                {echo $admin['fullname'];} else echo "Chưa có"; ?></td>
+                                <td>
+                                    <a class="btn btn-sm btn-outline-info"
+                                        href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modalid<?= $stt ?>">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                    <div class="modal fade" id="modalid<?= $stt ?>" tabindex="-1"
+                                        aria-labelledby="modalid<?= $stt ?>" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content text-start">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="modalid<?= $stt ?>">Thay đổi trạng
+                                                        thái đơn
+                                                        hàng</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+
+                                                <form id="formid<?= $stt ?>" method="post"
+                                                    enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="orderId"
+                                                            value="<?= $order['order_id'] ?>" />
+                                                        <input type="hidden" name="adminId" value="2" />
+                                                        <div class="mb-3">
+                                                            <label for="changeStatus" class="form-label">Chọn trạng thái
+                                                                đơn hàng</label>
+                                                            <select id="changeStatus" class="form-select mb-3"
+                                                                name="updateStatus" required>
+                                                                <option value="">None</option>
+                                                                <option value="1">Đã đặt hàng</option>
+                                                                <option value="2">Đang xử lý</option>
+                                                                <option value="3">Đang vận chuyển</option>
+                                                                <option value="4">Hoàn thành</option>
+                                                                <option value="5">Hủy</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Đóng</button>
+                                                        <button type="submit" name="editOrder"
+                                                            class="btn btn-primary">Cập nhật</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox"></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox"></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox"></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox"></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                            </tr>
+                            <?php
+                            } ?>
                         </tbody>
                     </table>
                 </div>
@@ -299,8 +353,8 @@
                 <div class="col-sm-12 col-md-6 col-xl-4">
                     <div class="h-100 bg-light rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h6 class="mb-0">Messages</h6>
-                            <a href="">Show All</a>
+                            <h6 class="mb-0">Tin nhắn</h6>
+                            <a href="">Hiện tất cả</a>
                         </div>
                         <div class="d-flex align-items-center border-bottom py-3">
                             <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt=""
@@ -351,8 +405,8 @@
                 <div class="col-sm-12 col-md-6 col-xl-4">
                     <div class="h-100 bg-light rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Calender</h6>
-                            <a href="">Show All</a>
+                            <h6 class="mb-0">Lịch</h6>
+                            <a href="">Tất cả</a>
                         </div>
                         <div id="calender"></div>
                     </div>
@@ -360,8 +414,8 @@
                 <div class="col-sm-12 col-md-6 col-xl-4">
                     <div class="h-100 bg-light rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">To Do List</h6>
-                            <a href="">Show All</a>
+                            <h6 class="mb-0">Những việc cần làm</h6>
+                            <a href="">Hiện tất cả</a>
                         </div>
                         <div class="d-flex mb-2">
                             <input class="form-control bg-transparent" type="text" placeholder="Enter task">

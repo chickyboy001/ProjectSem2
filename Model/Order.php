@@ -60,5 +60,40 @@ class Order extends Database
         return $list;
     }
 
+    public function getOrderToday()
+    {
+        mysqli_next_result($this->db->conn);
+        $sql = "SELECT * FROM orders WHERE cast(order_date as Date) = cast(CURDATE() as Date) AND status = '4'";
+        $result = $this->db->conn->query($sql);
+        $list = array();
+        while ($data = $result->fetch_array()) {
+            $list[] = $data;
+        }
+        return $list;
+    }
+
+    public function getOrderOfCustomer($customer_id)
+    {
+        mysqli_next_result($this->db->conn);
+        $sql = "SELECT * FROM orders WHERE customer_id = '$customer_id' ORDER BY order_date DESC";
+        $result = $this->db->conn->query($sql);
+        $list = array();
+        while ($data = $result->fetch_array()) {
+            $list[] = $data;
+        }
+        return $list;
+    }
+
+    public function getLatestOrder(){
+        mysqli_next_result($this->db->conn);
+        $sql = "SELECT * FROM orders ORDER BY order_date DESC";
+		$result = $this->db->conn->query($sql);
+		$list = array();
+		while ($data = $result->fetch_array()) {
+			$list[] = $data;
+		}
+		return $list;
+    }
+
 }
 ?>

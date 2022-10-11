@@ -11,11 +11,12 @@ class Register {
 		if (isset($_POST['register'])) {
 			
 			$username = trim($_POST['username']);
+			$fullname = trim($_POST['fullname']);
 			$address = trim($_POST['address']);
 			$phone = trim($_POST['phone']);
 			$password = md5($_POST['password']);
 
-			if ($username && $password && $address && $phone) {
+			if ($username && $password && $address && $phone && $fullname) {
 				$checkUsername = $accModel->checkExistUsername($username);
 				$checkPhone = $accModel->checkExistPhone($phone);
 
@@ -25,7 +26,7 @@ class Register {
 					echo "<script>alert('Số điện thoại đã tồn tại')</script>";
 				} else {
 					$accModel->signup($username, $address, $phone, $password);
-					echo "<script>alert('đăng ký thành công')</script>";
+					echo "<script>alert('Đăng ký thành công')</script>";
 				}
 			}
 		}

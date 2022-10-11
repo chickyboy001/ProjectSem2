@@ -227,6 +227,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="d-flex justify-content-start flex-row ">
+                    <div class="text-start text-dark me-3 col-5 col-sm-2">
+                        <p>
+                            <strong>Phương thức thanh toán:</strong>
+                        </p>
+                    </div>
+                    <div class="text-start col-7 ">
+                        <p>
+                            <?php if($order['payment_method'] == 0) {?>
+                            <strong> Tiền mặt</strong>
+                            <?php } if($order['payment_method'] == 2) { ?>
+                            <strong> Chuyển khoản </strong>
+                            <?php } if($order['payment_method'] == 3) { ?>
+                            <strong> Thẻ ATM </strong>
+                            <?php } if($order['payment_method'] == 4) { ?>
+                            <strong> Ví điện tử </strong>
+                            <?php } ?>
+                        </p>
+                    </div>
+                </div>
                 <div class="d-flex align-items-center justify-content-between mb-4 ">
                     <h6 class="mb-0 ">Danh sách sản phẩm</h6>
                 </div>
@@ -245,7 +265,6 @@
                         <tbody>
                             <?php
                                 $stt = 0;
-                                $VND = 'đ';
                                 foreach ($products as $product) {
                                 $stt++;?>
                             <tr>
@@ -254,7 +273,7 @@
                                 <td><?= $product['color'] ?></td>
                                 <td><?= $product['size'] ?></td>
                                 <td><?= $product['quantity'] ?></td>
-                                <td><?= getFormattedNumber($product['price']).$VND ?></td>
+                                <td><?= getFormattedNumber($product['price']).VND ?></td>
                             </tr>
                             <?php
                             } ?>
@@ -272,11 +291,10 @@
                     <div class="text-start col-7 ">
                         <?php
                                 $price = 0;
-                                $VND = 'đ';
                                 foreach ($products as $product) { 
                                 $price = $price + $product['price']*$product['quantity'];}?>
                         <p>
-                            <strong><?= getFormattedNumber($price).$VND ?></strong>
+                            <strong><?= getFormattedNumber($price).VND ?></strong>
                         </p>
                     </div>
                 </div>

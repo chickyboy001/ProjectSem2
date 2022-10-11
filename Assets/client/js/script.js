@@ -61,11 +61,12 @@ function sendColorName(colorName) {
     // console.log(a);
 }
 
-const form = document.getElementById('form');
+
+const form = document.getElementById('registrationValidate');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
+const password_confirm = document.getElementById('password_confirm');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -78,113 +79,53 @@ function checkInputs() {
     const usernameValue = username.value.trim();
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
-    const password2Value = password2.value.trim();
+    const password2Value = password_confirm.value.trim();
 
     if (usernameValue === '') {
-        setErrorFor(username, 'Username cannot be blank');
+        setErrorFor(username, 'Tên người dùng không được bỏ trống');
     } else {
         setSuccessFor(username);
     }
 
     if (emailValue === '') {
-        setErrorFor(email, 'Email cannot be blank');
+        setErrorFor(email, 'Email không được bỏ trống');
     } else if (!isEmail(emailValue)) {
-        setErrorFor(email, 'Not a valid email');
+        setErrorFor(email, 'Sai định dạng email');
     } else {
         setSuccessFor(email);
     }
 
     if (passwordValue === '') {
-        setErrorFor(password, 'Password cannot be blank');
+        setErrorFor(password, 'Mật khẩu không được bỏ trống');
     } else {
         setSuccessFor(password);
     }
 
     if (password2Value === '') {
-        setErrorFor(password2, 'Password2 cannot be blank');
+        setErrorFor(password_confirm, 'Nhập lại mật khẩu không được bỏ trống');
     } else if (passwordValue !== password2Value) {
-        setErrorFor(password2, 'Passwords does not match');
+        setErrorFor(password_confirm, 'Mật khẩu nhập lại không trùng khớp');
     } else {
-        setSuccessFor(password2);
+        setSuccessFor(password_confirm);
     }
 }
 
 function setErrorFor(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
-    formControl.className = 'form-control error';
+    formControl.className = 'formValid mb-3 error';
     small.innerText = message;
 }
 
 function setSuccessFor(input) {
     const formControl = input.parentElement;
-    formControl.className = 'form-control success';
+    formControl.className = 'formValid mb-3 success';
 }
 
 function isEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 
-// const form = document.getElementById('registrationValidate');
-// const username = document.getElementById('username');
-// const email = document.getElementById('email');
-// const password = document.getElementById('password');
-// const password_confirm = document.getElementById('password_confirm');
-
-// form.addEventListener('submit', e => {
-//     e.preventDefault();
-
-//     checkInputs();
-// });
-
-// function checkInputs() {
-//     // trim to remove the whitespaces
-//     const usernameValue = username.value.trim();
-//     const emailValue = email.value.trim();
-//     const passwordValue = password.value.trim();
-//     const password2Value = password_confirm.value.trim();
-
-//     if (usernameValue === '') {
-//         setErrorFor(username, 'Tên người dùng không được bỏ trống');
-//     } else {
-//         setSuccessFor(username);
-//     }
-
-//     if (emailValue === '') {
-//         setErrorFor(email, 'Email không được bỏ trống');
-//     } else if (!isEmail(emailValue)) {
-//         setErrorFor(email, 'Sai định dạng email');
-//     } else {
-//         setSuccessFor(email);
-//     }
-
-//     if (passwordValue === '') {
-//         setErrorFor(password, 'Mật khẩu không được bỏ trống');
-//     } else {
-//         setSuccessFor(password);
-//     }
-
-//     if (password2Value === '') {
-//         setErrorFor(password_confirm, 'Nhập lại mật khẩu không được bỏ trống');
-//     } else if (passwordValue !== password2Value) {
-//         setErrorFor(password_confirm, 'Mật khẩu nhập lại không trùng khớp');
-//     } else {
-//         setSuccessFor(password_confirm);
-//     }
-// }
-
-// function setErrorFor(input, message) {
-//     const formControl = input.parentElement;
-//     const small = formControl.querySelector('small');
-//     formControl.className = 'formValid mb-3 error';
-//     small.innerText = message;
-// }
-
-// function setSuccessFor(input) {
-//     const formControl = input.parentElement;
-//     formControl.className = 'formValid mb-3 success';
-// }
-
-// function isEmail(email) {
-//     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-// }
+let subTotalEl = document.querySelector('.subtotal span');
+let vatEl = document.querySelector('.vat span');
+let totalEle = document.querySelector('.total span');

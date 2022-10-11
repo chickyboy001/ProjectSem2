@@ -45,5 +45,19 @@ class Account extends Database
 		return $result;
 	}
 
+	public function editProfile($userId, $fullname, $sex, $phone, $address, $email)
+    {
+		$fullname = $this->db->conn->real_escape_string($fullname);
+        $address = $this->db->conn->real_escape_string($address);
+		$email = $this->db->conn->real_escape_string($email);
+        $sql = "UPDATE accounts SET address = '$address',
+									phone = '$phone',
+									fullname = '$fullname',
+									sex = '$sex',
+									address = '$address',
+									email = '$email' WHERE user_id = $userId";
+		return $this->db->conn->query($sql);
+    }
+
 }
 ?>

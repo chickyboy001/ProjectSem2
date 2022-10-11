@@ -181,7 +181,6 @@
                             $stt = 0;
                             foreach ($products as $product) {
                                 $stt++;
-                                $VND = 'đ';
                                 $quantity = 0;
                                 $colors = $productModel->getColorOfProduct($product['product_id']);
                                 foreach ($colors as $color) {
@@ -199,7 +198,7 @@
                                 <td><?= $product['product_name'] ?></td>
                                 <td><?= $productCate['category_name'] ?></td>
                                 <td><?= $quantity ?></td>
-                                <td><?= getFormattedNumber($product['price']) . $VND ?>
+                                <td><?= getFormattedNumber($product['price']) . VND ?>
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-info"

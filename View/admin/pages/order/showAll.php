@@ -182,7 +182,9 @@
                             foreach ($orders as $order) {
                                 $stt++;
                                 $customer = $accModel->getUserById($order['customer_id']);
-                                $admin = $accModel->getUserById($order['admin_id']);
+                                if(!empty($order['admin_id'])){
+                                    $admin = $accModel->getUserById($order['admin_id']);
+                                }
                                 $products = $orderModel->getProductInOrder($order['order_id']);
                             ?>
                             <tr>
@@ -214,7 +216,8 @@
                                 <td class="text-danger"> Đã hủy </td>
                                 <?php } ?>
 
-                                <td><?= $admin['fullname'] ?></td>
+                                <td><?php if(isset($admin['fullname'])) 
+                                {echo $admin['fullname'];} else echo "Chưa có"; ?></td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-info"
                                         href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>">

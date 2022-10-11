@@ -1,80 +1,54 @@
-    <!-- Nav -->
-    <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white col-12">
-            <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse"
-                data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Trang chủ <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <?php include 'connect.php'; ?>
-                    <?php
-                    $sql_category = mysqli_query($conn, 'SELECT * FROM categories ORDER BY category_id DESC');
-                    // $query = "SELECT * FROM category ORDER BY id DESC";
-                    ?>
+<!-- Nav -->
+<div class="row">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white col-12">
+        <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="">Trang chủ <span class="sr-only">(current)</span>
+                    </a>
+                </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Sản
-                            Phẩm</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sản
+                        Phẩm</a>
 
-                        <div class="dropdown-menu" aria-labelledby="electronics">
-                            <?php
-                            while ($row_category = mysqli_fetch_array($sql_category)) {
-                            ?>
-                            <a class="dropdown-item" href="category.html">
-                                <?php echo $row_category['category_name'] ?>
-                            </a>
-                            <?php } ?>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="fashion" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Tin
-                            Tức</a>
+                    <div class="dropdown-menu" aria-labelledby="electronics">
                         <?php
-                        $sql_category_news = mysqli_query($conn, 'SELECT * FROM categories ORDER BY category_id DESC');;
+                        foreach ($categories as $category) {
+                            if ($category['status'] == 0) {
+                                continue;
+                            }
                         ?>
-                        <div class="dropdown-menu" aria-labelledby="fashion">
-                            <?php
-                            while ($row_category_news = mysqli_fetch_array($sql_category_news)) {
-                            ?>
                             <a class="dropdown-item" href="category.html">
-                                <?php echo $row_category_news['category_name'] ?>
+                                <?= $category['category_name'] ?>
                             </a>
-                            <?php } ?>
+                        <?php } ?>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="fashion" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tin
+                        Tức</a>
+                    <div class="dropdown-menu" aria-labelledby="fashion">
 
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="books" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Liên hệ</a>
-                        <?php
-                        $sql_category_contact = mysqli_query($conn, 'SELECT * FROM categories ORDER BY category_id DESC');
-                        ?>
-                        <div class="dropdown-menu" aria-labelledby="books">
-                            <?php
-                            while ($row_category_contact = mysqli_fetch_array($sql_category_contact)) {
-                            ?>
-                            <a class="dropdown-item" href="category.html">
-                                <?php echo $row_category_contact['category_name'] ?>
-                            </a>
-                            <?php } ?>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <!-- Nav -->
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="books" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Liên hệ</a>
 
+                    <div class="dropdown-menu" aria-labelledby="books">
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!-- Nav -->
 </div>
 <!-- Header -->
-
 </header>
 </div>
 
@@ -89,19 +63,19 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img src="/assests/image/banner1.png" class="slider-img">
+                        <img src="../../../ProjectSem2/Assets/client/image/banner1.png" class="slider-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="/assests/image/banner2.png" class="slider-img">
+                        <img src="../../../ProjectSem2/Assets/client/image/banner2.png" class="slider-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="/assests/image/banner3.png" class="slider-img">
+                        <img src="../../../ProjectSem2/Assets/client/image/banner3.png" class="slider-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="/assests/image/banner4.png" class="slider-img">
+                        <img src="../../../ProjectSem2/Assets/client/image/banner4.png" class="slider-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="/assests/image/banner5.png" class="slider-img">
+                        <img src="../../../ProjectSem2/Assets/client/image/banner5.png" class="slider-img">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
@@ -114,53 +88,143 @@
                 </button>
             </div>
         </div>
-        <div class="col-12">
-            <div class="row">
-                <div class="col-12 py-3">
-                    <div class="row">
-                        <div class="col-12 text-center text-uppercase">
-                            <h2>sản phẩm nổi bật</h2>
+        <div class="row mb-5 pb-2">
+            <div class="col-12 text-center text-uppercase">
+                <h2>sản phẩm mới</h2>
+            </div>
+            <div class="owl-carousel owl-theme">
+                <div class="col-md-12 col-sm-12 mb-4">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
                         </div>
                     </div>
-                    <div class="row">
-                        <?php
-                        $sql_product = mysqli_query($conn, 'SELECT * FROM products ORDER BY product_id');
-                        ?>
-                        <?php
-                        while ($row_product = mysqli_fetch_array($sql_product)) {
-                        ?>
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100 product-item border-radius">
-                                <div class="row h-100">
-                                    <div class="col-12 p-0 mb-3">
-                                        <a href="product.php?id=<?php $row_product['id'] ?>">
-                                            <img src="/assests/image/<?php echo $row_product['image']; ?>"
-                                                class="img-fluid zoom">
-                                        </a>
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        <a href="product.html" class="product-name">
-                                            <?php echo $row_product['name']; ?>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        <span class="product-price-old">
-                                            <?php echo $row_product['price']; ?>
-                                        </span>
-                                        <br>
-                                        <span class="product-price">
-                                            <?php echo $row_product['pricesale']; ?>
-                                        </span>
-                                    </div>
-                                    <div class="col-12 mb-3 align-self-end">
-                                        <button class="btn btn-outline-dark showcart" type="button"><i
-                                                class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
                         </div>
-                        <?php } ?>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Women's Shirt</a></h3>
+                            <div class="price">$79.90</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -170,53 +234,143 @@
             <hr>
         </div>
 
-        <div class="col-12">
-            <div class="row">
-                <div class="col-12 py-3">
-                    <div class="row">
-                        <div class="col-12 text-center text-uppercase">
-                            <h2>sản phẩm mới nhất</h2>
+        <div class="row mb-5 pb-2">
+            <div class="col-12 text-center text-uppercase">
+                <h2>sản phẩm đang giảm giá</h2>
+            </div>
+            <div class="owl-carousel owl-theme">
+                <div class="col-md-12 col-sm-12 mb-4">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
                         </div>
                     </div>
-                    <div class="row">
-                        <?php
-                        $sql_lastest_product = mysqli_query($conn, 'SELECT * FROM products ORDER BY product_id');
-                        ?>
-                        <?php
-                        while ($row_lastest_product = mysqli_fetch_array($sql_lastest_product)) {
-                        ?>
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100 product-item border-radius">
-                                <span class="new">New</span>
-                                <div class="row h-100">
-                                    <div class="col-12 p-0 mb-3">
-                                        <a href="product.html">
-                                            <img src="/assests/image/<?php echo $row_lastest_product['image']; ?>"
-                                                class="img-fluid zoom">
-                                        </a>
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        <a href="product.php" class="product-name">
-                                            <?php echo $row_lastest_product['name']; ?>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        <span class="product-price-old">
-                                            <?php echo $row_lastest_product['price']; ?>
-                                        </span>
-                                        <br>
-                                        <span class="product-price">
-                                            <?php echo $row_lastest_product['pricesale']; ?>
-                                        </span>
-                                    </div>
-                                    <div class="col-12 mb-3 align-self-end">
-                                        <button class="btn btn-outline-dark showcart" type="button"><i
-                                                class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng</button>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
                         </div>
-                        <?php } ?>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Women's Shirt</a></h3>
+                            <div class="price">$79.90</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -226,52 +380,143 @@
             <hr>
         </div>
 
-        <div class="col-12">
-            <div class="row">
-                <div class="col-12 py-3">
-                    <div class="row">
-                        <div class="col-12 text-center text-uppercase">
-                            <h2>sản phẩm bán chạy nhất</h2>
+        <div class="row mb-5 pb-2">
+            <div class="col-12 text-center text-uppercase">
+                <h2>sản phẩm tương tự</h2>
+            </div>
+            <div class="owl-carousel owl-theme">
+                <div class="col-md-12 col-sm-12 mb-4">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
                         </div>
                     </div>
-                    <div class="row">
-                        <?php
-                        $sql_bestselling_product = mysqli_query($conn, 'SELECT * FROM products ORDER BY product_id');
-                        ?>
-                        <?php
-                        while ($row_bestselling_product = mysqli_fetch_array($sql_bestselling_product)) {
-                        ?>
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100 product-item border-radius">
-                                <div class="row h-100">
-                                    <div class="col-12 p-0 mb-3">
-                                        <a href="product.html">
-                                            <img src="/assests/image/<?php echo $row_bestselling_product['image']; ?>"
-                                                class="img-fluid zoom">
-                                        </a>
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        <a href="product.html" class="product-name">
-                                            <?php echo $row_bestselling_product['name']; ?>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        <span class="product-price-old">
-                                            <?php echo $row_bestselling_product['price']; ?>
-                                        </span>
-                                        <br>
-                                        <span class="product-price">
-                                            <?php echo $row_bestselling_product['pricesale']; ?>
-                                        </span>
-                                    </div>
-                                    <div class="col-12 mb-3 align-self-end">
-                                        <button class="btn btn-outline-dark showcart" type="button"><i
-                                                class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng</button>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
                         </div>
-                        <?php } ?>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Women's Shirt</a></h3>
+                            <div class="price">$79.90</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                            </a>
+                            <span class="product-discount-label">-33%</span>
+                            <ul class="product-links">
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                            </ul>
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <div class="price"><span>$90.00</span> $66.00</div>
+                            <a class="add-to-cart" href="#">add to cart</a>
+                        </div>
                     </div>
                 </div>
             </div>

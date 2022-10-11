@@ -17,10 +17,9 @@
     <link rel="stylesheet" href="../../../ProjectSem2/Assets/client/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../ProjectSem2/Assets/client/css/all.min.css">
     <link rel="stylesheet" href="../../../ProjectSem2/Assets/client/css/style.css">
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="../../../ProjectSem2/Assets/client/css/scss.scss">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
     <!-- <link rel="stylesheet" href="/cssmodal.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" />
@@ -29,27 +28,6 @@
 </head>
 
 <body>
-    <div id="preloader"></div>
-    <?php
-    if (isset($error['username'])) { ?>
-        <div class="alert alert-danger" style="top: 155px; position: absolute; z-index: 5; width: auto; right: 0px;" role="alert">
-            <?php echo $error['username'] ?>
-        </div>
-    <?php } else if (isset($error['password'])) { ?>
-        <div class="alert alert-danger" style="top: 155px; position: absolute; z-index: 5; width: auto; right: 0px;" role="alert">
-            <?= $error['password'] ?>
-        </div>
-    <?php } else if (isset($error['full_name'])) { ?>
-        <div class="alert alert-danger" style="top: 155px; position: absolute; z-index: 5; width: auto; right: 0px;" role="alert">
-            <?= $error['full_name'] ?>
-        </div>
-    <?php } else if (isset($error['username_exist'])) { ?>
-        <div class="alert alert-danger" style="top: 155px; position: absolute; z-index: 5; width: auto; right: 0px;" role="alert">
-            <?= $error['username_exist'] ?>
-        </div>
-    <?php }
-    ?>
-
     <div class="container">
         <div class="row min-vh-100">
             <div class="col-12">
@@ -72,21 +50,21 @@
                                     <?php
                                     if (!empty($_SESSION['user'])) { ?>
                                         <li>
-                                            <a href="register.php"><i class="fa-solid fa-user me-2"></i><?=$_SESSION['user']['username']?></a>
+                                            <a href="register.php"><i class="fa-solid fa-user me-2"></i><?= $_SESSION['user']['username'] ?></a>
                                         </li>
                                         <li>
                                             <a href="?controller=logout"><i class="fa-solid fa-right-from-bracket me-2"></i></i>Đăng xuất</a>
                                         </li>
                                     <?php } else { ?>
                                         <li>
-                                        <a href="register.php"><i class="fas fa-user-edit me-2"></i>Đăng ký</a>
-                                    </li>
-                                    <li>
-                                        <a href="?controller=loginClient"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a>
-                                    </li>
+                                            <a href="register.php"><i class="fas fa-user-edit me-2"></i>Đăng ký</a>
+                                        </li>
+                                        <li>
+                                            <a href="?controller=loginClient"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a>
+                                        </li>
                                     <?php }
                                     ?>
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -119,6 +97,7 @@
                                     <lord-icon src="https://cdn.lordicon.com/wwbrugun.json" trigger="hover" style="width:25px;height:25.8px">
                                     </lord-icon><span id="header-favorite">0</span>
                                 </a>
+
                                 <a href="cart.html" class="header-item">
                                     <lord-icon src="https://cdn.lordicon.com/gtcqrwnh.json" trigger="hover" style="width:25px;height:25.8px;">
                                     </lord-icon><span id="header-qty" class="me-3">2</span>

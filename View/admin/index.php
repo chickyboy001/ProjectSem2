@@ -21,7 +21,7 @@ error_reporting(E_ALL);
 		if (isset($_GET['controller'])) {
 			require '../../Route/admin/web.php'; /*xử lý các request trong Route/web.php*/
 		} else {
-			require('pages/home.php');
+			require('../../Controller/admin/home.php');
 		}
 
 		require('layouts/footer.php');

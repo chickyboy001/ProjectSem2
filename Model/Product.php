@@ -57,7 +57,6 @@ class Product extends Database
 
     public function addOrUpdateColor($product_id, $color_id)
     {
-        $color_id = $this->db->conn->real_escape_string($color_id);
         $sql = "UPDATE products SET color_id = '$color_id' WHERE product_id = $product_id";
 		return $this->db->conn->query($sql);
     }
@@ -73,6 +72,8 @@ class Product extends Database
 		}
 		return $list;
     }
+
+    
 
 }
 ?>
