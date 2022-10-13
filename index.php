@@ -8,18 +8,21 @@
 	require 'Assets/admin/lib/function.php';
 	require 'Model/Database.php';
 	$db = new Database();
-
-	require 'View/client/layouts/header.php'; /*giao diện header*/
-
+	
 	if (isset($_GET['controller'])) {
-		require 'Route/web.php'; /*xử lý các request trong Route/web.php*/
+		if(strcmp($_GET['controller'], 'loginAdmin') == 0) {
+			require 'Route/web.php';
+		} else {
+			require 'View/client/layouts/header.php';
+			require 'Route/web.php';
+			require 'View/client/layouts/footer.php';
+		}
 	} else {
+		require 'View/client/layouts/header.php';
 		require('Controller/client/home.php');
-		// require 'View/client/pages/home.php'; /*require giao diện trang chủ*/
+		require 'View/client/layouts/footer.php';
 	}
-
-	require 'View/client/layouts/footer.php'; /*giao diện footer*/
-
+	
 	$db->closeDatabase();
 
 ?>

@@ -1,11 +1,11 @@
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
-    <!-- <div id="spinner"
+    <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-    </div> -->
+    </div>
     <!-- Spinner End -->
 
 
@@ -246,7 +246,7 @@
                                                     <div class="modal-body">
                                                         <input type="hidden" name="orderId"
                                                             value="<?= $order['order_id'] ?>" />
-                                                        <input type="hidden" name="adminId" value="2" />
+                                                        <input type="hidden" name="adminId" value="<?= $_SESSION['useradmin']['user_id'] ?>" />
                                                         <div class="mb-3">
                                                             <label for="changeStatus" class="form-label">Chọn trạng thái
                                                                 đơn hàng</label>

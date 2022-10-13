@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -15,18 +15,27 @@ error_reporting(E_ALL);
      * @var array
      */
 
-	if (!empty($_SESSION['useradmin']) && $_SESSION['useradmin']['role'] == admin) {
-		$title = "Trang chủ";
-		require('layouts/header.php');
-		if (isset($_GET['controller'])) {
-			require '../../Route/admin/web.php'; /*xử lý các request trong Route/web.php*/
+	// if (empty($_SESSION['useradmin']) && $_SESSION['useradmin']['level'] == admin) {
+		if(strcmp($_GET['controller'], 'loginAdmin') == 0) {
+			if (isset($_GET['controller'])) {
+				require '../../Route/client/web.php'; /*xử lý các request trong Route/web.php*/
+			} else {
+				require('pages/home.php');
+			}
 		} else {
-			require('../../Controller/admin/home.php');
+			require('layouts/header.php');
+		if (isset($_GET['controller'])) {
+			require '../../Route/client/web.php'; /*xử lý các request trong Route/web.php*/
+		} else {
+			require('pages/home.php');
 		}
+
 		require('layouts/footer.php');
-	} else {
-		header('Location: ../../');
-	}
+		}
+		
+	// } else {
+	// 	header('Location: ../../');
+	// }
 
 	$db->closeDatabase();
-?>
+?> -->

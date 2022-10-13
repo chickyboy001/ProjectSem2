@@ -177,6 +177,155 @@
         })
     })
     //]]>
+
+    //============================================================
+    var currentBoxNum = 1;
+
+    function changeColor(background, boxNum) {
+        document.getElementById("box" + currentBoxNum).style.borderStyle = "none";
+        currentBoxNum = boxNum;
+        document.getElementById("box" + currentBoxNum).style.borderStyle = "solid";
+        document.getElementById("box" + currentBoxNum).style.borderColor = "black";
+    }
+
+    document.getElementById("box1").addEventListener("click", function() {
+        changeColor("#e6e2cf", 1);
+    });
+    document.getElementById("box2").addEventListener("click", function() {
+        changeColor("#dbcaac", 2);
+    });
+    document.getElementById("box3").addEventListener("click", function() {
+        changeColor("#c9cbb3", 3);
+    });
+
+    // ===================================================================================
+
+    var curentSelectNum = 1;
+
+    function changeBorder(border, selectNum) {
+        document.getElementById("select" + curentSelectNum).style.borderStyle = "none";
+        curentSelectNum = selectNum;
+        document.getElementById("select" + curentSelectNum).style.borderStyle = "solid";
+        document.getElementById("select" + curentSelectNum).style.borderColor = "black";
+    }
+
+    document.getElementById("select1").addEventListener("click", function() {
+        changeBorder("#e6e2cf", 1);
+    });
+    document.getElementById("select2").addEventListener("click", function() {
+        changeBorder("#dbcaac", 2);
+    });
+
+    //============================================================
+
+    // JS Vertical
+
+    // function openCity(evt, cityName) {
+    //   var i, tabcontent, tablinks;
+    //   tabcontent = document.getElementsByClassName("tabcontent");
+    //   for (i = 0; i < tabcontent.length; i++) {
+    //     tabcontent[i].style.display = "none";
+    //   }
+    //   tablinks = document.getElementsByClassName("tablinks");
+    //   for (i = 0; i < tablinks.length; i++) {
+    //     tablinks[i].className = tablinks[i].className.replace(" active", "");
+    //   }
+    //   document.getElementById(cityName).style.display = "block";
+    //   evt.currentTarget.className += " active";
+    // }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+<script>
+    // JS REGISTER
+    const form = document.getElementById('form');
+    const username = document.getElementById('username');
+    const fullname = document.getElementById('fullname');
+    const address = document.getElementById('address');
+    const phone = document.getElementById('phone');
+    const password = document.getElementById('password');
+    const password2 = document.getElementById('password2');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        checkInputs();
+    });
+
+    function checkInputs() {
+        const usernameValue = username.value.trim();
+        const fullnameValue = fullname.value.trim();
+        const addressValue = address.value.trim();
+        const phoneValue = phone.value.trim();
+        const passwordValue = password.value.trim();
+        const password2Value = password2.value.trim();
+
+        if (usernameValue == '') {
+            setErrorFor(username, 'Tên đăng nhập không được để trống');
+        } else {
+            setSuccessFor(username);
+        }
+
+        if (fullnameValue == '') {
+            setErrorFor(fullname, 'Tên đăng nhập không được để trống');
+        } else {
+            setSuccessFor(fullname);
+        }
+
+        if (addressValue == '') {
+            setErrorFor(address, 'Địa chỉ không được để trống');
+        } else {
+            setSuccessFor(address);
+        }
+
+        if (phoneValue == '') {
+            setErrorFor(phone, 'Số điện thoai không được để trống');
+        } else if (!isPhone(phoneValue)) {
+            setErrorFor(phone, 'Không đúng định dạng');
+        } else {
+            setSuccessFor(phone);
+        }
+
+        if (passwordValue === '') {
+            setErrorFor(password, 'Mật khẩu không được để trống');
+        } else {
+            setSuccessFor(password);
+        }
+
+        if (passwordValue.length < 8) {
+            setErrorFor(password, 'Mật khẩu không được ít hơn 8 kí tự');
+        } else {
+            setSuccessFor(password);
+        }
+
+        if (password2Value === '') {
+            setErrorFor(password2, 'Mật khẩu nhập lại không được để trống');
+        } else if (passwordValue !== password2Value) {
+            setErrorFor(password2, 'Mật khẩu nhập lại không khớp');
+        } else if (password2Value.length < 8) {
+            setErrorFor(password2, 'Mật khẩu không được ít hơn 8 kí tự');
+        } else {
+            setSuccessFor(password2);
+        }
+    }
+
+    function setErrorFor(input, message) {
+        const formControl = input.parentElement;
+        const small = formControl.querySelector('small');
+        formControl.className = 'form-control1 error';
+        small.innerText = message;
+    }
+
+    function setSuccessFor(input) {
+        const formControl = input.parentElement;
+        formControl.className = 'form-control1 success';
+    }
+
+    function isPhone(phone) {
+        return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(phone);
+    }
+    // JS REGISTER
 </script>
 
 <!-- Option 2: Separate Popper and Bootstrap JS -->

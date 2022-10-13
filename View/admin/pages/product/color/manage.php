@@ -320,7 +320,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="quantityInput" class="form-label">Số lượng</label>
-                                <input type="number" name="addQuantity" class="form-control" id="quantityInput"
+                                <input type="number" name="addQuantity" min="1" class="form-control" id="quantityInput"
                                     required>
                             </div>
                             <div class="m-n2">

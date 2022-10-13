@@ -4,7 +4,8 @@ html {
 
 body {
     background-color: white;
-    font-family: 'Roboto';
+    /* font-family: 'Roboto'; */
+    font-family: 'Open Sans Condensed', sans-serif;
     /* display: none; */
 }
 
@@ -639,6 +640,113 @@ table td img {
         margin: 0 0 30px;
     }
 }
+
+#box1 {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+#box2 {
+    background-color: white;
+    color: black;
+}
+
+#box3 {
+    background-color: white;
+    color: black;
+}
+
+#select1 {
+    /* background-color: white; */
+    /* color: black; */
+    border: 2px solid black;
+}
+
+#select2 {
+    background-color: white;
+    color: black;
+}
+
+.slc-active {
+    background-color: #101010;
+    color: white;
+}
+
+.color-img {
+    border-radius: 2px;
+    /* background-size: 100%; */
+    object-fit: cover;
+}
+
+.slc-size {
+    height: 42px;
+    width: 50px;
+    margin: 5px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.size {
+    line-height: 42px;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* REGISTER */
+
+.form-control1.success input {
+    border-color: #2ecc71;
+}
+
+.form-control1.error input {
+    border-color: #e74c3c;
+}
+
+.form-control1 i {
+    visibility: hidden;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+
+.form-control1.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form-control1.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-control1 small {
+    color: #e74c3c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.form-control1.error small {
+    visibility: visible;
+}
+
+.form-control1 {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+
+/* REGISTER */
 
 
 /* .form {

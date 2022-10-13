@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="ms-3">
-                    <h6 class="mb-0">Nguyễn Văn A</h6>
+                    <h6 class="mb-0"><?= $_SESSION['useradmin']['fullname'] ?></h6>
                     <span>Admin</span>
                 </div>
             </div>
@@ -137,12 +137,12 @@
                                 style="width:16px;height:16px">
                             </lord-icon>
                         </i>
-                        <span class="d-none d-lg-inline-flex">Nguyễn Văn A</span>
+                        <span class="d-none d-lg-inline-flex"><?= $_SESSION['useradmin']['fullname'] ?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                         <a href="#" class="dropdown-item">Thông tin cá nhân</a>
                         <a href="#" class="dropdown-item">Cài đặt</a>
-                        <a href="#" class="dropdown-item text-danger">Đăng xuất</a>
+                        <a href="?controller=logOut" class="dropdown-item text-danger">Đăng xuất</a>
                     </div>
                 </div>
             </div>

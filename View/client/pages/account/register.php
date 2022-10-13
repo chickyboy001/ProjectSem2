@@ -66,7 +66,7 @@
                     <form method="POST" name="registration">
                         <div class="mb-3">
                             <label for="name" class="form-label">Tên đăng nhập</label>
-                            <input type="text" name="username" id="name" class="form-control" required>
+                            <input type="text" name="name" id="name" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Địa chỉ</label>
@@ -77,12 +77,16 @@
                             <input type="text" name="phone" id="phone" class="form-control" required>
                         </div>
                         <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="password" class="form-label">Mật khẩu</label>
                             <input type="password" name="password" id="password" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label for="password-confirm" class="form-label">Nhập lại mật khẩu</label>
-                            <input type="password" name="password" id="password_confirm" class="form-control" required>
+                            <input type="password" name="password" id="password-confirm" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <div class="form-check">
@@ -91,7 +95,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" name="register" class="btn btn-outline-dark">Đăng ký</button>
+                            <button type="submit" name="btn_submit" class="btn btn-outline-dark">Đăng ký</button>
                         </div>
                     </form>
                 </div>

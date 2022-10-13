@@ -57,9 +57,7 @@
         <div class="row">
 
             <!-- Product Images -->
-            <?php
-            // while ($row_chitiet = mysqli_fetch_array($sql_chitiet)) {
-            ?>
+
             <div class="col-lg-5 col-md-12 mb-3">
                 <div class="col-12 mb-3">
                     <div class="img-large border" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')"></div>
@@ -113,11 +111,11 @@
             <!-- Product Info -->
 
             <!-- Sidebar -->
-            <div class="col-lg-3 col-md-3">
+            <div class="col-lg-3 col-md-3 text-center">
                 <div class="col-12 sidebar h-100">
                     <div class="row">
 
-                        <div class="col-12 text-center">
+                        <div class="col-12">
                             <span class="detail-price" style="color:#f63b3b;">
                                 470,000đ
                             </span>
@@ -125,46 +123,52 @@
                                 350,000đ
                             </span>
                         </div>
-                        <div class="col-12 ms-3">
+                        <div class="col-12">
                             <span>Có 2 màu</span>
-                            <div class="">
-                                <button style="text-decoration:none;" class="color-link">
-                                    <img src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg" class="color-img " width="38" height="50.553" alt="">
-                                </button>
-                                <button style="text-decoration:none" class="color-link">
-                                    <img src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg" class="color-img" width="38" height="50.553" alt="">
-                                </button>
+                            <div class="flex">
+                                <div class="cursor-pointer">
+                                    <img src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg" class="color-img" id="select1" width="50" height="55" alt="">
+                                </div>
+                                <div class="cursor-pointer">
+                                    <img src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg" class="color-img" width="50" height="55" alt="">
+                                </div>
 
                             </div>
                         </div>
-                        <div class="mb-3 m-lg-1">
-                            <span class="ms-3">Chọn size:</span>
-                            <div class="d-flex justify-content-start ms-3">
-                                <div class="slc-size slc-active">
-                                    <span class="size">S</span>
-                                </div>
-                                <div class="slc-size">
-                                    <span class="size">L</span>
-                                </div>
-                                <div class="slc-size">
-                                    <span class="size">XL</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-md-9 col-sm-3 col-5 mx-auto mt-3 ms-3">
-                            <span>Số lượng:</span>
+                        <div class="col-xl-5 col-md-9 col-sm-3 col-5 mx-auto mt-3">
                             <div class="buttons_added">
                                 <input class="minus is-form" type="button" value="-">
-                                <input aria-label="quantity" class="input-qty" max="5" min="1" name="" type="number" value="1">
+                                <input aria-label="quantity" class="input-qty" max="100" min="1" name="" type="number" value="1">
                                 <input class="plus is-form" type="button" value="+">
                             </div>
+                            <!-- <div class="mb-3">
+                                                <label for="qty">Số lượng</label>
+                                                <input type="number" id="qty" min="1" value="1" class="form-control"
+                                                    required>
+                                            </div> -->
                         </div>
-                        <div class="d-flex mt-3 ms-3">
-                            <button class="btn btn-outline-dark showcart col-6 me-1" type="button"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ</button>
-                            <button class="btn-buy-now col-6" type="button"></i>Mua ngay</button>
+                        <div class="mb-3 m-lg-1">
+                            <span>Chọn size:</span>
+                            <div class="flex">
+                                <div class="slc-size slc-active" id="box1">
+                                    <span class="size">S</span>
+                                </div>
+                                <div class="slc-size" id="box2">
+                                    <span class="size">L</span>
+                                </div>
+                                <div class="slc-size" id="box3">
+                                    <span class="size">XL</span>
+                                </div>
+                                <div class="glitchButton"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <button class="btn btn-outline-dark showcart" type="button"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng</button>
                         </div>
                         <div class="col-12 mt-3">
-
+                            <button class="btn-buy-now" type="button"></i>Mua ngay</button>
                         </div>
                     </div>
                 </div>
@@ -441,146 +445,159 @@
     </div>
 
     <!-- Similar Product -->
-    <div class="row mb-5 pb-2">
-        <div class="col-12 text-center text-uppercase">
-            <h2>sản phẩm tương tự</h2>
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12 py-3">
+                <div class="row">
+                    <div class="col-12 text-center text-uppercase">
+                        <h2>sản phẩm tương tự</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Product -->
+                    <div class="col-lg-3 col-sm-6 my-3">
+                        <div class="col-12 bg-white text-center h-100">
+                            <div class="col-md-12 col-sm-12 mb-4">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                        <a href="#" class="image">
+                                            <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                        </a>
+                                        <span class="product-discount-label">-33%</span>
+                                        <ul class="product-links">
+                                            <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                            </li>
+                                            <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                            <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-content">
+                                        <ul class="rating">
+                                            <li class="fas fa-star"></li>
+                                            <li class="fas fa-star"></li>
+                                            <li class="fas fa-star"></li>
+                                            <li class="far fa-star"></li>
+                                            <li class="far fa-star"></li>
+                                        </ul>
+                                        <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                                        <div class="price"><span>$90.00</span> $66.00</div>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product -->
+
+                    <!-- Product -->
+                    <div class="col-lg-3 col-sm-6 my-3">
+                        <div class="col-12 bg-white text-center h-100">
+                            <div class="col-md-12 col-sm-12 mb-4">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                        <a href="#" class="image">
+                                            <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                        </a>
+                                        <span class="product-discount-label">-33%</span>
+                                        <ul class="product-links">
+                                            <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                            </li>
+                                            <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                            <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-content">
+                                        <ul class="rating">
+                                            <li class="fas fa-star"></li>
+                                            <li class="fas fa-star"></li>
+                                            <li class="fas fa-star"></li>
+                                            <li class="far fa-star"></li>
+                                            <li class="far fa-star"></li>
+                                        </ul>
+                                        <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                                        <div class="price"><span>$90.00</span> $66.00</div>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product -->
+
+                    <!-- Product -->
+                    <div class="col-lg-3 col-sm-6 my-3">
+                        <div class="col-12 bg-white text-center h-100">
+                            <div class="col-md-12 col-sm-12 mb-4">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                        <a href="#" class="image">
+                                            <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                        </a>
+                                        <span class="product-discount-label">-33%</span>
+                                        <ul class="product-links">
+                                            <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                            </li>
+                                            <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                            <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-content">
+                                        <ul class="rating">
+                                            <li class="fas fa-star"></li>
+                                            <li class="fas fa-star"></li>
+                                            <li class="fas fa-star"></li>
+                                            <li class="far fa-star"></li>
+                                            <li class="far fa-star"></li>
+                                        </ul>
+                                        <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                                        <div class="price"><span>$90.00</span> $66.00</div>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product -->
+
+                    <!-- Product -->
+                    <div class="col-lg-3 col-sm-6 my-3">
+                        <div class="col-12 bg-white text-center h-100">
+                            <div class="col-md-12 col-sm-12 mb-4">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                        <a href="#" class="image">
+                                            <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                        </a>
+                                        <span class="product-discount-label">-33%</span>
+                                        <ul class="product-links">
+                                            <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                            </li>
+                                            <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
+                                            <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-content">
+                                        <ul class="rating">
+                                            <li class="fas fa-star"></li>
+                                            <li class="fas fa-star"></li>
+                                            <li class="fas fa-star"></li>
+                                            <li class="far fa-star"></li>
+                                            <li class="far fa-star"></li>
+                                        </ul>
+                                        <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                                        <div class="price"><span>$90.00</span> $66.00</div>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product -->
+                </div>
+            </div>
         </div>
-        <div class="owl-carousel owl-theme">
-            <div class="col-md-12 col-sm-12 mb-4">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                        </a>
-                        <span class="product-discount-label">-33%</span>
-                        <ul class="product-links">
-                            <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                            <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                            <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product-content">
-                        <ul class="rating">
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="far fa-star"></li>
-                            <li class="far fa-star"></li>
-                        </ul>
-                        <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                        <div class="price"><span>$90.00</span> $66.00</div>
-                        <a class="add-to-cart" href="#">add to cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                        </a>
-                        <ul class="product-links">
-                            <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                            <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                            <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product-content">
-                        <ul class="rating">
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="far fa-star"></li>
-                        </ul>
-                        <h3 class="title"><a href="#">Women's Shirt</a></h3>
-                        <div class="price">$79.90</div>
-                        <a class="add-to-cart" href="#">add to cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                        </a>
-                        <span class="product-discount-label">-33%</span>
-                        <ul class="product-links">
-                            <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                            <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                            <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product-content">
-                        <ul class="rating">
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="far fa-star"></li>
-                            <li class="far fa-star"></li>
-                        </ul>
-                        <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                        <div class="price"><span>$90.00</span> $66.00</div>
-                        <a class="add-to-cart" href="#">add to cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                        </a>
-                        <span class="product-discount-label">-33%</span>
-                        <ul class="product-links">
-                            <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                            <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                            <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product-content">
-                        <ul class="rating">
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="far fa-star"></li>
-                            <li class="far fa-star"></li>
-                        </ul>
-                        <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                        <div class="price"><span>$90.00</span> $66.00</div>
-                        <a class="add-to-cart" href="#">add to cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                        </a>
-                        <span class="product-discount-label">-33%</span>
-                        <ul class="product-links">
-                            <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                            <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                            <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product-content">
-                        <ul class="rating">
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="fas fa-star"></li>
-                            <li class="far fa-star"></li>
-                            <li class="far fa-star"></li>
-                        </ul>
-                        <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                        <div class="price"><span>$90.00</span> $66.00</div>
-                        <a class="add-to-cart" href="#">add to cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
     <!-- Similar Products -->
 

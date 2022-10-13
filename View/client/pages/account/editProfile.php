@@ -54,7 +54,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12">
-            <ul class="myinfo">
+        <ul class="myinfo">
                 <li class="iteminfo">
                     <a href="?controller=profile">
                         Tài khoản của tôi
@@ -77,40 +77,40 @@
                 </li>
             </ul>
         </div>
+
+
         <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
-            <h1><b> Tài khoản của tôi </b></h1>
-            <div class="userindex">
-                <!-- <div class="textUser"> -->
-                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3 userlist">
-                    <h3><?= $_SESSION['user']['username'] ?></h3>
-                    <span><?= $_SESSION['user']['email'] ?></span>
+            <h1>Thông tin cá nhân</h1>
+            <form method="POST">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="userName" class="form-label">Tên đầy đủ</label>
+                            <input type="text" name="name" id="name" class="form-control" value="<?=$_SESSION['user']['fullname']?>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" name="email" id="" class="form-control" value="<?=$_SESSION['user']['email']?>" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Điện thoại</label>
+                            <input type="text" name="phone" id="" class="form-control" value="<?=$_SESSION['user']['phone']?>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Địa chỉ</label>
+                            <input type="text" name="address" id="" class="form-control" value="<?=$_SESSION['user']['address']?>" required>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3 userlist">
-                    <h3>Điện thoại</h3>
-                    <span><?= $_SESSION['user']['phone'] ?></span>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3 userlist">
-                    <h3>Điểm tích lũy</h3>
-                    <span>1</span>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3 userlist">
-                    <h3>Đã chi tiêu</h3>
-                    <span>500,000đ</span>
-                </div>
-                <!-- </div> -->
-            </div>
-            <div class="">
-                <h4 class="moreinfo-item">
-                    <b>
-                        Thông tin cá nhân
-                    </b>
-                </h4>
-                <h4 class="moreinfo">
-                    <b>
-                        Lịch sử đơn hàng
-                    </b>
-                </h4>
+            </form>
+            <div class="update-info">
+                <button class="btn btn-primary" name="sbm" type="submit">Cập nhật thông tin cá nhân </button>
             </div>
         </div>
+
     </div>
 </div>

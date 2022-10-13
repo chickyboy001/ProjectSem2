@@ -1,11 +1,11 @@
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
-    <!-- <div id="spinner"
+    <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-    </div> -->
+    </div>
     <!-- Spinner End -->
 
 
@@ -250,8 +250,8 @@
                 <div class="d-flex align-items-center justify-content-between mb-4 ">
                     <h6 class="mb-0 ">Danh sách sản phẩm</h6>
                 </div>
-                <div class=" table-responsive mb-4 ">
-                    <table id="table_id " class="table text-center align-middle table-bordered table-hover mb-0 ">
+                <div class="table-responsive mb-4">
+                    <table id="table_id " class="table text-center align-middle table-bordered table-hover mb-0">
                         <thead>
                             <tr class="text-dark ">
                                 <th scope="col ">STT</th>

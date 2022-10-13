@@ -1,11 +1,11 @@
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
-    <!-- <div id="spinner"
+    <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-    </div> -->
+    </div>
     <!-- Spinner End -->
 
 
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="ms-3">
-                    <h6 class="mb-0">Nguyễn Văn A</h6>
+                    <h6 class="mb-0"><?= $_SESSION['userAdmin']['username'] ?></h6>
                     <span>Admin</span>
                 </div>
             </div>
@@ -143,7 +143,7 @@
                                 style="width:16px;height:16px">
                             </lord-icon>
                         </i>
-                        <span class="d-none d-lg-inline-flex">Nguyễn Văn A</span>
+                        <span class="d-none d-lg-inline-flex"><?= $_SESSION['userAdmin']['username'] ?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                         <a href="#" class="dropdown-item">Thông tin cá nhân</a>
