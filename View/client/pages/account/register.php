@@ -63,39 +63,56 @@
         <div class="col-lg-4 col-md-6 col-sm-8 mx-auto bg-white py-3 mb-4">
             <div class="row">
                 <div class="col-12">
-                    <form method="POST" name="registration">
-                        <div class="mb-3">
+                    <form method="POST" name="registration" id="form">
+                        <div class="mb-3 form-control1">
                             <label for="name" class="form-label">Tên đăng nhập</label>
-                            <input type="text" name="name" id="name" class="form-control" required>
+                            <input type="text" name="username" id="username" class="form-control">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 form-control1">
+                            <label for="name" class="form-label">Tên đầy đủ</label>
+                            <input type="text" name="fullname" id="fullname" class="form-control"> <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="mb-3 form-control1">
                             <label for="address" class="form-label">Địa chỉ</label>
-                            <input type="text" name="address" id="address" class="form-control" required>
+                            <input type="text" name="address" id="address" class="form-control"> <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 form-control1">
                             <label for="phone" class="form-label">Số điện thoại</label>
-                            <input type="text" name="phone" id="phone" class="form-control" required>
+                            <input type="text" name="phone" id="phone" class="form-control">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
+                        <div class="mb-3 form-control1">
                             <label for="password" class="form-label">Mật khẩu</label>
-                            <input type="password" name="password" id="password" class="form-control" required>
+                            <input type="password" name="password" id="password" class="form-control">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 form-control1">
                             <label for="password-confirm" class="form-label">Nhập lại mật khẩu</label>
-                            <input type="password" name="password" id="password-confirm" class="form-control" required>
+                            <input type="password" name="password" id="password2" class="form-control">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <div class="form-check">
-                                <input type="checkbox" id="agree" class="form-check-input" required>
-                                <label for="agree" class="form-check-label ml-2">Tôi đồng ý với <a href="">điều khoản</a></label>
+                                <input type="checkbox" id="agree" class="form-check-input">
+                                <label for="agree" class="form-check-label ml-2">Tôi đồng ý với <a href="">điều
+                                        khoản</a></label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
-                            <button type="submit" name="btn_submit" class="btn btn-outline-dark">Đăng ký</button>
+                            <button type="submit" name="register" class="btn btn-outline-dark">Đăng ký</button>
                         </div>
                     </form>
                 </div>

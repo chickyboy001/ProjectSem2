@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="iteminfo">
-                    <a href="/logout.php">
+                    <a href="?controller=logOut">
                         Đăng xuất
                     </a>
                 </li>

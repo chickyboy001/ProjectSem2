@@ -54,7 +54,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12">
-        <ul class="myinfo">
+            <ul class="myinfo">
                 <li class="iteminfo">
                     <a href="?controller=profile">
                         Tài khoản của tôi
@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="iteminfo">
-                    <a href="/logout.php">
+                    <a href="?controller=logOut">
                         Đăng xuất
                     </a>
                 </li>
@@ -81,35 +81,47 @@
 
         <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
             <h1>Thông tin cá nhân</h1>
-            <form method="POST">
+            <form method="POST" id="formEditProfile">
                 <div class="row">
                     <div class="col">
-                        <div class="mb-3">
+                        <div class="mb-3 form-control-editProfile">
                             <label for="userName" class="form-label">Tên đầy đủ</label>
-                            <input type="text" name="name" id="name" class="form-control" value="<?=$_SESSION['user']['fullname']?>" required>
+                            <input type="text" name="name" id="fullnameEditProfile" class="form-control" value="<?= $_SESSION['user']['fullname'] ?>">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 form-control-editProfile">
                             <label for="email" class="form-label">Email</label>
-                            <input type="text" name="email" id="" class="form-control" value="<?=$_SESSION['user']['email']?>" required>
+                            <input type="text" name="email" id="emailEditProfile" class="form-control" value="<?= $_SESSION['user']['email'] ?>">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="mb-3">
+                        <div class="mb-3 form-control-editProfile">
                             <label for="phone" class="form-label">Điện thoại</label>
-                            <input type="text" name="phone" id="" class="form-control" value="<?=$_SESSION['user']['phone']?>" required>
+                            <input type="text" name="phone" id="phoneEditProfile" class="form-control" value="<?= $_SESSION['user']['phone'] ?>">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 form-control-editProfile">
                             <label for="address" class="form-label">Địa chỉ</label>
-                            <input type="text" name="address" id="" class="form-control" value="<?=$_SESSION['user']['address']?>" required>
+                            <input type="text" name="address" id="addressEditprofile" class="form-control" value="<?= $_SESSION['user']['address'] ?>">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
                     </div>
                 </div>
+                <div class="update-info">
+                    <button class="btn btn-primary" name="sbm" type="submit">Cập nhật thông tin cá nhân </button>
+                </div>
             </form>
-            <div class="update-info">
-                <button class="btn btn-primary" name="sbm" type="submit">Cập nhật thông tin cá nhân </button>
-            </div>
         </div>
 
     </div>

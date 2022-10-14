@@ -54,7 +54,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12">
-            <ul class="myinfo">
+        <ul class="myinfo">
                 <li class="iteminfo">
                     <a href="?controller=profile">
                         Tài khoản của tôi
@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="iteminfo">
-                    <a href="/logout.php">
+                    <a href="?controller=logOut">
                         Đăng xuất
                     </a>
                 </li>
@@ -87,10 +87,47 @@
         </div>
         <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
             <h1><b> Đơn hàng của tôi </b></h1>
-            <div class="userindex">
-                <h6 class="text-center">
-                    Chưa có đơn hàng nào
-                </h6>
+            <div class="table-responsive pb-5">
+                <table class="table">
+                    <thead class="bg-dark text-white">
+                        <tr>
+                            <th class="font-weight-bold py-2 border-0">ID</th>
+                            <th class="font-weight-bold py-2 border-0 quantity">Ngày đặt hàng</th>
+                            <th class="font-weight-bold py-2 border-0 ">Tên sản phẩm</th>
+                            <th class="font-weight-bold py-2 border-0 ">Màu</th>
+                            <th class="font-weight-bold py-2 border-0 ">Size</th>
+                            <th class="font-weight-bold py-2 border-0 ">Số lượng</th>
+                            <th class="font-weight-bold py-2 border-0 ">Tổng tiền</th>
+                            <th class="font-weight-bold py-2 border-0 ">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>10/11/2022</td>
+                            <td>Quần Jean ống loe</td>
+                            <td>Xanh than</td>
+                            <td>XL</td>
+                            <td>10</td>
+                            <td>1,000,000đ</td>
+                            <td>
+                                <a href="#" style="color:green;" class="js-picture">Đã nhận</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>10/11/2022</td>
+                            <td>Quần Jean ống loe</td>
+                            <td>Xanh than</td>
+                            <td>XL</td>
+                            <td>10</td>
+                            <td>1,000,000đ</td>
+                            <td>
+                                <a href="../../../ProjectSem2/View/client/pages/account/ordersDetail.php" style="color:green;" class="">Đã nhận</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

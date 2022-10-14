@@ -57,7 +57,9 @@
         <div class="row">
 
             <!-- Product Images -->
-
+            <?php
+            // while ($row_chitiet = mysqli_fetch_array($sql_chitiet)) {
+            ?>
             <div class="col-lg-5 col-md-12 mb-3">
                 <div class="col-12 mb-3">
                     <div class="img-large border" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')"></div>
@@ -126,10 +128,10 @@
                         <div class="col-12">
                             <span>Có 2 màu</span>
                             <div class="flex">
-                                <div class="cursor-pointer">
-                                    <img src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg" class="color-img" id="select1" width="50" height="55" alt="">
+                                <div style="cursor: pointer;" class="select-color" id="select1">
+                                    <img src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg" class="color-img" width="50" height="55" alt="">
                                 </div>
-                                <div class="cursor-pointer">
+                                <div style="cursor: pointer;" id="select2">
                                     <img src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg" class="color-img" width="50" height="55" alt="">
                                 </div>
 

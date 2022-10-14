@@ -53,7 +53,7 @@
 </div>
 <main role="main">
     <div class="container mt-4">
-        <form class="needs-validation" name="frmthanhtoan" method="post" action="#">
+        <!-- <form method="post" id="form"> -->
 
             <div class="py-5 text-center">
                 <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
@@ -110,54 +110,69 @@
                     <h4 class="mb-3">Thông tin khách hàng</h4>
 
                     <div class="row">
-                        <div class="col-md-12 my-1">
-                            <label for="kh_ten">Họ tên</label>
-                            <input type="text" class="form-control" value="<?= $_SESSION['user']['fullname'] ?>">
-                        </div>
-                        <div class="col-md-12" style="display: flex; padding:10px">
-                            <label for="kh_gioitinh" style="padding-right:10px">Giới tính</label>
-                            <span class="me-1">Nam</span><input type="checkbox" class="form-check">
-                            &nbsp
-                            <span class="me-1">Nữ</span><input type="checkbox" class="form-check">
-                            &nbsp
-                            <span class="me-1">Khác</span><input type="checkbox" class="form-check">
-                        </div>
-                        <div class="col-md-12 my-1">
-                            <label for="kh_diachi">Địa chỉ</label>
-                            <input type="text" class="form-control" value="<?= $_SESSION['user']['address'] ?>">
-                        </div>
-                        <div class="col-md-12 my-1">
-                            <label for="kh_dienthoai">Điện thoại</label>
-                            <input type="text" class="form-control" value="<?= $_SESSION['user']['phone'] ?>">
-                        </div>
-                        <div class="col-md-12 my-1">
-                            <label for="kh_email">Email</label>
-                            <input type="text" class="form-control" value="<?= $_SESSION['user']['email'] ?>">
-                        </div>
+                        <form method="POST" id="formCheckout">
+                            <div class="col-md-12 my-1 form-control-checkout">
+                                <label for="fullname">Họ tên</label>
+                                <input type="text" class="form-control" id="fullnameCheckout" value="<?= $_SESSION['user']['fullname'] ?>">
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
+                            </div>
+                            <div class="col-md-12" style="display: flex; padding:10px">
+                                <label for="kh_gioitinh" style="padding-right:10px">Giới tính</label>
+                                <span class="me-1">Nam</span><input type="checkbox" class="form-check">
+                                &nbsp
+                                <span class="me-1">Nữ</span><input type="checkbox" class="form-check">
+                                &nbsp
+                                <span class="me-1">Khác</span><input type="checkbox" class="form-check">
+                            </div>
+                            <div class="col-md-12 my-1 form-control-checkout">
+                                <label for="address">Địa chỉ</label>
+                                <input type="text" class="form-control" id="addressCheckout"
+                                    value="<?= $_SESSION['user']['address'] ?>">
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
+                            </div>
+                            <div class="col-md-12 my-1 form-control-checkout">
+                                <label for="kh_dienthoai">Điện thoại</label>
+                                <input type="text" class="form-control" id="phoneCheckout"
+                                    value="<?= $_SESSION['user']['phone'] ?>">
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
+                            </div>
+                            <h4 class="my-3">Hình thức thanh toán</h4>
+
+                            <div class="d-block my-3">
+                                <div class="custom-control custom-radio">
+                                    <input id="httt-1" name="httt_ma" type="radio" class="custom-control-input"
+                                        value="1">
+                                    <label class="custom-control-label" for="httt-1">Tiền mặt</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input"
+                                        value="2">
+                                    <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input"
+                                        value="3">
+                                    <label class="custom-control-label" for="httt-3">Ship COD</label>
+                                </div>
+                            </div>
+                            <hr class="mb-4">
+                            <!-- class="btn btn-outline-dark" -->
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang"
+                                    style="margin-bottom:18px">Đặt hàng</button>
+                            </div>
+                        </form>
                     </div>
 
-                    <h4 class="my-3">Hình thức thanh toán</h4>
-
-                    <div class="d-block my-3">
-                        <div class="custom-control custom-radio">
-                            <input id="httt-1" name="httt_ma" type="radio" class="custom-control-input" required="" value="1">
-                            <label class="custom-control-label" for="httt-1">Tiền mặt</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                            <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required="" value="2">
-                            <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                            <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required="" value="3">
-                            <label class="custom-control-label" for="httt-3">Ship COD</label>
-                        </div>
-                    </div>
-                    <hr class="mb-4">
-                    <!-- class="btn btn-outline-dark" -->
-                    <button class="btn btn-primary btn-lg btn-block" onclick="alert('Đặt hàng thành công')" type="submit" name="btnDatHang">Đặt hàng</button>
                 </div>
             </div>
-        </form>
+        <!-- </form> -->
 
     </div>
     <!-- End block content -->

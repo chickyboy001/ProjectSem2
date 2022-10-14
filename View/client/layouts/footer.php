@@ -328,6 +328,152 @@
     // JS REGISTER
 </script>
 
+<script>
+    var currentSelectNum1 = 1;
+
+    function changeColor1(background1, selectNum) {
+        document.getElementById("select" + currentSelectNum1).style.borderStyle = "none";
+        currentSelectNum1 = selectNum;
+        document.getElementById("select" + currentSelectNum1).style.borderStyle = "solid";
+        document.getElementById("select" + currentSelectNum1).style.borderColor = "black";
+    }
+
+    document.getElementById("select1").addEventListener("click", function() {
+        changeColor1("#e6e2cf", 1);
+    });
+    document.getElementById("select2").addEventListener("click", function() {
+        changeColor1("#dbcaac", 2);
+    });
+    // document.getElementById("select3").addEventListener("click", function(){ changeColor1("#dbcaac", 3); });
+</script>
+
+<script>
+    // VALIDATE CHECOUT
+    const formCheckout = document.getElementById('formCheckout');
+    const fullnameCheckout = document.getElementById('fullnameCheckout');
+    const addressCheckout = document.getElementById('addressCheckout');
+    const phoneCheckout = document.getElementById('phoneCheckout');
+
+    formCheckout.addEventListener('submit', e => {
+        e.preventDefault();
+
+        checkInputsCheckOut();
+    });
+
+    function checkInputsCheckOut() {
+        const fullnameCheckoutValue = fullnameCheckout.value.trim();
+        const addressCheckoutValue = addressCheckout.value.trim();
+        const phoneCheckoutValue = phoneCheckout.value.trim();
+
+        if (fullnameCheckoutValue == '') {
+            setErrorCheckoutFor(fullnameCheckout, 'Họ và tên không được để trống');
+        } else {
+            setSucessCheckoutFor(fullnameCheckout);
+        }
+
+        if (addressCheckoutValue == '') {
+            setErrorCheckoutFor(addressCheckout, 'Địa chỉ không được để trống');
+        } else {
+            setSucessCheckoutFor(addressCheckout);
+        }
+
+        if (phoneCheckoutValue == '') {
+            setErrorCheckoutFor(phoneCheckout, 'Số điện thoại không được để trống');
+        } else if (!isPhone(phoneCheckoutValue)) {
+            setErrorCheckoutFor(phoneCheckout, 'Không đúng định dạng');
+        } else {
+            setSucessCheckoutFor(phoneCheckout);
+        }
+    }
+
+    function setErrorCheckoutFor(input, mess) {
+        const formControlCheckout = input.parentElement;
+        const smallCheckout = formControlCheckout.querySelector('small');
+        formControlCheckout.className = 'form-control-checkout error';
+        smallCheckout.innerText = mess;
+    }
+
+    function setSucessCheckoutFor(input) {
+        const formControlCheckout = input.parentElement;
+        formControlCheckout.className = 'form-control-checkout success';
+    }
+
+    function isPhone(phone) {
+        return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(phone);
+    }
+    // VALIDATE CHECOUT
+</script>
+
+<script>
+    // VALIDATE EDIT PROFILE
+    const formEditProfile = document.getElementById('formEditProfile');
+    const fullnameEditProfile = document.getElementById('fullnameEditProfile');
+    const emailEditProfile = document.getElementById('emailEditProfile');
+    const phoneEditProfile = document.getElementById('phoneEditProfile');
+    const addressEditProfile = document.getElementById('addressEditprofile');
+
+    formEditProfile.addEventListener('submit', e => {
+        e.preventDefault();
+
+        checkInputsEditProfile();
+    });
+
+    function checkInputsEditProfile() {
+        const fullnameEditProfileValue = fullnameEditProfile.value.trim();
+        const emailEditProfileValue = emailEditProfile.value.trim();
+        const phoneEditProfileValue = phoneEditProfile.value.trim();
+        const addressEditProfileValue = addressEditProfile.value.trim();
+
+        if (fullnameEditProfileValue == '') {
+            setErrorEditProfileFor(fullnameEditProfile, 'Tên đầy đủ không được để trống');
+        } else {
+            setSuccessEditProfileFor(fullnameEditProfile)
+        }
+
+        if (emailEditProfileValue == '') {
+            setErrorEditProfileFor(emailEditProfile, 'Email không được để trống');
+        } else if (!isEmail(emailEditProfileValue)) {
+            setErrorEditProfileFor(emailEditProfile, 'Sai định dạng email');
+        } else {
+            setSuccessEditProfileFor(emailEditProfile)
+        }
+
+        if (phoneEditProfileValue == '') {
+            setErrorEditProfileFor(phoneEditProfile, 'Số điện thoại không được để trống');
+        } else if (!isPhone(phoneEditProfileValue)) {
+            setErrorEditProfileFor(phoneEditProfile, 'Số điện thoại không đúng định dạng');
+        } else {
+            setSuccessEditProfileFor(phoneEditProfile);
+        }
+
+        if (addressEditProfileValue == '') {
+            setErrorEditProfileFor(addressEditProfile, 'Địa chỉ không được để trống');
+        } else {
+            setSuccessEditProfileFor(addressEditProfile);
+        }
+    }
+
+    function setErrorEditProfileFor(input, messs) {
+        const formControlEditProfile = input.parentElement;
+        const smallEditProfile = formControlEditProfile.querySelector('small');
+        formControlEditProfile.className = 'form-control-editProfile error';
+        smallEditProfile.innerText = messs;
+    }
+
+    function setSuccessEditProfileFor(input) {
+        const formControlEditProfile = input.parentElement;
+        formControlEditProfile.className = 'form-control-editProfile success';
+    }
+
+    function isPhone(phone) {
+        return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(phone);
+    }
+
+    function isEmail(email) {
+        return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+    }
+    // VALIDATE EDIT PROFILE
+</script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

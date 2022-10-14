@@ -19,7 +19,7 @@ error_reporting(E_ALL);
 		$title = "Trang chủ";
 		require('layouts/header.php');
 		if (isset($_GET['controller'])) {
-			require '../../Route/admin/web.php'; /*xử lý các request trong Route/web.php*/
+			require '../../Route/admin/web.php';
 		} else {
 			require('../../Controller/admin/home.php');
 		}
