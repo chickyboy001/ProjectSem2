@@ -367,7 +367,7 @@
                                     </lord-icon><span id="header-favorite">0</span>
                                 </a>
 
-                                <a href="cart.html" class="header-item">
+                                <a href="?controller=shoppingCart" class="header-item">
                                     <lord-icon src="https://cdn.lordicon.com/gtcqrwnh.json" trigger="hover" style="width:25px;height:25.8px;">
                                     </lord-icon><span id="header-qty" class="me-3">2</span>
                                     <lord-icon src="https://cdn.lordicon.com/kgfdwvou.json" trigger="hover" style="width:25px;height:25.8px">
