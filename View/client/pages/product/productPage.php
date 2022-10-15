@@ -68,7 +68,6 @@
                     </div>
                     <div class="col-12">
                         <div class="row">
-
                             <div class="col-sm-2 col-3">
                                 <div class="img-small border" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
                             </div>
@@ -127,60 +126,86 @@
                                     350,000đ
                                 </span> -->
                             </div>
-                            <div class="col-12">
-                                <span>Có 2 màu</span>
-                                <div class="flex">
-                                    <?php
-                                    $stt = 1;
-                                    $all_size = array();
-                                    $class = "select-color";
-                                    foreach ($colors as $color) {
-                                        if ($color['status'] == 0) {
-                                            continue;
-                                        }
-                                        $sizes = $colorModel->getSizeOfColor($color['color_id']);
-                                        $all_size = array_merge($all_size, $sizes);
-                                    ?>
-                                        <div style="cursor: pointer;" class="<?= $class ?>" id="select<?= $stt ?>">
-                                            <img src="../../../ProjectSem2/Public/admin/upload/products/<?= $color['image_link'] ?>" class="color-img" width="50" height="55" alt="">
-                                        </div>
-                                    <?php
-                                        $class = "";
-                                        $stt++;
-                                    } ?>
-                                </div>
-                            </div>
-                            <div class="mb-3 m-lg-1">
-                                <span>Chọn size:</span>
-                                <div class="flex">
-                                    <?php
-                                    $count=1;
-                                    $class = "slc-active"; 
-                                    foreach ($all_size as $size) {
-                                    ?>
-                                    <div class="slc-size <?= $class ?>" id="box<?= $count?>">
-                                        <span class="size"><?= $size['size_name'] ?></span>
+                            <form method="POST">
+                                <input type="hidden" name="productId" value="<?= $product['product_id'] ?>" />
+                                <div class="col-12">
+                                    <span>Chọn màu: <span id="colorName" style="font-weight: 700;"></span></span>
+                                    <div class="colors mt-2">
+                                        <ul class="d-flex justify-content-center">
+                                            <?php
+                                            $stt = 0;
+                                            $all_size = array();
+                                            $colorId = array();
+                                            $checked = "checked";
+                                            $default = "defaultOpen";
+                                            foreach ($colors as $color) {
+                                                if ($color['status'] == 0) {
+                                                    continue;
+                                                }
+                                                $colorId[$stt] = $color['color_id'];
+                                                $sizes = $colorModel->getSizeOfColor($color['color_id']);
+                                                $all_size[$stt] = $sizes;
+                                            ?>
+                                                <li class="mx-1">
+                                                    <label>
+                                                        <input type="radio" name="colorId" value="<?= $color['color_id'] ?>" <?= $checked ?>>
+                                                        <span id="<?= $default ?>" onclick="showAvailableSize(event, <?= $color['color_id'] ?>)" class="swatch" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/<?= $color['image_link'] ?>')"></span>
+                                                        <input type="hidden" id="getColorName<?= $color['color_id'] ?>" value="<?= $color['color_name'] ?>" />
+                                                    </label>
+                                                </li>
+                                            <?php
+                                                $checked = "";
+                                                $default = "";
+                                                $stt++;
+                                            } ?>
+                                        </ul>
                                     </div>
-                                    <?php
-                                        $class = "";
-                                        $count++;
-                                    } ?>
-                                    <div class="glitchButton"></div>
                                 </div>
-                            </div>
-                            <div class="col-xl-5 col-md-9 col-sm-3 col-5 mx-auto mt-3">
-                                <div class="buttons_added">
-                                    <input class="minus is-form" type="button" value="-">
-                                    <input aria-label="quantity" class="input-qty" max="100" min="1" name="" type="number" value="1">
-                                    <input class="plus is-form" type="button" value="+">
+                                <div class="mb-3 m-lg-1">
+                                    <span>Chọn size:</span>
+                                    <div class="sizes mt-2">
+                                        <?php
+                                        $count = 0;
+                                        foreach ($all_size as $key) {
+                                        ?>
+                                            <ul id="colorID<?= $colorId[$count] ?>" class="size_button">
+                                                <?php
+                                                $default = "defaultClick";
+                                                
+                                                foreach ($key as $size) {
+                                                    if ($size['status'] == 0) {
+                                                        continue;
+                                                    }
+                                                ?>
+                                                    <li class="mx-1">
+                                                        <label>
+                                                            <input type="radio" name="sizeId" value="<?= $size['size_id'] ?>">
+                                                            <span id="<?= $default.$colorId[$count] ?>" onclick="getMaxQuantity(<?= $size['quantity'] ?>)" class="swatch-size"><?= $size['size_name'] ?></span>
+                                                        </label>
+                                                    </li>
+                                                <?php
+                                                    $default = "";
+                                                } ?>
+                                            </ul>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <button class="btn btn-outline-dark showcart" type="button"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng</button>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <button class="btn-buy-now" type="button"></i>Mua ngay</button>
-                            </div>
+                                <div class="col-xl-5 col-md-9 col-sm-3 col-5 mx-auto mt-3">
+                                    <div class="buttons_added">
+                                        <input class="minus is-form" type="button" value="-">
+                                        <input aria-label="quantity" id="myNumber" class="input-qty" min="1" max="100" name="quantity" type="number" value="1">
+                                        <input class="plus is-form" type="button" value="+">
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <button class="btn btn-outline-dark showcart" type="button"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng</button>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <button class="btn-buy-now" name="addToCart" type="submit"></i>Mua ngay</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

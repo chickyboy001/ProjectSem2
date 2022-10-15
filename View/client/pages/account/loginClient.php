@@ -66,7 +66,7 @@
                     <form method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="name" class="form-label">Tên đăng nhập</label>
-                            <input type="name" name="username" id="name" class="form-control" required>
+                            <input type="text" name="username" id="name" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Mật khẩu</label>

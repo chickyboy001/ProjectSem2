@@ -35,7 +35,7 @@
                                 cảm hứng từ tinh thần của người trẻ và những màu sắc đặc
                                 trưng của Thủ Đô Hà Nội.
                                 Phong cách mà Double-H hướng tới là sự kết hợp giữa văn
-                                hóa Hip Hop hiện đại với những món đồ có thể mặc thường
+                                hóa Hip Hop hiện đại với những món đồ có thể mặc thường
                                 ngày. Với mong muốn truyền tải
                                 nét văn hóa đặc trưng của Hà Nội rộng rãi hơn trong ngành
                                 streetwear nói riêng và thời trang nói chung.</p>
@@ -449,6 +449,33 @@
         return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
     }
     // VALIDATE EDIT PROFILE
+</script>
+<script>
+    function showAvailableSize(evt, colorId) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("size_button");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("swatch");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById('colorID'+colorId).style.display = "block";
+        evt.currentTarget.className += " active";
+        document.getElementById('defaultClick'+colorId).click();
+        var colorName = document.getElementById('getColorName'+colorId).value;
+        console.log(colorName);
+        document.getElementById('colorName').innerText= colorName; 
+    }
+
+    function getMaxQuantity(quantity) {
+        document.getElementById("myNumber").max = quantity;;
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    
 </script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--

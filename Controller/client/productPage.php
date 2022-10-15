@@ -45,9 +45,7 @@ class ProductPage
             $product_id = $_GET['productId'];
             $product = $productModel->getProduct($product_id);
             $colors = $productModel->getColorOfProduct($product_id);
-            
-
-            if (isset($_POST['editColor'])) {
+            if (isset($_POST['addToCart'])) {
 
                 
             }
