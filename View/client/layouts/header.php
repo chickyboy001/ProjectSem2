@@ -97,8 +97,16 @@
                                 </a>
 
                                 <a href="?controller=shoppingCart" class="header-item">
+                                    <?php
+                                    if(isset($_SESSION['shoppingCart'])){
+                                        $count = count($_SESSION['shoppingCart']);
+                                    } else {
+                                        $count =0;
+                                    }
+                                    
+                                    ?>
                                     <lord-icon src="https://cdn.lordicon.com/gtcqrwnh.json" trigger="hover" style="width:25px;height:25.8px;">
-                                    </lord-icon><span id="header-qty" class="me-3">2</span>
+                                    </lord-icon><span id="header-qty" class="me-3"><?= $count ?></span>
                                     <lord-icon src="https://cdn.lordicon.com/kgfdwvou.json" trigger="hover" style="width:25px;height:25.8px">
                                     </lord-icon><span id="header-price">$4,000</span>
                                 </a>

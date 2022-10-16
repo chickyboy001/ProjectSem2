@@ -451,7 +451,16 @@
     // VALIDATE EDIT PROFILE
 </script>
 <script>
+    const clID = new Array();
+
     function showAvailableSize(evt, colorId) {
+        clID.push(colorId);
+        let result = clID.reduce(function(accumulator, element) {
+            if (accumulator.indexOf(element) === -1) {
+                accumulator.push(element)
+            }
+            return accumulator
+        }, [])
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("size_button");
         for (i = 0; i < tabcontent.length; i++) {
@@ -461,21 +470,27 @@
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-        document.getElementById('colorID'+colorId).style.display = "block";
+        for(i = 0; i <clID.length; i++) {
+            if(clID[i] == colorId) {
+                document.getElementById('getColorName' + clID[i]).disabled = false;
+                document.getElementById('getImage' + clID[i]).disabled = false;
+                continue;}
+            document.getElementById('getColorName' + clID[i]).disabled = true;
+            document.getElementById('getImage' + clID[i]).disabled = true;
+        }
+        document.getElementById('colorID' + colorId).style.display = "block";
         evt.currentTarget.className += " active";
-        document.getElementById('defaultClick'+colorId).click();
-        var colorName = document.getElementById('getColorName'+colorId).value;
-        console.log(colorName);
-        document.getElementById('colorName').innerText= colorName; 
-    }
+        document.getElementById('defaultClick' + colorId).click();
+        var colorName = document.getElementById('getColorName' + colorId).value;
+        document.getElementById('colorName').innerText = colorName;
 
+    }
     function getMaxQuantity(quantity) {
-        document.getElementById("myNumber").max = quantity;;
+        document.getElementById("myNumber").max = quantity;
     }
 
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
-    
 </script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--

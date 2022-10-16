@@ -128,6 +128,9 @@
                             </div>
                             <form method="POST">
                                 <input type="hidden" name="productId" value="<?= $product['product_id'] ?>" />
+                                <input type="hidden" name="productName" value="<?= $product['product_name'] ?>" />
+                                <input type="hidden" name="unit_price" value="<?= $product['price'] ?>" />
+                                
                                 <div class="col-12">
                                     <span>Chọn màu: <span id="colorName" style="font-weight: 700;"></span></span>
                                     <div class="colors mt-2">
@@ -148,9 +151,10 @@
                                             ?>
                                                 <li class="mx-1">
                                                     <label>
-                                                        <input type="radio" name="colorId" value="<?= $color['color_id'] ?>" <?= $checked ?>>
-                                                        <span id="<?= $default ?>" onclick="showAvailableSize(event, <?= $color['color_id'] ?>)" class="swatch" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/<?= $color['image_link'] ?>')"></span>
-                                                        <input type="hidden" id="getColorName<?= $color['color_id'] ?>" value="<?= $color['color_name'] ?>" />
+                                                    <input type="hidden" id="getImage<?= $color['color_id'] ?>" name="image" disabled value="<?= $color['image_link'] ?>" />
+                                                    <input type="radio" name="colorId" value="<?= $color['color_id'] ?>" <?= $checked ?>>
+                                                    <span id="<?= $default ?>" onclick="showAvailableSize(event, <?= $color['color_id'] ?>)" class="swatch" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/<?= $color['image_link'] ?>')"></span>
+                                                    <input type="hidden" disabled id="getColorName<?= $color['color_id'] ?>" name="colorName" value="<?= $color['color_name'] ?>" />
                                                     </label>
                                                 </li>
                                             <?php
@@ -171,7 +175,7 @@
                                             <ul id="colorID<?= $colorId[$count] ?>" class="size_button">
                                                 <?php
                                                 $default = "defaultClick";
-                                                
+                                                $temp= 0;
                                                 foreach ($key as $size) {
                                                     if ($size['status'] == 0) {
                                                         continue;
@@ -185,6 +189,7 @@
                                                     </li>
                                                 <?php
                                                     $default = "";
+                                                    $temp++;
                                                 } ?>
                                             </ul>
                                         <?php
@@ -200,10 +205,10 @@
                                     </div>
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <button class="btn btn-outline-dark showcart" type="button"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng</button>
+                                    <button class="btn btn-outline-dark showcart" name="addToCart" type="submit"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng</button>
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <button class="btn-buy-now" name="addToCart" type="submit"></i>Mua ngay</button>
+                                    <button class="btn-buy-now" type="button"></i>Mua ngay</button>
                                 </div>
                             </form>
                         </div>

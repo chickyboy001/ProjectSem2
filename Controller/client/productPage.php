@@ -7,47 +7,78 @@ class ProductPage
         require_once('Model/Color.php');
         require_once('Model/Size.php');
         require_once('Model/Category.php');
+        require_once('Model/Cart.php');
         $productModel = new Product();
         $colorModel = new Color();
         $sizeModel = new Size();
         $cateModel = new Category();
+        $cartModel = new Cart();
         $categories = $cateModel->showAll();
-        $_SESSION['shoppingCart']= array(
-            0 => array(
-                'product_id' => 1,
-                'product_name' => 'Áo thun nữ',
-                'image' => 'ezgif-5-9b70b8b517.jpg',
-                'color_name' => 'đen',
-                'size_name' => 'XL',
-                'unit_price' => '240000',
-                'quantity' => 1
-            ),
-            1 => array(
-                'product_id' => 2,
-                'product_name' => 'Áo thun nam',
-                'image' => 'ezgif-5-9b70b8b517.jpg',
-                'color_name' => 'trắng',
-                'size_name' => 'L',
-                'unit_price' => '320000',
-                'quantity' => 2
-            ),
-            2 => array(
-                'product_id' => 3,
-                'product_name' => 'Áo hoodie',
-                'image' => 'ezgif-5-9b70b8b517.jpg',
-                'color_name' => 'xanh',
-                'size_name' => 'XL',
-                'unit_price' => '250000',
-                'quantity' => 1
-            ),
-        );
+        // unset($_SESSION['shoppingCart']);
+        print_r($_SESSION['shoppingCart']);
         if (isset($_GET['productId'])) {
             $product_id = $_GET['productId'];
             $product = $productModel->getProduct($product_id);
             $colors = $productModel->getColorOfProduct($product_id);
             if (isset($_POST['addToCart'])) {
-
+                unset($itemArray);
+                $size = $sizeModel->getSize($_POST['sizeId']);
+                if(!empty($_SESSION['user'])){
+                    $arkey = $_POST['productId'].$_POST['colorId'].$_POST['sizeId'].$_SESSION['user']['user_id'];
+                } else {
+                    $arkey = $_POST['productId'].$_POST['colorId'].$_POST['sizeId'];
+                }
                 
+                $itemArray = array(
+                    $arkey => array(
+                        'product_id' => $_POST['productId'],
+                        'product_name' => $_POST['productName'],
+                        'image' => $_POST['image'],
+                        'color_id' => $_POST['colorId'],
+                        'color_name' => $_POST['colorName'],
+                        'size_id' => $_POST['sizeId'],
+                        'size_name' => $size['size_name'],
+                        'unit_price' => $_POST['unit_price'],
+                        'quantity' => $_POST['quantity']
+                    ),
+                );
+                if (!empty($_SESSION['shoppingCart'])) {
+                    if (in_array($arkey, array_keys($_SESSION["shoppingCart"]))) {
+                        foreach ($_SESSION["shoppingCart"] as $k => $v) {
+                            if ($arkey == $k) {
+                                if (empty($_SESSION["shoppingCart"][$k]["quantity"])) {
+                                    $_SESSION["shoppingCart"][$k]["quantity"] = 0;
+                                }
+                                $_SESSION["shoppingCart"][$k]["quantity"] += $_POST['quantity'];
+                                if(!empty($_SESSION['user'])){
+                                    $cartModel->editCart($arkey,$_SESSION["shoppingCart"][$k]["quantity"]);
+                                }
+                            }
+                        }
+                    } else {
+                        $_SESSION["shoppingCart"] = $_SESSION["shoppingCart"]+$itemArray;
+                        if(!empty($_SESSION['user'])){
+                            $cartModel->addItemToCart($arkey,$_SESSION['user']['user_id'],
+                                                    $itemArray[$arkey]['product_id'], 
+                                                    $itemArray[$arkey]['color_id'],
+                                                    $itemArray[$arkey]['size_id'],
+                                                    $itemArray[$arkey]['unit_price'],
+                                                    $itemArray[$arkey]['quantity']);
+                        }
+                    }
+                } else {
+                    $_SESSION['shoppingCart'] = $itemArray;
+                    if(!empty($_SESSION['user'])){
+                        $cartModel->addItemToCart($arkey,$_SESSION['user']['user_id'],
+                                                $itemArray[$arkey]['product_id'], 
+                                                $itemArray[$arkey]['color_id'],
+                                                $itemArray[$arkey]['size_id'],
+                                                $itemArray[$arkey]['unit_price'],
+                                                $itemArray[$arkey]['quantity']);
+                    }
+                }
+                
+                header("Refresh:0");
             }
             require('View/client/pages/product/productPage.php');
         }
