@@ -73,7 +73,14 @@ class Product extends Database
 		return $list;
     }
 
-    
+    public function addProductToOrder($order_id, $product_id, $color_name, $size_name, $unit_price, $quantity)
+    {
+        $sql = "INSERT INTO order_details (order_id, product_id,color_name, size_name, unit_price, quantity )
+							VALUES ('$order_id', '$product_id', '$color_name', '$size_name', '$unit_price', '$quantity')";
+		return $this->db->conn->query($sql);
+    }
+
+
 
 }
 ?>

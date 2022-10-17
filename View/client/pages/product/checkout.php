@@ -55,123 +55,132 @@
     <div class="container mt-4">
         <!-- <form method="post" id="form"> -->
 
-            <div class="py-5 text-center">
-                <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
-                <h2>Thanh toán</h2>
-                <p class="lead">Vui lòng kiểm tra thông tin Khách hàng, thông tin Giỏ hàng trước khi Đặt
-                    hàng.</p>
-            </div>
+        <div class="py-5 text-center">
+            <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
+            <h2>Thanh toán</h2>
+            <p class="lead">Vui lòng kiểm tra thông tin Khách hàng, thông tin Giỏ hàng trước khi Đặt
+                hàng.</p>
+        </div>
 
-            <div class="row" id="pb-12">
-                <div class="col-md-4 order-md-2 mb-4">
-                    <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-muted">Giỏ hàng</span>
-                        <span class="badge badge-secondary badge-pill">2</span>
-                    </h4>
-                    <ul class="list-group mb-3">
-                        <!-- <input type="hidden" name="sanphamgiohang[1][sp_ma]" value="2">
+        <div class="row" id="pb-12">
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Giỏ hàng</span>
+                    <span class="badge badge-secondary badge-pill">2</span>
+                </h4>
+
+                <ul class="list-group mb-3">
+                    <!-- <input type="hidden" name="sanphamgiohang[1][sp_ma]" value="2">
                                     <input type="hidden" name="sanphamgiohang[1][gia]" value="11800000.00">
                                     <input type="hidden" name="sanphamgiohang[1][soluong]" value="2"> -->
-
+                    <?php
+                    $count = 0;
+                    $total_price = 0;
+                    foreach ($_SESSION['shoppingCart'] as $shoppingCart) { ?>
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <div>
-                                <h6 class="my-0">Vintage Cargo Pants v2 Mocha</h6>
-                                <small class="text-muted">L</small>
+                                <h6 class="my-0"><?= $shoppingCart['product_name'] . ' ' . $shoppingCart['color_name'] ?></h6>
+                                <small class="text-muted">Số lượng: <?= $shoppingCart['quantity'] ?></small>
+                                <small class="text-muted">Size: <?= $shoppingCart['size_name'] ?></small>
                             </div>
-                            <span class="text-muted">650,000đ</span>
+                            <span class="text-muted"><?= getFormattedNumber($shoppingCart['quantity'] * $shoppingCart['unit_price']) . VND ?></span>
                         </li>
-                        <input type="hidden" name="sanphamgiohang[2][sp_ma]" value="4">
-                        <input type="hidden" name="sanphamgiohang[2][gia]" value="14990000.00">
-                        <input type="hidden" name="sanphamgiohang[2][soluong]" value="8">
-
-                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 class="my-0">Sweater Steel Blue</h6>
-                                <small class="text-muted">XL</small>
-                            </div>
-                            <span class="text-muted">350,000đ</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Tổng thành tiền</span>
-                            <strong>1,000,000đ</strong>
-                        </li>
-                    </ul>
+                    <?php
+                        $total_price = $total_price + ($shoppingCart['quantity'] * $shoppingCart['unit_price']);
+                        $count++;
+                    } ?>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Tổng thành tiền</span>
+                        <strong><?= getFormattedNumber($total_price) . VND ?></strong>
+                        <input type="hidden" name="total_price" value="<?=$total_price?>">
+                    </li>
+                </ul>
 
 
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Mã giảm giá">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-secondary">Xác nhận</button>
-                        </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Mã giảm giá">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-secondary">Xác nhận</button>
                     </div>
-
                 </div>
-                <div class="col-md-8 order-md-1">
-                    <h4 class="mb-3">Thông tin khách hàng</h4>
 
-                    <div class="row">
-                        <form method="POST" id="formCheckout">
-                            <div class="col-md-12 my-1 form-control-checkout">
-                                <label for="fullname">Họ tên</label>
-                                <input type="text" class="form-control" id="fullnameCheckout" value="<?= $_SESSION['user']['fullname'] ?>">
-                                <i class="fas fa-check-circle"></i>
-                                <i class="fas fa-exclamation-circle"></i>
-                                <small>Error message</small>
-                            </div>
-                            <div class="col-md-12" style="display: flex; padding:10px">
-                                <label for="kh_gioitinh" style="padding-right:10px">Giới tính</label>
-                                <span class="me-1">Nam</span><input type="checkbox" class="form-check">
-                                &nbsp
-                                <span class="me-1">Nữ</span><input type="checkbox" class="form-check">
-                                &nbsp
-                                <span class="me-1">Khác</span><input type="checkbox" class="form-check">
-                            </div>
-                            <div class="col-md-12 my-1 form-control-checkout">
-                                <label for="address">Địa chỉ</label>
-                                <input type="text" class="form-control" id="addressCheckout"
-                                    value="<?= $_SESSION['user']['address'] ?>">
-                                <i class="fas fa-check-circle"></i>
-                                <i class="fas fa-exclamation-circle"></i>
-                                <small>Error message</small>
-                            </div>
-                            <div class="col-md-12 my-1 form-control-checkout">
-                                <label for="kh_dienthoai">Điện thoại</label>
-                                <input type="text" class="form-control" id="phoneCheckout"
-                                    value="<?= $_SESSION['user']['phone'] ?>">
-                                <i class="fas fa-check-circle"></i>
-                                <i class="fas fa-exclamation-circle"></i>
-                                <small>Error message</small>
-                            </div>
-                            <h4 class="my-3">Hình thức thanh toán</h4>
-
-                            <div class="d-block my-3">
-                                <div class="custom-control custom-radio">
-                                    <input id="httt-1" name="httt_ma" type="radio" class="custom-control-input"
-                                        value="1">
-                                    <label class="custom-control-label" for="httt-1">Tiền mặt</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input"
-                                        value="2">
-                                    <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input"
-                                        value="3">
-                                    <label class="custom-control-label" for="httt-3">Ship COD</label>
-                                </div>
-                            </div>
-                            <hr class="mb-4">
-                            <!-- class="btn btn-outline-dark" -->
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang"
-                                    style="margin-bottom:18px">Đặt hàng</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
             </div>
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Thông tin khách hàng</h4>
+                <div class="row">
+                    <form method="POST" id="formCheckout">
+                        <?php if(!empty($_SESSION['user'])){?>
+                        <div class="col-md-12 my-1 form-control-checkout">
+                            <label for="fullname">Họ tên</label>
+                            <input type="text" class="form-control" name="fullname" id="fullnameCheckout" placeholder="<?= $_SESSION['user']['fullname'] ?>">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="col-md-12 my-1 form-control-checkout">
+                            <label for="address">Địa chỉ</label>
+                            <input type="text" class="form-control" name="address" id="addressCheckout" placeholder="<?= $_SESSION['user']['address'] ?>">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="col-md-12 my-1 form-control-checkout">
+                            <label for="kh_dienthoai">Điện thoại</label>
+                            <input type="text" class="form-control" name="phone" id="phoneCheckout" placeholder="<?= $_SESSION['user']['phone'] ?>">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <p class="text-danger">*Bỏ trống nếu giữ nguyên thông tin người nhận</p>
+                        <?php } else { ?>
+                            <div class="col-md-12 my-1 form-control-checkout">
+                            <label for="fullname">Họ tên</label>
+                            <input type="text" class="form-control" name="fullname" id="fullnameCheckout">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="col-md-12 my-1 form-control-checkout">
+                            <label for="address">Địa chỉ</label>
+                            <input type="text" class="form-control" name="address" id="addressCheckout">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="col-md-12 my-1 form-control-checkout">
+                            <label for="kh_dienthoai">Điện thoại</label>
+                            <input type="text" class="form-control" name="phone" id="phoneCheckout">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <?php }?>
+                        <h4 class="my-3">Hình thức thanh toán</h4>
+
+                        <div class="d-block my-3">
+                            <div class="custom-control custom-radio">
+                                <input id="httt-1" name="payment_method" type="radio" class="custom-control-input" value="0" checked>
+                                <label class="custom-control-label" for="httt-1">Ship COD</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="httt-2" name="payment_method" type="radio" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="httt-3" name="payment_method" type="radio" class="custom-control-input" value="2">
+                                <label class="custom-control-label" for="httt-3">Thẻ ATM</label>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+                        <!-- class="btn btn-outline-dark" -->
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit" name="confirmOrder" style="margin-bottom:18px">Đặt hàng</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
         <!-- </form> -->
 
     </div>

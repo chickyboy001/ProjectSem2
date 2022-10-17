@@ -86,7 +86,7 @@
                     <div class="col">
                         <div class="mb-3 form-control-editProfile">
                             <label for="userName" class="form-label">Tên đầy đủ</label>
-                            <input type="text" name="name" id="fullnameEditProfile" class="form-control" value="<?= $_SESSION['user']['fullname'] ?>">
+                            <input type="text" name="fullname" id="fullnameEditProfile" class="form-control" value="<?= $_SESSION['user']['fullname'] ?>">
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
@@ -119,7 +119,7 @@
                     </div>
                 </div>
                 <div class="update-info">
-                    <button class="btn btn-primary" name="sbm" type="submit">Cập nhật thông tin cá nhân </button>
+                    <button class="btn btn-primary" name="editProfile" type="submit">Cập nhật thông tin cá nhân</button>
                 </div>
             </form>
         </div>

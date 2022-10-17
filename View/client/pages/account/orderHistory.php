@@ -54,7 +54,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12">
-        <ul class="myinfo">
+            <ul class="myinfo">
                 <li class="iteminfo">
                     <a href="?controller=profile">
                         Tài khoản của tôi
@@ -102,30 +102,46 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>10/11/2022</td>
-                            <td>Quần Jean ống loe</td>
-                            <td>Xanh than</td>
-                            <td>XL</td>
-                            <td>10</td>
-                            <td>1,000,000đ</td>
-                            <td>
-                                <a href="#" style="color:green;" class="js-picture">Đã nhận</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>10/11/2022</td>
-                            <td>Quần Jean ống loe</td>
-                            <td>Xanh than</td>
-                            <td>XL</td>
-                            <td>10</td>
-                            <td>1,000,000đ</td>
-                            <td>
-                                <a href="../../../ProjectSem2/View/client/pages/account/ordersDetail.php" style="color:green;" class="">Đã nhận</a>
-                            </td>
-                        </tr>
+                        <?php
+                        $stt = 1;
+                        foreach ($orders as $order) {
+                            $products = $orderModel->getProductInOrder($order['order_id']);
+                        ?>
+                            <tr>
+                                <?php foreach ($products as $product) { ?>
+                                    <td><?= $stt ?></td>
+                                    <td><?= $order['order_date'] ?></td>
+                                    <td><?= $product['product_name'] ?></td>
+                                    <td><?= $product['color'] ?></td>
+                                    <td><?= $product['size'] ?></td>
+                                    <td><?= $product['quantity'] ?></td>
+                                    <td><?= getFormattedNumber($product['quantity'] * $product['price']) . VND ?></td>
+                                    <td>
+                                        <?php if ($order['status'] == 1) { ?>
+                                            <a href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>" style="color:green;" class="js-picture">Đã nhận</a>
+                                        <?php }
+                                        if ($order['status'] == 2) { ?>
+                                            <a href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>" style="color:green;" class="js-picture">Đang xử lý</a>
+                                        <?php }
+                                        if ($order['status'] == 3) { ?>
+                                            <a href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>" style="color:green;" class="js-picture">Đang vận chuyển</a>
+                                        <?php }
+                                        if ($order['status'] == 4) { ?>
+                                            <a href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>" style="color:green;" class="js-picture">Hoàn thành</a>
+                                        <?php }
+                                        if ($order['status'] == 5) { ?>
+                                            <a href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>" style="color:red;" class="js-picture">Đã hủy</a>
+                                        <?php } ?>
+                                    </td>
+                                <?php
+                                    break;
+                                }
+                                ?>
+                            </tr>
+                        <?php
+                            $stt++;
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>

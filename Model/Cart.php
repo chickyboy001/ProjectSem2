@@ -44,6 +44,12 @@ class Cart extends Database
         $sql = "DELETE FROM carts WHERE cart_id = $cart_id";
         return $this->db->conn->query($sql);
     }
+
+    public function deleteAllCart($customer_id)
+    {
+        $sql = "DELETE FROM carts WHERE customer_id = $customer_id";
+        return $this->db->conn->query($sql);
+    }
     
 }
 ?>

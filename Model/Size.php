@@ -34,6 +34,18 @@ class Size extends Database
         $sql = "DELETE FROM sizes WHERE size_id = $size_id";
         return $this->db->conn->query($sql);
     }
+    public function updateQuantityAfterCancelOrder($quantity, $size_id)
+    {
+        mysqli_next_result($this->db->conn);
+        $sql = "Call sp_updateQuantityAfterCancelOrder($quantity, $size_id)";
+        return $this->db->conn->query($sql);
+    }
+    public function updateQuantityAfterCreateOrder($quantity, $size_id)
+    {
+        mysqli_next_result($this->db->conn);
+        $sql = "Call sp_updateQuantityAfterCreateOrder($quantity, $size_id)";
+        return $this->db->conn->query($sql);
+    }
     public function deleteSizeOfColor($color_id)
     {
         $sql = "DELETE FROM sizes WHERE color_id = $color_id";

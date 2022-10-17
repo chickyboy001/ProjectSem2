@@ -18,12 +18,9 @@ class Register {
 
 			if ($username && $password && $address && $phone && $fullname) {
 				$checkUsername = $accModel->checkExistUsername($username);
-				$checkPhone = $accModel->checkExistPhone($phone);
 
 				if ($checkUsername->num_rows > 0) {
 					echo "<script>alert('Tên đăng nhập đã tồn tại')</script>";
-				}	else if($checkPhone->num_rows > 0) {
-					echo "<script>alert('Số điện thoại đã tồn tại')</script>";
 				} else {
 					$accModel->signup($username, $address, $phone, $password);
 					echo "<script>alert('Đăng ký thành công')</script>";

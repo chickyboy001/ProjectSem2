@@ -169,11 +169,35 @@
                         <div class="d-flex justify-content-between">
                             <p class="text-muted mb-0">Phương thức thanh toán : <b>Thanh toán khi nhận hàng</b> </p>
                         </div>
+
+                        <div class="d-flex justify-content-between pt-2 pb-1">
+                            <p class="fw-bold mb-0">Thông tin người nhận</p>
+                        </div>
+                        <?php if(!empty($order['sub_customer'])) {?>
+                        <div class="d-flex justify-content-between pt1 pb-1">
+                            <p class="text-muted mb-0">Người nhận: <?= $order['sub_fullname']?> </p>
+                        </div>
+                        <div class="d-flex justify-content-between pt1 pb-1">
+                            <p class="text-muted mb-0">Số điện thoại: <?= $order['sub_phone']?> </p>
+                        </div>
+                        <div class="d-flex justify-content-between pt1 pb-1">
+                            <p class="text-muted mb-0">Địa chỉ: <?= $order['sub_address']?> </p>
+                        </div>
+                        <?php } else {?>
+                            <div class="d-flex justify-content-between pt1 pb-1">
+                            <p class="text-muted mb-0">Người nhận: <?= $_SESSION['user']['fullname']?> </p>
+                        </div>
+                        <div class="d-flex justify-content-between pt1 pb-1">
+                            <p class="text-muted mb-0">Số điện thoại: <?= $_SESSION['user']['phone']?> </p>
+                        </div>
+                        <div class="d-flex justify-content-between pt1 pb-1">
+                            <p class="text-muted mb-0">Địa chỉ: <?= $_SESSION['user']['address']?> </p>
+                        </div>
+                        <?php }?>
                     </div>
                     <div class="card-footer border-0 px-4 py-5" style="background-color: green; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
                         <h5 class="d-flex align-items-center justify-content-end text-white mb-0">
                             TỔNG TIỀN: <span class="h2 mb-0 ms-2"><?= getFormattedNumber($price).VND ?></span></h5>
-
                     </div>
                 </div>
             </section>

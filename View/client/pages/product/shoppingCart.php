@@ -39,7 +39,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="books" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Liên hệ</a>
 
                     <div class="dropdown-menu" aria-labelledby="books">
-
+6utfygubjnlk
                     </div>
                 </li>
             </ul>
@@ -88,15 +88,20 @@
                                             <td>
                                                 <form>
                                                     <select>
-                                                        <option selected value="<?= $shoppingCart['size_name'] ?>"><?= $shoppingCart['size_name'] ?></option>
-                                                        <?php $sizes = $sizeModel->getSizeOfColor($shoppingCart['color_id']);
+                                                        <option selected value="<?= $shoppingCart['size_id'] ?>"><?= $shoppingCart['size_name'] ?></option>
+                                                        <?php
+                                                        
+                                                        $sizes = $colorModel->getSizeOfColor($shoppingCart['color_id']);
+                                                        
                                                         foreach ($sizes as $size) {
-                                                            if ($size['size_id'] == $shoppingCart['size_id']) {
+                                                            if ($size['size_name'] == $shoppingCart['size_name']) {
                                                                 continue;
                                                             }
                                                         ?>
-                                                            <option value="<?= $size['size_name'] ?>"><?= $size['size_name'] ?></option>
-                                                        <?php } ?>
+                                                            <option value="<?= $size['size_id']?>"><?= $size['size_name'] ?></option>
+                                                        <?php 
+                                                        
+                                                    } ?>
                                                     </select>
                                                     <!-- <br><br>
                                                 <input type="submit" value="Submit"> -->
@@ -136,7 +141,7 @@
                             </table>
                         </div>
                         <div class="col-12 text-right">
-                            <a href="checkout.php" class="btn btn-outline-success">Thanh toán</a>
+                            <a href="?controller=checkOut" class="btn btn-outline-success">Thanh toán</a>
                         </div>
                     </form>
                 </div>

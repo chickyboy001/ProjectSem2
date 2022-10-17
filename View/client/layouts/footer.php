@@ -325,58 +325,58 @@
 
 <script>
     // VALIDATE CHECOUT
-    const formCheckout = document.getElementById('formCheckout');
-    const fullnameCheckout = document.getElementById('fullnameCheckout');
-    const addressCheckout = document.getElementById('addressCheckout');
-    const phoneCheckout = document.getElementById('phoneCheckout');
+    // const formCheckout = document.getElementById('formCheckout');
+    // const fullnameCheckout = document.getElementById('fullnameCheckout');
+    // const addressCheckout = document.getElementById('addressCheckout');
+    // const phoneCheckout = document.getElementById('phoneCheckout');
 
-    formCheckout.addEventListener('submit', e => {
-        e.preventDefault();
+    // formCheckout.addEventListener('submit', e => {
+    //     e.preventDefault();
 
-        checkInputsCheckOut();
-    });
+    //     checkInputsCheckOut();
+    // });
 
-    function checkInputsCheckOut() {
-        const fullnameCheckoutValue = fullnameCheckout.value.trim();
-        const addressCheckoutValue = addressCheckout.value.trim();
-        const phoneCheckoutValue = phoneCheckout.value.trim();
+    // function checkInputsCheckOut() {
+    //     const fullnameCheckoutValue = fullnameCheckout.value.trim();
+    //     const addressCheckoutValue = addressCheckout.value.trim();
+    //     const phoneCheckoutValue = phoneCheckout.value.trim();
 
-        if (fullnameCheckoutValue == '') {
-            setErrorCheckoutFor(fullnameCheckout, 'Họ và tên không được để trống');
-        } else {
-            setSucessCheckoutFor(fullnameCheckout);
-        }
+    //     if (fullnameCheckoutValue == '') {
+    //         setErrorCheckoutFor(fullnameCheckout, 'Họ và tên không được để trống');
+    //     } else {
+    //         setSucessCheckoutFor(fullnameCheckout);
+    //     }
 
-        if (addressCheckoutValue == '') {
-            setErrorCheckoutFor(addressCheckout, 'Địa chỉ không được để trống');
-        } else {
-            setSucessCheckoutFor(addressCheckout);
-        }
+    //     if (addressCheckoutValue == '') {
+    //         setErrorCheckoutFor(addressCheckout, 'Địa chỉ không được để trống');
+    //     } else {
+    //         setSucessCheckoutFor(addressCheckout);
+    //     }
 
-        if (phoneCheckoutValue == '') {
-            setErrorCheckoutFor(phoneCheckout, 'Số điện thoại không được để trống');
-        } else if (!isPhone(phoneCheckoutValue)) {
-            setErrorCheckoutFor(phoneCheckout, 'Không đúng định dạng');
-        } else {
-            setSucessCheckoutFor(phoneCheckout);
-        }
-    }
+    //     if (phoneCheckoutValue == '') {
+    //         setErrorCheckoutFor(phoneCheckout, 'Số điện thoại không được để trống');
+    //     } else if (!isPhone(phoneCheckoutValue)) {
+    //         setErrorCheckoutFor(phoneCheckout, 'Không đúng định dạng');
+    //     } else {
+    //         setSucessCheckoutFor(phoneCheckout);
+    //     }
+    // }
 
-    function setErrorCheckoutFor(input, mess) {
-        const formControlCheckout = input.parentElement;
-        const smallCheckout = formControlCheckout.querySelector('small');
-        formControlCheckout.className = 'form-control-checkout error';
-        smallCheckout.innerText = mess;
-    }
+    // function setErrorCheckoutFor(input, mess) {
+    //     const formControlCheckout = input.parentElement;
+    //     const smallCheckout = formControlCheckout.querySelector('small');
+    //     formControlCheckout.className = 'form-control-checkout error';
+    //     smallCheckout.innerText = mess;
+    // }
 
-    function setSucessCheckoutFor(input) {
-        const formControlCheckout = input.parentElement;
-        formControlCheckout.className = 'form-control-checkout success';
-    }
+    // function setSucessCheckoutFor(input) {
+    //     const formControlCheckout = input.parentElement;
+    //     formControlCheckout.className = 'form-control-checkout success';
+    // }
 
-    function isPhone(phone) {
-        return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(phone);
-    }
+    // function isPhone(phone) {
+    //     return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(phone);
+    // }
     // VALIDATE CHECOUT
 </script>
 

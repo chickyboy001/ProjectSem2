@@ -236,13 +236,11 @@
                     <div class="text-start col-7 ">
                         <p>
                             <?php if($order['payment_method'] == 0) {?>
-                            <strong> Tiền mặt</strong>
-                            <?php } if($order['payment_method'] == 2) { ?>
+                            <strong> COD</strong>
+                            <?php } if($order['payment_method'] == 1) { ?>
                             <strong> Chuyển khoản </strong>
-                            <?php } if($order['payment_method'] == 3) { ?>
+                            <?php } if($order['payment_method'] == 2) { ?>
                             <strong> Thẻ ATM </strong>
-                            <?php } if($order['payment_method'] == 4) { ?>
-                            <strong> Ví điện tử </strong>
                             <?php } ?>
                         </p>
                     </div>

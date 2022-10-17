@@ -9,6 +9,24 @@ class Order extends Database
         $this->db->connect();
     }
 
+    public function addOrder($customer_id, $payment_method, $total_price)
+    {
+        $sql = "INSERT INTO products (customer_id, payment_method, total_price)
+							VALUES ('$customer_id', '$payment_method', '$total_price')";
+		$this->db->conn->query($sql);
+        $PID = $this->db->conn->insert_id;
+        return $PID;
+    }
+
+    public function addOrderWithSub_customer($customer_id, $payment_method, $sub_customer, $total_price)
+    {
+        $sql = "INSERT INTO products (customer_id, payment_method,sub_customer, total_price)
+							VALUES ('$customer_id', '$payment_method', '$sub_customer', '$total_price')";
+		$this->db->conn->query($sql);
+        $PID = $this->db->conn->insert_id;
+        return $PID;
+    }
+
     public function showAll(){
         $sql = "SELECT * FROM orders ORDER BY order_id DESC";
 		$result = $this->db->conn->query($sql);
@@ -21,10 +39,23 @@ class Order extends Database
 
     public function getOrder($order_id)
     {
+        mysqli_next_result($this->db->conn);
         $sql = "Call sp_getOrderById($order_id)";
 		$result = $this->db->conn->query($sql);
 		$data = $result->fetch_array();
         return $data;
+    }
+
+    public function getOrderByCustomerId($customer_id)
+    {
+        mysqli_next_result($this->db->conn);
+        $sql = "Call sp_getOrderByCustomerId($customer_id)";
+		$result = $this->db->conn->query($sql);
+		$list = array();
+		while ($data = $result->fetch_array()) {
+			$list[] = $data;
+		}
+		return $list;
     }
 
 
@@ -94,6 +125,8 @@ class Order extends Database
 		}
 		return $list;
     }
+
+    
 
 }
 ?>

@@ -21,7 +21,6 @@ class Account extends Database
 	{
 		$sql = "SELECT * FROM accounts WHERE username = '$username' AND password = '$password'";
 		$result = $this->db->conn->query($sql);
-		
 		return $result;
 	}
 
@@ -35,7 +34,6 @@ class Account extends Database
 	public function checkExistUsername($username) {
 		$sql = "SELECT * FROM accounts WHERE username = '$username'";
 		$result = $this->db->conn->query($sql);
-		
 		return $result;
 	}
     public function checkExistPhone($phone) {
@@ -45,7 +43,7 @@ class Account extends Database
 		return $result;
 	}
 
-	public function editProfile($userId, $fullname, $sex, $phone, $address, $email)
+	public function editProfile($userId, $fullname, $phone, $address, $email)
     {
 		$fullname = $this->db->conn->real_escape_string($fullname);
         $address = $this->db->conn->real_escape_string($address);
@@ -53,11 +51,18 @@ class Account extends Database
         $sql = "UPDATE accounts SET address = '$address',
 									phone = '$phone',
 									fullname = '$fullname',
-									sex = '$sex',
 									address = '$address',
 									email = '$email' WHERE user_id = $userId";
 		return $this->db->conn->query($sql);
     }
+	public function addCustomer($fullname, $address, $phone, $email)
+	{	
+		$sql = "INSERT INTO accounts (fullname, address, phone, email)
+							VALUES ('$fullname', '$address', '$phone', '$email')";
+		$this->db->conn->query($sql);
+		$SID = $this->db->conn->insert_id;
+        return $SID;
+	}
 
 }
 ?>
