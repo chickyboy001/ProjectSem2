@@ -11,7 +11,7 @@ class Order extends Database
 
     public function addOrder($customer_id, $payment_method, $total_price)
     {
-        $sql = "INSERT INTO products (customer_id, payment_method, total_price)
+        $sql = "INSERT INTO orders (customer_id, payment_method, total_price)
 							VALUES ('$customer_id', '$payment_method', '$total_price')";
 		$this->db->conn->query($sql);
         $PID = $this->db->conn->insert_id;
@@ -20,7 +20,7 @@ class Order extends Database
 
     public function addOrderWithSub_customer($customer_id, $payment_method, $sub_customer, $total_price)
     {
-        $sql = "INSERT INTO products (customer_id, payment_method,sub_customer, total_price)
+        $sql = "INSERT INTO orders (customer_id, payment_method,sub_customer, total_price)
 							VALUES ('$customer_id', '$payment_method', '$sub_customer', '$total_price')";
 		$this->db->conn->query($sql);
         $PID = $this->db->conn->insert_id;
@@ -126,7 +126,7 @@ class Order extends Database
 		return $list;
     }
 
-    
+
 
 }
 ?>

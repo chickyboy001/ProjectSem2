@@ -92,7 +92,7 @@
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Tổng thành tiền</span>
                         <strong><?= getFormattedNumber($total_price) . VND ?></strong>
-                        <input type="hidden" name="total_price" value="<?=$total_price?>">
+                        
                     </li>
                 </ul>
 
@@ -109,29 +109,40 @@
                 <h4 class="mb-3">Thông tin khách hàng</h4>
                 <div class="row">
                     <form method="POST" id="formCheckout">
+                    <input type="hidden" name="total_price" value="<?=$total_price?>">
                         <?php if(!empty($_SESSION['user'])){?>
                         <div class="col-md-12 my-1 form-control-checkout">
                             <label for="fullname">Họ tên</label>
-                            <input type="text" class="form-control" name="fullname" id="fullnameCheckout" placeholder="<?= $_SESSION['user']['fullname'] ?>">
+                            <input type="text" class="form-control" name="fullname" id="fullnameCheckout" placeholder="Họ và tên người nhận"
+                            value="<?= $_SESSION['user']['fullname'] ?>" required>
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
                         </div>
                         <div class="col-md-12 my-1 form-control-checkout">
                             <label for="address">Địa chỉ</label>
-                            <input type="text" class="form-control" name="address" id="addressCheckout" placeholder="<?= $_SESSION['user']['address'] ?>">
+                            <input type="text" class="form-control" name="address" id="addressCheckout" placeholder="Vui lòng ghi rõ địa chỉ nhà, tên đường(nếu có), xã(phường), huyện(quận), tỉnh (TP)"
+                            value="<?= $_SESSION['user']['address'] ?>" required>
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
                         </div>
                         <div class="col-md-12 my-1 form-control-checkout">
                             <label for="kh_dienthoai">Điện thoại</label>
-                            <input type="text" class="form-control" name="phone" id="phoneCheckout" placeholder="<?= $_SESSION['user']['phone'] ?>">
+                            <input type="text" class="form-control" name="phone" id="phoneCheckout" placeholder="Số điện thoại người nhận"
+                            value="<?= $_SESSION['user']['phone'] ?>" required>
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
                         </div>
-                        <p class="text-danger">*Bỏ trống nếu giữ nguyên thông tin người nhận</p>
+                        <div class="col-md-12 my-1 form-control-checkout">
+                            <label for="kh_dienthoai">Email</label>
+                            <input type="text" class="form-control" name="email" id="phoneCheckout" placeholder="Email người nhận"
+                            value="<?php if(isset($_SESSION['user']['email'])) {echo $_SESSION['user']['email'];} ?>" required>
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
                         <?php } else { ?>
                             <div class="col-md-12 my-1 form-control-checkout">
                             <label for="fullname">Họ tên</label>

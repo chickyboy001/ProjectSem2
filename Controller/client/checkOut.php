@@ -23,10 +23,11 @@ class CheckOut {
                 $address = trim($_POST['address']);
             }
             if (!empty($_POST['email']) && strcasecmp($_POST['email'],$_SESSION['user']['email'])==0){
-                $address = trim($_POST['email']);
+                $email = trim($_POST['email']);
             }
             $payment_method = $_POST['payment_method'];
             $total_price = $_POST['total_price'];
+            // xử lý trường hợp khách nhập thiếu trường
             if(isset($fullname) || isset($phone) || isset($address)) {
                 $sub_customer = $accModel->addCustomer($fullname, $address, $phone, $email);
                 if(!empty($_SESSION['user'])){
@@ -43,7 +44,7 @@ class CheckOut {
                 $size_name = $shoppingCart['size_name'];
                 $unit_price = $shoppingCart['unit_price'];
                 $quantity = $shoppingCart['quantity'];
-                $productModel->addProductToOrder($new_order, $product_id, $color_name, $size_name, $quantity, $unit_price);
+                $productModel->addProductToOrder($new_order, $product_id, $color_name, $size_name, $unit_price, $quantity);
             }
             $cartModel->deleteAllCart($_SESSION['user']['user_id']);
             unset($_SESSION['shoppingCart']);
