@@ -24,10 +24,10 @@ class Account extends Database
 		return $result;
 	}
 
-    public function signup($username, $address, $phone, $password)
+    public function signup($username, $fullname, $address, $phone, $password)
 	{	
-		$sql = "INSERT INTO accounts (username, address, phone, password)
-							VALUES ('$username', '$address', '$phone', '$password')";
+		$sql = "INSERT INTO accounts (username, fullname, address, phone, password)
+							VALUES ('$username','$fullname', '$address', '$phone', '$password')";
 		$this->db->conn->query($sql);
 	}
 

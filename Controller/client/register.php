@@ -22,7 +22,7 @@ class Register {
 				if ($checkUsername->num_rows > 0) {
 					echo "<script>alert('Tên đăng nhập đã tồn tại')</script>";
 				} else {
-					$accModel->signup($username, $address, $phone, $password);
+					$accModel->signup($username, $fullname, $address, $phone, $password);
 					echo "<script>alert('Đăng ký thành công')</script>";
 				}
 			}
