@@ -83,7 +83,7 @@
                         </div>
                         <div class="mb-3">
                             Chưa có tài khoản?
-                            <a href="register.php" class="p-lg-1" style="color: black;">Đăng ký</a>
+                            <a href=">controller=register" class="p-lg-1" style="color: black;">Đăng ký</a>
                         </div>
                     </form>
                 </div>
