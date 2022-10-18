@@ -39,34 +39,33 @@
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js "></script>
 <script src="https://kit.fontawesome.com/9e51136256.js" crossorigin="anonymous"></script>
 <script>
-$(document).ready(function() {
-    $('#productTable').DataTable({
-        columnDefs: [{
-            targets: [0, 1, 2, 3, 4, 5, 6, 7],
-            className: 'dt-head-center'
-        }, {
-            orderable: false,
-            targets: [1, 2, 5, 6, 7]
-        }, {
-            "searchable": false,
-            "targets": [5, 6, 7]
-        }],
+    $(document).ready(function() {
+        $('#productTable').DataTable({
+            columnDefs: [{
+                targets: [0, 1, 2, 3, 4, 5, 6, 7],
+                className: 'dt-head-center'
+            }, {
+                orderable: false,
+                targets: [1, 2, 5, 6, 7]
+            }, {
+                "searchable": false,
+                "targets": [5, 6, 7]
+            }],
+        });
+        $('#orderTable').DataTable({
+            columnDefs: [{
+                targets: [0, 1, 2, 3, 4, 5, 6, 7],
+                className: 'dt-head-center'
+            }, {
+                orderable: false,
+                targets: [1, 2, 4, 5, 6, 7]
+            }, {
+                "searchable": false,
+                "targets": [2, 5, 6, 7]
+            }]
+        });
     });
-    $('#orderTable').DataTable({
-        columnDefs: [{
-            targets: [0, 1, 2, 3, 4, 5, 6, 7],
-            className: 'dt-head-center'
-        }, {
-            orderable: false,
-            targets: [1, 2, 4, 5, 6, 7]
-        }, {
-            "searchable": false,
-            "targets": [2, 5, 6, 7]
-        }]
-    });
-});
 </script>
-
 <script src="../../../ProjectSem2/Assets/admin/js/app.js"></script>
 <!-- Template Javascript -->
 <script src="../../../ProjectSem2/Assets/admin/js/main.js"></script>

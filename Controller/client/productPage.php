@@ -15,7 +15,7 @@ class ProductPage
         $cartModel = new Cart();
         $categories = $cateModel->showAll();
         // unset($_SESSION['shoppingCart']);
-        print_r($_SESSION['shoppingCart']);
+        // print_r($_SESSION['shoppingCart']);
         if (isset($_GET['productId'])) {
             $product_id = $_GET['productId'];
             $product = $productModel->getProduct($product_id);

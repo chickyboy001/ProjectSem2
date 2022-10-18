@@ -22,7 +22,7 @@
                                 continue;
                             }
                         ?>
-                            <a class="dropdown-item" href="category.html">
+                            <a class="dropdown-item" href="?controller=listProduct&category=<?=$category['category_id']?>">
                                 <?= $category['category_name'] ?>
                             </a>
                         <?php } ?>
@@ -55,39 +55,39 @@
 <div class="col-12">
     <main class="row">
         <!-- Slider -->
-        <div class="col-12 px-0">
-            <div id="slider" class="carousel slide w-100" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#slider" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#slider" data-bs-slide-to="1"></li>
-                    <li data-bs-target="#slider" data-bs-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <img src="../../../ProjectSem2/Assets/client/image/banner1.png" class="slider-img">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../../../ProjectSem2/Assets/client/image/banner2.png" class="slider-img">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../../../ProjectSem2/Assets/client/image/banner3.png" class="slider-img">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../../../ProjectSem2/Assets/client/image/banner4.png" class="slider-img">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../../../ProjectSem2/Assets/client/image/banner5.png" class="slider-img">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 4"></button>
             </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="../../../ProjectSem2/Assets/client/image/banner1.png" class="slider-img">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="../../../ProjectSem2/Assets/client/image/banner2.png" class="slider-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../../ProjectSem2/Assets/client/image/banner3.png" class="slider-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../../ProjectSem2/Assets/client/image/banner4.png" class="slider-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../../ProjectSem2/Assets/client/image/banner5.png" class="slider-img">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
         <!-- Slider -->
 

@@ -1,7 +1,6 @@
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -17,11 +16,9 @@
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
                 <div class="position-relative">
-                    <lord-icon src="https://cdn.lordicon.com/imamsnbq.json" trigger="hover"
-                        style="width:40px;height:40px">
+                    <lord-icon src="https://cdn.lordicon.com/imamsnbq.json" trigger="hover" style="width:40px;height:40px">
                     </lord-icon>
-                    <div
-                        class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                    <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                     </div>
                 </div>
                 <div class="ms-3">
@@ -30,12 +27,18 @@
                 </div>
             </div>
             <div class="navbar-nav w-100">
-                <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
+                <a href="?controller=home" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
                     quát</a>
-                <a href="product.html" class="nav-item nav-link active"><i class="fa fa-tshirt me-2 me-2"></i>Sản
-                    phẩm</a>
-                <a href="order.html" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
-                <a href="chart.html" class="nav-item nav-link"><i class="fa fa-home me-2"></i>Trang bán hàng</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-tshirt me-2"></i>Sản phẩm</a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="?controller=showProduct" class="dropdown-item">Danh sách sản phẩm</a>
+                        <a href="?controller=addProduct" class="dropdown-item">Thêm sản phẩm</a>
+                    </div>
+                </div>
+                <a href="?controller=manageCategory" class="nav-item nav-link"><i class="fa-solid fa-rectangle-list me-2"></i>Danh mục</a>
+                <a href="?controller=showOrder" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
+                <a href="" class="nav-item nav-link"><i class="fa-solid fa-tag me-2"></i>Khuyến mãi</a>
             </div>
         </nav>
     </div>
@@ -59,17 +62,15 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <i class="me-lg-2">
-                            <lord-icon src="https://cdn.lordicon.com/pghzuxlt.json" trigger="hover"
-                                style="width:16px;height:16px">
+                            <lord-icon src="https://cdn.lordicon.com/pghzuxlt.json" trigger="hover" style="width:16px;height:16px">
                             </lord-icon>
                         </i>
                         <span class="d-none d-lg-inline-flex">Tin nhắn</span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                    <!-- <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                         <a href="#" class="dropdown-item">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt=""
-                                    style="width: 40px; height: 40px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="ms-2">
                                     <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                     <small>15 minutes ago</small>
@@ -79,8 +80,7 @@
                         <hr class="dropdown-divider">
                         <a href="#" class="dropdown-item">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt=""
-                                    style="width: 40px; height: 40px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="ms-2">
                                     <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                     <small>15 minutes ago</small>
@@ -90,8 +90,7 @@
                         <hr class="dropdown-divider">
                         <a href="#" class="dropdown-item">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt=""
-                                    style="width: 40px; height: 40px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="ms-2">
                                     <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                     <small>15 minutes ago</small>
@@ -100,31 +99,30 @@
                         </a>
                         <hr class="dropdown-divider">
                         <a href="#" class="dropdown-item text-center">See all message</a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <i class="me-lg-2">
-                            <lord-icon src="https://cdn.lordicon.com/kjsfgazx.json" trigger="hover"
-                                style="width:16px;height:16px">
+                            <lord-icon src="https://cdn.lordicon.com/kjsfgazx.json" trigger="hover" style="width:16px;height:16px">
                             </lord-icon>
                         </i>
                         <span class="d-none d-lg-inline-flex">Thông báo</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                         <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Profile updated</h6>
-                            <small>15 minutes ago</small>
+                            <h6 class="fw-normal mb-0">Yêu cầu hủy đơn</h6>
+                            <small>10 phút trước</small>
                         </a>
                         <hr class="dropdown-divider">
                         <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">New user added</h6>
-                            <small>15 minutes ago</small>
+                            <h6 class="fw-normal mb-0">Đơn hàng mới</h6>
+                            <small>15 phút trước</small>
                         </a>
                         <hr class="dropdown-divider">
                         <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Password changed</h6>
-                            <small>15 minutes ago</small>
+                            <h6 class="fw-normal mb-0">Đơn hàng mới</h6>
+                            <small>15 phút trước</small>
                         </a>
                         <hr class="dropdown-divider">
                         <a href="#" class="dropdown-item text-center">See all notifications</a>
@@ -133,8 +131,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <i class="me-lg-2">
-                            <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover"
-                                style="width:16px;height:16px">
+                            <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover" style="width:16px;height:16px">
                             </lord-icon>
                         </i>
                         <span class="d-none d-lg-inline-flex"><?= $_SESSION['useradmin']['fullname'] ?></span>
@@ -246,97 +243,89 @@
                             foreach ($orders as $order) {
                                 $stt++;
                                 $customer = $accModel->getUserById($order['customer_id']);
-                                if(!empty($order['admin_id'])){
+                                if (!empty($order['admin_id'])) {
                                     $admin = $accModel->getUserById($order['admin_id']);
                                 }
-                                
+
                                 $products = $orderModel->getProductInOrder($order['order_id']);
                             ?>
-                            <tr>
-                                <td><?= $stt ?></td>
-                                <td><?= $customer['fullname'] ?></td>
-                                <td><?= $order['order_date'] ?></td>
+                                <tr>
+                                    <td><?= $stt ?></td>
+                                    <td><?= $customer['fullname'] ?></td>
+                                    <td><?= $order['order_date'] ?></td>
 
-                                <?php
+                                    <?php
                                     $price = 0;
                                     foreach ($products as $product) {
                                         $price = $price + $product['price'];
                                     } ?>
-                                <td><?= getFormattedNumber($price) . VND ?></td>
+                                    <td><?= getFormattedNumber($price) . VND ?></td>
 
-                                <?php if ($order['status'] == 1) { ?>
-                                <td class="text-secondary"> Đã đặt hàng</td>
-                                <?php }
+                                    <?php if ($order['status'] == 1) { ?>
+                                        <td class="text-secondary"> Đã đặt hàng</td>
+                                    <?php }
                                     if ($order['status'] == 2) { ?>
-                                <td class="text-primary"> Đang xử lý </td>
-                                <?php }
+                                        <td class="text-primary"> Đang xử lý </td>
+                                    <?php }
                                     if ($order['status'] == 3) { ?>
-                                <td class="text-info"> Đang vận chuyển </td>
-                                <?php }
+                                        <td class="text-info"> Đang vận chuyển </td>
+                                    <?php }
                                     if ($order['status'] == 4) { ?>
-                                <td class="text-success"> Hoàn thành </td>
-                                <?php }
+                                        <td class="text-success"> Hoàn thành </td>
+                                    <?php }
                                     if ($order['status'] == 5) { ?>
-                                <td class="text-danger"> Đã hủy </td>
-                                <?php } ?>
+                                        <td class="text-danger"> Đã hủy </td>
+                                    <?php } ?>
 
-                                <td><?php if(isset($admin['fullname'])) 
-                                {echo $admin['fullname'];} else echo "Chưa có"; ?></td>
-                                <td>
-                                    <a class="btn btn-sm btn-outline-info"
-                                        href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>">
-                                        <i class="fa-solid fa-circle-info"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#modalid<?= $stt ?>">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <div class="modal fade" id="modalid<?= $stt ?>" tabindex="-1"
-                                        aria-labelledby="modalid<?= $stt ?>" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content text-start">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="modalid<?= $stt ?>">Thay đổi trạng
-                                                        thái đơn
-                                                        hàng</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
+                                    <td><?php if (isset($admin['fullname'])) {
+                                            echo $admin['fullname'];
+                                        } else echo "Chưa có"; ?></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-info" href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>">
+                                            <i class="fa-solid fa-circle-info"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalid<?= $stt ?>">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <div class="modal fade" id="modalid<?= $stt ?>" tabindex="-1" aria-labelledby="modalid<?= $stt ?>" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content text-start">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="modalid<?= $stt ?>">Thay đổi trạng
+                                                            thái đơn
+                                                            hàng</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
 
-                                                <form id="formid<?= $stt ?>" method="post"
-                                                    enctype="multipart/form-data">
-                                                    <div class="modal-body">
-                                                        <input type="hidden" name="orderId"
-                                                            value="<?= $order['order_id'] ?>" />
-                                                        <input type="hidden" name="adminId" value="2" />
-                                                        <div class="mb-3">
-                                                            <label for="changeStatus" class="form-label">Chọn trạng thái
-                                                                đơn hàng</label>
-                                                            <select id="changeStatus" class="form-select mb-3"
-                                                                name="updateStatus" required>
-                                                                <option value="">None</option>
-                                                                <option value="1">Đã đặt hàng</option>
-                                                                <option value="2">Đang xử lý</option>
-                                                                <option value="3">Đang vận chuyển</option>
-                                                                <option value="4">Hoàn thành</option>
-                                                                <option value="5">Hủy</option>
-                                                            </select>
+                                                    <form id="formid<?= $stt ?>" method="post" enctype="multipart/form-data">
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="orderId" value="<?= $order['order_id'] ?>" />
+                                                            <input type="hidden" name="adminId" value="2" />
+                                                            <div class="mb-3">
+                                                                <label for="changeStatus" class="form-label">Chọn trạng thái
+                                                                    đơn hàng</label>
+                                                                <select id="changeStatus" class="form-select mb-3" name="updateStatus" required>
+                                                                    <option value="">None</option>
+                                                                    <option value="1">Đã đặt hàng</option>
+                                                                    <option value="2">Đang xử lý</option>
+                                                                    <option value="3">Đang vận chuyển</option>
+                                                                    <option value="4">Hoàn thành</option>
+                                                                    <option value="5">Hủy</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Đóng</button>
-                                                        <button type="submit" name="editOrder"
-                                                            class="btn btn-primary">Cập nhật</button>
-                                                    </div>
-                                                </form>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                                            <button type="submit" name="editOrder" class="btn btn-primary">Cập nhật</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
                             <?php
                             } ?>
                         </tbody>
@@ -357,8 +346,7 @@
                             <a href="">Hiện tất cả</a>
                         </div>
                         <div class="d-flex align-items-center border-bottom py-3">
-                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt=""
-                                style="width: 40px; height: 40px;">
+                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <div class="w-100 ms-3">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h6 class="mb-0">Jhon Doe</h6>
@@ -368,8 +356,7 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-center border-bottom py-3">
-                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt=""
-                                style="width: 40px; height: 40px;">
+                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <div class="w-100 ms-3">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h6 class="mb-0">Jhon Doe</h6>
@@ -379,8 +366,7 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-center border-bottom py-3">
-                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt=""
-                                style="width: 40px; height: 40px;">
+                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <div class="w-100 ms-3">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h6 class="mb-0">Jhon Doe</h6>
@@ -390,8 +376,7 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-center pt-3">
-                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt=""
-                                style="width: 40px; height: 40px;">
+                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <div class="w-100 ms-3">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h6 class="mb-0">Jhon Doe</h6>

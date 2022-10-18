@@ -22,7 +22,7 @@
                                 continue;
                             }
                         ?>
-                            <a class="dropdown-item" href="category.html">
+                            <a class="dropdown-item" href="?controller=listProduct&category=<?=$category['category_id']?>">
                                 <?= $category['category_name'] ?>
                             </a>
                         <?php } ?>
@@ -98,17 +98,7 @@
                         <hr>
                     </div>
                     <div class="col-12">
-                        <ul>
-                            <li>Chỉ với một chiếc sweater, có thể dễ dàng phối nhiều kiểu set đồ khác nhau,
-                                mỗi set đồ đều mang lại phong cách đặc trưng riêng, không lặp lại, không lẫn
-                                lộn</li>
-                            <li>Chất liệu: Vải thun Nỉ, trong có lót lông.</li>
-                            <li>Độ bền màu cao, giúp form áo luôn ổn định. (không như các áo thun chợ, chỉ
-                                giặt vài lần là bị chảy xệ, vặn vẹo, biến dạng)</li>
-                            <li>Thành phần( 80% Poly, 20% standex)</li>
-                            <li>Trọng lượng áo chỉ từ 200-300g, tạo cảm giác nhẹ nhành, thoải mái khi mặc.
-                            </li>
-                        </ul>
+                        <span><?= $product['description']?></span>
                     </div>
                 </div>
                 <!-- Product Info -->
@@ -120,7 +110,7 @@
 
                             <div class="col-12">
                                 <span class="detail-price" style="color:#f63b3b;">
-                                    470,000đ
+                                    <?= getFormattedNumber($product['price']).VND ?>
                                 </span>
                                 <!-- <span class="detail-price-old">
                                     350,000đ

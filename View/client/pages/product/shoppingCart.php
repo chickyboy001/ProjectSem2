@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
@@ -22,7 +22,7 @@
                                 continue;
                             }
                         ?>
-                            <a class="dropdown-item" href="category.html">
+                            <a class="dropdown-item" href="?controller=listProduct&category=<?=$category['category_id']?>">
                                 <?= $category['category_name'] ?>
                             </a>
                         <?php } ?>
@@ -37,9 +37,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="books" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Liên hệ</a>
-
                     <div class="dropdown-menu" aria-labelledby="books">
-6utfygubjnlk
                     </div>
                 </li>
             </ul>
@@ -52,14 +50,21 @@
 </header>
 </div>
 
-<div class="col-12">
+<div id="shoppingCart" class="col-12">
     <!-- Main Content -->
+    <?php if(empty($_SESSION['shoppingCart'])){?>
+        <div class="row">
+        <div class="col-12 mt-3 text-center text-uppercase">
+            <h2>không có sản phẩm nào trong giỏ</h2>
+            <a class="d-flex justify-content-center" href="?controler=home.php" type="button">Quay lại trang chủ</a>
+        </div>
+    </div>
+    <?php } else {?>
     <div class="row">
         <div class="col-12 mt-3 text-center text-uppercase">
             <h2>giỏ hàng</h2>
         </div>
     </div>
-
     <main class="row">
         <div class="col-12 bg-white py-3 mb-3">
             <div class="row">
@@ -128,8 +133,6 @@
                                         </tr>
                                     <?php $count++;
                                     } ?>
-
-
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -147,7 +150,7 @@
                 </div>
             </div>
         </div>
-
     </main>
     <!-- Main Content -->
+    <?php }?>
 </div>

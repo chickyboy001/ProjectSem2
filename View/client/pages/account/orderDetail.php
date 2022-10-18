@@ -22,7 +22,7 @@
                                 continue;
                             }
                         ?>
-                            <a class="dropdown-item" href="category.html">
+                            <a class="dropdown-item" href="?controller=listProduct&category=<?=$category['category_id']?>">
                                 <?= $category['category_name'] ?>
                             </a>
                         <?php } ?>

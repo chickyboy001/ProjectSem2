@@ -30,6 +30,16 @@ class Product extends Database
 		return $list;
     }
 
+    public function getProductByCategory($category_id){
+        $sql = "SELECT product_id, product_name, category_id, price, status FROM products WHERE category_id = '$category_id' AND status != 0";
+		$result = $this->db->conn->query($sql);
+		$list = array();
+		while ($data = $result->fetch_array()) {
+			$list[] = $data;
+		}
+		return $list;
+    }
+
     public function editProduct($product_id, $product_name, $category_id, $sex, $price, $description, $status)
     {
         mysqli_next_result($this->db->conn);
@@ -71,6 +81,14 @@ class Product extends Database
 			$list[] = $data;
 		}
 		return $list;
+    }
+
+    public function getColorOfProductCard($product_id){
+        mysqli_next_result($this->db->conn);
+        $sql = "SELECT * FROM colors WHERE product_id = $product_id LIMIT 1";
+		$result = $this->db->conn->query($sql);
+		$data = $result->fetch_array();
+        return $data;
     }
 
     public function addProductToOrder($order_id, $product_id, $color_name, $size_name, $unit_price, $quantity)

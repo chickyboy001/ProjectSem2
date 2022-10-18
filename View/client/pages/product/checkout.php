@@ -22,7 +22,7 @@
                                 continue;
                             }
                         ?>
-                            <a class="dropdown-item" href="category.html">
+                            <a class="dropdown-item" href="?controller=listProduct&category=<?=$category['category_id']?>">
                                 <?= $category['category_name'] ?>
                             </a>
                         <?php } ?>
@@ -51,10 +51,17 @@
 <!-- Header -->
 </header>
 </div>
+<?php if(empty($_SESSION['shoppingCart'])){?>
+        <div class="row">
+        <div class="col-12 mt-3 text-center text-uppercase">
+            <h2>bạn chưa chọn sản phẩm nào</h2>
+            <a class="d-flex justify-content-center" href="?controler=home.php" type="button">Quay lại trang chủ</a>
+        </div>
+    </div>
+    <?php } else {?>
 <main role="main">
     <div class="container mt-4">
         <!-- <form method="post" id="form"> -->
-
         <div class="py-5 text-center">
             <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
             <h2>Thanh toán</h2>
@@ -197,3 +204,4 @@
     </div>
     <!-- End block content -->
 </main>
+<?php }?>
