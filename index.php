@@ -11,7 +11,9 @@
 	
 	if (isset($_GET['controller'])) {
 		if(strcmp($_GET['controller'], 'loginAdmin') == 0) {
+			require 'View/admin/layouts/header.php';
 			require 'Route/web.php';
+			require 'View/admin/layouts/footer.php';
 		} else {
 			require 'View/client/layouts/header.php';
 			require 'Route/web.php';
