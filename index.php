@@ -4,7 +4,7 @@
 	error_reporting(E_ALL);
 	session_start(); 
 	ob_start();
-	require 'Config/config.php';
+	require 'config/config.php';
 	require 'Assets/admin/lib/function.php';
 	require 'Model/Database.php';
 	$db = new Database();
