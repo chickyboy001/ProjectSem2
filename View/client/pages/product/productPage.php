@@ -64,21 +64,21 @@
                 ?>
                 <div class="col-lg-5 col-md-12 mb-3">
                     <div class="col-12 mb-3">
-                        <div class="img-large border" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')"></div>
+                        <div class="img-large border" style="background-image: url('<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')"></div>
                     </div>
                     <div class="col-12">
                         <div class="row">
                             <div class="col-sm-2 col-3">
-                                <div class="img-small border" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
+                                <div class="img-small border" style="background-image: url('<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
                             </div>
                             <div class="col-sm-2 col-3">
-                                <div class="img-small border" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
+                                <div class="img-small border" style="background-image: url('<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
                             </div>
                             <div class="col-sm-2 col-3">
-                                <div class="img-small border" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
+                                <div class="img-small border" style="background-image: url('<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
                             </div>
                             <div class="col-sm-2 col-3">
-                                <div class="img-small border" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
+                                <div class="img-small border" style="background-image: url('<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
                             </div>
                         </div>
                     </div>
@@ -143,7 +143,7 @@
                                                     <label>
                                                     <input type="hidden" id="getImage<?= $color['color_id'] ?>" name="image" disabled value="<?= $color['image_link'] ?>" />
                                                     <input type="radio" name="colorId" value="<?= $color['color_id'] ?>" <?= $checked ?>>
-                                                    <span id="<?= $default ?>" onclick="showAvailableSize(event, <?= $color['color_id'] ?>)" class="swatch" style="background-image: url('../../../ProjectSem2/Public/admin/upload/products/<?= $color['image_link'] ?>')"></span>
+                                                    <span id="<?= $default ?>" onclick="showAvailableSize(event, <?= $color['color_id'] ?>)" class="swatch" style="background-image: url('<?=link?>Public/admin/upload/products/<?= $color['image_link'] ?>')"></span>
                                                     <input type="hidden" disabled id="getColorName<?= $color['color_id'] ?>" name="colorName" value="<?= $color['color_name'] ?>" />
                                                     </label>
                                                 </li>
@@ -492,7 +492,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -527,7 +527,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -562,7 +562,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -597,7 +597,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">

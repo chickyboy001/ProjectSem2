@@ -12,7 +12,7 @@
     <!-- Sidebar Start -->
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
-            <a href="index.html" class="navbar-brand mx-4 mb-3">
+            <a href="?controler=home" class="navbar-brand mx-4 mb-3">
                 <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DOUBLE H</h3>
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
@@ -183,15 +183,7 @@
                                 <td><?= $stt ?></td>
                                 <td><?= $customer['fullname'] ?></td>
                                 <td><?= $order['order_date'] ?></td>
-
-                                <?php
-                                    $price = 0;
-                                    $VND = 'đ';
-                                    foreach ($products as $product) {
-                                        $price = $price + $product['price'];
-                                    } ?>
-                                <td><?= getFormattedNumber($price) . $VND ?></td>
-
+                                <td><?= getFormattedNumber($order['total_price']) . VND ?></td>
                                 <?php if ($order['status'] == 1) { ?>
                                 <td class="text-secondary"> Đã đặt hàng</td>
                                 <?php }
@@ -206,6 +198,9 @@
                                 <?php }
                                     if ($order['status'] == 5) { ?>
                                 <td class="text-danger"> Đã hủy </td>
+                                <?php }
+                                    if ($order['status'] == 6) { ?>
+                                <td class="text-danger"> Yêu cầu hủy </td>
                                 <?php } ?>
 
                                 <td><?php if(isset($admin['fullname'])) 

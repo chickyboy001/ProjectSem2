@@ -12,7 +12,7 @@
     <!-- Sidebar Start -->
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
-            <a href="index.html" class="navbar-brand mx-4 mb-3">
+            <a href="?controler=home" class="navbar-brand mx-4 mb-3">
                 <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DOUBLE H</h3>
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
@@ -223,7 +223,7 @@
                                                         <div class="form-floating mb-3">
                                                             <input type="text" class="form-control" id="nameEdit"
                                                                 name="product_name"
-                                                                value="<?= $product['product_name'] ?>" placeholder="">
+                                                                value="<?= $product['product_name'] ?>" required>
                                                             <label for="nameEdit">Tên sản phẩm</label>
                                                         </div>
                                                         <!-- nhập giới tính -->
@@ -263,24 +263,21 @@
                                                         <div class="form-floating mb-3">
                                                             <input type="number" class="form-control" name="price"
                                                                 value="<?= $product['price'] ?>" id="priceEdit"
-                                                                placeholder="">
+                                                                required>
                                                             <label for="priceEdit">Giá sản phẩm</label>
                                                         </div>
                                                         <!-- nhập tên danh mục -->
                                                         <div class="form-floating mb-3">
                                                             <select class="form-select" name="category_id"
                                                                 id="cateSelect">
-
                                                                 <option selected value="<?= $product['category_id'] ?>">
                                                                     <?= $productCate['category_name'] ?>
                                                                 </option>
-
                                                                 <?php
                                                                     foreach ($categories as $category) {
                                                                         if ($category['category_id'] == $product['category_id'] && $category['status'] == 0) {
                                                                             continue;
                                                                         } ?>
-
                                                                 <option value="<?= $category['category_id'] ?>">
                                                                     <?= $category['category_name'] ?></option>
                                                                 <?php } ?>

@@ -1,48 +1,3 @@
-function editName() {
-    var checkbox = document.getElementById("nameCheck");
-    if (checkbox.checked == true) {
-        document.getElementById("nameEdit").readOnly = false;
-    }
-
-    if (checkbox.checked != true) {
-        document.getElementById("nameEdit").readOnly = true;
-    }
-
-}
-
-function editSex() {
-    var checkbox = document.getElementById("sexCheck");
-    if (checkbox.checked == true) {
-        document.getElementById("sexSelect").disabled = false;
-    }
-
-    if (checkbox.checked != true) {
-        document.getElementById("sexSelect").disabled = true;
-    }
-}
-
-function editPrice() {
-    var checkbox = document.getElementById("priceCheck");
-    if (checkbox.checked == true) {
-        document.getElementById("priceEdit").readOnly = false;
-    }
-
-    if (checkbox.checked != true) {
-        document.getElementById("priceEdit").readOnly = true;
-    }
-}
-
-function editCate() {
-    var checkbox = document.getElementById("cateCheck");
-    if (checkbox.checked == true) {
-        document.getElementById("cateSelect").disabled = false;
-    }
-
-    if (checkbox.checked != true) {
-        document.getElementById("cateSelect").disabled = true;
-    }
-}
-
 function changeStatus(id) {
     var checkbox = document.getElementById('statusCheck' + id);
     if (checkbox.checked == true) {
@@ -86,6 +41,7 @@ function changeStatusSize(id) {
         document.getElementById('sizeStatus' + id).value = "0";
     }
 }
+
 
 const form = document.getElementById('form');
 const username = document.getElementById('username');

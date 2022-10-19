@@ -27,13 +27,13 @@
 <!-- script -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../../ProjectSem2/Assets/admin/lib/chart/chart.min.js"></script>
-<script src="../../../ProjectSem2/Assets/admin/lib/easing/easing.min.js"></script>
-<script src="../../../ProjectSem2/Assets/admin/lib/waypoints/waypoints.min.js"></script>
-<script src="../../../ProjectSem2/Assets/admin/lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="../../../ProjectSem2/Assets/admin/lib/tempusdominus/js/moment.min.js"></script>
-<script src="../../../ProjectSem2/Assets/admin/lib/tempusdominus/js/moment-timezone.min.js"></script>
-<script src="../../../ProjectSem2/Assets/admin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="<?=link?>Assets/admin/lib/chart/chart.min.js"></script>
+<script src="<?=link?>Assets/admin/lib/easing/easing.min.js"></script>
+<script src="<?=link?>Assets/admin/lib/waypoints/waypoints.min.js"></script>
+<script src="<?=link?>Assets/admin/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="<?=link?>Assets/admin/lib/tempusdominus/js/moment.min.js"></script>
+<script src="<?=link?>Assets/admin/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="<?=link?>Assets/admin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js "></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js "></script>
@@ -66,9 +66,15 @@
         });
     });
 </script>
-<script src="../../../ProjectSem2/Assets/admin/js/app.js"></script>
+<script>
+    $("#priceInput").on('keyup', function(){
+    var n = parseInt($(this).val().replace(/\D/g,''),10);
+    $(this).val(n.toLocaleString('en-US'));
+});
+</script>
+<script src="<?=link?>Assets/admin/js/app.js"></script>
 <!-- Template Javascript -->
-<script src="../../../ProjectSem2/Assets/admin/js/main.js"></script>
+<script src="<?=link?>Assets/admin/js/main.js"></script>
 </body>
 
 </html>

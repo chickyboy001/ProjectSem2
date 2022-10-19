@@ -65,19 +65,19 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="../../../ProjectSem2/Assets/client/image/banner1.png" class="slider-img">
+                    <img src="<?=link?>Assets/client/image/banner1.png" class="slider-img">
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                    <img src="../../../ProjectSem2/Assets/client/image/banner2.png" class="slider-img">
+                    <img src="<?=link?>Assets/client/image/banner2.png" class="slider-img">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../../ProjectSem2/Assets/client/image/banner3.png" class="slider-img">
+                    <img src="<?=link?>Assets/client/image/banner3.png" class="slider-img">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../../ProjectSem2/Assets/client/image/banner4.png" class="slider-img">
+                    <img src="<?=link?>Assets/client/image/banner4.png" class="slider-img">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../../ProjectSem2/Assets/client/image/banner5.png" class="slider-img">
+                    <img src="<?=link?>Assets/client/image/banner5.png" class="slider-img">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -109,7 +109,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -144,7 +144,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -179,7 +179,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -214,7 +214,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -270,7 +270,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -305,7 +305,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -340,7 +340,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -375,7 +375,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -431,7 +431,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -466,7 +466,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -501,7 +501,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
@@ -536,7 +536,7 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">

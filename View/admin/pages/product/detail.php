@@ -1,7 +1,6 @@
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -12,7 +11,7 @@
     <!-- Sidebar Start -->
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
-            <a href="index.html" class="navbar-brand mx-4 mb-3">
+            <a href="?controler=home" class="navbar-brand mx-4 mb-3">
                 <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DOUBLE H</h3>
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
@@ -173,7 +172,17 @@
                         </div>
                         <div class="text-start col-7">
                             <p>
-                                <strong><?= $product['sex'] ?></strong>
+
+                                <?php 
+                                if ($product['sex'] == 1) { ?>
+                                    <strong> Nam</strong>
+                                <?php }
+                                if ($product['sex'] == 2) { ?>
+                                    <strong> Nữ </strong>
+                                <?php }
+                                if ($product['sex'] == 3) { ?>
+                                    <strong> Unisex </strong>
+                                <?php } ?>
                             </p>
                         </div>
                     </div>
@@ -272,7 +281,7 @@
                                         <td><?= $color['color_name'] ?></td>
                                         <td><?= $quantity ?></td>
                                         <td>
-                                            <img class="product_image" style="width: 33px; height: 40px; " src="../../../ProjectSem2/Public/admin/upload/products/<?= $color['image_link'] ?>"></img>
+                                            <img class="product_image" style="width: 33px; height: 40px; " src="<?=link?>Public/admin/upload/products/<?= $color['image_link'] ?>"></img>
                                         </td>
                                         <td>
                                             <a class="btn btn-sm btn-outline-info" href="?controller=manageColor&colorId=<?= $color['color_id'] ?>">
