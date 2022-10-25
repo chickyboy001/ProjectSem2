@@ -39,6 +39,7 @@
                 <a href="?controller=manageCategory" class="nav-item nav-link"><i class="fa-solid fa-rectangle-list me-2"></i>Danh mục</a>
                 <a href="?controller=showOrder" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
                 <a href="" class="nav-item nav-link"><i class="fa-solid fa-tag me-2"></i>Khuyến mãi</a>
+                <a href="../../?controller=home" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Trang bán hàng</a>
             </div>
         </nav>
     </div>
@@ -173,7 +174,7 @@
                         <div class="text-start col-7">
                             <p>
 
-                                <?php 
+                                <?php
                                 if ($product['sex'] == 1) { ?>
                                     <strong> Nam</strong>
                                 <?php }
@@ -246,6 +247,44 @@
                         </div>
                     </div>
 
+                    <div class="d-flex justify-content-start flex-row">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <button type="button" class="btn btn-link rounded-pill" data-bs-toggle="modal" data-bs-target="#addcolor">Thêm màu</button>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="addcolor" tabindex="-1" aria-labelledby="addcolor" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content text-start">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addcolor">Thêm màu sắc</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form id="formId<?= $stt ?>" method="post" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="addColorName" mới class="col-form-label">Tên
+                                                màu:</label>
+                                            <input type="text" name="add_colorname" class="form-control" id="addColorName">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="add_main_image" class="form-label">Ảnh chính</label>
+                                            <input class="form-control" name="add_image_link" accept=".jpg, .png, .jpeg, .webp" type="file" id="add_main_image">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="add_sub_image" class="form-label">Thêm
+                                                các ảnh phụ</label>
+                                            <input class="form-control" type="file" accept=".jpg, .png, .jpeg, .webp" name="add_image_link_extra[]" id="add_sub_image" multiple>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                        <button type="submit" name="addColor" class="btn btn-primary">Cập nhật</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class=" table-responsive mb-4 ">
                         <table id="table_id " class="table align-middle table-bordered table-hover mb-0 ">
@@ -257,7 +296,7 @@
                                     <th scope="col ">Hình ảnh</th>
                                     <th scope="col ">Xem</th>
                                     <th scope="col ">Sửa</th>
-                                    <th scope="col ">Xóa</th>
+                                    
                                     <th scope="col "></th>
                                 </tr>
                             </thead>
@@ -281,7 +320,7 @@
                                         <td><?= $color['color_name'] ?></td>
                                         <td><?= $quantity ?></td>
                                         <td>
-                                            <img class="product_image" style="width: 33px; height: 40px; " src="<?=link?>Public/admin/upload/products/<?= $color['image_link'] ?>"></img>
+                                            <img class="product_image" style="width: 33px; height: 40px; " src="<?= link1 ?>Public/admin/upload/products/<?= $color['image_link'] ?>"></img>
                                         </td>
                                         <td>
                                             <a class="btn btn-sm btn-outline-info" href="?controller=manageColor&colorId=<?= $color['color_id'] ?>">
@@ -313,12 +352,12 @@
                                                                 <div class="mb-3">
                                                                     <label for="formFile" class="form-label">Thay đổi ảnh
                                                                         chính</label>
-                                                                    <input class="form-control" name="image_link" accept=".jpg, .png, .jpeg" type="file" id="formFile">
+                                                                    <input class="form-control" name="image_link" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile">
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label for="formFileMultiple" class="form-label">Thêm
                                                                         các ảnh phụ</label>
-                                                                    <input class="form-control " type="file" accept=".jpg, .png, .jpeg" name="image_link_extra[]" id="formFileMultiple" multiple>
+                                                                    <input class="form-control " type="file" accept=".jpg, .png, .jpeg, .webp" name="image_link_extra[]" id="formFileMultiple" multiple>
                                                                 </div>
                                                                 <?php
                                                                 $status = '';
@@ -331,7 +370,7 @@
                                                                 }
                                                                 ?>
                                                                 <div class="form-check form-switch">
-                                                                    <input class="form-check-input" id="statusCheck<?= $stt ?>" onclick="changeStatus(<?= $stt ?>)" name="status" type="checkbox" role="switch" <?= $db ?> <?= $status ?>>
+                                                                    <input class="form-check-input" id="statusCheck<?= $stt ?>" value="<?= $color['status'] ?>" onclick="changeStatus(<?= $stt ?>)" name="status" type="checkbox" role="switch" <?= $db ?> <?= $status ?>>
                                                                     <label class="form-check-label" for="statusCheck<?= $stt ?>">Hiện
                                                                         màu
                                                                         này</label>
@@ -348,37 +387,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <!-- Xóa màu sắc -->
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteColor<?= $stt ?>">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </button>
-                                            <div class="modal fade" id="deleteColor<?= $stt ?>" tabindex="-1" aria-labelledby="deleteColor<?= $stt ?>" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content text-start">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="deleteColor<?= $stt ?>">Xác nhận
-                                                                xóa
-                                                            </h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-
-                                                        <form id="deleteColor<?= $stt ?>" method="post" enctype="multipart/form-data">
-                                                            <div class="modal-body">
-                                                                <input type="hidden" name="colorIdDelete" value="<?= $color['color_id'] ?>" />
-                                                                <p class="text-danger">Thao tác này sẽ đồng thời xóa tất cả
-                                                                    những kích cỡ của màu sắc này. Vẫn xóa?
-                                                                </p>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                                                <button type="submit" name="deleteColor" class="btn btn-primary">Xác nhận</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
+                                    
                                         <!-- Trạng thái -->
                                         <td>
                                             <?php if ($color['status'] == 1) { ?>

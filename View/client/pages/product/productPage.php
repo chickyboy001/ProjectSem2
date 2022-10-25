@@ -22,7 +22,7 @@
                                 continue;
                             }
                         ?>
-                            <a class="dropdown-item" href="?controller=listProduct&category=<?=$category['category_id']?>">
+                            <a class="dropdown-item" href="?controller=listProduct&category=<?= $category['category_id'] ?>">
                                 <?= $category['category_name'] ?>
                             </a>
                         <?php } ?>
@@ -54,43 +54,54 @@
 
 <div class="col-12">
     <!-- Main Content -->
+    <?php if(empty($product) || $product['status']==0){?>
+        <div class="row">
+        <div class="col-12 mt-3 text-center text-uppercase">
+            <h2>Sản phẩm không tồn tại</h2>
+            <a class="d-flex justify-content-center" href="?controler=home.php" type="button">Quay lại trang chủ</a>
+        </div>
+    </div>
+    <?php } else {?>
     <main class="row">
         <div class="col-12 bg-white py-3 my-3">
             <div class="row">
-
                 <!-- Product Images -->
                 <?php
-                // while ($row_chitiet = mysqli_fetch_array($sql_chitiet)) {
+                $count = 0;
+                foreach ($colors as $color){
                 ?>
-                <div class="col-lg-5 col-md-12 mb-3">
+                <div id="image<?= $color['color_id'] ?>" class="col-lg-5 col-md-12 mb-3 color_image">
                     <div class="col-12 mb-3">
-                        <div class="img-large border" style="background-image: url('<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')"></div>
+                        <div class="img-large border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link']?>')"></div>
                     </div>
                     <div class="col-12">
                         <div class="row">
                             <div class="col-sm-2 col-3">
-                                <div class="img-small border" style="background-image: url('<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
+                                <div id="main-image" class="img-small border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link']?>'); background-size: contain;" data-src="<?= link ?>Public/admin/upload/products/<?=$color['image_link']?>"></div>
                             </div>
                             <div class="col-sm-2 col-3">
-                                <div class="img-small border" style="background-image: url('<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
+                                <div class="img-small border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link_1']?>'); background-size: contain;" data-src="<?= link ?>Public/admin/upload/products/<?=$color['image_link_1']?>"></div>
                             </div>
                             <div class="col-sm-2 col-3">
-                                <div class="img-small border" style="background-image: url('<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
+                                <div class="img-small border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link_2']?>'); background-size: contain;" data-src="<?= link ?>Public/admin/upload/products/<?=$color['image_link_2']?>"></div>
                             </div>
                             <div class="col-sm-2 col-3">
-                                <div class="img-small border" style="background-image: url('<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg')" data-src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg"></div>
+                                <div class="img-small border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link_3']?>'); background-size: contain;" data-src="<?= link ?>Public/admin/upload/products/<?=$color['image_link_3']?>"></div>
+                            </div>
+                            <div class="col-sm-2 col-3">
+                                <div class="img-small border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link_4']?>'); background-size: contain;" data-src="<?= link ?>Public/admin/upload/products/<?=$color['image_link_4']?>"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <?php
-                // } 
+                } 
                 ?>
                 <!-- Product Images -->
 
                 <!-- Product Info -->
                 <div class="col-lg-4 col-md-9">
-                    <div class="col-12 product-name large " style="font-size: 40px;">
+                    <div class="col-12 product-name large " style="font-size: 30px;">
                         <?= $product['product_name'] ?>
                         <small>By <a href="#">Store</a></small>
                     </div>
@@ -98,7 +109,7 @@
                         <hr>
                     </div>
                     <div class="col-12">
-                        <span><?= $product['description']?></span>
+                        <span><?= $product['description'] ?></span>
                     </div>
                 </div>
                 <!-- Product Info -->
@@ -110,7 +121,7 @@
 
                             <div class="col-12">
                                 <span class="detail-price" style="color:#f63b3b;">
-                                    <?= getFormattedNumber($product['price']).VND ?>
+                                    <?= getFormattedNumber($product['price']) . VND ?>
                                 </span>
                                 <!-- <span class="detail-price-old">
                                     350,000đ
@@ -120,7 +131,7 @@
                                 <input type="hidden" name="productId" value="<?= $product['product_id'] ?>" />
                                 <input type="hidden" name="productName" value="<?= $product['product_name'] ?>" />
                                 <input type="hidden" name="unit_price" value="<?= $product['price'] ?>" />
-                                
+
                                 <div class="col-12">
                                     <span>Chọn màu: <span id="colorName" style="font-weight: 700;"></span></span>
                                     <div class="colors mt-2">
@@ -141,10 +152,10 @@
                                             ?>
                                                 <li class="mx-1">
                                                     <label>
-                                                    <input type="hidden" id="getImage<?= $color['color_id'] ?>" name="image" disabled value="<?= $color['image_link'] ?>" />
-                                                    <input type="radio" name="colorId" value="<?= $color['color_id'] ?>" <?= $checked ?>>
-                                                    <span id="<?= $default ?>" onclick="showAvailableSize(event, <?= $color['color_id'] ?>)" class="swatch" style="background-image: url('<?=link?>Public/admin/upload/products/<?= $color['image_link'] ?>')"></span>
-                                                    <input type="hidden" disabled id="getColorName<?= $color['color_id'] ?>" name="colorName" value="<?= $color['color_name'] ?>" />
+                                                        <input type="hidden" id="getImage<?= $color['color_id'] ?>" name="image" disabled value="<?= $color['image_link'] ?>" />
+                                                        <input type="radio" name="colorId" value="<?= $color['color_id'] ?>" <?= $checked ?>>
+                                                        <span id="<?= $default ?>" onclick="showAvailableSize(event, <?= $color['color_id'] ?>)" class="swatch" style="background-image: url('<?= link ?>Public/admin/upload/products/<?= $color['image_link'] ?>')"></span>
+                                                        <input type="hidden" disabled id="getColorName<?= $color['color_id'] ?>" name="colorName" value="<?= $color['color_name'] ?>" />
                                                     </label>
                                                 </li>
                                             <?php
@@ -157,7 +168,7 @@
                                 </div>
                                 <div class="mb-3 m-lg-1">
                                     <span>Chọn size:</span>
-                                    <div class="sizes mt-2">
+                                    <div class="sizes my-2">
                                         <?php
                                         $count = 0;
                                         foreach ($all_size as $key) {
@@ -165,7 +176,7 @@
                                             <ul id="colorID<?= $colorId[$count] ?>" class="size_button">
                                                 <?php
                                                 $default = "defaultClick";
-                                                $temp= 0;
+                                                $temp = 0;
                                                 foreach ($key as $size) {
                                                     if ($size['status'] == 0) {
                                                         continue;
@@ -174,7 +185,7 @@
                                                     <li class="mx-1">
                                                         <label>
                                                             <input type="radio" name="sizeId" value="<?= $size['size_id'] ?>">
-                                                            <span id="<?= $default.$colorId[$count] ?>" onclick="getMaxQuantity(<?= $size['quantity'] ?>)" class="swatch-size"><?= $size['size_name'] ?></span>
+                                                            <span id="<?= $default . $colorId[$count] ?>" onclick="getMaxQuantity(<?= $size['quantity'] ?>)" class="swatch-size"><?= $size['size_name'] ?></span>
                                                         </label>
                                                     </li>
                                                 <?php
@@ -186,11 +197,12 @@
                                             $count++;
                                         } ?>
                                     </div>
+                                    <span>Trong kho: <span id="quantityInStock"></span></span>
                                 </div>
                                 <div class="col-xl-5 col-md-9 col-sm-3 col-5 mx-auto mt-3">
                                     <div class="buttons_added">
                                         <input class="minus is-form" type="button" value="-">
-                                        <input aria-label="quantity" id="myNumber" class="input-qty" min="1" max="100" name="quantity" type="number" value="1">
+                                        <input aria-label="quantity" id="myNumber" class="input-qty" min="1" max="100" name="quantity" type="number" value="1" required>
                                         <input class="plus is-form" type="button" value="+">
                                     </div>
                                 </div>
@@ -398,17 +410,14 @@
                             </div>
                         </div>
                         <!-- Add Review -->
-
                         <div class="row">
                             <div class="col-12 px-md-3 px-0">
                                 <hr>
                             </div>
                         </div>
-
                         <!-- Review -->
                         <div class="row">
                             <div class="col-12">
-
                                 <!-- Comments -->
                                 <div class="col-12 text-justify py-2 px-3 mb-3 bg-gray">
                                     <div class="row">
@@ -475,160 +484,142 @@
         </div>
 
         <!-- Similar Product -->
-        <div class="col-12">
-            <div class="row">
-                <div class="col-12 py-3">
-                    <div class="row">
-                        <div class="col-12 text-center text-uppercase">
-                            <h2>sản phẩm tương tự</h2>
+        <div class="row mb-5 pb-2">
+            <div class="col-lg-3 col-sm-6 my-3">
+                <div class="col-12 bg-white text-center h-100">
+                    <div class="col-md-12 col-sm-12 mb-4">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                </a>
+                                <span class="product-discount-label">-33%</span>
+                                <ul class="product-links">
+                                    <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
+                                    </li>
+                                    <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                    <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="product-content">
+                                <ul class="rating">
+                                    <li class="fas fa-star"></li>
+                                    <li class="fas fa-star"></li>
+                                    <li class="fas fa-star"></li>
+                                    <li class="far fa-star"></li>
+                                    <li class="far fa-star"></li>
+                                </ul>
+                                <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                <div class="price"><span></span> 200,000đ</div>
+                                <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="row">
-                        <!-- Product -->
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
-                                                </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="col-lg-3 col-sm-6 my-3">
+                <div class="col-12 bg-white text-center h-100">
+                    <div class="col-md-12 col-sm-12 mb-4">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                </a>
+                                <span class="product-discount-label">-33%</span>
+                                <ul class="product-links">
+                                    <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
+                                    </li>
+                                    <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                    <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="product-content">
+                                <ul class="rating">
+                                    <li class="fas fa-star"></li>
+                                    <li class="fas fa-star"></li>
+                                    <li class="fas fa-star"></li>
+                                    <li class="far fa-star"></li>
+                                    <li class="far fa-star"></li>
+                                </ul>
+                                <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                <div class="price"><span></span> 200,000đ</div>
+                                <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                             </div>
                         </div>
-                        <!-- Product -->
+                    </div>
+                </div>
+            </div>
 
-                        <!-- Product -->
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
-                                                </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="col-lg-3 col-sm-6 my-3">
+                <div class="col-12 bg-white text-center h-100">
+                    <div class="col-md-12 col-sm-12 mb-4">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                </a>
+                                <span class="product-discount-label">-33%</span>
+                                <ul class="product-links">
+                                    <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
+                                    </li>
+                                    <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                    <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="product-content">
+                                <ul class="rating">
+                                    <li class="fas fa-star"></li>
+                                    <li class="fas fa-star"></li>
+                                    <li class="fas fa-star"></li>
+                                    <li class="far fa-star"></li>
+                                    <li class="far fa-star"></li>
+                                </ul>
+                                <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                <div class="price"><span></span> 200,000đ</div>
+                                <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                             </div>
                         </div>
-                        <!-- Product -->
+                    </div>
+                </div>
+            </div>
 
-                        <!-- Product -->
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
-                                                </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="col-lg-3 col-sm-6 my-3">
+                <div class="col-12 bg-white text-center h-100">
+                    <div class="col-md-12 col-sm-12 mb-4">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                </a>
+                                <span class="product-discount-label">-33%</span>
+                                <ul class="product-links">
+                                    <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
+                                    </li>
+                                    <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                    <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="product-content">
+                                <ul class="rating">
+                                    <li class="fas fa-star"></li>
+                                    <li class="fas fa-star"></li>
+                                    <li class="fas fa-star"></li>
+                                    <li class="far fa-star"></li>
+                                    <li class="far fa-star"></li>
+                                </ul>
+                                <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                <div class="price"><span></span> 200,000đ</div>
+                                <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                             </div>
                         </div>
-                        <!-- Product -->
-
-                        <!-- Product -->
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
-                                                </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Similar Products -->
-    </main>
-    <!-- Main Content -->
+    </div>
+
+</main>
+<?php }?>
+<!-- Main Content -->
 </div>

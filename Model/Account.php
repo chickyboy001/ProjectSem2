@@ -24,6 +24,14 @@ class Account extends Database
 		return $result;
 	}
 
+	public function getNewInfor($user_id)
+	{
+		$sql = "SELECT * FROM accounts WHERE user_id = '$user_id'";
+		$result = $this->db->conn->query($sql);
+		$data = $result->fetch_array();
+        return $data;
+	}
+
     public function signup($username, $fullname, $address, $phone, $password)
 	{	
 		$sql = "INSERT INTO accounts (username, fullname, address, phone, password)

@@ -46,10 +46,6 @@ class Size extends Database
         $sql = "Call sp_updateQuantityAfterCreateOrder($quantity, $size_id)";
         return $this->db->conn->query($sql);
     }
-    public function deleteSizeOfColor($color_id)
-    {
-        $sql = "DELETE FROM sizes WHERE color_id = $color_id";
-        return $this->db->conn->query($sql);
-    }
+    
+    
 }
-?>

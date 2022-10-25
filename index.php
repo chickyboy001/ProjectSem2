@@ -15,12 +15,12 @@
 			require 'Route/web.php';
 			require 'View/admin/layouts/footer.php';
 		} else {
-			require 'View/client/layouts/header.php';
+			require 'Controller/client/header.php';
 			require 'Route/web.php';
 			require 'View/client/layouts/footer.php';
 		}
 	} else {
-		require 'View/client/layouts/header.php';
+		require 'Controller/client/header.php';
 		require('Controller/client/home.php');
 		require 'View/client/layouts/footer.php';
 	}

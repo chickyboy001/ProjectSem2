@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
@@ -59,6 +59,7 @@
         </div>
     </div>
 
+    <?php echo $msg ?>
     <main class="row">
         <div class="col-lg-4 col-md-6 col-sm-8 mx-auto bg-white py-3 mb-4">
             <div class="row">
@@ -66,11 +67,12 @@
                     <form method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="name" class="form-label">Tên đăng nhập</label>
-                            <input type="text" name="username" id="name" class="form-control" required>
+                            <input type="text" name="username" id="name" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Mật khẩu</label>
-                            <input type="password" name="password" id="password" class="form-control" required>
+                            <input type="password" name="password" id="password" class="form-control">
+                            <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         </div>
                         <div class="mb-3">
                             <div class="form-check">
@@ -83,13 +85,12 @@
                         </div>
                         <div class="mb-3">
                             Chưa có tài khoản?
-                            <a href=">controller=register" class="p-lg-1" style="color: black;">Đăng ký</a>
+                            <a href="?controller=register" class="p-lg-1" style="color: black;">Đăng ký</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
     </main>
     <!-- Main Content -->
 </div>

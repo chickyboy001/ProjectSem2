@@ -15,11 +15,26 @@ class ProductPage
         $cartModel = new Cart();
         $categories = $cateModel->showAll();
         // unset($_SESSION['shoppingCart']);
-        // print_r($_SESSION['shoppingCart']);
+        print_r($_SESSION['shoppingCart']);
         if (isset($_GET['productId'])) {
             $product_id = $_GET['productId'];
             $product = $productModel->getProduct($product_id);
             $colors = $productModel->getColorOfProduct($product_id);
+            if(isset($_POST['buyNow'])){
+                $itemArray = array(
+                    $arkey => array(
+                        'product_id' => $_POST['productId'],
+                        'product_name' => $_POST['productName'],
+                        'image' => $_POST['image'],
+                        'color_id' => $_POST['colorId'],
+                        'color_name' => $_POST['colorName'],
+                        'size_id' => $_POST['sizeId'],
+                        'size_name' => $size['size_name'],
+                        'unit_price' => $_POST['unit_price'],
+                        'quantity' => $_POST['quantity']
+                    ),
+                );
+            }
             if (isset($_POST['addToCart'])) {
                 unset($itemArray);
                 $size = $sizeModel->getSize($_POST['sizeId']);
@@ -44,7 +59,7 @@ class ProductPage
                 );
                 if (!empty($_SESSION['shoppingCart'])) {
                     if (in_array($arkey, array_keys($_SESSION["shoppingCart"]))) {
-                        foreach ($_SESSION["shoppingCart"] as $k => $v) {
+                        foreach ($_SESSION["shoppingCart"] as $k) {
                             if ($arkey == $k) {
                                 if (empty($_SESSION["shoppingCart"][$k]["quantity"])) {
                                     $_SESSION["shoppingCart"][$k]["quantity"] = 0;

@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
@@ -53,6 +53,7 @@
 </div>
 <div class="container">
     <div class="row">
+        
         <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12">
             <ul class="myinfo">
                 <li class="iteminfo">
@@ -62,12 +63,12 @@
                 </li>
                 <li class="iteminfo">
                     <a href="?controller=editProfile">
-                        Thông tin cá nhân
+                        <b>Thông tin cá nhân</b>   
                     </a>
                 </li>
                 <li class="iteminfo">
                     <a href="?controller=orderHistory">
-                        <b> Lịch sử đơn hàng </b>
+                        Lịch sử đơn hàng
                     </a>
                 </li>
                 <li class="iteminfo">

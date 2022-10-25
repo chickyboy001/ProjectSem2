@@ -38,11 +38,7 @@ class ManageColor
                 echo "<script>alert('Cập nhật thành công')</script>";
                 header("Refresh:0");
             }
-            if (isset($_POST['deleteSize'])) {
-                $size_id = $_POST['sizeIdDelete'];
-                $sizeModel->deleteSize($size_id);
-                header("Refresh:0");
-            }
+            
             
         }
         

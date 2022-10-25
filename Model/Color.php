@@ -33,6 +33,14 @@ class Color extends Database
 		return $this->db->conn->query($sql);
     }
 
+    public function addColor($color_name, $product_id, $image_link, $image_link_1, $image_link_2, $image_link_3, $image_link_4)
+    {
+        $color_name = $this->db->conn->real_escape_string($color_name);
+        $sql = "INSERT INTO colors (color_name, product_id, image_link, image_link_1, image_link_2, image_link_3, image_link_4)
+        VALUES ('$color_name','$product_id', '$image_link', '$image_link_1', '$image_link_2', '$image_link_3', '$image_link_4')";
+		return $this->db->conn->query($sql);
+    }
+
     public function changeStatus($color_id, $status)
     {
         $sql = "UPDATE colors SET status = '$status' WHERE color_id = $color_id";  
@@ -49,11 +57,7 @@ class Color extends Database
         }
         return $list;
     }
-    public function deleteColor($color_id)
-    {
-        $sql = "DELETE FROM colors WHERE color_id = $color_id";
-        return $this->db->conn->query($sql);
-    }
+    
 
 }
 ?>

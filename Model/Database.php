@@ -7,6 +7,11 @@ class Database
 	private $user = 'root';
 	private $password = '';
 
+	// private $server = 'localhost';
+	// private $dbName = 'usergezpcied_doubleh';
+	// private $user = 'usergezpcied_doublehadmin';
+	// private $password = '5Ci9cVCDF2';
+
 
 	public function connect()
 	{

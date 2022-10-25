@@ -31,15 +31,15 @@
             <div class="col-12">
                 <header class="row">
                     <!-- Top Nav -->
-                    <div class="col-12 bg-dark py-2 d-md-block d-none">
+                    <div class="col-12 bg-dark py-2 d-md-block ">
                         <div class="row">
                             <div class="col-auto me-auto">
-                                <ul class="top-nav">
+                                <ul class="top-nav d-md-block d-none">
                                     <li>
-                                        <a href="tel:+123-456-7890"><i class="fa fa-phone-square me-2"></i>+84-358-755-327</a>
+                                        <a href=""><i class="fa fa-phone-square me-2"></i>+84-358-755-327</a>
                                     </li>
                                     <li>
-                                        <a href="mailto:mail@ecom.com"><i class="fa fa-envelope me-2"></i>mail@vtca.com</a>
+                                        <a href=""><i class="fa fa-envelope me-2"></i>mail@vtca.com</a>
                                     </li>
                                 </ul>
                             </div>
@@ -62,7 +62,6 @@
                                         </li>
                                     <?php }
                                     ?>
-
                                 </ul>
                             </div>
                         </div>
@@ -81,21 +80,18 @@
                                 <form action="#">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input type="search" class="form-control border-dark" placeholder="Bạn tìm gì..." required>
-                                            <button class="btn btn-outline-dark" id="demo">
+                                            <form method="post" >
+                                            <input name="keyword" type="search" class="form-control border-dark" placeholder="Bạn tìm gì..." required>
+                                            <button type="submit" class="btn btn-outline-dark" id="demo">
                                                 <lord-icon src="https://cdn.lordicon.com/qehhcbpv.json" trigger="hover" style="width:18px;height:18.8px">
                                                 </lord-icon>
                                             </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="col-lg-auto text-center text-lg-left header-item-holder">
-                                <a href="#" class="header-item">
-                                    <lord-icon src="https://cdn.lordicon.com/wwbrugun.json" trigger="hover" style="width:25px;height:25.8px">
-                                    </lord-icon><span id="header-favorite">0</span>
-                                </a>
-
                                 <a href="?controller=shoppingCart" class="header-item">
                                     <?php
                                     if(isset($_SESSION['shoppingCart'])){
@@ -107,8 +103,6 @@
                                     ?>
                                     <lord-icon src="https://cdn.lordicon.com/gtcqrwnh.json" trigger="hover" style="width:25px;height:25.8px;">
                                     </lord-icon><span id="header-qty" class="me-3"><?= $count ?></span>
-                                    <lord-icon src="https://cdn.lordicon.com/kgfdwvou.json" trigger="hover" style="width:25px;height:25.8px">
-                                    </lord-icon><span id="header-price">$4,000</span>
                                 </a>
                             </div>
                         </div>

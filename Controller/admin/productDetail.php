@@ -17,7 +17,6 @@ class ProductDetail
 			if (isset($_POST['editColor'])) {
 
 				$color_id = $_POST['colorId'];
-				echo var_dump($color_id);
 				$color = $colorModel->GetColorById($color_id);
 				if (!empty($_POST['newColorName'])) {
 					$color_name = trim($_POST['newColorName']);
@@ -62,13 +61,41 @@ class ProductDetail
 				header("Refresh:0");
 			}
 
-			if (isset($_POST['deleteColor'])) {
-				$color_id = $_POST['colorIdDelete'];
-				$sizeModel->deleteSizeOfColor($color_id);
-				$colorModel->deleteColor($color_id);
+			if (isset($_POST['addColor'])) {
+
+				$color_name = trim($_POST['add_colorname']);
+				
+				
+				// Nếu không tải ảnh mới lên thì đặt giá trị như ban đầu
+	        	// Ngược lại thì lấy tên ảnh và lưu vào Public/admin/upload/products
+				
+				$image_link = $_FILES['add_image_link']['name'];
+				if (!file_exists('../../Public/admin/upload/products/' . $image_link)) {
+					move_uploaded_file($_FILES['add_image_link']['tmp_name'], '../../Public/admin/upload/products/' . $image_link);
+				}
+				
+
+				$temp = array();
+
+				if(empty($_FILES['add_image_link_extra']['name'][0])){
+					$_FILES['add_image_link_extra'] = NULL;
+				}
+				
+				if (!empty($_FILES['add_image_link_extra']) && $_FILES['add_image_link_extra']['error'] > 0) {
+					$count = count($_FILES['add_image_link_extra']['name']);
+					for ($i = 0; $i < $count; $i++) {
+						$temp[$i] = $_FILES['add_image_link_extra']['name'][$i];
+						if (!file_exists('../../Public/admin/upload/products/' . $temp[$i])) {
+							// Nếu ảnh tải lên chưa từng dược lưu thì chuyển ảnh vào thư mục upload
+							move_uploaded_file($_FILES['add_image_link_extra']['tmp_name'][$i], '../../Public/admin/upload/products/' . $temp[$i]);
+						}
+					}
+				}
+				
+				
+				$colorModel->addColor($color_name, $product_id, $image_link, $temp[0], $temp[1], $temp[2], $temp[3]);
 				header("Refresh:0");
 			}
-			
 
 			require('pages/product/detail.php');
 		}

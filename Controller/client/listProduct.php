@@ -5,19 +5,25 @@ class ListProduct {
         require_once('Model/Order.php');
         require_once('Model/Product.php');
         require_once('Model/Category.php');
+        require_once('Model/Color.php');
 		$cateModel = new Category();
         $productModel = new Product();
+        $colorModel = new Color();
         $categories = $cateModel->showAll();
-		$orderModel = new Order();
-        if(isset($_GET['category_id'])){
-            $products = $productModel->getProductByCategory($_GET['category_id']);
+        
+        if(isset($_GET['category'])){
+            $categoryif = $cateModel->getCategory($_GET['category']);
+            $products = $productModel->getProductByCategory($_GET['category']);
+            require('View/client/pages/product/listProduct.php');
         }
-            if (isset($_GET['orderId'])) {
-                $order_id = $_GET['orderId'];
-                $order = $orderModel->getOrder($order_id);
-                $products = $orderModel->getProductInOrder($order_id);
-                require('View/client/pages/account/orderDetail.php');
-            }
+
+        if(isset($_GET['searchValue'])){
+            $seachValue = trim($_GET['searchValue']);
+            $products = $productModel->searchProductOrderByPrice($seachValue);
+            require('View/client/pages/product/listProduct.php');
+        }
+        
+        
 	}
 }
 ?>

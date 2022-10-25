@@ -7,6 +7,12 @@ class EditProfile {
 		$cateModel = new Category();
 		$accModel = new Account();
         $categories = $cateModel->showAll();
+		$msg ="";
+
+		// if(empty($_POST['username']) || empty($_POST['fullname']) || empty($_POST['address']) || empty($_POST['phone']) || empty($_POST['email'])){
+		// 	$msg = "<div class='alert alert-danger'>Tất cả các trường không được để trống</div>";
+		// }
+
 		if (!empty($_SESSION['user'])) {
 			if (isset($_POST['editProfile'])) {
 				if (isset($_POST['fullname'])) {
@@ -30,6 +36,9 @@ class EditProfile {
 					$email = $_SESSION['user']['email'];
 				}
 					$accModel->editProfile($_SESSION['user']['user_id'], $fullname, $phone, $address, $email);
+					$data = $accModel->getNewInfor($_SESSION['user']['user_id']);
+					unset($_SESSION['user']);
+					$_SESSION['user'] = $data;
 					header('Location: ?controller=profile');
 				
 			}

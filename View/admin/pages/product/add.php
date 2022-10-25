@@ -40,6 +40,7 @@
                 <a href="?controller=manageCategory" class="nav-item nav-link"><i class="fa-solid fa-rectangle-list me-2"></i>Danh mục</a>
                 <a href="?controller=showOrder" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
                 <a href="" class="nav-item nav-link"><i class="fa-solid fa-tag me-2"></i>Khuyến mãi</a>
+                <a href="../../?controller=home" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Trang bán hàng</a>
             </div>
         </nav>
     </div>
@@ -187,6 +188,12 @@
                             <?php }
                             ?>
                         </select>
+                    </div>
+                    <!-- nhập mô tả -->
+                    <div class="mb-3">
+                        <label for="descriptionInput" class="form-label">Mô tả sản phẩm</label>
+                        <textarea name="description" class="form-control" required>
+                        </textarea>
                     </div>
 
                     <button onclick="addProduct()" type="submit" name="addProduct" class="btn btn-primary">Thêm sản

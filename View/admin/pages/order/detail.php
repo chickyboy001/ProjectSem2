@@ -31,15 +31,16 @@
                 <a href="?controller=home" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
                     quát</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-tshirt me-2"></i>Sản phẩm</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-tshirt me-2"></i>Sản phẩm</a>
                     <div class="dropdown-menu bg-transparent border-0">
-                        <a href="?controller=showProduct" class="dropdown-item active">Danh sách sản phẩm</a>
+                        <a href="?controller=showProduct" class="dropdown-item">Danh sách sản phẩm</a>
                         <a href="?controller=addProduct" class="dropdown-item">Thêm sản phẩm</a>
                     </div>
                 </div>
                 <a href="?controller=manageCategory" class="nav-item nav-link"><i class="fa-solid fa-rectangle-list me-2"></i>Danh mục</a>
-                <a href="?controller=showOrder" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
+                <a href="?controller=showOrder" class="nav-item nav-link active"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
                 <a href="" class="nav-item nav-link"><i class="fa-solid fa-tag me-2"></i>Khuyến mãi</a>
+                <a href="../../?controller=home" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Trang bán hàng</a>
             </div>
         </nav>
     </div>

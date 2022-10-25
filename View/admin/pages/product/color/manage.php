@@ -40,6 +40,7 @@
                 <a href="?controller=manageCategory" class="nav-item nav-link"><i class="fa-solid fa-rectangle-list me-2"></i>Danh mục</a>
                 <a href="?controller=showOrder" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
                 <a href="" class="nav-item nav-link"><i class="fa-solid fa-tag me-2"></i>Khuyến mãi</a>
+                <a href="../../?controller=home" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Trang bán hàng</a>
             </div>
         </nav>
     </div>
@@ -164,7 +165,7 @@
                                         <th scope="col">Size</th>
                                         <th scope="col">Số lượng</th>
                                         <th scope="col">Sửa</th>
-                                        <th scope="col">Xóa</th>
+                                        
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
@@ -237,42 +238,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-outline-danger"
-                                                data-bs-toggle="modal" data-bs-target="#deleteSize<?= $stt ?>">
-                                                <lord-icon src="https://cdn.lordicon.com/jmkrnisz.json" trigger="hover"
-                                                    style="width:20px;height:20px">
-                                                </lord-icon>
-                                            </button>
-                                            <div class="modal fade" id="deleteSize<?= $stt ?>" tabindex="-1"
-                                                aria-labelledby="deleteSize<?= $stt ?>" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content text-start">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="deleteSize<?= $stt ?>">Xác nhận
-                                                                xóa
-                                                            </h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <form id="deleteSize<?= $stt ?>" method="post"
-                                                            enctype="multipart/form-data">
-                                                            <div class="modal-body">
-                                                                <input type="hidden" name="sizeIdDelete"
-                                                                    value="<?= $size['size_id'] ?>" />
-                                                                <p class="text-danger">Xóa vĩnh viễn kích cỡ này?</p>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Hủy</button>
-                                                                <button type="submit" name="deleteSize"
-                                                                    class="btn btn-primary">Xác nhận</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
+                                        
                                         <td>
                                             <?php if ($size['status'] == 1) { ?>
                                             <span class="logged-in" style="color: green">●</span>

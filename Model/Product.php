@@ -9,12 +9,13 @@ class Product extends Database
         $this->db->connect();
     }
 
-    public function addProduct($product_name, $category_id, $sex, $price)
+    public function addProduct($product_name, $category_id, $sex, $price, $description)
     {
         $product_name = $this->db->conn->real_escape_string($product_name);
+        $description = $this->db->conn->real_escape_string($description);
         $sex = $this->db->conn->real_escape_string($sex);
-        $sql = "INSERT INTO products (product_name, category_id, sex, price)
-							VALUES ('$product_name', '$category_id', '$sex', '$price')";
+        $sql = "INSERT INTO products (product_name, category_id, sex, price, description)
+							VALUES ('$product_name', '$category_id', '$sex', '$price', '$description')";
 		$this->db->conn->query($sql);
         $PID = $this->db->conn->insert_id;
         return $PID;
@@ -96,6 +97,19 @@ class Product extends Database
         $sql = "INSERT INTO order_details (order_id, product_id,color_name, size_name, unit_price, quantity )
 							VALUES ('$order_id', '$product_id', '$color_name', '$size_name', '$unit_price', '$quantity')";
 		return $this->db->conn->query($sql);
+    }
+
+    public function searchProductOrderByPrice($searchValue)
+    {
+        mysqli_next_result($this->db->conn);
+        $searchValue = $this->db->conn->real_escape_string($searchValue);
+        $sql = "Call sp_searchProductOrderByPrice('$searchValue')";
+		$result = $this->db->conn->query($sql);
+		$list = array();
+		while ($data = $result->fetch_array()) {
+			$list[] = $data;
+		}
+		return $list;
     }
 
 

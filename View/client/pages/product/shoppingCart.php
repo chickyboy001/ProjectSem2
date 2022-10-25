@@ -48,12 +48,12 @@
 </div>
 <!-- Header -->
 </header>
-</div>
+<?php echo $msg;?>
 
-<div id="shoppingCart" class="col-12">
+<div class="col-12">
     <!-- Main Content -->
     <?php if(empty($_SESSION['shoppingCart'])){?>
-        <div class="row">
+        <div class="row" style="margin-bottom: 300px;">
         <div class="col-12 mt-3 text-center text-uppercase">
             <h2>không có sản phẩm nào trong giỏ</h2>
             <a class="d-flex justify-content-center" href="?controler=home.php" type="button">Quay lại trang chủ</a>
@@ -68,13 +68,14 @@
     <main class="row">
         <div class="col-12 bg-white py-3 mb-3">
             <div class="row">
-                <div class="col-lg-6 col-md-8 col-sm-10 mx-auto table-responsive">
-                    <form class="row">
+                <div class="col-lg-8 mx-auto table-responsive table-hover">
+                    <form class="row" method="POST">
                         <div class="col-12">
                             <table class="table table-striped table-hover table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Sản Phẩm</th>
+                                        <th>Ảnh</th>
+                                        <th>Tên sản Phẩm</th>
                                         <th>Size</th>
                                         <th>Số lượng</th>
                                         <th>Thành tiền</th>
@@ -84,15 +85,23 @@
                                 <tbody>
                                     <?php
                                     $count = 0;
-                                    foreach ($_SESSION['shoppingCart'] as $shoppingCart) { ?>
+                                    $total_price = 0;
+                                    foreach ($_SESSION['shoppingCart'] as $shoppingCart) {
+                                        $total_price = $total_price + ($shoppingCart['quantity'] * $shoppingCart['unit_price'])
+                                        ?>
+                                        <input type="hidden" name="index" value="<?= $count ?>" />
                                         <tr id="content">
+                                        <td>
+                                                <img src="<?=link?>Public/admin/upload/products/<?=$shoppingCart['image']?>" class="img-fluid">
+                                                
+                                            </td>
                                             <td>
-                                                <img src="../../../ProjectSem2/Public/admin/upload/products/ezgif-5-9b70b8b517.jpg" class="img-fluid">
+                                                
                                                 <?= $shoppingCart['product_name'] . ' ' . $shoppingCart['color_name'] ?>
                                             </td>
                                             <td>
                                                 <form>
-                                                    <select>
+                                                    <select name="size_id" style="height: 35px; border-radius: 4px; border-color: #ddd;">
                                                         <option selected value="<?= $shoppingCart['size_id'] ?>"><?= $shoppingCart['size_name'] ?></option>
                                                         <?php
                                                         
@@ -108,14 +117,12 @@
                                                         
                                                     } ?>
                                                     </select>
-                                                    <!-- <br><br>
-                                                <input type="submit" value="Submit"> -->
                                                 </form>
                                             </td>
                                             <td>
                                                 <div class="buttons_added">
                                                     <input class="minus is-form" type="button" value="-">
-                                                    <input aria-label="quantity" class="input-qty changQuantity" max="100" min="1" name="" type="number" value="<?= $shoppingCart['quantity'] ?>">
+                                                    <input aria-label="quantity" class="input-qty changQuantity" name="quantity" max="100" min="1" name="" type="number" value="<?= $shoppingCart['quantity'] ?>">
                                                     <input class="plus is-form" type="button" value="+">
                                                 </div>
                                             </td>
@@ -136,15 +143,20 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="3" class="text-right">Tổng cộng</th>
-                                        <th class="total_price">650,000đ</th>
+                                        <th colspan="4" class="text-right">Tổng cộng</th>
+                                        <th class="total_price"><?=getFormattedNumber($total_price). VND?></th>
                                         <th></th>
                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
-                        <div class="col-12 text-right">
-                            <a href="?controller=checkOut" class="btn btn-outline-success">Thanh toán</a>
+                        <div class="col-12">
+                            <button class="btn btn-outline-success" style="float: right;  margin-left:5px">
+                                <a href="?controller=checkOut" style="text-decoration: none; color: green;">Thanh toán</a>
+                            </button>
+                            <button class="btn btn-outline-success" name="updateCart" type="submit" style="float: right;text-decoration: none; color: green;">
+                                Cập nhật
+                            </button>
                         </div>
                     </form>
                 </div>

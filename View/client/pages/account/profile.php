@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
@@ -57,7 +57,7 @@
             <ul class="myinfo">
                 <li class="iteminfo">
                     <a href="?controller=profile">
-                        Tài khoản của tôi
+                       <b>Tài khoản của tôi</b> 
                     </a>
                 </li>
                 <li class="iteminfo">
@@ -67,7 +67,7 @@
                 </li>
                 <li class="iteminfo">
                     <a href="?controller=orderHistory">
-                        <b> Lịch sử đơn hàng </b>
+                        Lịch sử đơn hàng
                     </a>
                 </li>
                 <li class="iteminfo">
@@ -98,18 +98,6 @@
                     <span>500,000đ</span>
                 </div>
                 <!-- </div> -->
-            </div>
-            <div class="">
-                <h4 class="moreinfo-item">
-                    <b>
-                        Thông tin cá nhân
-                    </b>
-                </h4>
-                <h4 class="moreinfo">
-                    <b>
-                        Lịch sử đơn hàng
-                    </b>
-                </h4>
             </div>
         </div>
     </div>

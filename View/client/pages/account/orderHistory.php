@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
@@ -118,7 +118,7 @@
                                     <td><?= getFormattedNumber($product['quantity'] * $product['price']) . VND ?></td>
                                     <td>
                                         <?php if ($order['status'] == 1) { ?>
-                                            <a href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>" style="color:green;" class="js-picture">Đã nhận</a>
+                                            <a href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>" style="color:green;" class="js-picture">Đã đặt hàng</a>
                                         <?php }
                                         if ($order['status'] == 2) { ?>
                                             <a href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>" style="color:green;" class="js-picture">Đang xử lý</a>

@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
@@ -59,6 +59,8 @@
         </div>
     </div>
 
+    
+    <?php echo $msg;?>
     <main class="row">
         <div class="col-lg-4 col-md-6 col-sm-8 mx-auto bg-white py-3 mb-4">
             <div class="row">
@@ -93,6 +95,7 @@
                         <div class="mb-3 form-control1">
                             <label for="password" class="form-label">Mật khẩu</label>
                             <input type="password" name="password" id="password" class="form-control">
+                            <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
@@ -100,6 +103,7 @@
                         <div class="mb-3 form-control1">
                             <label for="password-confirm" class="form-label">Nhập lại mật khẩu</label>
                             <input type="password" name="password" id="password2" class="form-control">
+                            <span toggle="#password2" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>

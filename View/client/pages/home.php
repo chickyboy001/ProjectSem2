@@ -22,7 +22,7 @@
                                 continue;
                             }
                         ?>
-                            <a class="dropdown-item" href="?controller=listProduct&category=<?=$category['category_id']?>">
+                            <a class="dropdown-item" href="?controller=listProduct&category=<?= $category['category_id'] ?>">
                                 <?= $category['category_name'] ?>
                             </a>
                         <?php } ?>
@@ -65,19 +65,19 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="<?=link?>Assets/client/image/banner1.png" class="slider-img">
+                    <img src="<?= link ?>Assets/client/image/banner1.png" class="slider-img">
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                    <img src="<?=link?>Assets/client/image/banner2.png" class="slider-img">
+                    <img src="<?= link ?>Assets/client/image/banner2.png" class="slider-img">
                 </div>
                 <div class="carousel-item">
-                    <img src="<?=link?>Assets/client/image/banner3.png" class="slider-img">
+                    <img src="<?= link ?>Assets/client/image/banner3.png" class="slider-img">
                 </div>
                 <div class="carousel-item">
-                    <img src="<?=link?>Assets/client/image/banner4.png" class="slider-img">
+                    <img src="<?= link ?>Assets/client/image/banner4.png" class="slider-img">
                 </div>
                 <div class="carousel-item">
-                    <img src="<?=link?>Assets/client/image/banner5.png" class="slider-img">
+                    <img src="<?= link ?>Assets/client/image/banner5.png" class="slider-img">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -102,21 +102,20 @@
                     </div>
 
                     <div class="row">
-                        <!-- Product -->
                         <div class="col-lg-3 col-sm-6 my-3">
                             <div class="col-12 bg-white text-center h-100">
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -127,31 +126,29 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product -->
 
-                        <!-- Product -->
                         <div class="col-lg-3 col-sm-6 my-3">
                             <div class="col-12 bg-white text-center h-100">
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -162,31 +159,29 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product -->
 
-                        <!-- Product -->
                         <div class="col-lg-3 col-sm-6 my-3">
                             <div class="col-12 bg-white text-center h-100">
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -197,31 +192,29 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product -->
 
-                        <!-- Product -->
                         <div class="col-lg-3 col-sm-6 my-3">
                             <div class="col-12 bg-white text-center h-100">
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -232,9 +225,9 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
@@ -270,14 +263,14 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -288,31 +281,29 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product -->
 
-                        <!-- Product -->
                         <div class="col-lg-3 col-sm-6 my-3">
                             <div class="col-12 bg-white text-center h-100">
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -323,31 +314,29 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product -->
 
-                        <!-- Product -->
                         <div class="col-lg-3 col-sm-6 my-3">
                             <div class="col-12 bg-white text-center h-100">
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -358,31 +347,29 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product -->
 
-                        <!-- Product -->
                         <div class="col-lg-3 col-sm-6 my-3">
                             <div class="col-12 bg-white text-center h-100">
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -393,9 +380,9 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
@@ -431,14 +418,14 @@
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -449,31 +436,29 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product -->
 
-                        <!-- Product -->
                         <div class="col-lg-3 col-sm-6 my-3">
                             <div class="col-12 bg-white text-center h-100">
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -484,31 +469,29 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product -->
 
-                        <!-- Product -->
                         <div class="col-lg-3 col-sm-6 my-3">
                             <div class="col-12 bg-white text-center h-100">
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -519,31 +502,29 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product -->
 
-                        <!-- Product -->
                         <div class="col-lg-3 col-sm-6 my-3">
                             <div class="col-12 bg-white text-center h-100">
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <div class="product-grid">
                                         <div class="product-image">
                                             <a href="#" class="image">
-                                                <img class="pic-1" src="<?=link?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
+                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
                                             </a>
                                             <span class="product-discount-label">-33%</span>
                                             <ul class="product-links">
-                                                <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                                                <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
+                                                <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product-content">
@@ -554,9 +535,9 @@
                                                 <li class="far fa-star"></li>
                                                 <li class="far fa-star"></li>
                                             </ul>
-                                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                                            <div class="price"><span>$90.00</span> $66.00</div>
-                                            <a class="add-to-cart" href="#">add to cart</a>
+                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
+                                            <div class="price"><span></span> 200,000đ</div>
+                                            <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>

@@ -79,6 +79,10 @@ class Order extends Database
 		return $list;
     }
 
+    
+
+    
+
     public function getOrderInThisWeek()
     {
         mysqli_next_result($this->db->conn);

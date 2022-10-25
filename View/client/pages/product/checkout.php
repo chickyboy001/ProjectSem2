@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -134,7 +134,7 @@
                                     <label for="kh_dienthoai">Email</label>
                                     <input type="text" class="form-control" name="email" id="phoneCheckout" placeholder="Email người nhận" value="<?php if (isset($_SESSION['user']['email'])) {
                                                                                                                                                         echo $_SESSION['user']['email'];
-                                                                                                                                                    } ?>" required>
+                                                                                                                                                    } ?>">
                                     <i class="fas fa-check-circle"></i>
                                     <i class="fas fa-exclamation-circle"></i>
                                     <small>Error message</small>

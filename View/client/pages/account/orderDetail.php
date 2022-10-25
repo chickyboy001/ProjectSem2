@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
@@ -132,18 +132,48 @@
                                     <div class="col-md-2">
                                         <p class="text-muted mb-0 small">Theo dõi đơn hàng</p>
                                     </div>
+                                    <?php
+                                    $active1 = '';
+                                    $active2 = '';
+                                    $active3 = '';
+                                    $active4 = ''; 
+                                    if($order['status']==1){
+                                        $active1 = "active";
+                                        $active2 = '';
+                                        $active3 = '';
+                                        $active4 = ''; 
+                                    }
+                                    if($order['status']==2){
+                                        $active1 = "active";
+                                        $active2 = "active";
+                                        $active3 = '';
+                                        $active4 = ''; 
+                                    }
+                                    if($order['status']==3){
+                                        $active1 = "active";
+                                        $active2 = "active";
+                                        $active3 = "active";
+                                        $active4 = ''; 
+                                    }
+                                    if($order['status']==4){
+                                        $active1 = "active";
+                                        $active2 = "active";
+                                        $active3 = "active";
+                                        $active4 = "active"; 
+                                    }
+                                    ?>
                                     <div class="col-md-10">
                                         <ul id="progressbar" class="text-center">
-                                            <li class="active step0 ">
+                                            <li class="<?= $active1?> step0 ">
                                                 Đã đặt hàng
                                             </li>
-                                            <li class="active step0">
+                                            <li class="<?= $active2?> step0">
                                                 Đang xử lý
                                             </li>
-                                            <li class="active step0">
+                                            <li class="<?= $active3?> step0">
                                                 Đang vận chuyển
                                             </li>
-                                            <li class="step0">Hoàn thành</li>
+                                            <li class="<?= $active4?> step0">Hoàn thành</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -167,7 +197,13 @@
                             <p class="text-muted mb-0">Thời gian đặt hàng : <?= $order['order_date']?></p>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <p class="text-muted mb-0">Phương thức thanh toán : <b>Thanh toán khi nhận hàng</b> </p>
+                            <p class="text-muted mb-0">Phương thức thanh toán : <?php if($order['payment_method'] == 0) {?>
+                            <b> COD</b>
+                            <?php } if($order['payment_method'] == 1) { ?>
+                            <b> Chuyển khoản </b>
+                            <?php } if($order['payment_method'] == 2) { ?>
+                            <b> Thẻ ATM </b>
+                            <?php } ?> </p>
                         </div>
 
                         <div class="d-flex justify-content-between pt-2 pb-1">

@@ -14,8 +14,9 @@ class AddProduct
             $sex = $_POST['sex'];
             $price = $_POST['price'];
             $category_id = $_POST['category_id'];
+            $description = $_POST['description'];
 
-            $PID = $productModel->addProduct($product_name,$category_id, $sex, $price);
+            $PID = $productModel->addProduct($product_name,$category_id, $sex, $price, $description);
             header('Location: ?controller=productDetail&productId=' . $PID);
             
         }
