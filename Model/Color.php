@@ -17,8 +17,6 @@ class Color extends Database
         return $data;
     }
 
-    
-
     public function editColor($color_id, $color_name, $image_link, $image_link_1, $image_link_2, $image_link_3, $image_link_4, $status)
     {
         $color_name = $this->db->conn->real_escape_string($color_name);
@@ -46,6 +44,7 @@ class Color extends Database
         $sql = "UPDATE colors SET status = '$status' WHERE color_id = $color_id";  
         return $this->db->conn->query($sql);
     }
+
     public function getSizeOfColor($color_id)
     {
         mysqli_next_result($this->db->conn);
@@ -58,6 +57,7 @@ class Color extends Database
         return $list;
     }
     
+   
 
 }
 ?>

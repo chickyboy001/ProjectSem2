@@ -32,6 +32,14 @@ class Account extends Database
         return $data;
 	}
 
+	public function checkExistCustomer($fullname, $email, $phone, $address)
+	{
+		$sql = "SELECT * FROM accounts WHERE fullname = '$fullname' AND phone ='$phone' AND address = '$address' AND email = '$email'";
+		$result = $this->db->conn->query($sql);
+		$data = $result->fetch_array();
+        return $data;
+	}
+
     public function signup($username, $fullname, $address, $phone, $password)
 	{	
 		$sql = "INSERT INTO accounts (username, fullname, address, phone, password)
@@ -47,7 +55,6 @@ class Account extends Database
     public function checkExistPhone($phone) {
 		$sql = "SELECT * FROM accounts WHERE phone = '$phone'";
 		$result = $this->db->conn->query($sql);
-		
 		return $result;
 	}
 
@@ -63,6 +70,7 @@ class Account extends Database
 									email = '$email' WHERE user_id = $userId";
 		return $this->db->conn->query($sql);
     }
+
 	public function addCustomer($fullname, $address, $phone, $email)
 	{	
 		$sql = "INSERT INTO accounts (fullname, address, phone, email)

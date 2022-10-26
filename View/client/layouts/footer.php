@@ -276,6 +276,7 @@
     function getMaxQuantity(quantity) {
         document.getElementById("myNumber").max = quantity;
         document.getElementById('quantityInStock').innerText = quantity+" sản phẩm";
+        
     }
 
     // Get the element with id="defaultOpen" and click on it

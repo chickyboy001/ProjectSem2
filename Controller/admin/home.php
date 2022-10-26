@@ -18,6 +18,13 @@ class Home {
         $orderTodays = $orderModel->getOrderToday();
         $countNewOrder = count($orderTodays, COUNT_NORMAL);
         $revenue = 0;
+		$orderWeek = $orderModel->getOrderInThisWeek();
+		$weekRevenue = 0;
+		$totalOrderWeek = 0;
+		foreach($orderWeek as $order){
+			$totalOrderWeek++;
+			$weekRevenue = $weekRevenue + $order['total_price'];
+		}
         if($countNewOrder > 0){
             foreach ($orderTodays as $orderToday) {
                 $products = $orderModel->getProductInOrder($orderToday['order_id']);

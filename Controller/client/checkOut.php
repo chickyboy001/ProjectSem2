@@ -1,6 +1,8 @@
 <?php
-class CheckOut {
-    public function __construct() {
+class CheckOut
+{
+    public function __construct()
+    {
         require_once('Model/Category.php');
         require_once('Model/Order.php');
         require_once('Model/Account.php');
@@ -13,65 +15,78 @@ class CheckOut {
         $productModel = new Product();
         $cartModel = new Cart();
         $sizeModel = new Size();
-		$categories = $cateModel->showAll();
-        if(isset($_POST['confirmOrder'])){
+        $categories = $cateModel->showAll();
+        if (isset($_POST['confirmOrder'])) {
             $msg = '';
             $result = false;
-            foreach($_SESSION['shoppingCart'] as $shoppingCart){
+            foreach ($_SESSION['shoppingCart'] as $shoppingCart) {
                 $size_id = $shoppingCart['size_id'];
                 $quantity = $shoppingCart['quantity'];
                 $size = $sizeModel->getSize($size_id);
-                if($size['quantity'] - $quantity >= 0){
+                if ($size['quantity'] - $quantity >= 0) {
                     $result = true;
                 } else {
                     $result = false;
                     break;
                 }
             }
-            if($result ==true){
-            if (!empty($_POST['fullname']) && strcasecmp($_POST['fullname'],$_SESSION['user']['fullname'])==0){
+            if ($result == true) {
+
                 $fullname = trim($_POST['fullname']);
-            }
-            if (!empty($_POST['phone']) && strcasecmp($_POST['phone'],$_SESSION['user']['phone'])==0){
+
                 $phone = trim($_POST['phone']);
-            }
-            if (!empty($_POST['address']) && strcasecmp($_POST['address'],$_SESSION['user']['address'])==0){
+
                 $address = trim($_POST['address']);
-            }
-            if (!empty($_POST['email']) && strcasecmp($_POST['email'],$_SESSION['user']['email'])==0){
+
                 $email = trim($_POST['email']);
-            }
-            $payment_method = $_POST['payment_method'];
-            $total_price = $_POST['total_price'];
-            // xử lý trường hợp khách nhập thiếu trường
-            if(isset($fullname) || isset($phone) || isset($address)) {
-                $sub_customer = $accModel->addCustomer($fullname, $address, $phone, $email);
-                if(!empty($_SESSION['user'])){
+
+                $payment_method = $_POST['payment_method'];
+                $total_price = $_POST['total_price'];
+                $cus = $accModel->checkExistCustomer($fullname, $email, $phone, $address);
+                // kiểm tra thông tin khách hàng đã nhập có trong database chưa
+                // nếu chưa có thì tạo khách hàng mới
+                $sub_customer = NULL;
+                if (empty($cus)) {
+                    $sub_customer = $accModel->addCustomer($fullname, $address, $phone, $email);
+                } else if (!empty($_SESSION['user'])) {
+                    if ($cus['user_id'] != $_SESSION['user']['user_id']) {
+                        // nếu đã có thì kiểm tra xem có trùng với session k, nếu không thì thêm vào sub_customer
+                        $sub_customer = $cus['user_id'];
+                    }
+                }
+                if (!empty($_SESSION['user']) && !empty($sub_customer)) {
+                    // tạo đơn hàng mới với sub_customer
                     $new_order = $orderModel->addOrderWithSub_customer($_SESSION['user']['user_id'], $payment_method, $sub_customer, $total_price);
-                } else {
+                }
+                // tạo đơn hàng mới với khách hàng mới
+                if (empty($_SESSION['user'])) {
                     $new_order = $orderModel->addOrder($sub_customer, $payment_method, $total_price);
                 }
+                if (!empty($_SESSION['user'])) {
+                    if ($cus['user_id'] == $_SESSION['user']['user_id']) {
+                        // tạo đơn hàng mới với session
+                        $new_order = $orderModel->addOrder($_SESSION['user']['user_id'], $payment_method, $total_price);
+                    }
+                }
+                foreach ($_SESSION['shoppingCart'] as $shoppingCart) {
+                    $product_id = $shoppingCart['product_id'];
+                    $color_name = $shoppingCart['color_name'];
+                    $size_name = $shoppingCart['size_name'];
+                    $size_id = $shoppingCart['size_id'];
+                    $unit_price = $shoppingCart['unit_price'];
+                    $quantity = $shoppingCart['quantity'];
+                    $productModel->addProductToOrder($new_order, $product_id, $color_name, $size_name, $unit_price, $quantity);
+                    $sizeModel->updateQuantityAfterCreateOrder($quantity, $size_id);
+                }
+                if (!empty($_SESSION['user'])) {
+                    $cartModel->deleteAllCart($_SESSION['user']['user_id']);
+                }
+                unset($_SESSION['shoppingCart']);
+                header('Location: ?controller=orderSuccessfull');
             } else {
-                $new_order = $orderModel->addOrder($_SESSION['user']['user_id'], $payment_method, $total_price);
+                header('Location: ?controller=orderFail');
             }
-            foreach($_SESSION['shoppingCart'] as $shoppingCart){
-                $product_id = $shoppingCart['product_id'];
-                $color_name = $shoppingCart['color_name'];
-                $size_name = $shoppingCart['size_name'];
-                $size_id = $shoppingCart['size_id'];
-                $unit_price = $shoppingCart['unit_price'];
-                $quantity = $shoppingCart['quantity'];
-                $productModel->addProductToOrder($new_order, $product_id, $color_name, $size_name, $unit_price, $quantity);
-                $sizeModel->updateQuantityAfterCreateOrder($quantity, $size_id);
-            }
-            $cartModel->deleteAllCart($_SESSION['user']['user_id']);
-            unset($_SESSION['shoppingCart']);
-            header('Location: ?controller=orderSuccessfull');
-        } else{
-            header('Location: ?controller=orderFail');
-        }
         }
         require('View/client/pages/product/checkout.php');
     }
-} 
-?>
+}

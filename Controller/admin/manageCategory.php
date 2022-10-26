@@ -24,19 +24,8 @@ class ManageCategory
             $category_name = trim($_POST['updateCateName']);
             $old_name = trim($_POST['oldName']);
             $status = $_POST['statusCate'];
-            $result = 0;
-            if (strcmp($category_name, $old_name) != 0) {
-                $cate = $cateModel->getCategoryByName($category_name);
-                $result = count($cate, COUNT_NORMAL);
-            } else {
-                $result = 1;
-            }
-            if ($result != 0 || $name == NULL) {
-                echo "<script>alert('Danh mục bị trùng tên hoặc tên sai định dạng')</script>";
-            } else {
-                $cateModel->updateCategory($category_id, $category_name, $status);
-                header("Refresh:0");
-            }
+            $cateModel->updateCategory($category_id, $category_name, $status);
+            header("Refresh:0");
         }
         require 'pages/category/manage.php';
     }

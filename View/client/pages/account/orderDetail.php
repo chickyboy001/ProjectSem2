@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="index.php">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
@@ -189,7 +189,7 @@
                         <div class="d-flex justify-content-between pt-2">
                             <p class="text-muted mb-0">Hóa đơn số: <?= $order['order_id']?></p>
                             <p class="text-muted mb-0"><span class="fw-bold me-4">Giảm giá</span>
-                                0đ
+                                0 VND
                             </p>
                         </div>
 

@@ -79,14 +79,10 @@ class Order extends Database
 		return $list;
     }
 
-    
-
-    
-
     public function getOrderInThisWeek()
     {
         mysqli_next_result($this->db->conn);
-        $sql = "SELECT total_price FROM orders WHERE order_date >= date_sub(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY) AND order_date < date_add(CURDATE(), INTERVAL 1 DAY) ORDER BY order_date DESC";
+        $sql = "SELECT * FROM orders WHERE order_date >= date_sub(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY) AND order_date < date_add(CURDATE(), INTERVAL 1 DAY) ORDER BY order_date DESC";
         $result = $this->db->conn->query($sql);
         $list = array();
         while ($data = $result->fetch_array()) {
@@ -129,8 +125,6 @@ class Order extends Database
 		}
 		return $list;
     }
-
-
 
 }
 ?>

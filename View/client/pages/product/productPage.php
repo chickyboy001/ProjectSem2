@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="index.php">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
@@ -178,7 +178,7 @@
                                                 $default = "defaultClick";
                                                 $temp = 0;
                                                 foreach ($key as $size) {
-                                                    if ($size['status'] == 0) {
+                                                    if ($size['status'] == 0 || $size['quantity'] <= 0)  {
                                                         continue;
                                                     }
                                                 ?>
@@ -483,140 +483,7 @@
             </div>
         </div>
 
-        <!-- Similar Product -->
-        <div class="row mb-5 pb-2">
-            <div class="col-lg-3 col-sm-6 my-3">
-                <div class="col-12 bg-white text-center h-100">
-                    <div class="col-md-12 col-sm-12 mb-4">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                </a>
-                                <span class="product-discount-label">-33%</span>
-                                <ul class="product-links">
-                                    <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
-                                    </li>
-                                    <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
-                                    <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="rating">
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                </ul>
-                                <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                <div class="price"><span></span> 200,000đ</div>
-                                <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 my-3">
-                <div class="col-12 bg-white text-center h-100">
-                    <div class="col-md-12 col-sm-12 mb-4">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                </a>
-                                <span class="product-discount-label">-33%</span>
-                                <ul class="product-links">
-                                    <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
-                                    </li>
-                                    <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
-                                    <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="rating">
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                </ul>
-                                <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                <div class="price"><span></span> 200,000đ</div>
-                                <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 my-3">
-                <div class="col-12 bg-white text-center h-100">
-                    <div class="col-md-12 col-sm-12 mb-4">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                </a>
-                                <span class="product-discount-label">-33%</span>
-                                <ul class="product-links">
-                                    <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
-                                    </li>
-                                    <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
-                                    <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="rating">
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                </ul>
-                                <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                <div class="price"><span></span> 200,000đ</div>
-                                <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 my-3">
-                <div class="col-12 bg-white text-center h-100">
-                    <div class="col-md-12 col-sm-12 mb-4">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                </a>
-                                <span class="product-discount-label">-33%</span>
-                                <ul class="product-links">
-                                    <li><a href="#" data-tip="Thêm vào ưa thích"><i class="fas fa-heart"></i></a>
-                                    </li>
-                                    <li><a href="#" data-tip="So sánh"><i class="fa fa-random"></i></a></li>
-                                    <li><a href="#" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="rating">
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                </ul>
-                                <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                <div class="price"><span></span> 200,000đ</div>
-                                <a class="add-to-cart" href="#">Thêm vào giỏ hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
 </main>

@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="index.php">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
@@ -37,9 +37,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="books" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Liên hệ</a>
-
                     <div class="dropdown-menu" aria-labelledby="books">
-
                     </div>
                 </li>
             </ul>

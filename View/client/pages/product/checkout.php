@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="?controller=home">Trang chủ <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="index.php">Trang chủ <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -96,12 +96,7 @@
                             <strong><?= getFormattedNumber($total_price) . VND ?></strong>
                         </li>
                     </ul>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Mã giảm giá">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-secondary">Xác nhận</button>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-md-8 order-md-1">
                     <h4 class="mb-3">Thông tin khách hàng</h4>
@@ -111,55 +106,38 @@
                             <?php if (!empty($_SESSION['user'])) { ?>
                                 <div class="col-md-12 my-1 form-control-checkout">
                                     <label for="fullname">Họ tên</label>
-                                    <input type="text" class="form-control" name="fullname" id="fullnameCheckout" placeholder="Họ và tên người nhận" value="<?= $_SESSION['user']['fullname'] ?>" required>
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <small>Error message</small>
+                                    <input type="text" class="form-control" name="fullname" pattern=".{7,}" title="Họ và tên phải có ít nhất 7 ký tự"> id="fullnameCheckout" placeholder="Họ và tên người nhận" value="<?= $_SESSION['user']['fullname'] ?>" required>
                                 </div>
                                 <div class="col-md-12 my-1 form-control-checkout">
                                     <label for="address">Địa chỉ</label>
-                                    <input type="text" class="form-control" name="address" id="addressCheckout" placeholder="Vui lòng ghi rõ địa chỉ nhà, tên đường(nếu có), xã(phường), huyện(quận), tỉnh (TP)" value="<?= $_SESSION['user']['address'] ?>" required>
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <small>Error message</small>
+                                    <input type="text" class="form-control" name="address" pattern=".{20,}" title="Địa chỉ phải có ít nhất 20 ký tự" id="addressCheckout" placeholder="Vui lòng ghi rõ địa chỉ nhà, tên đường(nếu có), xã(phường), huyện(quận), tỉnh (TP)" value="<?= $_SESSION['user']['address'] ?>" required>
                                 </div>
                                 <div class="col-md-12 my-1 form-control-checkout">
                                     <label for="kh_dienthoai">Điện thoại</label>
-                                    <input type="text" class="form-control" name="phone" id="phoneCheckout" placeholder="Số điện thoại người nhận" value="<?= $_SESSION['user']['phone'] ?>" required>
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <small>Error message</small>
+                                    <input type="text" class="form-control" name="phone" pattern="(\+84|0)\d{9,10}" title="Nhập số điện thoại từ 10 đến 11 số" id="phoneCheckout" placeholder="Số điện thoại người nhận" value="<?= $_SESSION['user']['phone'] ?>" required>
                                 </div>
                                 <div class="col-md-12 my-1 form-control-checkout">
                                     <label for="kh_dienthoai">Email</label>
-                                    <input type="text" class="form-control" name="email" id="phoneCheckout" placeholder="Email người nhận" value="<?php if (isset($_SESSION['user']['email'])) {
+                                    <input type="text" class="form-control" name="email" pattern="(?!test@test\.com$)[a-z0-9._%+-]{3,}@[a-z]{3,}\.[a-z]{2,}(?:\.[a-z]{2,})?" title="Email phải có dạng someone@abc.xyz" id="phoneCheckout" placeholder="Email người nhận" required value="<?php if (isset($_SESSION['user']['email'])) {
                                                                                                                                                         echo $_SESSION['user']['email'];
                                                                                                                                                     } ?>">
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <small>Error message</small>
                                 </div>
                             <?php } else { ?>
                                 <div class="col-md-12 my-1 form-control-checkout">
                                     <label for="fullname">Họ tên</label>
-                                    <input type="text" class="form-control" name="fullname" id="fullnameCheckout">
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <small>Error message</small>
+                                    <input type="text" class="form-control" name="fullname" id="fullnameCheckout" placeholder="Họ và tên người nhận" pattern=".{7,}" title="Họ và tên phải có ít nhất 10 ký tự" required>
                                 </div>
                                 <div class="col-md-12 my-1 form-control-checkout">
                                     <label for="address">Địa chỉ</label>
-                                    <input type="text" class="form-control" name="address" id="addressCheckout">
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <small>Error message</small>
+                                    <input type="text" class="form-control" name="address" id="addressCheckout" placeholder="Vui lòng ghi rõ địa chỉ nhà, tên đường(nếu có), xã(phường), huyện(quận), tỉnh (TP)" pattern=".{20,}" title="Địa chỉ phải có ít nhất 20 ký tự" required>
                                 </div>
                                 <div class="col-md-12 my-1 form-control-checkout">
                                     <label for="kh_dienthoai">Điện thoại</label>
-                                    <input type="text" class="form-control" name="phone" id="phoneCheckout">
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <small>Error message</small>
+                                    <input type="text" class="form-control" name="phone" id="phoneCheckout" placeholder="Số điện thoại người nhận" pattern="(\+84|0)\d{9,10}" title="Nhập số điện thoại từ 10 đến 11 số" required>
+                                </div>
+                                <div class="col-md-12 my-1 form-control-checkout">
+                                    <label for="kh_dienthoai">Email</label>
+                                    <input type="text" class="form-control" name="email" id="phoneCheckout" placeholder="Email người nhận" pattern="(?!test@test\.com$)[a-z0-9._%+-]{3,}@[a-z]{3,}\.[a-z]{2,}(?:\.[a-z]{2,})?" title="Email phải có dạng someone@abc.xyz" required>
                                 </div>
                             <?php } ?>
                             <h4 class="my-3">Hình thức thanh toán</h4>
