@@ -8,9 +8,12 @@ class ManageCategory
         $cateModel = new Category();
         $categories = $cateModel->showAll();
         if (isset($_POST['addCategoryName'])) {
-            $name = ucfirst($_POST['CategoryName']);
-
-            if ($name) {
+            $name = trim($_POST['CategoryName']);
+            $cate = $cateModel->getCategoryByName($name);
+            $result = count($cate, COUNT_NORMAL);
+            if ($result != 0 || $name == NULL) {
+                echo "<script>alert('Danh mục bị trùng tên hoặc tên sai định dạng')</script>";
+            } else {
                 $cateModel->addCategory($name);
                 echo "<script>alert('Thêm danh mục thành công')</script>";
                 header("Refresh:0");
@@ -18,10 +21,22 @@ class ManageCategory
         }
         if (isset($_POST['editCategory'])) {
             $category_id = $_POST['categoryId'];
-            $category_name = $_POST['updateCateName'];
+            $category_name = trim($_POST['updateCateName']);
+            $old_name = trim($_POST['oldName']);
             $status = $_POST['statusCate'];
-            $cateModel->updateCategory($category_id, $category_name, $status);
-            header("Refresh:0");
+            $result = 0;
+            if (strcmp($category_name, $old_name) != 0) {
+                $cate = $cateModel->getCategoryByName($category_name);
+                $result = count($cate, COUNT_NORMAL);
+            } else {
+                $result = 1;
+            }
+            if ($result != 0 || $name == NULL) {
+                echo "<script>alert('Danh mục bị trùng tên hoặc tên sai định dạng')</script>";
+            } else {
+                $cateModel->updateCategory($category_id, $category_name, $status);
+                header("Refresh:0");
+            }
         }
         require 'pages/category/manage.php';
     }

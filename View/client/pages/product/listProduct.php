@@ -58,7 +58,7 @@
         <div class="row">
         <div class="col-12 mt-3 text-center text-uppercase">
             <h2>KHông tìm thấy sản phẩm nào trùng khớp</h2>
-            <a class="d-flex justify-content-center" href="?controler=home.php" type="button">Quay lại trang chủ</a>
+            <a class="d-flex justify-content-center" href="?controller=home" type="button">Quay lại trang chủ</a>
         </div>
     </div>
     <?php } else {?>
@@ -209,22 +209,6 @@
                     <!-- products section -->
                     <section id="products">
                         <div class="container">
-                            <div class="d-flex flex-row">
-                                <div class="ml-auto mr-lg-4 float-end">
-                                    <div id="sorting" class="border rounded p-1 m-1">
-                                        <select name="sort" id="sort">
-                                            <option name="" value="popularity"><b>Tùy chọn</b></option>
-                                            <!-- <form method="post"> -->
-                                            <!-- <button name="enter"> -->
-                                            <option value="prcie"><b>Giá giảm dần</b></option>
-                                            <!-- </button> -->
-                                            <!-- </form> -->
-                                            <option value="prcie"><b>Giá tăng dần</b></option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="row">
                                 <?php
                                 foreach ($products as $product) {

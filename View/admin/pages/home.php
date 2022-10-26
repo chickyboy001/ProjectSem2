@@ -11,7 +11,7 @@
     <!-- Sidebar Start -->
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
-            <a href="?controler=home" class="navbar-brand mx-4 mb-3">
+            <a href="?controller=home" class="navbar-brand mx-4 mb-3">
                 <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DOUBLE H</h3>
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="navbar-nav w-100">
-                <a href="?controller=home" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
+                <a href="?controler=home" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
                     quát</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-tshirt me-2"></i>Sản phẩm</a>
@@ -180,9 +180,8 @@
                                         <td class="text-danger"> Đã hủy </td>
                                     <?php } ?>
 
-                                    <td><?php if (isset($admin['fullname'])) {
-                                            echo $admin['fullname'];
-                                        } else echo "Chưa có"; ?></td>
+                                    <td><?php if (isset($admin['fullname'])) 
+                                    {echo $admin['fullname'];} else {echo "Chưa có";} ?></td>
                                     <td>
                                         <a class="btn btn-sm btn-outline-info" href="?controller=orderDetail&orderId=<?= $order['order_id'] ?>">
                                             <i class="fa-solid fa-circle-info"></i>
@@ -230,7 +229,7 @@
                                     </td>
                                 </tr>
                             <?php
-                            } ?>
+                            $admin = NULL;} ?>
                         </tbody>
                     </table>
                 </div>

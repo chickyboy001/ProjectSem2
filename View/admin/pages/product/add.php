@@ -1,7 +1,6 @@
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -28,7 +27,7 @@
                 </div>
             </div>
             <div class="navbar-nav w-100">
-                <a href="?controller=home" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
+                <a href="?controler=home" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
                     quát</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-tshirt me-2"></i>Sản phẩm</a>
@@ -39,7 +38,7 @@
                 </div>
                 <a href="?controller=manageCategory" class="nav-item nav-link"><i class="fa-solid fa-rectangle-list me-2"></i>Danh mục</a>
                 <a href="?controller=showOrder" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
-                <a href="" class="nav-item nav-link"><i class="fa-solid fa-tag me-2"></i>Khuyến mãi</a>
+
                 <a href="../../?controller=home" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Trang bán hàng</a>
             </div>
         </nav>
@@ -61,75 +60,7 @@
                 <input class="form-control border-0" type="search" placeholder="Tìm kiếm">
             </form>
             <div class="navbar-nav align-items-center ms-auto">
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="me-lg-2">
-                            <lord-icon src="https://cdn.lordicon.com/pghzuxlt.json" trigger="hover" style="width:16px;height:16px">
-                            </lord-icon>
-                        </i>
-                        <span class="d-none d-lg-inline-flex">Tin nhắn</span>
-                    </a>
-                    <!-- <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item text-center">See all message</a>
-                    </div> -->
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="me-lg-2">
-                            <lord-icon src="https://cdn.lordicon.com/kjsfgazx.json" trigger="hover" style="width:16px;height:16px">
-                            </lord-icon>
-                        </i>
-                        <span class="d-none d-lg-inline-flex">Thông báo</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Yêu cầu hủy đơn</h6>
-                            <small>10 phút trước</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Đơn hàng mới</h6>
-                            <small>15 phút trước</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Đơn hàng mới</h6>
-                            <small>15 phút trước</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item text-center">See all notifications</a>
-                    </div>
-                </div>
+
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <i class="me-lg-2">
@@ -157,24 +88,26 @@
                     <!-- nhập tên sản phẩm -->
                     <div class="mb-3">
                         <label for="nameInput" class="form-label">Tên sản phẩm</label>
-                        <input name="product_name" type="text" class="form-control" id="nameInput" required>
+                        <input name="product_name" type="text" class="form-control" id="nameInput" pattern=".{8,}" title="Tên sản phẩm không ít hơn 8 ký tự" required>
                     </div>
                     <!-- nhập giới tính -->
                     <div class="mb-3">
                         <label for="nameInput" class="form-label">Giới tính</label>
-                        <?php $chooseSex = array("Nam", "Nữ", "Unisex"); $value=1; ?>
+                        <?php $chooseSex = array("Nam", "Nữ", "Unisex");
+                        $value = 1; ?>
                         <select name="sex" class="form-select" required>
                             <option value="">None</option>
                             <?php foreach ($chooseSex as $choose) { ?>
-                            <option value="<?= $value ?>"><?= $choose ?>
-                            </option>
-                            <?php $value++;} ?>
+                                <option value="<?= $value ?>"><?= $choose ?>
+                                </option>
+                            <?php $value++;
+                            } ?>
                         </select>
                     </div>
                     <!-- nhập giá -->
                     <div class="mb-3">
                         <label for="priceInput" class="form-label">Giá (VNĐ)</label>
-                        <input name="price" type="text" class="form-control" id="priceInput" required>
+                        <input name="price" type="text" class="form-control" pattern=".{6,}" title="Giá không được ít hơn 6 ký tự" id="priceInput" required>
                     </div>
                     <!-- nhập tên danh mục -->
                     <div class="mb-3">
@@ -182,9 +115,11 @@
                         <select name="category_id" class="form-select" required>
                             <option value="">None</option>
                             <?php foreach ($categories as $category) {
-                                if($category['status']==0){continue;}?>
-                            <option value="<?= $category['category_id'] ?>"><?= $category['category_name'] ?>
-                            </option>
+                                if ($category['status'] == 0) {
+                                    continue;
+                                } ?>
+                                <option value="<?= $category['category_id'] ?>"><?= $category['category_name'] ?>
+                                </option>
                             <?php }
                             ?>
                         </select>
@@ -192,10 +127,9 @@
                     <!-- nhập mô tả -->
                     <div class="mb-3">
                         <label for="descriptionInput" class="form-label">Mô tả sản phẩm</label>
-                        <textarea name="description" class="form-control" required>
+                        <textarea name="description" class="form-control" value="" pattern=".{20,}" title="Mô tả không được ít hơn 20 ký tự" required>
                         </textarea>
                     </div>
-
                     <button onclick="addProduct()" type="submit" name="addProduct" class="btn btn-primary">Thêm sản
                         phẩm</button>
                 </form>

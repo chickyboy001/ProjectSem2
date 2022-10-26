@@ -58,7 +58,7 @@
         <div class="row">
         <div class="col-12 mt-3 text-center text-uppercase">
             <h2>Sản phẩm không tồn tại</h2>
-            <a class="d-flex justify-content-center" href="?controler=home.php" type="button">Quay lại trang chủ</a>
+            <a class="d-flex justify-content-center" href="?controller=home" type="button">Quay lại trang chủ</a>
         </div>
     </div>
     <?php } else {?>

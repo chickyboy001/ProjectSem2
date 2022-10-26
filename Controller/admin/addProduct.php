@@ -10,14 +10,20 @@ class AddProduct
         $categories = $categoryModel->showAll();
 
         if (isset($_POST['addProduct'])) {
-            $product_name = $_POST['product_name'];
+            $product_name = trim($_POST['product_name']);
             $sex = $_POST['sex'];
             $price = $_POST['price'];
             $category_id = $_POST['category_id'];
             $description = $_POST['description'];
-
-            $PID = $productModel->addProduct($product_name,$category_id, $sex, $price, $description);
+            $product = $productModel->searchProductOrderByPrice($product_name);
+            $result = count($product, COUNT_NORMAL);
+            if($result !=0 || $product_name == NULL){
+                echo "<script>alert('Sản phẩm bị trùng tên hoặc tên sai định dạng')</script>";
+            } else {
+                $PID = $productModel->addProduct($product_name, $category_id, $sex, $price, $description);
             header('Location: ?controller=productDetail&productId=' . $PID);
+            }
+            
             
         }
         require 'pages/product/add.php';

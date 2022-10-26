@@ -1,7 +1,6 @@
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -28,7 +27,7 @@
                 </div>
             </div>
             <div class="navbar-nav w-100">
-                <a href="?controller=home" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
+                <a href="?controler=home" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
                     quát</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-tshirt me-2"></i>Sản phẩm</a>
@@ -39,7 +38,6 @@
                 </div>
                 <a href="?controller=manageCategory" class="nav-item nav-link"><i class="fa-solid fa-rectangle-list me-2"></i>Danh mục</a>
                 <a href="?controller=showOrder" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
-                <a href="" class="nav-item nav-link"><i class="fa-solid fa-tag me-2"></i>Khuyến mãi</a>
                 <a href="../../?controller=home" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Trang bán hàng</a>
             </div>
         </nav>
@@ -61,75 +59,7 @@
                 <input class="form-control border-0" type="search" placeholder="Tìm kiếm">
             </form>
             <div class="navbar-nav align-items-center ms-auto">
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="me-lg-2">
-                            <lord-icon src="https://cdn.lordicon.com/pghzuxlt.json" trigger="hover" style="width:16px;height:16px">
-                            </lord-icon>
-                        </i>
-                        <span class="d-none d-lg-inline-flex">Tin nhắn</span>
-                    </a>
-                    <!-- <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item text-center">See all message</a>
-                    </div> -->
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="me-lg-2">
-                            <lord-icon src="https://cdn.lordicon.com/kjsfgazx.json" trigger="hover" style="width:16px;height:16px">
-                            </lord-icon>
-                        </i>
-                        <span class="d-none d-lg-inline-flex">Thông báo</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Yêu cầu hủy đơn</h6>
-                            <small>10 phút trước</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Đơn hàng mới</h6>
-                            <small>15 phút trước</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Đơn hàng mới</h6>
-                            <small>15 phút trước</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item text-center">See all notifications</a>
-                    </div>
-                </div>
+
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <i class="me-lg-2">
@@ -186,112 +116,102 @@
                                     }
                                 }
                                 $productCate = $cateModel->getCategory($product['category_id']) ?>
-                            <tr>
-                                <td><?= $stt ?></td>
-                                <td><?= $product['product_name'] ?></td>
-                                <td><?= $productCate['category_name'] ?></td>
-                                <td><?= $quantity ?></td>
-                                <td><?= getFormattedNumber($product['price']) . VND ?>
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-outline-info"
-                                        href="?controller=productDetail&productId=<?= $product['product_id'] ?>">
-                                        <i class="fa-solid fa-circle-info"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
-                                        data-bs-target="#MD<?= $stt ?>">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <div class="modal fade" id="MD<?= $stt ?>" tabindex="-1"
-                                        aria-labelledby="MD<?= $stt ?>" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content text-start">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="MD<?= $stt ?>">Thay đổi
-                                                        thuộc tính sản phẩm</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <form id="formPd<?= $stt ?>" method="post"
-                                                    enctype="multipart/form-data">
-                                                    <div class="modal-body">
-                                                        <input type="hidden" name="productId"
-                                                            value="<?= $product['product_id'] ?>" />
-                                                        <!-- Sửa tên -->
-                                                        <div class="form-floating mb-3">
-                                                            <input type="text" class="form-control" id="nameEdit"
-                                                                name="product_name"
-                                                                value="<?= $product['product_name'] ?>" required>
-                                                            <label for="nameEdit">Tên sản phẩm</label>
-                                                        </div>
-                                                        <!-- nhập giới tính -->
-                                                        <div class="form-floating mb-3">
-                                                            <?php $chooseSex = array(
-                                                                array(
-                                                                    'value' => 1,
-                                                                    'name' => 'Nam'
-                                                                ),
-                                                                array(
-                                                                    'value' => 2,
-                                                                    'name' => 'Nữ'
-                                                                ),
-                                                                array(
-                                                                    'value' => 3,
-                                                                    'name' => 'Unisex'
-                                                                ),); ?>
-                                                            <select class="form-select" name="sex" id="sexSelect"
-                                                                aria-label="Floating label select example">
-                                                                <?php echo $product['sex']; if($product['sex']==1){?>
-                                                                    <option selected value="1">Nam</option>
-                                                                <?php } if($product['sex']==2) { ?>
-                                                                    <option selected value="2">Nữ</option>
-                                                                <?php } if($product['sex']==3) { ?>
-                                                                    <option selected value="3">Unisex</option>
-                                                                <?php }
-                                                                foreach ($chooseSex as $choose) {
-                                                                        if ($choose['value']== $product['sex']) {
+                                <tr>
+                                    <td><?= $stt ?></td>
+                                    <td><?= $product['product_name'] ?></td>
+                                    <td><?= $productCate['category_name'] ?></td>
+                                    <td><?= $quantity ?></td>
+                                    <td><?= getFormattedNumber($product['price']) . VND ?>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-info" href="?controller=productDetail&productId=<?= $product['product_id'] ?>">
+                                            <i class="fa-solid fa-circle-info"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#MD<?= $stt ?>">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <div class="modal fade" id="MD<?= $stt ?>" tabindex="-1" aria-labelledby="MD<?= $stt ?>" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content text-start">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="MD<?= $stt ?>">Thay đổi
+                                                            thuộc tính sản phẩm</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <form id="formPd<?= $stt ?>" method="post" enctype="multipart/form-data">
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="productId" value="<?= $product['product_id'] ?>" />
+                                                            <!-- Sửa tên -->
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="nameEdit" name="product_name" value="<?= $product['product_name'] ?>" required>
+                                                                <label for="nameEdit">Tên sản phẩm</label>
+                                                            </div>
+                                                            <!-- nhập giới tính -->
+                                                            <div class="form-floating mb-3">
+                                                                <?php $chooseSex = array(
+                                                                    array(
+                                                                        'value' => 1,
+                                                                        'name' => 'Nam'
+                                                                    ),
+                                                                    array(
+                                                                        'value' => 2,
+                                                                        'name' => 'Nữ'
+                                                                    ),
+                                                                    array(
+                                                                        'value' => 3,
+                                                                        'name' => 'Unisex'
+                                                                    ),
+                                                                ); ?>
+                                                                <select class="form-select" name="sex" id="sexSelect" aria-label="Floating label select example">
+                                                                    <?php echo $product['sex'];
+                                                                    if ($product['sex'] == 1) { ?>
+                                                                        <option selected value="1">Nam</option>
+                                                                    <?php }
+                                                                    if ($product['sex'] == 2) { ?>
+                                                                        <option selected value="2">Nữ</option>
+                                                                    <?php }
+                                                                    if ($product['sex'] == 3) { ?>
+                                                                        <option selected value="3">Unisex</option>
+                                                                    <?php }
+                                                                    foreach ($chooseSex as $choose) {
+                                                                        if ($choose['value'] == $product['sex']) {
                                                                             continue;
                                                                         } ?>
-                                                                <option value="<?= $choose['value'] ?>"><?= $choose['name'] ?></option>
-                                                                <?php } ?>
-                                                            </select>
-                                                            <label for="sexSelect">Chọn giới tính</label>
-                                                        </div>
-                                                        <!-- nhập giá -->
-                                                        <div class="form-floating mb-3">
-                                                            <input type="number" class="form-control" name="price"
-                                                                value="<?= $product['price'] ?>" id="priceEdit"
-                                                                required>
-                                                            <label for="priceEdit">Giá sản phẩm</label>
-                                                        </div>
-                                                        <!-- nhập tên danh mục -->
-                                                        <div class="form-floating mb-3">
-                                                            <select class="form-select" name="category_id"
-                                                                id="cateSelect">
-                                                                <option selected value="<?= $product['category_id'] ?>">
-                                                                    <?= $productCate['category_name'] ?>
-                                                                </option>
-                                                                <?php
+                                                                        <option value="<?= $choose['value'] ?>"><?= $choose['name'] ?></option>
+                                                                    <?php } ?>
+                                                                </select>
+                                                                <label for="sexSelect">Chọn giới tính</label>
+                                                            </div>
+                                                            <!-- nhập giá -->
+                                                            <div class="form-floating mb-3">
+                                                                <input type="number" class="form-control" name="price" value="<?= $product['price'] ?>" id="priceEdit" required>
+                                                                <label for="priceEdit">Giá sản phẩm</label>
+                                                            </div>
+                                                            <!-- nhập tên danh mục -->
+                                                            <div class="form-floating mb-3">
+                                                                <select class="form-select" name="category_id" id="cateSelect">
+                                                                    <option selected value="<?= $product['category_id'] ?>">
+                                                                        <?= $productCate['category_name'] ?>
+                                                                    </option>
+                                                                    <?php
                                                                     foreach ($categories as $category) {
                                                                         if ($category['category_id'] == $product['category_id'] && $category['status'] == 0) {
                                                                             continue;
                                                                         } ?>
-                                                                <option value="<?= $category['category_id'] ?>">
-                                                                    <?= $category['category_name'] ?></option>
-                                                                <?php } ?>
-                                                            </select>
-                                                            <label for="categorySelect">Chọn danh mục sản phẩm</label>
-                                                        </div>
-                                                        <!-- Nhập mô tả -->
-                                                        <div class="form-floating mb-3">
-                                                            <textarea class="form-control" name="description"
-                                                                placeholder="Leave a comment here" id="floatingTextarea"
-                                                                style="height: 150px;"><?=$product['description']?></textarea>
-                                                            <label for="floatingTextarea">Mô tả</label>
-                                                        </div>
-                                                        <?php
+                                                                        <option value="<?= $category['category_id'] ?>">
+                                                                            <?= $category['category_name'] ?></option>
+                                                                    <?php } ?>
+                                                                </select>
+                                                                <label for="categorySelect">Chọn danh mục sản phẩm</label>
+                                                            </div>
+                                                            <!-- Nhập mô tả -->
+                                                            <div class="form-floating mb-3">
+                                                                <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea" style="height: 150px;"><?= $product['description'] ?></textarea>
+                                                                <label for="floatingTextarea">Mô tả</label>
+                                                            </div>
+                                                            <?php
                                                             $status = '';
                                                             $db = "disabled";
                                                             if ($product['status'] != 0) {
@@ -301,38 +221,36 @@
                                                                 $db = '';
                                                             }
                                                             ?>
-                                                        <div class="form-check form-switch">
-                                                            <input class="form-check-input" id="statusPD<?= $stt ?>"
-                                                                onclick="changeStatusPD(<?= $stt ?>)"
-                                                                name="productStatus" type="checkbox" value="<?=$product['status']?>" role="switch"
-                                                                <?= $db ?> <?= $status ?>>
-                                                            <label class="form-check-label"
-                                                                for="statusPD<?= $stt ?>">Hiện
-                                                                sản phẩm</label>
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" id="statusPD<?= $stt ?>" onclick="changeStatusPD(<?= $stt ?>)" name="productStatus" type="checkbox" value="<?= $product['status'] ?>" role="switch" <?= $db ?> <?= $status ?>>
+                                                                <label class="form-check-label" for="statusPD<?= $stt ?>">Hiện
+                                                                    sản phẩm</label>
+
+                                                            </div>
+                                                            <?php if ($quantity <= 0) { ?>
+                                                                <p class="text-danger">* Không thể hiển thị sản phẩm không có hàng</p>
+                                                            <?php } ?>
                                                         </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Đóng</button>
-                                                        <button type="submit" name="editProduct"
-                                                            class="btn btn-primary">Cập
-                                                            nhật</button>
-                                                    </div>
-                                                </form>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                                            <button type="submit" name="editProduct" class="btn btn-primary">Cập
+                                                                nhật</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <?php if ($product['status'] == 1) { ?>
-                                    <span class="logged-in" style="color: green">●</span>
-                                    <?php }
+                                    </td>
+                                    <td>
+                                        <?php if ($product['status'] == 1) { ?>
+                                            <span class="logged-in" style="color: green">●</span>
+                                        <?php }
                                         if ($product['status'] == 0) { ?>
-                                    <span class="logged-in" style="color: red">●</span>
-                                    <?php } ?>
+                                            <span class="logged-in" style="color: red">●</span>
+                                        <?php } ?>
 
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
                             <?php
                             } ?>
                         </tbody>

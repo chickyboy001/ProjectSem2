@@ -21,6 +21,13 @@ class Category extends Database
         return $data;
     }
 
+    public function getCategoryByName($category_name){
+		$sql = "SELECT * FROM categories WHERE category_name = '$category_name'";
+		$result = $this->db->conn->query($sql);
+		$data = $result->fetch_assoc();
+        return $data;
+    }
+
     public function showAll(){
         $sql = "SELECT * FROM categories";
 		$result = $this->db->conn->query($sql);

@@ -66,12 +66,6 @@
         });
     });
 </script>
-<script>
-    $("#priceInput").on('keyup', function(){
-    var n = parseInt($(this).val().replace(/\D/g,''),10);
-    $(this).val(n.toLocaleString(''));
-});
-</script>
 <script src="<?=link1?>Assets/admin/js/app.js"></script>
 <!-- Template Javascript -->
 <script src="<?=link1?>Assets/admin/js/main.js"></script>

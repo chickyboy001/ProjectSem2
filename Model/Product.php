@@ -11,9 +11,9 @@ class Product extends Database
 
     public function addProduct($product_name, $category_id, $sex, $price, $description)
     {
+        mysqli_next_result($this->db->conn);
         $product_name = $this->db->conn->real_escape_string($product_name);
         $description = $this->db->conn->real_escape_string($description);
-        $sex = $this->db->conn->real_escape_string($sex);
         $sql = "INSERT INTO products (product_name, category_id, sex, price, description)
 							VALUES ('$product_name', '$category_id', '$sex', '$price', '$description')";
 		$this->db->conn->query($sql);

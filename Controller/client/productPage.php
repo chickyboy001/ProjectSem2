@@ -92,7 +92,6 @@ class ProductPage
                                                 $itemArray[$arkey]['quantity']);
                     }
                 }
-                
                 header("Refresh:0");
             }
             require('View/client/pages/product/productPage.php');

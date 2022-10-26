@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="navbar-nav w-100">
-                <a href="?controller=home" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
+                <a href="?controler=home" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang tổng
                     quát</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-tshirt me-2"></i>Sản phẩm</a>
@@ -38,7 +38,7 @@
                 </div>
                 <a href="?controller=manageCategory" class="nav-item nav-link"><i class="fa-solid fa-rectangle-list me-2"></i>Danh mục</a>
                 <a href="?controller=showOrder" class="nav-item nav-link"><i class="fa fa-cart-arrow-down me-2"></i>Đơn hàng</a>
-                <a href="" class="nav-item nav-link"><i class="fa-solid fa-tag me-2"></i>Khuyến mãi</a>
+
                 <a href="../../?controller=home" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Trang bán hàng</a>
             </div>
         </nav>
@@ -60,75 +60,7 @@
                 <input class="form-control border-0" type="search" placeholder="Tìm kiếm">
             </form>
             <div class="navbar-nav align-items-center ms-auto">
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="me-lg-2">
-                            <lord-icon src="https://cdn.lordicon.com/pghzuxlt.json" trigger="hover" style="width:16px;height:16px">
-                            </lord-icon>
-                        </i>
-                        <span class="d-none d-lg-inline-flex">Tin nhắn</span>
-                    </a>
-                    <!-- <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item text-center">See all message</a>
-                    </div> -->
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="me-lg-2">
-                            <lord-icon src="https://cdn.lordicon.com/kjsfgazx.json" trigger="hover" style="width:16px;height:16px">
-                            </lord-icon>
-                        </i>
-                        <span class="d-none d-lg-inline-flex">Thông báo</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Yêu cầu hủy đơn</h6>
-                            <small>10 phút trước</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Đơn hàng mới</h6>
-                            <small>15 phút trước</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Đơn hàng mới</h6>
-                            <small>15 phút trước</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item text-center">See all notifications</a>
-                    </div>
-                </div>
+
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <i class="me-lg-2">
@@ -247,11 +179,7 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-start flex-row">
-                        <div class="text-start text-dark me-3 col-5 col-sm-2">
-                            <button type="button" class="btn btn-link rounded-pill" data-bs-toggle="modal" data-bs-target="#addcolor">Thêm màu</button>
-                        </div>
-                    </div>
+                    
                     <div class="modal fade" id="addcolor" tabindex="-1" aria-labelledby="addcolor" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content text-start">
@@ -264,11 +192,11 @@
                                         <div class="mb-3">
                                             <label for="addColorName" mới class="col-form-label">Tên
                                                 màu:</label>
-                                            <input type="text" name="add_colorname" class="form-control" id="addColorName">
+                                            <input type="text" name="add_colorname" class="form-control" pattern=".{3,}" title="Tên màu không ít hơn 3 ký tự" id="addColorName">
                                         </div>
                                         <div class="mb-3">
                                             <label for="add_main_image" class="form-label">Ảnh chính</label>
-                                            <input class="form-control" name="add_image_link" accept=".jpg, .png, .jpeg, .webp" type="file" id="add_main_image">
+                                            <input class="form-control" name="add_image_link" accept=".jpg, .png, .jpeg, .webp" type="file" id="add_main_image" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="add_sub_image" class="form-label">Thêm
@@ -296,7 +224,6 @@
                                     <th scope="col ">Hình ảnh</th>
                                     <th scope="col ">Xem</th>
                                     <th scope="col ">Sửa</th>
-                                    
                                     <th scope="col "></th>
                                 </tr>
                             </thead>
@@ -387,7 +314,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                    
+
                                         <!-- Trạng thái -->
                                         <td>
                                             <?php if ($color['status'] == 1) { ?>
@@ -402,6 +329,11 @@
                                 } ?>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="d-flex justify-content-start flex-row">
+                        <div class="text-start text-dark me-3 col-5 col-sm-2">
+                            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addcolor">Thêm màu</button>
+                        </div>
                     </div>
                 </div>
             </div>
