@@ -78,7 +78,7 @@
                                             <th>Tên sản Phẩm</th>
                                             <th>Size</th>
                                             <th>Số lượng</th>
-                                            <th>Thành tiền</th>
+                                            <th>Đơn giá</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -126,7 +126,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="unit_price">
-                                                    <?= getFormattedNumber($shoppingCart['unit_price']) . VND ?>
+                                                    <?= getFormattedNumber($shoppingCart['unit_price']).VND ?>
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-outline-success" name="updateCart" type="submit" style="float: right;text-decoration: none; color: green;">
@@ -151,7 +151,7 @@
                                     <tfoot>
                                         <tr>
                                             <th colspan="4" class="text-right">Tổng cộng</th>
-                                            <th class="total_price"><?= getFormattedNumber($total_price) . VND ?></th>
+                                            <th class="total_price"><?= getFormattedNumber($total_price).VND ?></th>
                                             <th></th>
                                         </tr>
                                     </tfoot>

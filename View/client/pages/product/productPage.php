@@ -69,6 +69,9 @@
                 <?php
                 $count = 0;
                 foreach ($colors as $color){
+                    if ($color['status'] == 0) {
+                        continue;
+                    }
                 ?>
                 <div id="image<?= $color['color_id'] ?>" class="col-lg-5 col-md-12 mb-3 color_image">
                     <div class="col-12 mb-3">
@@ -79,18 +82,26 @@
                             <div class="col-sm-2 col-3">
                                 <div id="main-image" class="img-small border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link']?>'); background-size: contain;" data-src="<?= link ?>Public/admin/upload/products/<?=$color['image_link']?>"></div>
                             </div>
+                            <?php if(!empty($color['image_link_1'])){ ?>
                             <div class="col-sm-2 col-3">
                                 <div class="img-small border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link_1']?>'); background-size: contain;" data-src="<?= link ?>Public/admin/upload/products/<?=$color['image_link_1']?>"></div>
                             </div>
+                            <?php }?>
+                            <?php if(!empty($color['image_link_2'])){ ?>
                             <div class="col-sm-2 col-3">
                                 <div class="img-small border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link_2']?>'); background-size: contain;" data-src="<?= link ?>Public/admin/upload/products/<?=$color['image_link_2']?>"></div>
                             </div>
+                            <?php }?>
+                            <?php if(!empty($color['image_link_3'])){ ?>
                             <div class="col-sm-2 col-3">
                                 <div class="img-small border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link_3']?>'); background-size: contain;" data-src="<?= link ?>Public/admin/upload/products/<?=$color['image_link_3']?>"></div>
                             </div>
+                            <?php }?>
+                            <?php if(!empty($color['image_link_4'])){ ?>
                             <div class="col-sm-2 col-3">
                                 <div class="img-small border" style="background-image: url('<?= link ?>Public/admin/upload/products/<?=$color['image_link_4']?>'); background-size: contain;" data-src="<?= link ?>Public/admin/upload/products/<?=$color['image_link_4']?>"></div>
                             </div>
+                            <?php }?>
                         </div>
                     </div>
                 </div>
@@ -120,8 +131,8 @@
                         <div class="row">
 
                             <div class="col-12">
-                                <span class="detail-price" style="color:#f63b3b;">
-                                    <?= getFormattedNumber($product['price']) . VND ?>
+                                <span class="detail-price price" style="color:#f63b3b;">
+                                    <?= getFormattedNumber($product['price']).VND ?>
                                 </span>
                                 <!-- <span class="detail-price-old">
                                     350,000đ

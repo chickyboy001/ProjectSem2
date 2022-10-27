@@ -137,7 +137,7 @@
                                 <th scope="col">Trạng thái</th>
                                 <th scope="col">Người xử lý</th>
                                 <th scope="col">Chi tiết</th>
-                                <th scope="col">Sửa</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -162,7 +162,7 @@
                                     foreach ($products as $product) {
                                         $price = $price + $product['price'];
                                     } ?>
-                                    <td><?= getFormattedNumber($price) . VND ?></td>
+                                    <td><?= getFormattedNumber($order['total_price']) . VND ?></td>
 
                                     <?php if ($order['status'] == 1) { ?>
                                         <td class="text-secondary"> Đã đặt hàng</td>
@@ -187,47 +187,7 @@
                                             <i class="fa-solid fa-circle-info"></i>
                                         </a>
                                     </td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalid<?= $stt ?>">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </button>
-                                        <div class="modal fade" id="modalid<?= $stt ?>" tabindex="-1" aria-labelledby="modalid<?= $stt ?>" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content text-start">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="modalid<?= $stt ?>">Thay đổi trạng
-                                                            thái đơn
-                                                            hàng</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-
-                                                    <form id="formid<?= $stt ?>" method="post" enctype="multipart/form-data">
-                                                        <div class="modal-body">
-                                                            <input type="hidden" name="orderId" value="<?= $order['order_id'] ?>" />
-                                                            <input type="hidden" name="adminId" value="2" />
-                                                            <div class="mb-3">
-                                                                <label for="changeStatus" class="form-label">Chọn trạng thái
-                                                                    đơn hàng</label>
-                                                                <select id="changeStatus" class="form-select mb-3" name="updateStatus" required>
-                                                                    <option value="">None</option>
-                                                                    <option value="1">Đã đặt hàng</option>
-                                                                    <option value="2">Đang xử lý</option>
-                                                                    <option value="3">Đang vận chuyển</option>
-                                                                    <option value="4">Hoàn thành</option>
-                                                                    <option value="5">Hủy</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                                            <button type="submit" name="editOrder" class="btn btn-primary">Cập nhật</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                    
                             <?php
                             $admin = NULL;} ?>
                         </tbody>

@@ -13,9 +13,8 @@ class Home {
 		$sizeModel = new Size();
         $accModel = new Account();
 		$categories = $cateModel->showAll();
-		$products = $productModel->showAll();
-		
-
+		$products = $productModel->showAllLimit();
+		$products2 = $productModel->showAllLimitASC();
 		require('View/client/pages/home.php');
 	}
 }

@@ -56,9 +56,7 @@
             <a href="#" class="sidebar-toggler flex-shrink-0">
                 <i class="fa fa-bars"></i>
             </a>
-            <form class="d-none d-md-flex ms-4">
-                <input class="form-control border-0" type="search" placeholder="Tìm kiếm">
-            </form>
+            
             <div class="navbar-nav align-items-center ms-auto">
 
                 <div class="nav-item dropdown">
@@ -128,7 +126,7 @@
                         </div>
                         <div class="text-start col-7">
                             <p>
-                                <strong><?= getFormattedNumber($product['price']) . VND ?></strong>
+                                <strong class="price" ><?= getFormattedNumber($product['price']) . VND ?></strong>
                             </p>
                         </div>
                     </div>

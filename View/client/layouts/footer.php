@@ -275,9 +275,37 @@
 
     function getMaxQuantity(quantity) {
         document.getElementById("myNumber").max = quantity;
-        document.getElementById('quantityInStock').innerText = quantity+" sản phẩm";
-        
+        document.getElementById('quantityInStock').innerText = quantity + " sản phẩm";
+
     }
+
+    // const collection = document.getElementsByClassName("price");
+    // console.log(collection[0].innerText);
+    // for (i = 0; i < collection.length; i++) {
+    //     afterformat = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(collection[i].innerText);
+    //     collection[i].innerText = afterformat;
+    // }
+
+    // const unit_price = document.getElementsByClassName("unit_price");
+    // console.log(unit_price[0].innerText);
+    // for (i = 0; i < unit_price.length; i++) {
+    //     afterformat = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(unit_price[i].innerText);
+    //     unit_price[i].innerText = afterformat;
+    // }
+
+    // const total_price = document.getElementsByClassName("total_price");
+    // console.log(total_price[0].innerText);
+    // for (i = 0; i < total_price.length; i++) {
+    //     afterformat = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(total_price[i].innerText);
+    //     total_price[i].innerText = afterformat;
+    // }
+
+    // const detail_price = document.getElementsByClassName("detail_price");
+    // console.log(detail_price[0].innerText);
+    // for (i = 0; i < detail_price.length; i++) {
+    //     afterformat = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(detail_price[i].innerText);
+    //     detail_price[i].innerText = afterformat;
+    // }
 
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();

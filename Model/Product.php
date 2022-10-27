@@ -112,6 +112,26 @@ class Product extends Database
 		return $list;
     }
 
+    public function showAllLimit(){
+        $sql = "SELECT * FROM products ORDER BY product_id DESC LIMIT 6";
+		$result = $this->db->conn->query($sql);
+		$list = array();
+		while ($data = $result->fetch_array()) {
+			$list[] = $data;
+		}
+		return $list;
+    }
+
+    public function showAllLimitASC(){
+        $sql = "SELECT * FROM products ORDER BY product_id ASC LIMIT 6";
+		$result = $this->db->conn->query($sql);
+		$list = array();
+		while ($data = $result->fetch_array()) {
+			$list[] = $data;
+		}
+		return $list;
+    }
+
 
 
 }

@@ -4,13 +4,13 @@ html {
 
 body {
     background-color: white;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     /* font-family: 'Open Sans Condensed', sans-serif; */
     /* display: none; */
 }
 
 a {
-    transition: color .2s linear 0s;
+    transition: color 0.2s linear 0s;
 }
 
 .top-nav {
@@ -18,12 +18,12 @@ a {
     padding: 0;
     list-style: none;
     font-size: 13px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 .top-nav li {
     display: inline;
-    padding: .1rem .5rem;
+    padding: 0.1rem 0.5rem;
     border-right: 1px solid #fff;
 }
 
@@ -44,7 +44,7 @@ a {
 .site-logo {
     font-size: 2rem;
     line-height: 1;
-    font-family: 'Righteous', cursive;
+    font-family: "Righteous", cursive;
 }
 
 .site-logo img {
@@ -62,10 +62,10 @@ a {
 }
 
 .header-item {
-    padding: .25rem .4rem;
+    padding: 0.25rem 0.4rem;
     cursor: pointer;
     color: #656565;
-    transition: color .2s linear 0s;
+    transition: color 0.2s linear 0s;
     font-weight: bold;
     line-height: 2.5;
     text-decoration: none;
@@ -91,8 +91,8 @@ a {
 }
 
 .nav-item .nav-link {
-    padding-top: .2rem;
-    padding-bottom: .3rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.3rem;
 }
 
 .product-item {
@@ -113,12 +113,12 @@ a {
 .product-name.large {
     font-size: 21px;
     line-height: 1.3;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     color: #000;
 }
 
 .product-name small {
-    font-size: .85rem;
+    font-size: 0.85rem;
     display: block;
     width: 100%;
 }
@@ -143,7 +143,7 @@ a.product-name:focus {
 
 .footer-logo {
     font-size: 1.65rem;
-    font-family: 'Righteous', cursive;
+    font-family: "Righteous", cursive;
 }
 
 .footer-nav {
@@ -191,12 +191,11 @@ a.product-name:focus {
     top: 0;
     left: -300px;
     z-index: 5;
-    background-color: rgba(233, 10, 10, .85);
-    ;
+    background-color: rgba(233, 10, 10, 0.85);
     color: #fff;
     padding: 3px 15px;
     width: 0;
-    transition: all .3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
 }
 
 .product-item:hover .new {
@@ -320,7 +319,7 @@ a.product-name:focus {
 
 .ratings label:before {
     font-family: "Font Awesome 5 Free", fantasy;
-    content: '\f005';
+    content: "\f005";
     font-size: 20px;
     margin-right: 3px;
     cursor: pointer;
@@ -390,7 +389,7 @@ table td img {
 .zoom {
     /* padding: 50px; */
     /* background-color: DodgerBlue; */
-    transition: transform .2s;
+    transition: transform 0.2s;
     /* width: 200px; */
     /* height: 200px; */
     margin: 0 auto;
@@ -410,7 +409,7 @@ table td img {
 
 .animate-charcter {
     /* text-transform: uppercase; */
-    background-image: linear-gradient( -225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
+    background-image: linear-gradient( -225deg, #0ed30e 0%, #44107a 29%, green 67%, #00ff95 100%);
     background-size: auto auto;
     background-clip: border-box;
     background-size: 200% auto;
@@ -442,7 +441,7 @@ table td img {
 .back-to-top {}
 
 .product-grid {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Roboto";
     text-align: center;
     border-radius: 15px;
     border: 1px solid #e7e7e7;
@@ -540,7 +539,7 @@ table td img {
 }
 
 .product-grid .product-links li a:after {
-    content: '';
+    content: "";
     height: 10px;
     width: 10px;
     padding: 0;
@@ -555,7 +554,7 @@ table td img {
 }
 
 .product-grid .product-content {
-    padding: 12px 12px 15px;
+    padding: 15px 15px 15px;
     position: relative;
 }
 
@@ -575,15 +574,16 @@ table td img {
 }
 
 .product-grid .title {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: bold;
     text-transform: uppercase;
-    margin: 0 0 15px;
+    margin: 0 0 10px;
 }
 
 .product-grid .title a {
     color: #2c2c2c;
     transition: all 0.3s ease 0s;
+    text-decoration: none;
 }
 
 .product-grid .title a:hover {
@@ -605,7 +605,7 @@ table td img {
 }
 
 .product-grid:hover .price {
-    opacity: 0;
+    opacity: 1;
 }
 
 .product-grid .add-to-cart {
@@ -623,7 +623,7 @@ table td img {
     position: absolute;
     bottom: 50px;
     left: 50%;
-    transition: all .4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 .product-grid .add-to-cart:hover {
@@ -635,7 +635,7 @@ table td img {
     bottom: 8px;
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width: 1200px) {
     .product-grid {
         margin: 0 0 30px;
     }
@@ -1024,7 +1024,7 @@ table td img {
     margin-bottom: 30px;
     margin-top: 30px;
     overflow: hidden;
-    color: #455A64;
+    color: #455a64;
     padding-left: 0px;
 }
 
@@ -1049,7 +1049,7 @@ table td img {
     line-height: 45px;
     display: block;
     font-size: 20px;
-    background: #C5CAE9;
+    background: #c5cae9;
     border-radius: 50%;
     margin: auto;
     padding: 0px;
@@ -1059,10 +1059,10 @@ table td img {
 /*ProgressBar connectors*/
 
 #progressbar li:after {
-    content: '';
+    content: "";
     width: 100%;
     height: 12px;
-    background: #C5CAE9;
+    background: #c5cae9;
     position: absolute;
     left: 0;
     top: 16px;
@@ -1214,7 +1214,7 @@ table td img {
 .an {
     display: block;
     display: -webkit-box;
-    height: 16px*1.3*3;
+    height: 16px * 1.3 * 3;
     font-size: 16px;
     line-height: 1.3;
     -webkit-line-clamp: 3;
@@ -1308,7 +1308,7 @@ h6 {
     top: 2%;
 }
 
-@media(min-width:1200px) {
+@media (min-width: 1200px) {
     #search {
         width: 300px;
         padding: 5px;
@@ -1359,7 +1359,7 @@ h6 {
     }
 }
 
-@media(min-width:992px) and (max-width:1199px) {
+@media (min-width: 992px) and (max-width: 1199px) {
     #search {
         width: 300px;
         padding: 5px;
@@ -1412,7 +1412,7 @@ h6 {
     }
 }
 
-@media(min-width:768px) and (max-width:991px) {
+@media (min-width: 768px) and (max-width: 991px) {
     #search {
         width: 300px;
         padding: 5px;
@@ -1448,7 +1448,7 @@ h6 {
     }
 }
 
-@media(min-width:576px) and (max-width:767px) {
+@media (min-width: 576px) and (max-width: 767px) {
     .text {
         display: none;
     }
@@ -1492,7 +1492,7 @@ h6 {
     }
 }
 
-@media(max-width:575px) {
+@media (max-width: 575px) {
     .search-nav-item {
         margin: 0;
         width: 100%;
@@ -1528,20 +1528,20 @@ h6 {
 }
 
 .h1-success {
-    color: #88B04B;
+    color: #88b04b;
     font-weight: 900;
     font-size: 40px;
     margin-bottom: 10px;
 }
 
 .p-success {
-    color: #404F5E;
+    color: #404f5e;
     font-size: 20px;
     margin: 0;
 }
 
 .checkmark {
-    color: #9ABC66;
+    color: #9abc66;
     font-size: 120px;
     line-height: 200px;
 }
@@ -1550,7 +1550,7 @@ h6 {
     background: white;
     padding: 60px;
     border-radius: 4px;
-    box-shadow: 0 2px 3px #C8D0D8;
+    box-shadow: 0 2px 3px #c8d0d8;
     display: inline-block;
     margin: 0 auto;
 }
@@ -1572,7 +1572,7 @@ h6 {
 }
 
 .p-fail {
-    color: #404F5E;
+    color: #404f5e;
     font-size: 20px;
     margin: 0;
 }
@@ -1587,7 +1587,7 @@ h6 {
     background: white;
     padding: 60px;
     border-radius: 4px;
-    box-shadow: 0 2px 3px #C8D0D8;
+    box-shadow: 0 2px 3px #c8d0d8;
     display: inline-block;
     margin: 0 auto;
 }

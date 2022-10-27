@@ -106,7 +106,7 @@
                             <?php if (!empty($_SESSION['user'])) { ?>
                                 <div class="col-md-12 my-1 form-control-checkout">
                                     <label for="fullname">Họ tên</label>
-                                    <input type="text" class="form-control" name="fullname" pattern=".{7,}" title="Họ và tên phải có ít nhất 7 ký tự"> id="fullnameCheckout" placeholder="Họ và tên người nhận" value="<?= $_SESSION['user']['fullname'] ?>" required>
+                                    <input type="text" class="form-control" name="fullname" pattern=".{7,}" title="Họ và tên phải có ít nhất 7 ký tự" id="fullnameCheckout" placeholder="Họ và tên người nhận" value="<?= $_SESSION['user']['fullname'] ?>" required>
                                 </div>
                                 <div class="col-md-12 my-1 form-control-checkout">
                                     <label for="address">Địa chỉ</label>

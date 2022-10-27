@@ -54,244 +54,114 @@
 
 
 <div class="col-12">
-<?php if(empty($products)){?>
+    <?php if (empty($products)) { ?>
         <div class="row">
-        <div class="col-12 mt-3 text-center text-uppercase">
-            <h2>KHông tìm thấy sản phẩm nào trùng khớp</h2>
-            <a class="d-flex justify-content-center" href="?controller=home" type="button">Quay lại trang chủ</a>
+            <div class="col-12 mt-3 text-center text-uppercase">
+                <h2>KHông tìm thấy sản phẩm nào trùng khớp</h2>
+                <a class="d-flex justify-content-center" href="?controller=home" type="button">Quay lại trang chủ</a>
+            </div>
         </div>
-    </div>
-    <?php } else {?>
-    <main class="row">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-12 py-3">
-                    <div class="row">
-                        <div class="col-12 text-center text-uppercase">
-                            <?php if(isset($categoryif['category_name'])){?>
-                            <h2><?= $categoryif['category_name'] ?></h2>
-                            <?php } else {?>
-                            <h2>Danh sách sản phẩm</h2>
-                            <?php }?>
+    <?php } else { ?>
+        <main class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 py-3">
+                        <div class="row">
+                            <div class="col-12 text-center text-uppercase">
+                                <?php if (isset($categoryif['category_name'])) { ?>
+                                    <h2><?= $categoryif['category_name'] ?></h2>
+                                <?php } else { ?>
+                                    <h2>Danh sách sản phẩm</h2>
+                                <?php } ?>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- On MObile -->
-                    <div id="mobile-filter">
-                        <div class="border-bottom pb-2 ml-2">
-                            <h4 id="burgundy">Filters</h4>
-                        </div>
-                        <div class="py-2 border-bottom ml-3">
-                            <h6 class="font-weight-bold">Categories</h6>
-                            <div id="orange"><span class="fa fa-minus"></span></div>
-                            <form>
-                                <div class="form-group">
-                                    <input type="checkbox" id="artisan">
-                                    <label for="artisan">Fresh Artisan Breads</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="breakfast">
-                                    <label for="breakfast">Breakfast Breads</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="healthy">
-                                    <label for="healthy">Healthy Breads</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="py-2 border-bottom ml-3">
-                            <h6 class="font-weight-bold">Accompainments</h6>
-                            <div id="orange"><span class="fa fa-minus"></span></div>
-                            <form>
-                                <div class="form-group">
-                                    <input type="checkbox" id="tea">
-                                    <label for="tea">Tea Cakes</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="cookies">
-                                    <label for="cookies">Cookies</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="pastries">
-                                    <label for="pastries">Pastries</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="dough">
-                                    <label for="dough">Cookie Dough</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="choco">
-                                    <label for="choco">Chocolates</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="py-2 ml-3">
-                            <h6 class="font-weight-bold">Top Offers</h6>
-                            <div id="orange"><span class="fa fa-minus"></span></div>
-                            <form>
-                                <div class="form-group">
-                                    <input type="checkbox" id="25off">
-                                    <label for="25">25% off</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="5off">
-                                    <label for="5off" id="off">5% off on artisan breads</label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- On MObile -->
-
-                    <!-- Sidebar filter section -->
-                    <section id="sidebar">
-                        <div class="border-bottom pb-2 ml-2">
-                            <h4 id="burgundy">Bộ lọc</h4>
-                        </div>
-                        <div class="py-2 border-bottom ml-3">
-                            <h6 class="font-weight-bold">Danh mục</h6>
-                            <div id="orange"><span class="fa fa-minus"></span></div>
-                            <form>
-                                <div class="form-group">
-                                    <input type="checkbox" id="artisan">
-                                    <label for="artisan">Áo khoác</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="breakfast">
-                                    <label for="breakfast">Áo phông nam</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="healthy">
-                                    <label for="healthy">Áo phông nữ</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="py-2 border-bottom ml-3">
-                            <h6 class="font-weight-bold">Quần</h6>
-                            <div id="orange"><span class="fa fa-minus"></span></div>
-                            <form>
-                                <div class="form-group">
-                                    <input type="checkbox" id="tea">
-                                    <label for="tea">Quần dài</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="cookies">
-                                    <label for="cookies">Quần short</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="pastries">
-                                    <label for="pastries">Quần âu</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="dough">
-                                    <label for="dough">Quần ngố</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="choco">
-                                    <label for="choco">Quần đi bơi</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="py-2 ml-3">
-                            <h6 class="font-weight-bold">Áo</h6>
-                            <div id="orange"><span class="fa fa-minus"></span></div>
-                            <form>
-                                <div class="form-group">
-                                    <input type="checkbox" id="">
-                                    <label for="">Áo Phông</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="">
-                                    <label for="" id="off">Áo khoác</label>
-                                </div>
-                            </form>
-                        </div>
-                    </section>
-                    <!-- products section -->
-                    <section id="products">
-                        <div class="container">
-                            <div class="row">
-                                <?php
-                                foreach ($products as $product) {
-                                    if ($product['status'] == 0) {
-                                        continue;
+                        <div class="row">
+                            <?php
+                            foreach ($products as $product) {
+                                if ($product['status'] == 0) {
+                                    continue;
+                                }
+                                $colors = $productModel->getColorOfProduct($product['product_id']);
+                                $image = NULL;
+                                $count = 0;
+                                $totalQuantity = 0;
+                                foreach ($colors as $color) {
+                                    if ($count == 0) {
+                                        $image = $color['image_link'];
                                     }
-                                    $colors = $productModel->getColorOfProduct($product['product_id']);
-                                    $image = NULL;
-                                    $count=0;
-                                    $totalQuantity = 0;
-                                    foreach ($colors as $color) {
-                                        if($count==0){
-                                            $image = $color['image_link'];
-                                        }
-                                        $sizes = $colorModel->getSizeOfColor($color['color_id']);
-                                        foreach($sizes as $size) {
-                                            $totalQuantity = $totalQuantity + $size['quantity'];
-                                        }
-                                        $count++;
+                                    $sizes = $colorModel->getSizeOfColor($color['color_id']);
+                                    foreach ($sizes as $size) {
+                                        $totalQuantity = $totalQuantity + $size['quantity'];
                                     }
-                                ?>
-                                        <div class="col-lg-4 col-md-5 col-sm-10 offset-md-0 offset-sm-1">
-                                            <div class="card1">
-                                                <a href="?controller=productPage&productId=<?= $product['product_id'] ?>" class="image">
-                                                    <img class="card-img-top"  src="<?= link ?>Public/admin/upload/products/<?= $image ?>">
-                                                </a>
-                                                <div class="card-body1">
-                                                    <h5 class="text-center"><b><?= $product['product_name'] ?></b> </h5>
-                                                    <!-- <div class="d-flex flex-row my-2"> -->
-                                                    <div class="text-muted text-center"> <b><?= $product['price'].VND ?></b></div>
+                                    $count++;
+                                }
+                            ?>
+                                <!-- Product -->
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-6 my-3">
+                                    <div class="col-12 bg-white text-center h-100">
+                                        <div class="col-md-12 col-sm-12 mb-4">
+                                            <div class="product-grid">
+                                                <div class="product-image">
+                                                    <a href="?controller=productPage&productId=<?= $product['product_id'] ?>" class="image">
+                                                        <img class="pic-1" src="<?= link ?>Public/admin/upload/products/<?= $image ?>">
+                                                    </a>
+                                                </div>
+                                                <div class="product-content">
+                                                    
+                                                    <h3 class="title"><a href="#"><?= $product['product_name'] ?></a></h3>
+                                                    <div class="price"><?= getFormattedNumber($product['price']).VND ?></div>
                                                     <div class="text-muted text-center">Còn <?= $totalQuantity ?> sản phẩm</div>
-                                                    <!-- </div> -->
                                                 </div>
                                             </div>
                                         </div>
-                                <?php
-                                } ?>
+                                    </div>
+                                </div>
+                            <?php
+                            } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sản phẩm mới -->
+            <p class="back-to-top">
+                <a class="fa-solid fa-arrow-up back-to-top" href="#"></a>
+            </p>
+
+            <div class="col-12 py-3 bg-light d-sm-block d-none">
+                <div class="row" style="cursor: pointer;">
+                    <div class="col-lg-3 col ms-auto large-holder">
+                        <div class="row">
+                            <div class="col-auto ms-auto large-icon">
+                                <i class="fas fa-money-bill"></i>
+                            </div>
+                            <div class="col-auto me-auto large-text">
+                                Giá Tốt Nhất
                             </div>
                         </div>
-                    </section>
-                </div>
-            </div>
-
-        </div>
-        <!-- Sản phẩm mới -->
-        <p class="back-to-top">
-            <a class="fa-solid fa-arrow-up back-to-top" href="#"></a>
-        </p>
-
-        <div class="col-12 py-3 bg-light d-sm-block d-none">
-            <div class="row" style="cursor: pointer;">
-                <div class="col-lg-3 col ms-auto large-holder">
-                    <div class="row">
-                        <div class="col-auto ms-auto large-icon">
-                            <i class="fas fa-money-bill"></i>
-                        </div>
-                        <div class="col-auto me-auto large-text">
-                            Giá Tốt Nhất
+                    </div>
+                    <div class="col-lg-3 col large-holder">
+                        <div class="row">
+                            <div class="col-auto ms-auto large-icon">
+                                <i class="fas fa-truck-moving"></i>
+                            </div>
+                            <div class="col-auto me-auto large-text">
+                                Chuyển Phát Nhanh
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col large-holder">
-                    <div class="row">
-                        <div class="col-auto ms-auto large-icon">
-                            <i class="fas fa-truck-moving"></i>
-                        </div>
-                        <div class="col-auto me-auto large-text">
-                            Chuyển Phát Nhanh
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col me-auto large-holder">
-                    <div class="row">
-                        <div class="col-auto ms-auto large-icon">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="col-auto me-auto large-text">
-                            Sản Phẩm Chính Hãng
+                    <div class="col-lg-3 col me-auto large-holder">
+                        <div class="row">
+                            <div class="col-auto ms-auto large-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="col-auto me-auto large-text">
+                                Sản Phẩm Chính Hãng
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
-    <?php }?>
+        </main>
+    <?php } ?>
 </div>

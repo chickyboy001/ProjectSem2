@@ -23,7 +23,10 @@ class Home {
 		$totalOrderWeek = 0;
 		foreach($orderWeek as $order){
 			$totalOrderWeek++;
-			$weekRevenue = $weekRevenue + $order['total_price'];
+			if($order['status']==4){
+				$weekRevenue = $weekRevenue + $order['total_price'];
+			}
+			
 		}
         if($countNewOrder > 0){
             foreach ($orderTodays as $orderToday) {

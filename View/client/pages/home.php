@@ -137,128 +137,59 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                            <div class="price"><span></span> 200,000đ</div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                            <div class="price"><span></span> 200,000đ</div>
-                                            
+                            <?php
+                            foreach ($products as $product) {
+                                if ($product['status'] == 0) {
+                                    continue;
+                                }
+                                $colors = $productModel->getColorOfProduct($product['product_id']);
+                                $image = NULL;
+                                $count = 0;
+                                $totalQuantity = 0;
+                                foreach ($colors as $color) {
+                                    if ($count == 0) {
+                                        $image = $color['image_link'];
+                                    }
+                                    $sizes = $colorModel->getSizeOfColor($color['color_id']);
+                                    foreach ($sizes as $size) {
+                                        $totalQuantity = $totalQuantity + $size['quantity'];
+                                    }
+                                    $count++;
+                                }
+                            ?>
+                                <!-- Product -->
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-6 my-3">
+                                    <div class="col-12 bg-white text-center h-100">
+                                        <div class="col-md-12 col-sm-12 mb-4">
+                                            <div class="product-grid">
+                                                <div class="product-image">
+                                                    <a href="?controller=productPage&productId=<?= $product['product_id'] ?>" class="image">
+                                                        <img class="pic-1" src="<?= link ?>Public/admin/upload/products/<?= $image ?>">
+                                                    </a>
+                                                </div>
+                                                <div class="product-content">
+                                                    
+                                                    <h3 class="title"><a href="#"><?= $product['product_name'] ?></a></h3>
+                                                    <div class="price"><?= getFormattedNumber($product['price']).VND ?></div>
+                                                    <div class="text-muted text-center">Còn <?= $totalQuantity ?> sản phẩm</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php
+                            } ?>
                         </div>
-
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                            <div class="price"><span></span> 200,000đ</div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                            <div class="price"><span></span> 200,000đ</div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product -->
-                    </div>
                 </div>
             </div>
 
         </div>
         <!-- Sản phẩm mới -->
 
-        <div class="col-12">
-            <hr>
-        </div>
+        <section id="banner" class="section-m1">
+            <h4>Dịch vụ bảo hành</h4>
+            <h2>Đổi trả miễn phí trong vòng <span> 3 </span>ngày nếu có không vừa ý</h2>
+        </section>
 
 
         <!-- Sản phẩm hot -->
@@ -272,131 +203,56 @@
                     </div>
 
                     <div class="row">
-                        <!-- Product -->
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                            <div class="price"><span></span> 200,000đ</div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                            <div class="price"><span></span> 200,000đ</div>
-                                            
+                            <?php
+                            foreach ($products2 as $product) {
+                                if ($product['status'] == 0) {
+                                    continue;
+                                }
+                                $colors = $productModel->getColorOfProduct($product['product_id']);
+                                $image = NULL;
+                                $count = 0;
+                                $totalQuantity = 0;
+                                foreach ($colors as $color) {
+                                    if ($count == 0) {
+                                        $image = $color['image_link'];
+                                    }
+                                    $sizes = $colorModel->getSizeOfColor($color['color_id']);
+                                    foreach ($sizes as $size) {
+                                        $totalQuantity = $totalQuantity + $size['quantity'];
+                                    }
+                                    $count++;
+                                }
+                            ?>
+                                <!-- Product -->
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-6 my-3">
+                                    <div class="col-12 bg-white text-center h-100">
+                                        <div class="col-md-12 col-sm-12 mb-4">
+                                            <div class="product-grid">
+                                                <div class="product-image">
+                                                    <a href="?controller=productPage&productId=<?= $product['product_id'] ?>" class="image">
+                                                        <img class="pic-1" src="<?= link ?>Public/admin/upload/products/<?= $image ?>">
+                                                    </a>
+                                                </div>
+                                                <div class="product-content">
+                                                    
+                                                    <h3 class="title"><a href="#"><?= $product['product_name'] ?></a></h3>
+                                                    <div class="price"><?= getFormattedNumber($product['price']).VND ?></div>
+                                                    <div class="text-muted text-center">Còn <?= $totalQuantity ?> sản phẩm</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php
+                            } ?>
                         </div>
-
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                            <div class="price"><span></span> 200,000đ</div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-sm-6 my-3">
-                            <div class="col-12 bg-white text-center h-100">
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <div class="product-grid">
-                                        <div class="product-image">
-                                            <a href="#" class="image">
-                                                <img class="pic-1" src="<?= link ?>Public/admin/upload/products/ezgif-5-9b70b8b517.jpg">
-                                            </a>
-                                            <span class="product-discount-label">-33%</span>
-                                            
-                                        </div>
-                                        <div class="product-content">
-                                            <ul class="rating">
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="fas fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                                <li class="far fa-star"></li>
-                                            </ul>
-                                            <h3 class="title"><a href="#">Áo Phông Nam</a></h3>
-                                            <div class="price"><span></span> 200,000đ</div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product -->
-                    </div>
                 </div>
             </div>
 
         </div>
         <!-- Sản phẩm hot -->
 
-        <section id="banner" class="section-m1">
-            <h4>Dịch vụ bảo hành</h4>
-            <h2>Giảm giá lên tới<span> 70% </span>Tất cả các mẫu áo khoác</h2>
-            <button class="normal">Xem ngay</button>
-        </section>
+        
 
         <p class="back-to-top">
             <a class="fa-solid fa-arrow-up back-to-top" href="#"></a>
